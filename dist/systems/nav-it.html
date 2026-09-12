@@ -12,7 +12,7 @@
 <meta property="og:title" content="NAV·IT — a sovereign navigator, made in the EU">
 <meta property="og:description" content="Self-hosted turn-by-turn navigator. Open map data. Our own routing. Zero third-party trackers. Ships inside FuelIT and MapIT.">
 <meta property="og:url" content="https://vfempire.com/systems/nav-it">
-<meta property="og:image" content="https://vfempire.com/assets/pipe/p21.svg">
+<meta property="og:image" content="https://vfempire.com/assets/pipe/p21.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -421,7 +421,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p21.svg" alt="NAV·IT — a minimal white compass rose with a glowing blue north-pointing needle, sealed inside a translucent shell"></div>
+  <div class="pheroart"><img src="../assets/pipe/p21.png" alt="NAV·IT — a minimal white compass rose with a glowing blue north-pointing needle, sealed inside a translucent shell"></div>
 </header>
 
 <section id="why">
@@ -454,7 +454,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     </div>
 
     <div class="band rv">
-      <img src="../assets/pipe/p21-flow.svg" alt="A white ribbon road overlaid with a translucent sealed capsule containing the route line — the route is present but enclosed">
+      <img src="../assets/pipe/p21-flow.png" alt="A white ribbon road overlaid with a translucent sealed capsule containing the route line — the route is present but enclosed">
       <span class="cap">EVERY MAP TILE CAN BE PRIVATELY SERVED — THE INDUSTRY JUST CHOSE NOT TO</span>
     </div>
   </div>
@@ -521,7 +521,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     <p class="lead rv">Built the VF way: open primitives, our own infrastructure, cryptographic guarantees, public specs. Every layer answers a specific privacy question — with code you can read.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p21-mech.svg" alt="A white compass over a translucent planet mesh, with three sealed lanes — full-offline, hybrid, online — glowing beneath it"></div>
+      <div class="mechart"><img src="../assets/pipe/p21-mech.png" alt="A white compass over a translucent planet mesh, with three sealed lanes — full-offline, hybrid, online — glowing beneath it"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>Open data plane</h4></div>
@@ -627,29 +627,30 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 </section>
 
 
-<section id="pricing">
+<section id="ships">
   <div class="wrap">
     <div class="k rv">HOW IT SHIPS</div>
     <h2 class="rv">Inside the products you buy.<br><span class="mute">Never a data business itself.</span></h2>
-    <p class="lead rv">NAV·IT is infrastructure, not a consumer product. It ships inside FuelIT and MapIT — you pay for those, and NAV·IT is included. It is never monetised as a standalone data business, an ad platform, or an SDK sold to third parties. If we ever change that, this line disappears from this page — and a superseding ADR appears in git the same day.</p>
-    <div class="stage orbit-2">
-      <span class="hoverhint">Hover the cards to see every tier</span>
-    <div class="docs rv" style="grid-template-columns:1fr 1fr;margin-top:36px">
+    <p class="lead rv">NAV·IT is infrastructure, not a consumer product. It ships inside FuelIT and MapIT — you pay for those, and NAV·IT is included. It is never monetised as a standalone data business, an ad platform, or an SDK sold to third parties.</p>
+
+    <div class="docs rv" style="grid-template-columns:1fr 1fr;margin-top:56px">
       <div class="doc">
         <span class="dk">SHIPS INSIDE</span>
         <h4>FuelIT — the fuel-price navigator</h4>
         <p>NAV·IT is FuelIT's map + turn-by-turn engine. Every FuelIT drive stays private end-to-end from the moment the app fetches your route to the moment you park. Included at every FuelIT tier.</p>
-        <span class="tba">P·17 FUELIT</span>
+        <a class="tba" href="/systems/fuelit">P·17 FUELIT →</a>
       </div>
       <div class="doc">
         <span class="dk">RUNS ON</span>
-        <h4>MapIT — general-purpose navigator (R·03)</h4>
-        <p>NAV·IT is also the engine for MapIT, VF's standalone consumer navigator. Same privacy guarantees, same offline packs, same signed responses. One backend, two products — twice the surface, no additional privacy surface.</p>
-        <span class="tba">P·19 MAPIT</span>
+        <h4>MapIT — general-purpose navigator</h4>
+        <p>NAV·IT is also the engine for MapIT, VF's standalone consumer navigator (R·03). Same privacy guarantees, same offline packs, same signed responses. One backend, two products — twice the surface, no additional privacy surface.</p>
+        <a class="tba" href="/systems/mapit">P·19 MAPIT →</a>
       </div>
     </div>
 
-    <p class="pnote rv">The engine itself is never sold, licensed, or embedded in third-party apps. That's not a temporary policy — it's how the trust compact holds. A superseding ADR would appear in git the same day if the policy ever changed.</p>
+    <p class="pnote rv" style="margin-top:36px;text-align:center;color:var(--faint);font-size:12.5px;letter-spacing:.02em">
+      The engine itself is never sold, licensed, or embedded in third-party apps. If that ever changes, a superseding ADR appears in git the same day.
+    </p>
   </div>
 </section>
 

@@ -408,12 +408,13 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div>
     <div class="eb"><b>P·18</b> &nbsp;·&nbsp; SECURITY &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>Guardian Shield<span>Security you own, <em class="i">not rent.</em></span></h1>
-    <p class="sub">Everything the big suites do — malware and device scanning, firewall, network watch, breach and identity monitoring, a proper vault — rebuilt on one principle the industry abandoned: your protection runs on your hardware, answers to you, and is never anyone else's data business.</p>
+    <p class="sub">Everything the big security suites do — password vault, malware scanning, VPN, DNS filter, breach watch — rebuilt on one principle the industry abandoned: your protection runs on your hardware, answers to you, and is never anyone else's data business. Every claim backed by reproducible builds, a public transparency log, and a €25 000 bug bounty for anyone who breaks a promise.</p>
     <div class="meta">
-      <span class="mchip hot">IN BUILD</span>
-      <span class="mchip">LOCAL-FIRST</span>
-      <span class="mchip">FULL-SUITE PARITY</span>
-      <span class="mchip">NO TELEMETRY ECONOMY</span>
+      <span class="mchip hot">SPEC-COMPLETE · R·01</span>
+      <span class="mchip">5 SUBSYSTEMS</span>
+      <span class="mchip">REPRODUCIBLE BUILDS</span>
+      <span class="mchip">TRANSPARENCY LOG</span>
+      <span class="mchip">2-OF-2 SIGNING</span>
     </div>
     <div class="acts">
       <a class="bt pri" href="mailto:info@vfempire.com?subject=Guardian%20Shield">Register interest</a>
@@ -502,13 +503,13 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 <section id="how">
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
-    <h2 class="rv">From surveillance suites<br><span class="mute">to a shield you hold.</span></h2>
-    <p class="lead rv">The measure of a security product is not its feature list — it's whose interests it serves when nobody is looking. Guardian Shield is built so the answer is structural: it can only serve you.</p>
+    <h2 class="rv">From "trust us"<br><span class="mute">to "check the trace."</span></h2>
+    <p class="lead rv">Every incumbent asks you to trust them. Guardian Shield ships the evidence. Files never leave your device — verifiable by packet trace. Vault plaintext never on the wire — verifiable by canary-string trace. Every signature update Ed25519-signed by two operators in different EU jurisdictions and recorded in a public Merkle transparency log. Reproducible builds so anyone can byte-diff our binary against source. That's not marketing — it's ten reproducible checks you can run yourself.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">Everything the big suites do<span>.</span></div><p>Malware and device scanning, firewall management, phishing and web protection, network intrusion watch, breach and identity monitoring, password vault. Parity is the floor, not the pitch.</p></div>
-      <div class="c"><div class="n">On your metal<span>.</span></div><p>Detection runs where the data lives — your machines, your network. No browsing history shipped to a cloud, no file uploads you can't refuse, no telemetry economy underneath the padlock.</p></div>
-      <div class="c"><div class="n">Watch, never touch<span>.</span></div><p>Intelligence assists detection; it never acts alone. No autonomous hand touches your keys, your files or your credentials — every alert carries evidence, and a human makes the call.</p></div>
+      <div class="c"><div class="n">Files never leave the device<span>.</span></div><p>Local ClamAV + YARA scanning. Signatures come to you; your files never go the other way. Verifiable by <em>tshark</em> — Check 1 of the audit checklist.</p></div>
+      <div class="c"><div class="n">Vault plaintext never on the wire<span>.</span></div><p>Argon2id + XChaCha20-Poly1305 client-side. The server sees encrypted opaque blobs. If we could read your passwords, we could hand them over. We can't. Check 2.</p></div>
+      <div class="c"><div class="n">Every update signed twice, in public<span>.</span></div><p>Ed25519 threshold: two operators, different jurisdictions, physical Yubikey touch each. Then a 15-minute inspection window. Then a public Merkle-tree entry. Checks 3–5.</p></div>
     </div>
   </div>
 </section>
@@ -516,27 +517,31 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 <section id="mechanics" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
-    <h2 class="rv">Four rings,<br><span class="mute">one core.</span></h2>
-    <p class="lead rv">Built the VF way: deterministic protection at the core, models doing judgement work inside a harness, and a hard law at the boundary — nothing autonomous ever holds the keys.</p>
+    <h2 class="rv">Five subsystems,<br><span class="mute">one honest trust model.</span></h2>
+    <p class="lead rv">R·01 ships five subsystems. Everything else backlogged. Each subsystem uses well-studied open primitives (ClamAV, YARA, WireGuard-Go, HIBP, OpenPhish, age, Argon2) — no proprietary black boxes, no commercial threat-intel SDKs, no third-party analytics on any code path that touches user data.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p18-mech.png" alt="Four white concentric rings orbiting a glowing blue core — the layered defence of Guardian Shield"></div>
+      <div class="mechart"><img src="../assets/pipe/p18-mech.png" alt="Five circles orbiting a glowing blue core — the five subsystems of Guardian Shield"></div>
       <div class="layers">
         <div class="ly">
-          <div class="lt"><i>RING 1</i><h4>The sentinel</h4></div>
-          <p>On-device protection: malware and integrity scanning, device health, phishing and web filtering at the edge. Signatures and behaviour analysis run locally — your files are analysed where they live, not where they're uploaded.</p>
+          <div class="lt"><i>SUBSYSTEM 1</i><h4>Password vault</h4></div>
+          <p>Argon2id-wrapped XChaCha20-Poly1305 vault. Autofill on iOS, Android and desktop browsers. Cross-device sync via sealed opaque blobs — we never see the plaintext. Recovery via existing-device confirmation, 24-word recovery code, or a 30-day grace-delay window. Master-password loss is unrecoverable by design.</p>
         </div>
         <div class="ly">
-          <div class="lt"><i>RING 2</i><h4>The estate watch</h4></div>
-          <p>The whole network as one guarded estate: firewall management, intrusion detection, and rogue-device discovery — every box on the Wi-Fi inventoried and watched, not just the computer the installer ran on.</p>
+          <div class="lt"><i>SUBSYSTEM 2</i><h4>Malware scanner</h4></div>
+          <p>ClamAV + YARA, both local, both sandboxed. Signatures updated via daily Ed25519-signed packs published through a public Merkle-tree transparency log. Files never leave the device. Detection floor set at 85% on the AV-TEST reference set — below that for 30 days and we pause new signups until fixed.</p>
         </div>
         <div class="ly">
-          <div class="lt"><i>RING 3</i><h4>The breach desk</h4></div>
-          <p>Identity and breach monitoring against known breach corpora — honest about what "dark-web monitoring" really is: early detection and a guided response, not magic erasure. When your email surfaces in a dump, you know first, and you know what to do.</p>
+          <div class="lt"><i>SUBSYSTEM 3</i><h4>WireGuard VPN</h4></div>
+          <p>wireguard-go client. Three VF-operated exits (Zurich, Reykjavik, Amsterdam) or bring-your-own Mullvad/IVPN config. Kill-switch enforced at the OS firewall. 24-hour iptables audit rotation, 30-minute conntrack timeout, annual third-party audit, warrant canary refreshed every 30 days.</p>
         </div>
         <div class="ly">
-          <div class="lt"><i>RING 4</i><h4>The vault &amp; the law</h4></div>
-          <p>Credentials live in a local vault under your key. And one law binds every layer above: agents watch and report — they never act on keys, never quarantine unasked, never phone home. The evidence comes to you; the decision stays with you.</p>
+          <div class="lt"><i>SUBSYSTEM 4</i><h4>DNS + URL filter</h4></div>
+          <p>System-wide blocklist matching at the OS resolver: <em>NEDNSSettings</em> on iOS, <em>PrivateDnsSettings</em> on Android, <em>NEDNSProxyProvider</em> on macOS, <em>systemd-resolved</em> on Linux, DoH on Windows. Blocklist rebuilt daily from OpenPhish, AbuseCH URLhaus, Steven Black hosts, Quad9 policy replication.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>SUBSYSTEM 5</i><h4>Breach watch (zero-knowledge)</h4></div>
+          <p>Your password is hashed locally — only the first 5 characters travel. Our relay strips IPs and batches lookups before hitting Have I Been Pwned. HIBP sees us; never you. Neither party can identify who is checking what.</p>
         </div>
       </div>
     </div>
@@ -546,41 +551,53 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 <section id="roadmap">
   <div class="wrap">
     <div class="k rv">BUILD TRAJECTORY</div>
-    <h2 class="rv">Guarding our floor,<br><span class="mute">then yours.</span></h2>
+    <h2 class="rv">Spec-complete today,<br><span class="mute">shipping when the kit stabilises.</span></h2>
 
     <div class="road rv">
       <div class="rd">
         <span class="num">R·01</span>
-        <h4>Guard our own</h4>
-        <p>The Shield stands watch over the VF network's real estate — production servers, public sites, vaults and working machines across three countries. Real attacks, real logs, our own exposure on the line.</p>
-        <span class="st hot">IN BUILD</span>
+        <h4>Five subsystems, three platforms</h4>
+        <p>Password vault + malware scanner + WireGuard VPN + DNS filter + breach watch. Desktop (Windows + macOS + Linux via Tauri), iOS, Android (including GrapheneOS + /e/OS — zero Google Play Services dependency). English + German UI. 4–6 months of build once the shared kit ships.</p>
+        <span class="st hot">SPEC COMPLETE</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
-        <h4>The suite</h4>
-        <p>Hardened inward, packaged outward: one installation covering a household or small office as a single estate — every device, one shield, plain-language alerts, a price that doesn't double in year two.</p>
+        <h4>Windows real-time + anti-tracker + more locales</h4>
+        <p>Signed Windows kernel driver for real-time on-access scanning. Anti-tracker browser extension. On-device parental controls (never report-back-to-parent dashboards — that's surveillance, not parenting). French, Spanish, Italian, Portuguese UI. Five to six VPN exit nodes.</p>
         <span class="st">NEXT</span>
       </div>
       <div class="rd">
         <span class="num">R·03</span>
-        <h4>The desk</h4>
-        <p>The response layer grows into a full desk: guided breach recovery, identity-restoration workflows, and a managed lane for the small firms that want a guard who also answers the phone.</p>
+        <h4>EDR behavioural + encrypted backup + family plans</h4>
+        <p>Heuristic behavioural monitoring for zero-day defence (still on-device, still no cloud upload). Encrypted backup (restic-based) to user-owned R2 or ours. Multi-device family and small-corporate plans. Guardian Shield Home router appliance planned for R·04.</p>
         <span class="st">PLANNED</span>
       </div>
     </div>
 
     <div class="docs rv">
       <div class="doc">
-        <span class="dk">WHITE PAPER</span>
-        <h4>Security without surveillance: the local-first suite</h4>
-        <p>The architecture of full-parity protection with no cloud telemetry — detection lanes, the estate model, and the watch-never-touch boundary. Published as the build hardens.</p>
-        <span class="tba">IN PREPARATION</span>
+        <span class="dk">ENGINEERING SPEC</span>
+        <h4>Guardian Shield — the full build plan</h4>
+        <p>System overview, five subsystems detailed, data-source licence audit, client architecture per platform, signature supply-chain problem named as the highest-severity threat.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/architecture/guardian-shield-spec.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
-        <span class="dk">REPOSITORY</span>
-        <h4>Core &amp; sentinels</h4>
-        <p>The scanning core and network sentinels — repository access announced when the Shield opens beyond the VF network.</p>
-        <span class="tba">TBA</span>
+        <span class="dk">THREAT MODEL</span>
+        <h4>STRIDE with residual risks named</h4>
+        <p>Six adversary tiers (A1 nation-state to A6 household). Uniquely-Guardian-Shield threats — upstream poisoning + signing key compromise — get their own defence-in-depth analysis.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/security/threat-model.md">PUBLISHED · 2026-09-12 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">VERIFICATION CHECKLIST</span>
+        <h4>Ten reproducible checks any auditor can run</h4>
+        <p>Packet-trace commands. Signature-verification steps. Two-signer threshold checks. HIBP relay identifier scan. Bug bounty from €500 (design typos) to €25 000 (novel privacy leaks).</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/security/verification-checklist.md">PUBLISHED · 2026-09-12 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">INVESTOR PACK</span>
+        <h4>Full DD pack — 11 documents</h4>
+        <p>Executive summary, product, market + competitors, traction targets, technology + IP, team + hire plan, financials, risks, the ask (€1.5–3.5m seed), data-room process, portfolio context.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/tree/main/docs/investor">PUBLISHED · 2026-09-12 →</a></span>
       </div>
     </div>
   </div>
@@ -598,10 +615,10 @@ html{scrollbar-width:none;-ms-overflow-style:none}
         <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
-        <div class="sysreqrow"><dt>Devices</dt><dd>5 across Windows, Mac, iOS, Android.</dd></div>
-        <div class="sysreqrow"><dt>Renewal</dt><dd>€59/year for life. No price bump on renewal.</dd></div>
-        <div class="sysreqrow"><dt>Vault</dt><dd>Password + document vault included.</dd></div>
-        <div class="sysreqrow"><dt>Identity</dt><dd>Breach watch across the major dark-web dumps.</dd></div>
+        <div class="sysreqrow"><dt>Platforms</dt><dd>Windows 10+, macOS 12+, Linux (glibc), iOS 16+, Android 10+.</dd></div>
+        <div class="sysreqrow"><dt>De-Googled Android</dt><dd>Runs on GrapheneOS, /e/OS, LineageOS. No Google Play Services dependency.</dd></div>
+        <div class="sysreqrow"><dt>Vault storage</dt><dd>~5–50 KB per user, opaque + encrypted client-side.</dd></div>
+        <div class="sysreqrow"><dt>Signature packs</dt><dd>~200–400 MB installed. Ed25519-signed, transparency-logged, reproducibility-verified.</dd></div>
       </dl>
     </div>
   </div>
@@ -610,66 +627,28 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 
 <section id="pricing">
   <div class="wrap">
-    <div class="k rv">PLANNED PRICING</div>
-    <h2 class="rv">€59 this year.<br><span class="mute">€59 every year.</span></h2>
-    <p class="lead rv">The industry sells at €25 and renews at €100. Guardian Shield renews at the price you joined at — the honest renewal is the product.</p>
-    <div class="stage orbit-2">
-      <span class="hoverhint">Hover the cards to see every tier</span>
-<div class="card t-blue p1">
-    <div class="cardhead">
-      <div class="brand">GUARDIAN <b>GUARDIAN SHIELD · SHIELD</b></div>
-      <span class="rec">RECOMMENDED</span>
-    </div>
-    <div class="stats">
-      <div class="stat"><span>Devices</span><b>5</b></div>
-      <div class="stat"><span>Renewal</span><b>Same €</b></div>
-      <div class="stat"><span>Shield</span><b>Full</b></div>
-    </div>
-    <div class="pricerow">
-      <div class="lead"><span>Yearly</span><span class="pr">€59<b>/ year · 5 devices</b></span></div>
-      <div class="trail"><span>Per month</span><b>€4.92</b></div>
-    </div>
-    <div class="prog">
-      <div class="proglabel"><span>Founding seats claimed</span><span>68%</span></div>
-      <div class="progbar"><div class="proghandle"></div></div>
-    </div>
-    <div class="tiles">
-      <div class="locations">
-        <div><em>Region</em>EU · Malta OSS</div>
-        <div><em>Includes</em>The full shield</div>
+    <div class="k rv">HOW IT SHIPS</div>
+    <h2 class="rv">One tier. €4.99/mo.<br><span class="mute">The honest renewal <em class="i">is</em> the product.</span></h2>
+    <p class="lead rv">The industry sells at €25 and renews at €100. Guardian Shield sells at €4.99/mo and renews at €4.99/mo. That's the whole pricing story. There is no dark-pattern trap door.</p>
+
+    <div class="docs rv" style="grid-template-columns:1fr 1fr;margin-top:56px">
+      <div class="doc">
+        <span class="dk">FREE TIER</span>
+        <h4>Password vault (20 entries) + breach watch (5/hr) + DNS filter (default blocklist)</h4>
+        <p>Enough to protect a single-user setup. No advertising injected. No feature nagware. If you never upgrade, we still owe you the same privacy commitments as a paying subscriber.</p>
+        <span class="tba">€0 · FOREVER</span>
       </div>
-      <div class="thumbs"><div class="thumb">SEC</div><div class="thumb">EU</div></div>
-    </div>
-  </div>
-<div class="card t-slate p2">
-    <div class="cardhead">
-      <div class="brand">GUARDIAN <b>GUARDIAN SHIELD · FAMILY + IDENTITY</b></div>
-      <span class="rec">FAMILY + IDENTITY</span>
-    </div>
-    <div class="stats">
-      <div class="stat"><span>Household</span><b>Yes</b></div>
-      <div class="stat"><span>Breach</span><b>Watched</b></div>
-      <div class="stat"><span>Vault</span><b>Included</b></div>
-    </div>
-    <div class="pricerow">
-      <div class="lead"><span>Yearly</span><span class="pr">€99<b>/ year</b></span></div>
-      <div class="trail"><span>Per month</span><b>€8.25</b></div>
-    </div>
-    <div class="prog">
-      <div class="proglabel"><span>Founding seats claimed</span><span>12%</span></div>
-      <div class="progbar"><div class="proghandle"></div></div>
-    </div>
-    <div class="tiles">
-      <div class="locations">
-        <div><em>Region</em>EU · Malta OSS</div>
-        <div><em>Includes</em>The household: breach watch, vault, identi…</div>
+      <div class="doc">
+        <span class="dk">PLUS</span>
+        <h4>All five subsystems, all platforms, family slots at R·02</h4>
+        <p>Unlimited vault + unlimited breach lookups + full malware scanner + all VPN exits + custom DNS rules + priority sync. Founding-year subscribers keep their €4.99/mo forever — no renewal jump.</p>
+        <span class="tba">€4.99 / MONTH · €39 / YEAR</span>
       </div>
-      <div class="thumbs"><div class="thumb">SEC</div><div class="thumb">EU</div></div>
     </div>
-  </div>
-    </div>
-    
-    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+
+    <p class="pnote rv" style="margin-top:36px;text-align:center;color:var(--faint);font-size:12.5px;letter-spacing:.02em">
+      Terms § 8 warranty: material privacy breach = refund of the current subscription period + public post-mortem within 5 business days. Enforceable in Maltese jurisdiction.
+    </p>
   </div>
 </section>
 
