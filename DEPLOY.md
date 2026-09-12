@@ -11,7 +11,7 @@
 - Cloudflare account with the **`vfempire.com`** zone.
 - A Cloudflare API token with `Workers Scripts:Edit` + `Workers R2 Storage:Edit` + `Zone:Read` scopes, OR an interactive login via `wrangler login`.
 
-The **master token** is stored in Vincent's password manager entry `Cloudflare / vfempire prod`. Never commit it.
+The **master token** is stored in the VF Empire password manager. Never commit it. Rotate via Cloudflare dashboard → API Tokens if compromised.
 
 ---
 
