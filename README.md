@@ -65,5 +65,5 @@ Cloudflare Workers Assets picks up `wrangler.jsonc` at the repo root and serves 
 
 ## Repository
 
-- Canonical: `github.com/vfempire/vfempire-site` (planned, pending org creation).
-- Licence: proprietary. Contents of this repo may not be redistributed.
+- Canonical: `github.com/vfempire-hq/vfempire-site` (pending `vfempire-hq` org creation).
+- Licence: **MIT** — see [LICENSE](./LICENSE). Marketing content + design tokens are shared under a permissive licence; product code lives in the per-product repos under their own licences.

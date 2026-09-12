@@ -19,7 +19,7 @@ The **master token** is stored in Vincent's password manager entry `Cloudflare /
 
 ```bash
 # Clone
-git clone git@github.com:vfempire/vfempire-site.git
+git clone git@github.com:vfempire-hq/vfempire-site.git
 cd vfempire-site
 
 # Install wrangler locally (project doesn't need node_modules for the build itself)
@@ -104,7 +104,7 @@ npx wrangler rollback <deployment-id>
 
 ```bash
 # First push after cloning the fresh repo
-git remote add origin git@github.com:vfempire/vfempire-site.git
+git remote add origin git@github.com:vfempire-hq/vfempire-site.git
 git push -u origin main
 
 # Regular
