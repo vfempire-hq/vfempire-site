@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — Gallery family (5 refined variants)</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+:root{
+  --paper:#fbfbfd; --silver:#f5f5f7; --mist:#eceff3; --ink:#1d1d1f;
+  --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
+  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.35);
+  --brass:#a37f3b; --brass-hi:#c9a563; --brass-glow:rgba(163,127,59,.3);
+  --polar-bg:#08111c; --polar-2:#0d1a2a; --polar-line:rgba(255,255,255,.08);
+  --cream:#f6f1e6; --cream-2:#efe8d6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400}
+.mute{color:var(--faint)}
+section{padding:90px 6vw}
+.wrap{width:min(1120px,100%);margin:0 auto}
+.k{font-size:11px;font-weight:600;letter-spacing:.3em;color:var(--core)}
+h2{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-top:18px}
+.lead{font-size:16px;line-height:1.7;color:var(--dove);margin-top:20px;max-width:620px}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint)}
+.optbar{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.85);backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid var(--line);padding:14px 6vw;display:flex;gap:22px;align-items:baseline;flex-wrap:wrap}
+.optbar b{font-size:13px;letter-spacing:.2em}
+.optbar span{font-size:12px;color:var(--dove)}
+.optbar a{font-size:11px;color:var(--core);text-decoration:none;letter-spacing:.14em;margin-left:auto}
+.opthead{padding:64px 6vw 0}
+.opthead .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.3em;color:#fff;background:var(--ink);padding:9px 18px;border-radius:99px}
+.opthead .tag.g0{background:var(--dove)}
+.opthead h3{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-top:16px}
+.opthead p{font-size:14px;color:var(--dove);margin-top:6px;max-width:640px;line-height:1.6}
+hr{border:0;border-top:1px solid var(--line);margin:70px 0 0}
+
+/* ═══════════════════════ G0 · BASELINE (original OPTION 2 · GALLERY) ═══════════════════════ */
+.g0{background:var(--silver)}
+.g0 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:64px;align-items:stretch}
+.g0 .pl{position:relative;background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(1.5);border:1px solid var(--line);border-radius:24px;padding:38px 32px;display:flex;flex-direction:column;gap:10px;transition:transform .3s cubic-bezier(.32,.72,.22,1)}
+.g0 .pl:hover{transform:translateY(-4px)}
+.g0 .pl.hot{background:#fff;border-color:transparent;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 80px rgba(29,29,31,.14),0 0 0 1.5px var(--core);transform:scale(1.03)}
+.g0 .pl.hot:hover{transform:scale(1.03) translateY(-4px)}
+.g0 .pill{position:absolute;top:-13px;left:30px;font-size:9.5px;font-weight:700;letter-spacing:.24em;color:#fff;background:var(--core);padding:7px 15px;border-radius:99px;box-shadow:0 8px 22px var(--glow)}
+.g0 .tk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
+.g0 .pr{font-size:38px;font-weight:700;letter-spacing:-.04em;margin-top:6px}
+.g0 .pr span{font-size:13px;font-weight:500;letter-spacing:0;color:var(--dove);margin-left:7px}
+.g0 p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+
+/* ═══════════════════════ G1 · CRYSTAL ═══════════════════════
+   Deeper frost + gradient wash on hot, thin animated halo, hairline price weight. */
+.g1{background:linear-gradient(180deg,#f2f4f8 0%,#e9ecf2 100%)}
+.g1 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:64px;align-items:stretch}
+.g1 .pl{position:relative;background:rgba(255,255,255,.55);backdrop-filter:blur(28px) saturate(1.8);border:1px solid rgba(255,255,255,.7);border-radius:26px;padding:42px 34px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 10px 30px rgba(29,29,31,.05)}
+.g1 .pl.hot{background:linear-gradient(180deg,#ffffff 0%,#f5f8ff 100%);border-color:rgba(255,255,255,.95);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 70px rgba(29,29,31,.10),0 40px 120px rgba(37,110,245,.20)}
+.g1 .pl.hot::before{content:'';position:absolute;inset:-1px;border-radius:27px;padding:1.5px;background:linear-gradient(140deg,var(--core) 0%,rgba(37,110,245,.15) 40%,rgba(37,110,245,0) 65%,var(--core) 100%);-webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask-composite:exclude;animation:g1halo 6s linear infinite;pointer-events:none}
+@keyframes g1halo{to{transform:rotate(360deg)}}
+.g1 .pill{position:absolute;top:-14px;left:34px;font-size:9px;font-weight:700;letter-spacing:.28em;color:var(--core);background:#fff;padding:8px 14px 7px;border-radius:99px;box-shadow:0 8px 22px rgba(37,110,245,.16),0 0 0 1px rgba(37,110,245,.2)}
+.g1 .tk{font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--dove)}
+.g1 .pr{font-size:52px;font-weight:200;letter-spacing:-.045em;margin-top:8px;line-height:1}
+.g1 .pr span{font-size:13px;font-weight:500;letter-spacing:0;color:var(--dove);margin-left:8px}
+.g1 .pl.hot .pr{background:linear-gradient(180deg,var(--ink) 40%,var(--core-deep) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.g1 p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+
+/* ═══════════════════════ G2 · MINERAL ═══════════════════════
+   Warm cream section, brass accents replacing blue, hot card stays paper-white. */
+.g2{background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%);color:#3a2f18}
+.g2 h2{color:#2b230f}
+.g2 .k{color:var(--brass)}
+.g2 .lead,.g2 .pnote,.g2 .mute{color:#7b6b4a}
+.g2 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:64px;align-items:stretch}
+.g2 .pl{position:relative;background:rgba(255,253,247,.75);backdrop-filter:blur(14px);border:1px solid rgba(163,127,59,.14);border-radius:22px;padding:38px 32px;display:flex;flex-direction:column;gap:10px;transition:transform .3s cubic-bezier(.32,.72,.22,1)}
+.g2 .pl:hover{transform:translateY(-4px)}
+.g2 .pl.hot{background:#fff;border-color:transparent;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 28px 70px rgba(90,70,30,.14),0 0 0 1.5px var(--brass);transform:scale(1.03)}
+.g2 .pl.hot::before{content:'';position:absolute;top:16px;right:16px;width:22px;height:22px;background:radial-gradient(circle at 30% 30%,var(--brass-hi),var(--brass) 70%,#7f5d1e);border-radius:50%;box-shadow:0 6px 18px var(--brass-glow),inset 0 -3px 6px rgba(0,0,0,.15),inset 0 2px 3px rgba(255,255,255,.4)}
+.g2 .pill{position:absolute;top:-13px;left:30px;font-size:9.5px;font-weight:700;letter-spacing:.28em;color:#fff;background:linear-gradient(135deg,var(--brass-hi),var(--brass));padding:7px 15px;border-radius:99px;box-shadow:0 8px 20px var(--brass-glow)}
+.g2 .tk{font-size:10px;font-weight:700;letter-spacing:.28em;color:var(--brass)}
+.g2 .pr{font-size:40px;font-weight:700;letter-spacing:-.04em;margin-top:6px;color:#2b230f}
+.g2 .pr span{font-size:13px;font-weight:500;letter-spacing:0;color:#7b6b4a;margin-left:7px}
+.g2 p{font-size:13.5px;line-height:1.62;color:#7b6b4a}
+
+/* ═══════════════════════ G3 · POLARIS ═══════════════════════
+   Dark navy section, frosted-dark cards, hot card inverted paper-white. */
+.g3{background:radial-gradient(ellipse at 30% 0%,#152540 0%,var(--polar-bg) 60%);color:#e4e9f2}
+.g3 h2{color:#f7f9fc}
+.g3 .k{color:#7ba8ff}
+.g3 .lead,.g3 .pnote,.g3 .mute{color:#8898b4}
+.g3 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:64px;align-items:stretch}
+.g3 .pl{position:relative;background:rgba(20,32,54,.55);backdrop-filter:blur(24px) saturate(1.4);border:1px solid var(--polar-line);border-radius:24px;padding:40px 34px;display:flex;flex-direction:column;gap:11px;transition:transform .3s cubic-bezier(.32,.72,.22,1)}
+.g3 .pl:hover{transform:translateY(-4px);border-color:rgba(123,168,255,.28)}
+.g3 .pl.hot{background:#fbfbfd;color:var(--ink);border-color:transparent;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.06);transform:scale(1.03)}
+.g3 .pl.hot .tk{color:var(--core)}
+.g3 .pl.hot .pr{color:var(--ink)}
+.g3 .pl.hot .pr span{color:var(--dove)}
+.g3 .pl.hot p{color:var(--dove)}
+.g3 .pl.hot::after{content:'★';position:absolute;top:20px;right:22px;font-size:13px;color:var(--core);line-height:1}
+.g3 .tk{font-size:10px;font-weight:700;letter-spacing:.3em;color:#8ca8dc}
+.g3 .pr{font-size:44px;font-weight:600;letter-spacing:-.045em;margin-top:8px;color:#f7f9fc;line-height:1}
+.g3 .pr span{font-size:13px;font-weight:500;letter-spacing:0;color:#8898b4;margin-left:7px}
+.g3 p{font-size:13.5px;line-height:1.62;color:#a4b3cf}
+
+/* ═══════════════════════ G4 · MERIDIAN ═══════════════════════
+   Cards fused into a single glass slab with hairline dividers; hot has bright accent bar top. */
+.g4{background:var(--silver)}
+.g4 .slab{margin-top:64px;background:rgba(255,255,255,.72);backdrop-filter:blur(20px) saturate(1.6);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 20px 60px rgba(29,29,31,.06);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4 .pl{position:relative;padding:44px 36px 40px;display:flex;flex-direction:column;gap:11px;border-right:1px solid var(--line);transition:background .25s ease}
+.g4 .pl:last-child{border-right:0}
+.g4 .pl:hover{background:rgba(255,255,255,.9)}
+.g4 .pl.hot{background:#fff}
+.g4 .pl.hot::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--core-deep),var(--core),#5b9dff,var(--core));border-radius:0}
+.g4 .badge{position:absolute;top:22px;right:22px;font-size:9px;font-weight:700;letter-spacing:.26em;color:var(--core);background:rgba(37,110,245,.10);padding:5px 10px;border-radius:99px}
+.g4 .tk{font-size:10px;font-weight:700;letter-spacing:.3em;color:var(--faint);margin-top:4px}
+.g4 .pl.hot .tk{color:var(--core)}
+.g4 .pr{font-size:44px;font-weight:700;letter-spacing:-.045em;margin-top:10px;line-height:1}
+.g4 .pr span{font-size:13px;font-weight:500;letter-spacing:0;color:var(--dove);margin-left:7px}
+.g4 p{font-size:13.5px;line-height:1.62;color:var(--dove);margin-top:2px}
+@media(max-width:760px){.g4 .pl{border-right:0;border-bottom:1px solid var(--line)}.g4 .pl:last-child{border-bottom:0}}
+
+/* ═══════════════════════ G5 · APERTURE ═══════════════════════
+   Cards with soft radial interior; hot has a top-notch aperture housing the pill. */
+.g5{background:linear-gradient(180deg,var(--silver) 0%,#eef1f5 100%)}
+.g5 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:80px;align-items:stretch}
+.g5 .pl{position:relative;background:radial-gradient(circle at 50% 0%,#fff 0%,rgba(255,255,255,.7) 60%);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:24px;padding:42px 34px;display:flex;flex-direction:column;gap:11px;transition:transform .3s cubic-bezier(.32,.72,.22,1),box-shadow .3s ease;overflow:visible}
+.g5 .pl:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(29,29,31,.08)}
+.g5 .pl.hot{background:radial-gradient(circle at 50% 0%,#fff 0%,#f8faff 70%);border-color:transparent;box-shadow:0 32px 80px rgba(37,110,245,.15),0 0 0 1.5px var(--core);transform:scale(1.02)}
+.g5 .pl.hot::before{content:'';position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:100px;height:28px;background:var(--paper);border-left:1.5px solid var(--core);border-right:1.5px solid var(--core);border-bottom:1.5px solid var(--core);border-radius:0 0 14px 14px}
+.g5 .aperture{position:absolute;top:-11px;left:50%;transform:translateX(-50%);z-index:2;font-size:9px;font-weight:800;letter-spacing:.3em;color:var(--core);white-space:nowrap}
+.g5 .tk{font-size:10px;font-weight:700;letter-spacing:.3em;color:var(--faint);text-align:center;margin-top:6px}
+.g5 .pl.hot .tk{color:var(--core);margin-top:12px}
+.g5 .pr{font-size:46px;font-weight:600;letter-spacing:-.045em;margin-top:12px;line-height:1;text-align:center}
+.g5 .pr span{font-size:13px;font-weight:500;letter-spacing:0;color:var(--dove);margin-left:6px;display:inline-block}
+.g5 p{font-size:13.5px;line-height:1.62;color:var(--dove);text-align:center;max-width:280px;margin:6px auto 0}
+</style>
+</head>
+<body>
+
+<div class="optbar"><b>VF PRICING — GALLERY FAMILY</b><span>5 refined variants of Option 2 · same VF Mail data on every card</span><a href="pricing-options.html">← original 5 options</a></div>
+
+<!-- G0 · BASELINE (the original Option 2) -->
+<div class="opthead"><span class="tag g0">G0 · BASELINE (Option 2 · Gallery)</span><h3>Frosted cards, one lifted</h3><p>The version you picked, unchanged — for direct comparison against the five refinements below.</p></div>
+<section class="g0"><div class="wrap">
+  <div class="k">PLANNED PRICING</div>
+  <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+  <div class="plans">
+    <div class="pl hot"><span class="pill">RECOMMENDED</span><span class="tk">MAILBOX</span><div class="pr">€3.99<span>/ month</span></div><p>One mailbox, custom domain included. EU metal, no ecosystem.</p></div>
+    <div class="pl"><span class="tk">FAMILY</span><div class="pr">€9.99<span>/ month</span></div><p>Five mailboxes under one roof.</p></div>
+    <div class="pl"><span class="tk">TEAMS</span><div class="pr">€4.99<span>/ user · month</span></div><p>Company mail on infrastructure you can point to.</p></div>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+</div></section>
+<hr>
+
+<!-- G1 · CRYSTAL -->
+<div class="opthead"><span class="tag">G1 · CRYSTAL</span><h3>Deeper frost, hairline numbers, animated halo</h3><p>Same three-card grid, glass pushed further: heavier backdrop blur, hairline (weight-200) prices, and the recommended card wears a slow-rotating conic halo instead of a static ring. Most "reserved" of the family.</p></div>
+<section class="g1"><div class="wrap">
+  <div class="k">PLANNED PRICING</div>
+  <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+  <div class="plans">
+    <div class="pl hot"><span class="pill">RECOMMENDED</span><span class="tk">MAILBOX</span><div class="pr">€3.99<span>/ month</span></div><p>One mailbox, custom domain included. EU metal, no ecosystem.</p></div>
+    <div class="pl"><span class="tk">FAMILY</span><div class="pr">€9.99<span>/ month</span></div><p>Five mailboxes under one roof.</p></div>
+    <div class="pl"><span class="tk">TEAMS</span><div class="pr">€4.99<span>/ user · month</span></div><p>Company mail on infrastructure you can point to.</p></div>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+</div></section>
+<hr>
+
+<!-- G2 · MINERAL -->
+<div class="opthead"><span class="tag">G2 · MINERAL</span><h3>Warm cream, brass accent, no blue anywhere</h3><p>Same layout as G0, but the whole palette shifts warm: cream section, brass pill and rules, a small forged-brass bead on the hot card in place of a ring. Reads more heritage-luxury than tech.</p></div>
+<section class="g2"><div class="wrap">
+  <div class="k">PLANNED PRICING</div>
+  <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+  <div class="plans">
+    <div class="pl hot"><span class="pill">RECOMMENDED</span><span class="tk">MAILBOX</span><div class="pr">€3.99<span>/ month</span></div><p>One mailbox, custom domain included. EU metal, no ecosystem.</p></div>
+    <div class="pl"><span class="tk">FAMILY</span><div class="pr">€9.99<span>/ month</span></div><p>Five mailboxes under one roof.</p></div>
+    <div class="pl"><span class="tk">TEAMS</span><div class="pr">€4.99<span>/ user · month</span></div><p>Company mail on infrastructure you can point to.</p></div>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+</div></section>
+<hr>
+
+<!-- G3 · POLARIS -->
+<div class="opthead"><span class="tag">G3 · POLARIS</span><h3>Reverse: dark section, one lit card</h3><p>Section flips to deep navy. Cards are frosted-dark and quiet; the recommended tier is a bright paper-white slab pushed forward, marked with a small blue star instead of a pill. Highest contrast of the family, best if pricing sits between two light sections.</p></div>
+<section class="g3"><div class="wrap">
+  <div class="k">PLANNED PRICING</div>
+  <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+  <div class="plans">
+    <div class="pl hot"><span class="tk">MAILBOX</span><div class="pr">€3.99<span>/ month</span></div><p>One mailbox, custom domain included. EU metal, no ecosystem.</p></div>
+    <div class="pl"><span class="tk">FAMILY</span><div class="pr">€9.99<span>/ month</span></div><p>Five mailboxes under one roof.</p></div>
+    <div class="pl"><span class="tk">TEAMS</span><div class="pr">€4.99<span>/ user · month</span></div><p>Company mail on infrastructure you can point to.</p></div>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+</div></section>
+<hr>
+
+<!-- G4 · MERIDIAN -->
+<div class="opthead"><span class="tag">G4 · MERIDIAN</span><h3>Cards fused into one slab, accent bar picks the winner</h3><p>The three cards share one continuous frosted-glass slab, separated only by hairline verticals. The recommended tier is marked by a bright horizontal gradient bar across the top — no lifted card, no ring. Quietest yet most unified of the family.</p></div>
+<section class="g4"><div class="wrap">
+  <div class="k">PLANNED PRICING</div>
+  <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+  <div class="slab">
+    <div class="pl hot"><span class="badge">RECOMMENDED</span><span class="tk">MAILBOX</span><div class="pr">€3.99<span>/ month</span></div><p>One mailbox, custom domain included. EU metal, no ecosystem.</p></div>
+    <div class="pl"><span class="tk">FAMILY</span><div class="pr">€9.99<span>/ month</span></div><p>Five mailboxes under one roof.</p></div>
+    <div class="pl"><span class="tk">TEAMS</span><div class="pr">€4.99<span>/ user · month</span></div><p>Company mail on infrastructure you can point to.</p></div>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+</div></section>
+<hr>
+
+<!-- G5 · APERTURE -->
+<div class="opthead"><span class="tag">G5 · APERTURE</span><h3>Centred stack, hot card wears a notch</h3><p>Same three-card grid but centred typography and a soft radial glow inside every card. The recommended tier has a notch cut into its top edge that houses the "RECOMMENDED" mark — like the card is a lens with the pill in its aperture.</p></div>
+<section class="g5"><div class="wrap">
+  <div class="k">PLANNED PRICING</div>
+  <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+  <div class="plans">
+    <div class="pl hot"><span class="aperture">RECOMMENDED</span><span class="tk">MAILBOX</span><div class="pr">€3.99<span>/ month</span></div><p>One mailbox, custom domain included. EU metal, no ecosystem.</p></div>
+    <div class="pl"><span class="tk">FAMILY</span><div class="pr">€9.99<span>/ month</span></div><p>Five mailboxes under one roof.</p></div>
+    <div class="pl"><span class="tk">TEAMS</span><div class="pr">€4.99<span>/ user · month</span></div><p>Company mail on infrastructure you can point to.</p></div>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+</div></section>
+
+</body>
+</html>

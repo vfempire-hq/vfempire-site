@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing card options — internal preview</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+:root{
+  --paper:#fbfbfd; --silver:#f5f5f7; --mist:#eceff3; --ink:#1d1d1f;
+  --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
+  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400}
+.mute{color:var(--faint)}
+section{padding:90px 6vw}
+.wrap{width:min(1080px,100%);margin:0 auto}
+.k{font-size:11px;font-weight:600;letter-spacing:.3em;color:var(--core)}
+h2{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-top:18px}
+.lead{font-size:16px;line-height:1.7;color:var(--dove);margin-top:20px;max-width:620px}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint)}
+.optbar{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.85);backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid var(--line);padding:14px 6vw;display:flex;gap:22px;align-items:baseline}
+.optbar b{font-size:13px;letter-spacing:.2em}
+.optbar span{font-size:12px;color:var(--dove)}
+.opthead{padding:64px 6vw 0}
+.opthead .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.3em;color:#fff;background:var(--ink);padding:9px 18px;border-radius:99px}
+.opthead h3{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-top:16px}
+.opthead p{font-size:14px;color:var(--dove);margin-top:6px;max-width:560px;line-height:1.6}
+hr{border:0;border-top:1px solid var(--line);margin:70px 0 0}
+
+/* ————— OPTION 1 · LEDGER ————— */
+.o1 .rows{margin-top:56px;border-top:1px solid var(--line)}
+.o1 .row{display:grid;grid-template-columns:150px 1.6fr auto;align-items:baseline;gap:30px;padding:30px 6px;border-bottom:1px solid var(--line)}
+.o1 .tk{font-size:10.5px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
+.o1 .row.hot .tk{color:var(--core)}
+.o1 p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+.o1 .pr{font-size:30px;font-weight:700;letter-spacing:-.03em;white-space:nowrap;text-align:right}
+.o1 .pr span{display:block;font-size:12px;font-weight:500;color:var(--faint);margin-top:2px}
+.o1 .row.hot .pr{color:var(--core)}
+@media(max-width:760px){.o1 .row{grid-template-columns:1fr auto}.o1 p{grid-column:1/-1}}
+
+/* ————— OPTION 2 · GALLERY ————— */
+.o2{background:var(--silver)}
+.o2 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:64px;align-items:stretch}
+.o2 .pl{position:relative;background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(1.5);border:1px solid var(--line);border-radius:24px;padding:38px 32px;display:flex;flex-direction:column;gap:10px;transition:transform .3s cubic-bezier(.32,.72,.22,1)}
+.o2 .pl:hover{transform:translateY(-4px)}
+.o2 .pl.hot{background:#fff;border-color:transparent;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 80px rgba(29,29,31,.14),0 0 0 1.5px var(--core);transform:scale(1.03)}
+.o2 .pl.hot:hover{transform:scale(1.03) translateY(-4px)}
+.o2 .pill{position:absolute;top:-13px;left:30px;font-size:9.5px;font-weight:700;letter-spacing:.24em;color:#fff;background:var(--core);padding:7px 15px;border-radius:99px;box-shadow:0 8px 22px var(--glow)}
+.o2 .tk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
+.o2 .pr{font-size:38px;font-weight:700;letter-spacing:-.04em;margin-top:6px}
+.o2 .pr span{font-size:13px;font-weight:500;letter-spacing:0;color:var(--dove);margin-left:7px}
+.o2 p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+
+/* ————— OPTION 3 · INK ————— */
+.o3 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:64px}
+.o3 .pl{background:#fff;border:1px solid var(--line);border-radius:24px;padding:38px 32px;display:flex;flex-direction:column;gap:10px}
+.o3 .pl.hot{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:0 34px 90px rgba(29,29,31,.35)}
+.o3 .tk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
+.o3 .pl.hot .tk{color:rgba(255,255,255,.5)}
+.o3 .pr{font-size:40px;font-weight:300;letter-spacing:-.03em;margin-top:6px}
+.o3 .pr em{font-family:'Instrument',serif;font-style:italic;font-weight:400}
+.o3 .pr span{font-size:13px;font-weight:500;color:var(--dove);margin-left:7px}
+.o3 .pl.hot .pr span{color:rgba(255,255,255,.6)}
+.o3 p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+.o3 .pl.hot p{color:rgba(255,255,255,.78)}
+
+/* ————— OPTION 4 · EDITORIAL ————— */
+.o4{background:var(--silver)}
+.o4 .ed{display:grid;grid-template-columns:1fr;margin-top:64px;border-top:1px solid var(--line)}
+.o4 .er{display:grid;grid-template-columns:1.2fr 90px 1.4fr;gap:40px;align-items:center;padding:44px 6px;border-bottom:1px solid var(--line)}
+.o4 .big{font-size:clamp(44px,6vw,72px);font-weight:700;letter-spacing:-.05em;line-height:1}
+.o4 .big span{font-size:14px;font-weight:500;letter-spacing:0;color:var(--faint);display:block;margin-top:8px}
+.o4 .er.hot .big{color:var(--core)}
+.o4 .tkv{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint);writing-mode:vertical-rl;justify-self:center}
+.o4 .er.hot .tkv{color:var(--core)}
+.o4 p{font-size:14.5px;line-height:1.7;color:var(--dove);max-width:420px}
+@media(max-width:760px){.o4 .er{grid-template-columns:1fr;gap:14px}.o4 .tkv{writing-mode:horizontal-tb;justify-self:start}}
+
+/* ————— OPTION 5 · TICKET ————— */
+.o5 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:64px}
+.o5 .pl{position:relative;background:#fff;border:1.5px dashed var(--line);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;gap:10px}
+.o5 .pl.hot{border-style:solid;border-color:var(--core)}
+.o5 .pl::before,.o5 .pl::after{content:'';position:absolute;width:18px;height:18px;background:var(--paper);border:inherit;border-radius:50%;top:74px}
+.o5 .pl::before{left:-10px;clip-path:inset(0 0 0 50%)}
+.o5 .pl::after{right:-10px;clip-path:inset(0 50% 0 0)}
+.o5 .code{font-size:10px;font-weight:700;letter-spacing:.3em;color:var(--core)}
+.o5 .tk{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.o5 .rule{border-top:1px dashed var(--line);margin:8px 0 2px}
+.o5 .pr{font-size:34px;font-weight:700;letter-spacing:-.03em}
+.o5 .pr span{font-size:12.5px;font-weight:500;color:var(--dove);margin-left:6px}
+.o5 p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+</style>
+</head>
+<body>
+
+<div class="optbar"><b>VF PRICING — 5 CARD OPTIONS</b><span>internal preview · VF Mail data used on every option for a fair comparison</span></div>
+
+<!-- OPTION 1 -->
+<div class="opthead">
+  <span class="tag">OPTION 1 · THE LEDGER</span>
+  <h3>Hairline rows, no boxes</h3>
+  <p>Flat-plane law taken literally: the section is a price ledger. Quietest and most "Apple" of the five — the numbers do all the talking.</p>
+</div>
+<section class="o1">
+  <div class="wrap">
+    <div class="k">PLANNED PRICING</div>
+    <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+    <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+    <div class="rows">
+      <div class="row hot">
+        <span class="tk">MAILBOX</span>
+        <p>One mailbox, custom domain included. EU metal, no ecosystem.</p>
+        <div class="pr">€3.99<span>per month</span></div>
+      </div>
+      <div class="row">
+        <span class="tk">FAMILY</span>
+        <p>Five mailboxes under one roof.</p>
+        <div class="pr">€9.99<span>per month</span></div>
+      </div>
+      <div class="row">
+        <span class="tk">TEAMS</span>
+        <p>Company mail on infrastructure you can point to.</p>
+        <div class="pr">€4.99<span>per user · month</span></div>
+      </div>
+    </div>
+    <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+  </div>
+</section>
+<hr>
+
+<!-- OPTION 2 -->
+<div class="opthead">
+  <span class="tag">OPTION 2 · THE GALLERY</span>
+  <h3>Frosted cards, one lifted</h3>
+  <p>Classic three-across pricing done premium: frosted glass on silver, and the recommended tier physically lifted with a blue ring and pill.</p>
+</div>
+<section class="o2">
+  <div class="wrap">
+    <div class="k">PLANNED PRICING</div>
+    <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+    <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+    <div class="plans">
+      <div class="pl hot">
+        <span class="pill">RECOMMENDED</span>
+        <span class="tk">MAILBOX</span>
+        <div class="pr">€3.99<span>/ month</span></div>
+        <p>One mailbox, custom domain included. EU metal, no ecosystem.</p>
+      </div>
+      <div class="pl">
+        <span class="tk">FAMILY</span>
+        <div class="pr">€9.99<span>/ month</span></div>
+        <p>Five mailboxes under one roof.</p>
+      </div>
+      <div class="pl">
+        <span class="tk">TEAMS</span>
+        <div class="pr">€4.99<span>/ user · month</span></div>
+        <p>Company mail on infrastructure you can point to.</p>
+      </div>
+    </div>
+    <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+  </div>
+</section>
+<hr>
+
+<!-- OPTION 3 -->
+<div class="opthead">
+  <span class="tag">OPTION 3 · THE INK PANEL</span>
+  <h3>Flagship tier in full ink</h3>
+  <p>The recommended tier inverts to the house ink black with a deep shadow; prices set light-weight with the Instrument italic euro. Most dramatic.</p>
+</div>
+<section class="o3">
+  <div class="wrap">
+    <div class="k">PLANNED PRICING</div>
+    <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+    <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+    <div class="plans">
+      <div class="pl hot">
+        <span class="tk">MAILBOX</span>
+        <div class="pr"><em>€</em>3.99<span>/ month</span></div>
+        <p>One mailbox, custom domain included. EU metal, no ecosystem.</p>
+      </div>
+      <div class="pl">
+        <span class="tk">FAMILY</span>
+        <div class="pr"><em>€</em>9.99<span>/ month</span></div>
+        <p>Five mailboxes under one roof.</p>
+      </div>
+      <div class="pl">
+        <span class="tk">TEAMS</span>
+        <div class="pr"><em>€</em>4.99<span>/ user · month</span></div>
+        <p>Company mail on infrastructure you can point to.</p>
+      </div>
+    </div>
+    <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+  </div>
+</section>
+<hr>
+
+<!-- OPTION 4 -->
+<div class="opthead">
+  <span class="tag">OPTION 4 · THE EDITORIAL</span>
+  <h3>Giant numerals, magazine rows</h3>
+  <p>Asymmetric editorial spread: oversized price typography left, vertical tier mark centre, description right. Reads like a manifesto, not a shop.</p>
+</div>
+<section class="o4">
+  <div class="wrap">
+    <div class="k">PLANNED PRICING</div>
+    <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+    <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+    <div class="ed">
+      <div class="er hot">
+        <div class="big">€3.99<span>per month</span></div>
+        <span class="tkv">MAILBOX</span>
+        <p>One mailbox, custom domain included. EU metal, no ecosystem.</p>
+      </div>
+      <div class="er">
+        <div class="big">€9.99<span>per month</span></div>
+        <span class="tkv">FAMILY</span>
+        <p>Five mailboxes under one roof.</p>
+      </div>
+      <div class="er">
+        <div class="big">€4.99<span>per user · month</span></div>
+        <span class="tkv">TEAMS</span>
+        <p>Company mail on infrastructure you can point to.</p>
+      </div>
+    </div>
+    <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+  </div>
+</section>
+<hr>
+
+<!-- OPTION 5 -->
+<div class="opthead">
+  <span class="tag">OPTION 5 · THE TICKET</span>
+  <h3>Spec-sheet tickets</h3>
+  <p>Dashed tickets with a perforation notch, echoing the white-paper cards already on the pages. The recommended tier gets a solid blue frame.</p>
+</div>
+<section class="o5">
+  <div class="wrap">
+    <div class="k">PLANNED PRICING</div>
+    <h2>No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+    <p class="lead">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you.</p>
+    <div class="plans">
+      <div class="pl hot">
+        <span class="code">T·01</span>
+        <span class="tk">Mailbox</span>
+        <div class="rule"></div>
+        <div class="pr">€3.99<span>/ month</span></div>
+        <p>One mailbox, custom domain included. EU metal, no ecosystem.</p>
+      </div>
+      <div class="pl">
+        <span class="code">T·02</span>
+        <span class="tk">Family</span>
+        <div class="rule"></div>
+        <div class="pr">€9.99<span>/ month</span></div>
+        <p>Five mailboxes under one roof.</p>
+      </div>
+      <div class="pl">
+        <span class="code">T·03</span>
+        <span class="tk">Teams</span>
+        <div class="rule"></div>
+        <div class="pr">€4.99<span>/ user · month</span></div>
+        <p>Company mail on infrastructure you can point to.</p>
+      </div>
+    </div>
+    <p class="pnote">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at.</p>
+  </div>
+</section>
+
+</body>
+</html>

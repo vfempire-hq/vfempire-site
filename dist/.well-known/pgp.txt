@@ -1,0 +1,17 @@
+# VF Empire PGP key fingerprint — full ASCII-armored key below.
+# Used for encrypted disclosures to security@vfempire.com and privacy@vfempire.com.
+#
+# To verify a signed statement from us:
+#   gpg --recv-keys <fingerprint>
+#   gpg --verify statement.asc
+#
+# Fingerprint (planned): TO BE POPULATED AT KEY-GEN
+#
+# Rotation policy:
+#   - Master key: 4-year expiry, held in HSM at Vincent's carry Yubikey.
+#   - Subkeys (encrypt + sign): 1-year expiry, rotated annually.
+#   - Revocation certificate held in cold storage.
+#
+# Until this file contains a real key, encrypted contact is unavailable —
+# use TLS-transported email to security@vfempire.com and we'll respond
+# with an in-band shared-secret channel if the report needs one.

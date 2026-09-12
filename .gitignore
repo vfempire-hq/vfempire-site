@@ -1,0 +1,23 @@
+node_modules/
+.env
+.env.*
+!.env.example
+secrets/
+*.log
+.DS_Store
+.wrangler/
+dist/.wrangler/
+
+# Cloudflare wrangler local state
+.wrangler/tmp/
+.wrangler/state/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Ignore any dev-only rendered pages that shouldn't ship
+palette.html
+index-v4-dark.html
+mock-ratings/

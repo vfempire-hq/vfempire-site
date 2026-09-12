@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Private Care Watch — In-Home Elder Monitoring, Private by Architecture | VF Empire</title>
+<meta name="description" content="Private Care Watch by VF Empire — fall detection, routine-drift and wellbeing monitoring on hardware inside the home. No cloud cameras pointed at grandparents. In build in Malta, EU.">
+<link rel="canonical" href="https://vfempire.com/systems/private-care-watch">
+<meta name="theme-color" content="#fbfbfd">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VF Empire">
+<meta property="og:title" content="Private Care Watch — Watch over them. Not surveillance of them.">
+<meta property="og:description" content="Fall alerting and routine monitoring for ageing relatives, running on hardware in the home — never a cloud camera feed. On the VF build slate.">
+<meta property="og:url" content="https://vfempire.com/systems/private-care-watch">
+<meta property="og:image" content="https://vfempire.com/assets/pipe/p02.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Private Care Watch",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Home hub, iOS, Android",
+      "creator": {"@id": "https://vfempire.com/#org"},
+      "description": "Private Care Watch is an elder-care monitoring system in development by VF Empire Corp Ltd: fall alerting, routine-drift and wellbeing monitoring processed on hardware inside the home, with family notifications and no cloud video."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
+        {"@type": "ListItem", "position": 3, "name": "Private Care Watch"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+
+/* house dot-rail scrollbar — native bar hidden, jade dot rendered by scrollrail.js */
+html{scrollbar-width:none;-ms-overflow-style:none}
+::-webkit-scrollbar{width:0;height:0;display:none}
+#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
+#slkrail.drag{cursor:grabbing}
+@media (pointer:coarse){#slkrail{display:none!important}}
+
+:root{
+  --paper:#fbfbfd;
+  --silver:#f5f5f7;
+  --mist:#eceff3;
+  --ink:#1d1d1f;
+  --dove:#6e6e73;
+  --faint:#a1a1a6;
+  --line:#e4e6ea;
+  --core:#1f6ff2;
+  --core-deep:#0b47b8;
+  --glow:rgba(37,110,245,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
+::selection{background:var(--core);color:#fff}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
+.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
+.brand svg{display:block}
+.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
+.nav .crumb b{color:var(--dove);font-weight:600}
+.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
+.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
+
+/* shared */
+section{padding:104px 6vw}
+.wrap{width:min(1080px,100%);margin:0 auto}
+.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
+h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
+h2 .mute{color:var(--faint)}
+.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
+.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
+.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
+.bt.gho{color:var(--core)}
+.bt.gho:hover{background:rgba(31,111,242,.07)}
+
+/* hero */
+.phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
+  radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+.phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .eb b{color:var(--core)}
+.phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
+.phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
+.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
+.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
+.phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
+.pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
+.pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* why — the failures */
+.fails{margin-top:56px;border-top:1px solid var(--line)}
+.fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
+.fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
+.fl:hover{background:#fff;padding-left:22px}
+.fl:hover::before{transform:scaleY(1)}
+.fl .num{font-size:13px;font-weight:600;color:var(--faint);letter-spacing:.1em;padding-top:3px}
+.fl:hover .num{color:var(--core)}
+.fl h4{font-size:19px;font-weight:600;letter-spacing:-.025em}
+.fl p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+@media(max-width:880px){.fl{grid-template-columns:44px 1fr;gap:8px 16px}.fl p{grid-column:2}}
+
+/* image band */
+.band{margin-top:70px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#fff;position:relative}
+.band img{display:block;width:100%;mix-blend-mode:multiply}
+.band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
+
+/* who — audience bento */
+.aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
+.au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
+.au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
+.au .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
+.au p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+.au.first{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:linear-gradient(160deg,#0e2a63,var(--core-deep) 55%,var(--core));border-color:transparent}
+.au.first .ic{background:rgba(255,255,255,.14)}
+.au.first .ic svg{stroke:#fff}
+.au.first h4{color:#fff}
+.au.first p{color:rgba(255,255,255,.75);max-width:640px}
+.au.first .co{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
+@media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
+
+/* how — outcomes strip */
+.outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
+.outs .c{background:#fff;padding:34px 30px}
+.outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
+.outs .c .n span{color:var(--core)}
+.outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
+@media(max-width:880px){.outs{grid-template-columns:1fr}}
+
+/* mechanics — the stack */
+.mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
+.mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
+.layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.ly{padding:24px 4px;border-bottom:1px solid var(--line)}
+.ly .lt{display:flex;align-items:baseline;gap:12px}
+.ly .lt i{font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.16em;color:var(--core)}
+.ly h4{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.ly p{font-size:13.5px;line-height:1.62;color:var(--dove);margin-top:7px}
+@media(max-width:880px){.mech{grid-template-columns:1fr}}
+
+/* roadmap */
+.road{margin-top:56px;border-top:1px solid var(--line)}
+.rd{display:grid;grid-template-columns:80px 1.1fr 1.6fr auto;align-items:center;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line)}
+.rd .num{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.14em}
+.rd h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.rd p{font-size:13.5px;line-height:1.55;color:var(--dove)}
+.rd .st{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#2b3a55;background:var(--mist);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap}
+.rd .st.hot{color:#fff;background:var(--core);border-color:var(--core)}
+@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .st{grid-column:2;justify-self:start}}
+
+/* papers & code */
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
+.doc{background:#fff;border:1px dashed var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;gap:8px}
+.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
+.doc h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.doc p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+.doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
+@media(max-width:880px){.docs{grid-template-columns:1fr}}
+
+
+/* ═══════════ pricing (revolver) ═══════════ */
+#pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
+#pricing .wrap{width:min(1080px,100%);margin:0 auto;text-align:center}
+#pricing .stage{width:min(560px,100%);position:relative;margin:80px auto 60px;aspect-ratio:1.7/1;transform-style:preserve-3d}
+#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
+#pricing .hoverhint::before,#pricing .hoverhint::after{content:'';width:32px;height:1px;background:var(--faint);opacity:.5}
+#pricing .stage:hover .hoverhint{opacity:.35}
+
+/* card base */
+#pricing .card{position:absolute;inset:0;border-radius:22px;padding:22px 24px 20px;color:#fff;box-shadow:0 30px 60px rgba(30,60,110,.28),0 0 0 1px rgba(255,255,255,.4) inset,0 -20px 40px rgba(255,255,255,.25) inset;overflow:hidden;transform-style:preserve-3d;animation-play-state:paused;will-change:transform,z-index;backface-visibility:hidden;display:flex;flex-direction:column;gap:0}
+#pricing .card > *{position:relative;z-index:2}
+#pricing .card::before{content:'';position:absolute;inset:-20%;background:conic-gradient(from 140deg at 60% 40%,transparent 0deg,rgba(255,255,255,.22) 50deg,transparent 100deg,transparent 260deg,rgba(255,255,255,.16) 310deg,transparent 360deg);pointer-events:none;animation:pxHolo 12s linear infinite;mix-blend-mode:overlay}
+#pricing .card::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);pointer-events:none;animation:pxShim 5s 1.8s ease-in-out infinite}
+@keyframes pxHolo{to{transform:rotate(360deg)}}
+@keyframes pxShim{0%,55%,100%{left:-40%}75%{left:140%}}
+
+/* three tier finishes */
+#pricing .card.t-blue {background:linear-gradient(135deg,#0b47b8 0%,#1f6ff2 32%,#7ba8ff 62%,#e2ecff 88%,#f5f8ff 100%)}
+#pricing .card.t-slate{background:linear-gradient(135deg,#243b6b 0%,#4c6fa5 34%,#a8bcdc 66%,#e8edf5 100%)}
+#pricing .card.t-steel{background:linear-gradient(135deg,#5a6a86 0%,#8a99b5 34%,#c9d1de 66%,#f2f4f8 100%)}
+
+/* header */
+#pricing .cardhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-shrink:0}
+#pricing .brand{font-family:'Instrument',serif;font-style:italic;font-size:18px;font-weight:500;letter-spacing:.01em;text-shadow:0 1px 2px rgba(0,0,0,.25);display:flex;align-items:center;gap:10px;text-align:left}
+#pricing .brand::before{content:'';width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+#pricing .brand b{font-family:'Hanken',sans-serif;font-style:normal;font-weight:800;letter-spacing:.14em;font-size:10.5px;display:block;opacity:.95;text-align:left}
+#pricing .rec{font-size:9px;font-weight:800;letter-spacing:.28em;color:#0b47b8;background:linear-gradient(180deg,#fff 0%,#e0ebff 100%);padding:5px 10px;border-radius:99px;box-shadow:0 3px 8px rgba(11,71,184,.2),0 0 0 1px rgba(11,71,184,.15);white-space:nowrap}
+#pricing .card.t-slate .rec{color:#243b6b;background:linear-gradient(180deg,#fff 0%,#e6e8f0 100%);box-shadow:0 3px 8px rgba(36,59,107,.2),0 0 0 1px rgba(36,59,107,.15)}
+#pricing .card.t-steel .rec{color:#5a6a86;background:linear-gradient(180deg,#fff 0%,#e8ecf0 100%);box-shadow:0 3px 8px rgba(90,106,134,.2),0 0 0 1px rgba(90,106,134,.15)}
+
+/* stats */
+#pricing .stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.16);flex-shrink:0;text-align:left}
+#pricing .stat{display:flex;flex-direction:column;gap:2px}
+#pricing .stat span{font-size:8.5px;font-weight:700;letter-spacing:.24em;color:rgba(255,255,255,.7);text-transform:uppercase}
+#pricing .stat b{font-family:'Hanken',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#fff}
+
+/* price */
+#pricing .pricerow{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;flex-shrink:0;text-align:left}
+#pricing .pricerow .lead{display:flex;flex-direction:column;gap:1px}
+#pricing .pricerow .lead > span:first-child{font-size:9px;font-weight:700;letter-spacing:.26em;color:rgba(255,255,255,.7);text-transform:uppercase}
+#pricing .pricerow .pr{font-family:'Hanken',sans-serif;font-size:48px;font-weight:800;letter-spacing:-.045em;line-height:1;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.3),0 1px 0 rgba(255,255,255,.35)}
+#pricing .pricerow .pr b{font-size:15px;font-weight:600;letter-spacing:0;color:rgba(255,255,255,.75);margin-left:6px}
+#pricing .pricerow .trail{text-align:right;display:flex;flex-direction:column;gap:1px}
+#pricing .pricerow .trail span{font-size:9px;font-weight:700;letter-spacing:.24em;color:rgba(255,255,255,.7);text-transform:uppercase}
+#pricing .pricerow .trail b{font-family:'Hanken',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.01em;color:#fff}
+
+/* progress */
+#pricing .prog{margin-top:12px;flex-shrink:0}
+#pricing .proglabel{display:flex;justify-content:space-between;font-size:9px;font-weight:700;letter-spacing:.22em;color:rgba(255,255,255,.85);text-transform:uppercase;margin-bottom:6px}
+#pricing .progbar{height:4px;background:rgba(255,255,255,.15);border-radius:99px;position:relative;overflow:hidden}
+#pricing .progbar::before{content:'';position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,rgba(255,255,255,.6) 0%,#fff 100%);border-radius:99px;width:0;animation-play-state:paused;box-shadow:0 0 10px rgba(255,255,255,.5)}
+#pricing .proghandle{position:absolute;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:#fff;border-radius:50%;box-shadow:0 3px 8px rgba(0,0,0,.25),0 0 0 1.5px rgba(255,255,255,.4);left:0;animation-play-state:paused}
+
+/* tiles */
+#pricing .tiles{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-shrink:0;text-align:left}
+#pricing .locations{display:flex;flex-direction:column;gap:2px;font-size:9.5px;line-height:1.35;color:rgba(255,255,255,.9)}
+#pricing .locations b{font-weight:700;letter-spacing:.05em}
+#pricing .locations em{font-style:normal;color:rgba(255,255,255,.5);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-right:5px}
+#pricing .thumbs{display:flex;gap:6px}
+#pricing .thumb{width:38px;height:28px;border-radius:6px;background:linear-gradient(135deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.08) 100%);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Hanken',sans-serif;font-size:15px;font-weight:800;letter-spacing:.02em}
+
+/* === 3-tier orbit (120° apart, 11.7s cycle: 3s hold + 0.9s rotate x3) === */
+#pricing .orbit-3 .card{animation:pxOrbit3 11.7s linear infinite}
+#pricing .orbit-3 .card.p1{animation-delay:0s}
+#pricing .orbit-3 .card.p2{animation-delay:-7.8s}
+#pricing .orbit-3 .card.p3{animation-delay:-3.9s}
+#pricing .orbit-3 .card.p1 .progbar::before,#pricing .orbit-3 .card.p1 .proghandle{animation:pxProg 11.7s linear infinite,pxHandle 11.7s linear infinite;animation-delay:0s;animation-play-state:paused}
+#pricing .orbit-3 .card.p1 .proghandle{animation:pxHandle 11.7s linear infinite;animation-delay:0s;animation-play-state:paused}
+#pricing .orbit-3 .card.p1 .progbar::before{animation:pxProg 11.7s linear infinite;animation-delay:0s;animation-play-state:paused}
+#pricing .orbit-3 .card.p2 .proghandle{animation:pxHandle 11.7s linear infinite;animation-delay:-7.8s;animation-play-state:paused}
+#pricing .orbit-3 .card.p2 .progbar::before{animation:pxProg 11.7s linear infinite;animation-delay:-7.8s;animation-play-state:paused}
+#pricing .orbit-3 .card.p3 .proghandle{animation:pxHandle 11.7s linear infinite;animation-delay:-3.9s;animation-play-state:paused}
+#pricing .orbit-3 .card.p3 .progbar::before{animation:pxProg 11.7s linear infinite;animation-delay:-3.9s;animation-play-state:paused}
+
+/* === 2-tier orbit (180° apart, 7.8s cycle) === */
+#pricing .orbit-2 .card{animation:pxOrbit2 7.8s linear infinite}
+#pricing .orbit-2 .card.p1{animation-delay:0s}
+#pricing .orbit-2 .card.p2{animation-delay:-3.9s}
+#pricing .orbit-2 .card.p1 .proghandle{animation:pxHandle 7.8s linear infinite;animation-delay:0s;animation-play-state:paused}
+#pricing .orbit-2 .card.p1 .progbar::before{animation:pxProg 7.8s linear infinite;animation-delay:0s;animation-play-state:paused}
+#pricing .orbit-2 .card.p2 .proghandle{animation:pxHandle 7.8s linear infinite;animation-delay:-3.9s;animation-play-state:paused}
+#pricing .orbit-2 .card.p2 .progbar::before{animation:pxProg 7.8s linear infinite;animation-delay:-3.9s;animation-play-state:paused}
+
+#pricing .stage:hover .card,#pricing .stage:hover .card .progbar::before,#pricing .stage:hover .card .proghandle{animation-play-state:running}
+
+/* 3-tier orbit keyframes (see pricing-stack S1 for annotation) */
+@keyframes pxOrbit3{
+  0%,25.6%   {transform:translate3d(0,    0px, 110px); z-index:30}
+  26.6%      {transform:translate3d(0,  +28px, 106px); z-index:29}
+  27.5%      {transform:translate3d(0,  +55px,  95px); z-index:27}
+  28.5%      {transform:translate3d(0,  +78px,  78px); z-index:24}
+  29.5%      {transform:translate3d(0,  +95px,  55px); z-index:20}
+  30.5%      {transform:translate3d(0, +106px,  28px); z-index:17}
+  31.5%      {transform:translate3d(0, +110px,    0);  z-index:15}
+  32.4%      {transform:translate3d(0, +106px, -28px); z-index:12}
+  33.3%,58.9%{transform:translate3d(0,  +95px, -55px); z-index:10}
+  59.9%      {transform:translate3d(0,  +78px, -78px); z-index:8}
+  60.9%      {transform:translate3d(0,  +55px, -95px); z-index:5}
+  61.8%      {transform:translate3d(0,  +28px,-106px); z-index:4}
+  63%        {transform:translate3d(0,    0px,-110px); z-index:3}
+  64%        {transform:translate3d(0,  -28px,-106px); z-index:4}
+  64.9%      {transform:translate3d(0,  -55px, -95px); z-index:5}
+  65.8%      {transform:translate3d(0,  -78px, -78px); z-index:8}
+  66.6%,92.3%{transform:translate3d(0,  -95px, -55px); z-index:10}
+  93.3%      {transform:translate3d(0, -106px, -28px); z-index:12}
+  94.2%      {transform:translate3d(0, -110px,    0);  z-index:15}
+  95.2%      {transform:translate3d(0, -106px, +28px); z-index:17}
+  96.2%      {transform:translate3d(0,  -95px, +55px); z-index:20}
+  97.2%      {transform:translate3d(0,  -78px, +78px); z-index:24}
+  98.2%      {transform:translate3d(0,  -55px, +95px); z-index:27}
+  99.1%      {transform:translate3d(0,  -28px,+106px); z-index:29}
+  100%       {transform:translate3d(0,    0px, 110px); z-index:30}
+}
+
+/* 2-tier orbit — 180° swap between front and back */
+@keyframes pxOrbit2{
+  0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
+  40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
+  42%        {transform:translate3d(0,  +95px,  55px); z-index:20}
+  44%        {transform:translate3d(0, +110px,    0);  z-index:15}
+  46%        {transform:translate3d(0,  +95px, -55px); z-index:10}
+  47.5%      {transform:translate3d(0,  +55px, -95px); z-index:5}
+  49%,88.5%  {transform:translate3d(0,    0px,-110px); z-index:3}
+  90%        {transform:translate3d(0,  -55px, -95px); z-index:5}
+  92%        {transform:translate3d(0,  -95px, -55px); z-index:10}
+  94%        {transform:translate3d(0, -110px,    0);  z-index:15}
+  96%        {transform:translate3d(0,  -95px, +55px); z-index:20}
+  98%        {transform:translate3d(0,  -55px, +95px); z-index:27}
+  100%       {transform:translate3d(0,    0px, 110px); z-index:30}
+}
+
+@keyframes pxProg{
+  0%       {width:0;    opacity:1}
+  25.6%    {width:100%; opacity:1}
+  27%      {width:100%; opacity:0}
+  99%      {width:0;    opacity:0}
+  100%     {width:0;    opacity:1}
+}
+@keyframes pxHandle{
+  0%       {left:0;    opacity:1}
+  25.6%    {left:100%; opacity:1}
+  27%      {left:100%; opacity:0}
+  99%      {left:0;    opacity:0}
+  100%     {left:0;    opacity:1}
+}
+
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+
+/* ═══════════ system requirements ═══════════ */
+#sysreq{padding:110px 6vw}
+#sysreq .wrap{width:min(1080px,100%);margin:0 auto}
+#sysreq .sysreqgrid{display:grid;grid-template-columns:340px 1fr;gap:80px;align-items:start}
+#sysreq .sysreqhead .k{margin-bottom:16px}
+#sysreq .sysreqhead h2{font-size:clamp(28px,3.6vw,40px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin:0}
+#sysreq .sysreqhead .lead{margin-top:20px;color:var(--dove);font-size:15px;line-height:1.7;max-width:280px}
+#sysreq .sysreqrows{margin:0;padding:0;border-top:1px solid var(--line)}
+#sysreq .sysreqrow{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:22px 4px;border-bottom:1px solid var(--line);align-items:baseline}
+#sysreq .sysreqrow dt{font-family:'Hanken',sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;color:var(--ink);text-transform:uppercase;margin:0}
+#sysreq .sysreqrow dd{margin:0;font-size:15px;line-height:1.55;color:var(--dove)}
+@media(max-width:880px){
+  #sysreq .sysreqgrid{grid-template-columns:1fr;gap:40px}
+  #sysreq .sysreqrow{grid-template-columns:1fr;gap:6px;padding:18px 0}
+}
+#pricing .k,#pricing h2,#pricing .lead{text-align:center}
+#pricing h2{max-width:640px;margin-left:auto;margin-right:auto}
+#pricing .lead{max-width:620px;margin-left:auto;margin-right:auto}
+#pricing .extra{margin-top:44px;font-size:12.5px;color:var(--dove);text-align:center;font-family:'Instrument',serif;font-style:italic}
+
+@media (prefers-reduced-motion:reduce){
+  #pricing .card{animation:none!important;opacity:1}
+  #pricing .card::before,#pricing .card::after{animation:none!important}
+  #pricing .progbar::before,#pricing .proghandle{animation:none!important;width:70%;opacity:1}
+}
+
+/* cta + footer */
+.cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
+footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
+.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
+.legal a{color:inherit}
+
+/* consent */
+.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
+.consent.show{transform:translateX(-50%) translateY(0)}
+.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
+.consent p a{color:var(--core)}
+.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
+.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
+.consent .acc{background:var(--core);color:#fff;border:0}
+.consent .acc:hover{background:var(--core-deep)}
+.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.consent .dec:hover{border-color:var(--dove)}
+@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
+
+@media(max-width:880px){
+  .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
+  .pheroart{order:-1}
+  .pheroart img{width:min(300px,70vw)}
+  .nav .crumb{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+      VF EMPIRE
+    </a>
+    <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·02 Private Care Watch</b></span>
+    <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div>
+    <div class="eb"><b>P·02</b> &nbsp;·&nbsp; ELDER CARE &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
+    <h1>Private Care Watch<span>Care that watches over,<br><em class="i">without watching.</em></span></h1>
+    <p class="sub">Every family with ageing parents knows the fear: the fall nobody heard, the quiet decline nobody measured. The market answer is cloud cameras in the living room. Private Care Watch is the other answer — monitoring and alerting on hardware the family owns, with nothing streamed anywhere.</p>
+    <div class="meta">
+      <span class="mchip hot">IN BUILD</span>
+      <span class="mchip">ON-PREMISE PROCESSING</span>
+      <span class="mchip">NO CLOUD VIDEO</span>
+      <span class="mchip">FAMILY ALERTS</span>
+    </div>
+    <div class="acts">
+      <a class="bt pri" href="mailto:info@vfempire.com?subject=Private%20Care%20Watch">Register interest</a>
+      <a class="bt gho" href="/#pipeline">Back to the slate</a>
+    </div>
+  </div>
+  <div class="pheroart"><img src="../assets/pipe/p02.webp" alt="Minimal 3D render of an armchair with a small guardian orb beside it — Private Care Watch by VF Empire"></div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="k rv">WHY IT HAS TO EXIST</div>
+    <h2 class="rv">The fall is a fact of ageing.<br><span class="mute">The cloud camera is not.</span></h2>
+    <p class="lead rv">Falls are one of the largest hidden emergencies in the world, and the wish to age at home is nearly universal. The technology offered to bridge those two facts mostly asks families to point internet-connected cameras at their parents. That trade should never have been the default.</p>
+
+    <div class="fails rv">
+      <div class="fl">
+        <span class="num">F·01</span>
+        <h4>The scale of the fall</h4>
+        <p>The World Health Organization estimates around 684,000 people die from falls every year, with some 37 million falls severe enough to need medical attention. For older adults, the hours between falling and being found often decide the outcome.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·02</span>
+        <h4>Everyone wants to stay home</h4>
+        <p>Surveys consistently find about three-quarters of older adults want to age in their own homes. Families want that too — what they lack is a trustworthy way to know that today was a normal day.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·03</span>
+        <h4>Cloud cameras have already failed</h4>
+        <p>The 2021 Verkada breach exposed live feeds from around 150,000 cameras, including inside care facilities. A camera feed that leaves the house is a camera feed that can leak. With grandparents, that risk class should be off the table entirely.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·04</span>
+        <h4>Decline is quiet before it is loud</h4>
+        <p>Before the emergency there is the drift — meals skipped, nights disturbed, movement slowing. Point sensors and panic buttons miss it; a system watching routine patterns can surface it while it is still a conversation, not a crisis.</p>
+      </div>
+    </div>
+
+    <div class="band rv">
+      <img src="../assets/pipe/p02-flow.png" alt="Abstract render of a home outline with a single blue pulse held inside its walls — data that never leaves" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
+      <span class="cap">WHO: ≈684,000 FALL DEATHS WORLDWIDE EVERY YEAR</span>
+    </div>
+  </div>
+</section>
+
+<section id="who" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">WHO IT SERVES</div>
+    <h2 class="rv">For the family<br><span class="mute">an hour or a continent away.</span></h2>
+
+    <div class="aud rv">
+      <div class="au first">
+        <div>
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
+        </div>
+        <div>
+          <h4>The long-distance family</h4>
+          <p>Millions of Europeans live a flight away from ageing parents — Malta knows this pattern intimately. Private Care Watch is designed for exactly that household: parents at home, children abroad, and a daily answer to the only question that matters — is everything normal today?</p>
+          <div class="co"><span>PARENTS AT HOME</span><span>CHILDREN ABROAD</span><span>DAILY REASSURANCE</span><span>ALERTS THAT MATTER</span></div>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 9v11h14V9"/></svg></div>
+        <h4>Ageing at home</h4>
+        <p>The older adult who wants independence without isolation. The system is theirs, in their house, on their terms — presence-aware, not camera-first, with consent built into the architecture.</p>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
+        <h4>Adult children</h4>
+        <p>A calm daily signal instead of anxious phone checks. Alerts arrive when something needs attention; silence genuinely means all is well.</p>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
+        <h4>Live-in and visiting carers</h4>
+        <p>Carers see the pattern between visits — what the nights looked like, whether routines held — so care hours go where the drift actually is.</p>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2M11 21v-3h2v3"/></svg></div>
+        <h4>Small care residences</h4>
+        <p>Family-scale homes that want resident safety without installing a surveillance estate. Same architecture, more rooms, same rule: processing stays on site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="k rv">WHAT IT CHANGES</div>
+    <h2 class="rv">Alerting when it matters.<br><span class="mute">Silence when it doesn’t.</span></h2>
+    <p class="lead rv">Private Care Watch is a monitoring and alerting system — it tells families what happened and what is drifting. It does not diagnose, and it does not promise prevention. That honesty is the product.</p>
+
+    <div class="outs rv">
+      <div class="c"><div class="n">Minutes, not hours<span>.</span></div><p>Fall and no-movement alerting designed to collapse the time between an incident and someone knowing — the single variable families can actually change.</p></div>
+      <div class="c"><div class="n">The drift made visible<span>.</span></div><p>Routine baselines per household: sleep, movement, kitchen activity. When the pattern bends, the family sees it early enough to act gently.</p></div>
+      <div class="c"><div class="n">Privacy as architecture<span>.</span></div><p>All processing on the home hub. No video leaves the house — by design there is no cloud feed to breach, subpoena or resell.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="mechanics" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">THE MECHANICS</div>
+    <h2 class="rv">The hub is the product.<br><span class="mute">The cloud is not invited.</span></h2>
+    <p class="lead rv">The system is built so the most sensitive data that exists — footage of your parents in their own home — never becomes network traffic. Everything that watches, thinks locally.</p>
+
+    <div class="mech rv">
+      <div class="mechart"><img src="../assets/pipe/p02-mech.png" alt="Layered render of sensor signals resolving inside a single home unit with one blue status light" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
+      <div class="layers">
+        <div class="ly">
+          <div class="lt"><i>LAYER 1</i><h4>The sensing layer</h4></div>
+          <p>Radar, motion and door sensors first; optional cameras only where the household chooses them. Sensor selection favours modalities that never produce identifiable imagery at all.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 2</i><h4>The home hub</h4></div>
+          <p>A local unit running all detection models on-premise. Fall inference, presence tracking and routine modelling happen here — raw sensor data is processed and discarded on the device.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 3</i><h4>The pattern engine</h4></div>
+          <p>Longitudinal baselines built per person, per home. Alerts are judged against this household’s normal, which keeps false alarms low and real drift visible.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 4</i><h4>The family surface</h4></div>
+          <p>Phone apps carrying alerts and daily summaries — status and events, never a live feed. Every family member sees exactly what the older adult consented to share.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="k rv">BUILD TRAJECTORY</div>
+    <h2 class="rv">From one living room<br><span class="mute">to any family that needs it.</span></h2>
+
+    <div class="road rv">
+      <div class="rd">
+        <span class="num">R·01</span>
+        <h4>The first household</h4>
+        <p>Hub hardware selection, fall and presence detection running fully local, family alerting proven end-to-end in real homes.</p>
+        <span class="st hot">IN BUILD</span>
+      </div>
+      <div class="rd">
+        <span class="num">R·02</span>
+        <h4>The pattern season</h4>
+        <p>Routine-drift modelling over months of baseline data, carer views, and the consent framework hardened with real families using it.</p>
+        <span class="st">NEXT</span>
+      </div>
+      <div class="rd">
+        <span class="num">R·03</span>
+        <h4>The care circle</h4>
+        <p>General availability, multi-room and small-residence configurations, and integrations with local emergency contacts and care providers.</p>
+        <span class="st">PLANNED</span>
+      </div>
+    </div>
+
+    <div class="docs rv">
+      <div class="doc">
+        <span class="dk">WHITE PAPER</span>
+        <h4>The no-cloud care thesis</h4>
+        <p>The VF position paper on elder monitoring: why in-home processing is the only defensible architecture for this data class, and what alerting can honestly promise.</p>
+        <span class="tba">IN PREPARATION</span>
+      </div>
+      <div class="doc">
+        <span class="dk">REPOSITORY</span>
+        <h4>private-care-watch</h4>
+        <p>Hub firmware and detection pipeline. Privacy-critical components will be built for auditability — families should be able to verify nothing leaves the house.</p>
+        <span class="tba">TBA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sysreqgrid">
+      <div class="sysreqhead">
+        <div class="k rv">SYSTEM REQUIREMENTS</div>
+        <h2 class="rv">What the home needs</h2>
+        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+      </div>
+      <dl class="sysreqrows rv">
+        <div class="sysreqrow"><dt>Sensor hub</dt><dd>One VF hub, plugged into any power outlet.</dd></div>
+        <div class="sysreqrow"><dt>Camera</dt><dd>None — motion + radar only.</dd></div>
+        <div class="sysreqrow"><dt>Internet</dt><dd>Home broadband, ~1 Mbps sustained.</dd></div>
+        <div class="sysreqrow"><dt>Data residency</dt><dd>EU metal. Your data never leaves the region.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="k rv">PLANNED PRICING</div>
+    <h2 class="rv">The hub near cost.<br><span class="mute">The watching is the product.</span></h2>
+    <p class="lead rv">One price covers fall alerting, routine drift and the family app together — nothing essential sold back as an add-on.</p>
+    <div class="stage orbit-3">
+      <span class="hoverhint">Hover the cards to see every tier</span>
+<div class="card t-slate p1">
+    <div class="cardhead">
+      <div class="brand">PRIVATE <b>PRIVATE CARE WATCH · CARE WATCH</b></div>
+      <span class="rec">RECOMMENDED</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>Alerts</span><b>Fall + drift</b></div>
+      <div class="stat"><span>App</span><b>Family</b></div>
+      <div class="stat"><span>Cover</span><b>All-in</b></div>
+    </div>
+    <div class="pricerow">
+      <div class="lead"><span>Monthly</span><span class="pr">€29<b>/ month</b></span></div>
+      <div class="trail"><span>Year one</span><b>€348</b></div>
+    </div>
+    <div class="prog">
+      <div class="proglabel"><span>Founding seats claimed</span><span>34%</span></div>
+      <div class="progbar"><div class="proghandle"></div></div>
+    </div>
+    <div class="tiles">
+      <div class="locations">
+        <div><em>Region</em>EU · Malta OSS</div>
+        <div><em>Includes</em>Fall alerting, routine drift, family app</div>
+      </div>
+      <div class="thumbs"><div class="thumb">HOME</div><div class="thumb">EU</div></div>
+    </div>
+  </div>
+<div class="card t-blue p2">
+    <div class="cardhead">
+      <div class="brand">PRIVATE <b>PRIVATE CARE WATCH · THE HUB</b></div>
+      <span class="rec">THE HUB</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>Sensor hub</span><b>1</b></div>
+      <div class="stat"><span>Camera</span><b>None</b></div>
+      <div class="stat"><span>Cloud</span><b>None</b></div>
+    </div>
+    <div class="pricerow">
+      <div class="lead"><span>One-off</span><span class="pr">€249<b>one-off</b></span></div>
+      <div class="trail"><span>Payment</span><b>One-off</b></div>
+    </div>
+    <div class="prog">
+      <div class="proglabel"><span>Founding seats claimed</span><span>68%</span></div>
+      <div class="progbar"><div class="proghandle"></div></div>
+    </div>
+    <div class="tiles">
+      <div class="locations">
+        <div><em>Region</em>EU · Malta OSS</div>
+        <div><em>Includes</em>The in</div>
+      </div>
+      <div class="thumbs"><div class="thumb">HOME</div><div class="thumb">EU</div></div>
+    </div>
+  </div>
+<div class="card t-steel p3">
+    <div class="cardhead">
+      <div class="brand">PRIVATE <b>PRIVATE CARE WATCH · RESIDENCE</b></div>
+      <span class="rec">RESIDENCE</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>Rooms</span><b>Multi</b></div>
+      <div class="stat"><span>Homes</span><b>Shared</b></div>
+      <div class="stat"><span>Beds</span><b>Small residence</b></div>
+    </div>
+    <div class="pricerow">
+      <div class="lead"><span>Monthly</span><span class="pr">€49<b>/ month per home</b></span></div>
+      <div class="trail"><span>Year one</span><b>€588</b></div>
+    </div>
+    <div class="prog">
+      <div class="proglabel"><span>Founding seats claimed</span><span>12%</span></div>
+      <div class="progbar"><div class="proghandle"></div></div>
+    </div>
+    <div class="tiles">
+      <div class="locations">
+        <div><em>Region</em>EU · Malta OSS</div>
+        <div><em>Includes</em>Multi</div>
+      </div>
+      <div class="thumbs"><div class="thumb">HOME</div><div class="thumb">EU</div></div>
+    </div>
+  </div>
+    </div>
+    
+    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+  </div>
+</section>
+
+
+
+<section class="cta-band">
+  <div class="wrap">
+    <div class="k rv">FOLLOW THE BUILD</div>
+    <h2 class="rv">Their dignity.<br><span class="mute">Your peace of mind. No trade.</span></h2>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Private Care Watch is in build. If your family is living the long-distance question, register interest — pilot households shape what this becomes.</p>
+    <div style="margin-top:36px">
+      <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Private%20Care%20Watch">info@vfempire.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="legal">
+    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
+  <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
+  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="dec" id="cdec">Decline</button>
+    <button class="acc" id="cacc">Accept</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const el = document.getElementById('consent');
+  if (localStorage.getItem('vf-consent')) { el.remove(); return; }
+  setTimeout(() => el.classList.add('show'), 1400);
+  const choose = v => { localStorage.setItem('vf-consent', v); el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
+  document.getElementById('cacc').onclick = () => choose('accepted');
+  document.getElementById('cdec').onclick = () => choose('declined');
+})();
+
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting && (e.intersectionRatio >= .18 || e.boundingClientRect.height > innerHeight * .6)){
+      e.target.classList.add('on');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:[0,.18]});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
+  [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
+});
+</script>
+<script src="/assets/scrollrail.js" defer></script>
+
+</body>
+</html>

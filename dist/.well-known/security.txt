@@ -1,0 +1,17 @@
+# VF Empire Corp Ltd — vulnerability disclosure
+# RFC 9116 (security.txt).
+
+Contact: mailto:security@vfempire.com
+Encryption: https://vfempire.com/.well-known/pgp.txt
+Preferred-Languages: en, mt, de
+Canonical: https://vfempire.com/.well-known/security.txt
+Policy: https://vfempire.com/legal/security-policy
+Hiring: https://vfempire.com/careers
+
+# We run a paid bug bounty for privacy leaks against NAV·IT (€500–€25 000
+# per confirmed break, scaled by severity). See the sovereign-navigator
+# verification checklist at
+# https://vfempire.com/systems/nav-it for reproducible tests.
+
+# Expires 12 months from today — refresh on rotation.
+Expires: 2027-09-12T00:00:00Z

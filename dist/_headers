@@ -1,0 +1,50 @@
+# Cloudflare Workers Assets — response headers, matched by path prefix.
+# Docs: https://developers.cloudflare.com/workers/static-assets/headers/
+#
+# Design goals:
+#   - Zero third-party fetches from vfempire.com pages (verified today,
+#     enforced by CSP going forward).
+#   - Zero cookies (site doesn't set any; header sanity-checks with 'none').
+#   - Zero tracking pixels, no beacons, no analytics scripts.
+#   - Clickjacking + MIME-sniffing + referrer-leak protection.
+#   - Full HTTPS lock-in for the domain + all subs.
+#
+# The CSP allows 'unsafe-inline' for <style> and <script> because the site
+# ships hand-authored inline blocks (no user input reaches them). Everything
+# else is 'self' only — no external origins period.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; frame-ancestors 'none'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), clipboard-read=(), clipboard-write=(self), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(self), xr-spatial-tracking=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  X-Permitted-Cross-Domain-Policies: none
+  X-DNS-Prefetch-Control: off
+  X-Robots-Tag: index, follow
+
+# Assets can be safely cached long. Everything is content-hashed by filename
+# or is truly static.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Cross-Origin-Resource-Policy: same-site
+
+# HTML pages: revalidate on every load so an updated deploy propagates fast.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# security.txt should be findable + cacheable at both /.well-known and /security.txt.
+/.well-known/security.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=604800
+
+/security.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=604800

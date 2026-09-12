@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Mirror source HTML files into dist/ before deploy.
+#
+# Cloudflare Workers Assets serves whatever's under dist/. The source tree at
+# the repo root is the working copy that gets edited by hand; this script
+# reflects those edits into dist/ so the deploy picks them up.
+#
+# We deliberately DO NOT deploy directly from the source tree because:
+#   - It contains dev-only files (palette.html, index-v4-dark.html, mock-ratings/)
+#   - It contains local state (.wrangler/)
+#   - Keeping dist/ separate makes the "shipping bytes" reviewable at a glance
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+# Top-level HTML
+for f in index.html 401.html 404.html; do
+  [ -f "$f" ] && cp -v "$f" "dist/$f"
+done
+
+# Sitemap
+cp -v sitemap.xml     dist/sitemap.xml
+cp -v sitemap.xml     sitemap-full.xml || true
+
+# Systems
+mkdir -p dist/systems
+find systems -maxdepth 1 -name '*.html' -exec cp -v {} dist/systems/ \;
+
+# Legal + contact
+mkdir -p dist/legal dist/contact
+find legal   -maxdepth 1 -name '*.html' -exec cp -v {} dist/legal/ \;
+find contact -maxdepth 1 -name '*.html' -exec cp -v {} dist/contact/ \;
+
+# Assets (fonts are inside dist/ already; keep the sync one-way for images)
+if [ -d assets ]; then
+  mkdir -p dist/assets
+  cp -r assets/. dist/assets/
+fi
+if [ -d fonts ]; then
+  mkdir -p dist/fonts
+  cp -r fonts/. dist/fonts/
+fi
+
+echo
+echo "✓ Mirror complete. Deploy with: npx wrangler deploy"

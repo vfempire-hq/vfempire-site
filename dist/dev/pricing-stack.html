@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — Stack family (light theme, reference-inspired)</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+:root{
+  --paper:#fbfbfd; --silver:#f0f1f4; --mist:#eceff3; --ink:#1d1d1f;
+  --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
+  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400}
+.mute{color:var(--faint)}
+section{padding:110px 6vw 130px;position:relative}
+.wrap{width:min(1120px,100%);margin:0 auto}
+.k{font-size:11px;font-weight:600;letter-spacing:.3em;color:var(--core)}
+h2{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-top:18px}
+.lead{font-size:16px;line-height:1.7;color:var(--dove);margin-top:20px;max-width:620px}
+.pnote{margin-top:56px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+
+.optbar{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.85);backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid var(--line);padding:14px 6vw;display:flex;gap:22px;align-items:baseline;flex-wrap:wrap}
+.optbar b{font-size:13px;letter-spacing:.2em}
+.optbar span{font-size:12px;color:var(--dove)}
+.optbar a{font-size:11px;color:var(--core);text-decoration:none;letter-spacing:.14em;margin-left:auto}
+.opthead{padding:64px 6vw 0;max-width:900px}
+.opthead .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.3em;color:#fff;background:var(--ink);padding:9px 18px;border-radius:99px}
+.opthead h3{font-size:26px;font-weight:700;letter-spacing:-.02em;margin-top:16px}
+.opthead p{font-size:14.5px;color:var(--dove);margin-top:8px;max-width:680px;line-height:1.65}
+hr{border:0;border-top:1px solid var(--line);margin:80px 0 0}
+
+/* corner metadata (all variants) */
+.corner{position:absolute;font-size:10.5px;font-weight:500;letter-spacing:.24em;color:var(--faint);text-transform:uppercase}
+.corner.tl{top:34px;left:34px} .corner.tr{top:34px;right:34px}
+.corner.bl{bottom:32px;left:34px} .corner.br{bottom:32px;right:34px;max-width:280px;text-align:right;text-transform:none;letter-spacing:.02em;font-size:11.5px;line-height:1.5}
+
+/* stage (the frame the stacked cards live in) */
+.stage{margin:80px auto 0;width:min(560px,100%);position:relative}
+
+/* ═══════════════════════ S1 · ORBIT (hold + fast rotate) ═══════════════════════
+   Three cards at 3 positions on a Y-Z-plane circle, 120° apart. Rather
+   than a continuous spin (which caused clipping as adjacent cards passed
+   each other on a small radius), the wheel HOLDS at rest for 3 seconds,
+   then all three cards rotate FAST (0.9s) to the next position at the
+   same time — maintaining 120° angular separation throughout so no card
+   ever occupies another's space. z-index tracks Z-position frame by frame
+   so the closer card always renders on top of the further one.          */
+.s1{background:radial-gradient(ellipse at 50% 20%,#f4f6fb 0%,#e6eaf1 100%);perspective:1500px;perspective-origin:50% 50%}
+.s1 .stage{width:min(560px,100%);position:relative;margin:160px auto 60px;aspect-ratio:1.586/1;transform-style:preserve-3d}
+
+/* each card: 12s full cycle = 3s hold + 0.9s rotate + 3s hold + 0.9s rotate + 3s hold + 1.2s wrap-rotate */
+.s1 .card{position:absolute;inset:0;border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 30px 60px rgba(30,60,110,.28),0 0 0 1px rgba(255,255,255,.4) inset,0 -20px 40px rgba(255,255,255,.25) inset;overflow:hidden;transform-style:preserve-3d;animation:s1Orbit 11.7s linear infinite;animation-play-state:paused;will-change:transform,z-index;backface-visibility:hidden}
+.s1 .card.c1{background:linear-gradient(135deg,#0b47b8 0%,#1f6ff2 32%,#7ba8ff 62%,#e2ecff 88%,#f5f8ff 100%);animation-delay:0s}                                          /* MAILBOX · starts at FRONT      */
+.s1 .card.c2{background:linear-gradient(135deg,#243b6b 0%,#4c6fa5 34%,#a8bcdc 66%,#e8edf5 100%);animation-delay:-7.8s}                                                  /* FAMILY  · starts at UPPER-BACK */
+.s1 .card.c3{background:linear-gradient(135deg,#5a6a86 0%,#8a99b5 34%,#c9d1de 66%,#f2f4f8 100%);animation-delay:-3.9s}                                                  /* TEAMS   · starts at LOWER-BACK */
+.s1 .stage:hover .card{animation-play-state:running}
+
+/* Positions: 3 evenly-spaced points on a circle radius 110px in Y-Z plane.
+   Position A · FRONT       = 0°   = (0,    0, +110)
+   Position B · LOWER-BACK  = 120° = (0, +95, -55)
+   Position C · UPPER-BACK  = 240° = (0, -95, -55)
+   Cycle: 3s hold at A → 0.9s rotate to B → 3s hold at B → 0.9s rotate to
+   C → 3s hold at C → 0.9s rotate back to A. Timing is `linear` on the
+   overall animation so each 15° arc segment takes equal time and no
+   micro-easing is applied between segments — reads as one smooth spin. */
+@keyframes s1Orbit{
+  /* HOLD at FRONT (0-3s, 0-25.6%) */
+  0%,25.6%   {transform:translate3d(0,    0px, 110px); z-index:30}
+  /* Rotate FRONT → LOWER-BACK — 8 keyframes at 15° each for a very smooth arc */
+  26.6%      {transform:translate3d(0,  +28px, 106px); z-index:29}
+  27.5%      {transform:translate3d(0,  +55px,  95px); z-index:27}
+  28.5%      {transform:translate3d(0,  +78px,  78px); z-index:24}
+  29.5%      {transform:translate3d(0,  +95px,  55px); z-index:20}
+  30.5%      {transform:translate3d(0, +106px,  28px); z-index:17}
+  31.5%      {transform:translate3d(0, +110px,    0);  z-index:15}
+  32.4%      {transform:translate3d(0, +106px, -28px); z-index:12}
+  /* HOLD at LOWER-BACK (3.9-6.9s, 33.3-58.9%) */
+  33.3%,58.9%{transform:translate3d(0,  +95px, -55px); z-index:10}
+  /* Rotate LOWER-BACK → UPPER-BACK — 8 keyframes at 15° each */
+  59.9%      {transform:translate3d(0,  +78px, -78px); z-index:8}
+  60.9%      {transform:translate3d(0,  +55px, -95px); z-index:5}
+  61.8%      {transform:translate3d(0,  +28px,-106px); z-index:4}
+  63%        {transform:translate3d(0,    0px,-110px); z-index:3}
+  64%        {transform:translate3d(0,  -28px,-106px); z-index:4}
+  64.9%      {transform:translate3d(0,  -55px, -95px); z-index:5}
+  65.8%      {transform:translate3d(0,  -78px, -78px); z-index:8}
+  /* HOLD at UPPER-BACK (7.8-10.8s, 66.6-92.3%) */
+  66.6%,92.3%{transform:translate3d(0,  -95px, -55px); z-index:10}
+  /* Rotate UPPER-BACK → FRONT — 8 keyframes at 15° each */
+  93.3%      {transform:translate3d(0, -106px, -28px); z-index:12}
+  94.2%      {transform:translate3d(0, -110px,    0);  z-index:15}
+  95.2%      {transform:translate3d(0, -106px, +28px); z-index:17}
+  96.2%      {transform:translate3d(0,  -95px, +55px); z-index:20}
+  97.2%      {transform:translate3d(0,  -78px, +78px); z-index:24}
+  98.2%      {transform:translate3d(0,  -55px, +95px); z-index:27}
+  99.1%      {transform:translate3d(0,  -28px,+106px); z-index:29}
+  100%       {transform:translate3d(0,    0px, 110px); z-index:30}
+}
+
+/* larger stage to hold richer cards + hint */
+.s1 .stage{aspect-ratio:1.7/1}
+
+/* rich card content — laid out like a product dashboard */
+.s1 .card{padding:22px 24px 20px;display:flex;flex-direction:column;gap:0}
+.s1 .card > *{position:relative;z-index:2}
+.s1 .cardhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-shrink:0}
+.s1 .brand{font-family:'Instrument',serif;font-style:italic;font-size:18px;font-weight:500;letter-spacing:.01em;text-shadow:0 1px 2px rgba(0,0,0,.25);display:flex;align-items:center;gap:10px}
+.s1 .brand::before{content:'';width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+.s1 .brand b{font-family:'Hanken',sans-serif;font-style:normal;font-weight:800;letter-spacing:.14em;font-size:10.5px;display:block;opacity:.95}
+.s1 .rec{font-size:9px;font-weight:800;letter-spacing:.28em;color:#0b47b8;background:linear-gradient(180deg,#fff 0%,#e0ebff 100%);padding:5px 10px;border-radius:99px;box-shadow:0 3px 8px rgba(11,71,184,.2),0 0 0 1px rgba(11,71,184,.15);white-space:nowrap}
+.s1 .card.c2 .rec{color:#243b6b;background:linear-gradient(180deg,#fff 0%,#e6e8f0 100%)}
+.s1 .card.c3 .rec{color:#5a6a86;background:linear-gradient(180deg,#fff 0%,#e8ecf0 100%)}
+
+/* metrics row — three quick stats */
+.s1 .stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.16);flex-shrink:0}
+.s1 .stat{display:flex;flex-direction:column;gap:2px}
+.s1 .stat span{font-size:8.5px;font-weight:700;letter-spacing:.24em;color:rgba(255,255,255,.7);text-transform:uppercase}
+.s1 .stat b{font-family:'Hanken',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.015em;color:#fff}
+
+/* big price row — the "distance/time" of the reference */
+.s1 .pricerow{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;flex-shrink:0}
+.s1 .pricerow .lead{display:flex;flex-direction:column;gap:1px}
+.s1 .pricerow .lead span{font-size:9px;font-weight:700;letter-spacing:.26em;color:rgba(255,255,255,.7);text-transform:uppercase}
+.s1 .pricerow .pr{font-family:'Hanken',sans-serif;font-size:52px;font-weight:800;letter-spacing:-.045em;line-height:1;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.3),0 1px 0 rgba(255,255,255,.35)}
+.s1 .pricerow .pr b{font-size:16px;font-weight:600;letter-spacing:0;color:rgba(255,255,255,.75);margin-left:6px}
+.s1 .pricerow .trail{text-align:right;display:flex;flex-direction:column;gap:1px}
+.s1 .pricerow .trail span{font-size:9px;font-weight:700;letter-spacing:.24em;color:rgba(255,255,255,.7);text-transform:uppercase}
+.s1 .pricerow .trail b{font-family:'Hanken',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.01em;color:#fff}
+
+/* progress bar with animated fill */
+.s1 .prog{margin-top:12px;flex-shrink:0}
+.s1 .proglabel{display:flex;justify-content:space-between;font-size:9px;font-weight:700;letter-spacing:.22em;color:rgba(255,255,255,.85);text-transform:uppercase;margin-bottom:6px}
+.s1 .progbar{height:4px;background:rgba(255,255,255,.15);border-radius:99px;position:relative;overflow:hidden}
+.s1 .progbar::before{content:'';position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,rgba(255,255,255,.6) 0%,#fff 100%);border-radius:99px;width:0;animation:s1Prog 11.7s linear infinite;animation-play-state:paused;box-shadow:0 0 10px rgba(255,255,255,.5)}
+.s1 .stage:hover .card .progbar::before{animation-play-state:running}
+.s1 .card.c1 .progbar::before{animation-delay:0s}
+.s1 .card.c2 .progbar::before{animation-delay:-7.8s}
+.s1 .card.c3 .progbar::before{animation-delay:-3.9s}
+.s1 .proghandle{position:absolute;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:#fff;border-radius:50%;box-shadow:0 3px 8px rgba(0,0,0,.25),0 0 0 1.5px rgba(255,255,255,.4);left:0;animation:s1Handle 11.7s linear infinite;animation-play-state:paused}
+.s1 .stage:hover .card .proghandle{animation-play-state:running}
+.s1 .card.c1 .proghandle{animation-delay:0s}
+.s1 .card.c2 .proghandle{animation-delay:-7.8s}
+.s1 .card.c3 .proghandle{animation-delay:-3.9s}
+/* progress fills DURING the FRONT hold (0-25.6% of cycle), then fades out
+   as the card rotates away. Hidden during back positions. Resets each
+   time the card returns to FRONT. */
+@keyframes s1Prog{
+  0%       {width:0;    opacity:1}
+  25.6%    {width:100%; opacity:1}   /* fully filled by end of FRONT hold */
+  27%      {width:100%; opacity:0}   /* fade out as rotation starts */
+  99%      {width:0;    opacity:0}   /* hidden during back holds */
+  100%     {width:0;    opacity:1}   /* ready to fill on return */
+}
+@keyframes s1Handle{
+  0%       {left:0;    opacity:1}
+  25.6%    {left:100%; opacity:1}
+  27%      {left:100%; opacity:0}
+  99%      {left:0;    opacity:0}
+  100%     {left:0;    opacity:1}
+}
+
+/* bottom row — two mini tiles like the reference thumbnails */
+.s1 .tiles{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-shrink:0}
+.s1 .locations{display:flex;flex-direction:column;gap:2px;font-size:9.5px;line-height:1.35;color:rgba(255,255,255,.9)}
+.s1 .locations b{font-weight:700;letter-spacing:.05em}
+.s1 .locations em{font-style:normal;color:rgba(255,255,255,.5);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-right:5px}
+.s1 .thumbs{display:flex;gap:6px}
+.s1 .thumb{width:36px;height:26px;border-radius:6px;background:linear-gradient(135deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.08) 100%);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Hanken',sans-serif;font-size:11px;font-weight:800;letter-spacing:.02em}
+
+/* shared card chrome — kept but positioned so it doesn't cover new content */
+.s1 .card::before{content:'';position:absolute;inset:-20%;background:conic-gradient(from 140deg at 60% 40%,transparent 0deg,rgba(255,255,255,.22) 50deg,transparent 100deg,transparent 260deg,rgba(255,255,255,.16) 310deg,transparent 360deg);pointer-events:none;animation:s1Holo 12s linear infinite;mix-blend-mode:overlay}
+@keyframes s1Holo{to{transform:rotate(360deg)}}
+.s1 .card::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);pointer-events:none;animation:s1Shim 5s 1.8s ease-in-out infinite}
+@keyframes s1Shim{0%,55%,100%{left:-40%}75%{left:140%}}
+.s1 .card > *{position:relative;z-index:2}
+
+/* header */
+.s1 .cardhead{display:flex;justify-content:space-between;align-items:flex-start}
+.s1 .brand{font-family:'Instrument',serif;font-style:italic;font-size:20px;font-weight:500;letter-spacing:.01em;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.s1 .brand b{font-family:'Hanken',sans-serif;font-style:normal;font-weight:800;letter-spacing:.14em;font-size:11px;display:block;margin-top:2px;opacity:.9}
+.s1 .rec{font-size:9px;font-weight:800;letter-spacing:.3em;color:#0b47b8;background:linear-gradient(180deg,#fff 0%,#e0ebff 100%);padding:6px 11px;border-radius:99px;box-shadow:0 3px 8px rgba(11,71,184,.2),0 0 0 1px rgba(11,71,184,.15)}
+.s1 .card.c2 .rec{color:#243b6b;background:linear-gradient(180deg,#fff 0%,#e6e8f0 100%);box-shadow:0 3px 8px rgba(36,59,107,.2),0 0 0 1px rgba(36,59,107,.15);visibility:hidden}
+.s1 .card.c3 .rec{visibility:hidden}
+
+/* pause hint above the barrel */
+.s1 .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none}
+.s1 .hoverhint::before,.s1 .hoverhint::after{content:'';width:32px;height:1px;background:var(--faint);opacity:.5}
+.s1 .stage:hover .hoverhint{opacity:.4}
+
+/* description + CTA */
+.s1 .below{margin:70px auto 0;text-align:center;opacity:0;animation:s1Below .8s 1.3s cubic-bezier(.32,.72,.22,1) forwards;max-width:440px}
+@keyframes s1Below{to{opacity:1}}
+.s1 .below p{color:var(--dove);font-size:14.5px;line-height:1.65}
+.s1 .cta{margin-top:22px;background:var(--ink);color:#fff;border:0;padding:15px 26px;border-radius:99px;font:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease}
+.s1 .cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(29,29,31,.25)}
+
+@media (prefers-reduced-motion:reduce){
+  .s1 .barrel,.s1 .below{animation:none;opacity:1;transform:none}
+  .s1 .stage:hover .barrel{animation:none}
+  .s1 .card::before,.s1 .card::after{animation:none}
+}
+
+/* ═══════════════════════ S2 · STACK CASCADE ═══════════════════════
+   All 3 cards visible in a soft cascading stack, each slightly narrower and
+   fanned upward. Recommended one is centred and fully populated.        */
+.s2{background:linear-gradient(180deg,#f4f6f9 0%,#eceef3 100%)}
+.s2 .stage{padding-top:30px}
+.s2 .deck{position:relative;display:flex;flex-direction:column;align-items:center}
+.s2 .card{background:#fff;border-radius:22px;padding:22px 28px;box-shadow:0 20px 50px rgba(29,29,31,.10);width:78%;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;transition:transform .3s cubic-bezier(.32,.72,.22,1)}
+.s2 .card.behind{margin-bottom:-16px;transform:scale(.94);opacity:.85}
+.s2 .card.behind:hover{transform:scale(.96) translateY(-2px)}
+.s2 .card.active{width:100%;background:linear-gradient(180deg,#fff 0%,#f8faff 100%);padding:36px 40px 40px;grid-template-columns:1fr;gap:22px;align-items:stretch;box-shadow:0 40px 100px rgba(29,29,31,.14),0 0 0 1.5px var(--core);position:relative;z-index:3;margin-top:6px}
+.s2 .card .tk{font-size:10px;font-weight:700;letter-spacing:.28em;color:var(--faint)}
+.s2 .card.active .tk{color:var(--core)}
+.s2 .card .pr{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.s2 .card .pr span{font-size:12px;font-weight:500;color:var(--dove);margin-left:5px}
+.s2 .card.active .top{display:flex;justify-content:space-between;align-items:center}
+.s2 .card.active .top .rec{font-size:9.5px;font-weight:700;letter-spacing:.3em;color:var(--core);background:rgba(37,110,245,.10);padding:6px 12px;border-radius:99px}
+.s2 .card.active .pr{font-size:56px;font-weight:700;letter-spacing:-.045em;line-height:1}
+.s2 .card.active .pr span{font-size:15px;font-weight:500;color:var(--dove);margin-left:10px}
+.s2 .card.active p{color:var(--dove);font-size:14.5px;line-height:1.6;max-width:420px}
+.s2 .card.active .cta{background:var(--ink);color:#fff;border:0;padding:14px 22px;border-radius:99px;font:inherit;font-size:13px;font-weight:700;letter-spacing:.02em;cursor:pointer;align-self:flex-start}
+.s2 .card .name{font-size:15px;font-weight:600;letter-spacing:-.01em}
+
+/* ═══════════════════════ S3 · STACK LEDGER ═══════════════════════
+   The peek pills BELOW the active card, like a mini-catalog. The active
+   card sits at top, "what else" pills sit as a stacked ledger underneath. */
+.s3{background:#fbfbfd}
+.s3 .stage{padding-top:0;width:min(640px,100%)}
+.s3 .primary{background:#fff;border-radius:28px;padding:44px 44px 40px;box-shadow:0 40px 100px rgba(29,29,31,.10),0 0 0 1px var(--line);display:flex;flex-direction:column;gap:22px;position:relative;z-index:3}
+.s3 .primary .top{display:flex;justify-content:space-between;align-items:center}
+.s3 .primary .top .rec{font-size:9.5px;font-weight:700;letter-spacing:.3em;color:var(--core);background:rgba(37,110,245,.10);padding:6px 12px;border-radius:99px}
+.s3 .primary .tk{font-size:10.5px;font-weight:700;letter-spacing:.3em;color:var(--core)}
+.s3 .primary .pr{font-size:64px;font-weight:700;letter-spacing:-.05em;line-height:1}
+.s3 .primary .pr span{font-size:16px;font-weight:500;color:var(--dove);margin-left:10px}
+.s3 .primary p{color:var(--dove);font-size:15px;line-height:1.6;max-width:460px}
+.s3 .primary .cta{background:var(--core);color:#fff;border:0;padding:15px 24px;border-radius:99px;font:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;cursor:pointer;align-self:flex-start;box-shadow:0 12px 30px var(--glow);text-transform:uppercase}
+.s3 .others{margin-top:-14px;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.s3 .peek{width:88%;background:#fff;border-radius:22px;padding:18px 28px;box-shadow:0 16px 40px rgba(29,29,31,.06),0 0 0 1px var(--line);display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;margin-top:-12px;transition:transform .3s cubic-bezier(.32,.72,.22,1);cursor:pointer}
+.s3 .peek:nth-child(2){width:76%;background:#f5f5f7;margin-top:-14px;padding:14px 28px}
+.s3 .peek:hover{transform:translateY(-3px)}
+.s3 .peek .tk{font-size:10px;font-weight:700;letter-spacing:.28em;color:var(--faint)}
+.s3 .peek .name{font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.s3 .peek .pr{font-size:16px;font-weight:700;letter-spacing:-.02em}
+.s3 .peek .pr span{font-size:11.5px;font-weight:500;color:var(--dove);margin-left:4px}
+</style>
+</head>
+<body>
+
+<div class="optbar"><b>VF PRICING — STACK FAMILY</b><span>3 refined variants of the layered / peeking-card concept · light theme · VF blue accent</span><a href="pricing-gallery.html">← gallery family</a></div>
+
+<!-- S1 · ORBIT — cards orbit on a circular path, always facing viewer -->
+<div class="opthead">
+  <span class="tag">S1 · ORBIT</span>
+  <h3>Three cards orbit a circle. All faces stay toward you.</h3>
+  <p>Three premium cards on a circular orbit in the vertical plane. At rest, MAILBOX faces you at the front (closest), Family and Teams sit above and below on the wheel (further back, smaller due to perspective). Hover — all three cards travel around the circle together, one full revolution every 9 seconds. Cards always face the viewer (like ferris-wheel seats staying upright), so you never lose sight of any tier.</p>
+</div>
+<section class="s1">
+  <span class="corner tl">UI Cards</span>
+  <span class="corner tr">Pricing</span>
+  <span class="corner bl">VF Mail</span>
+  <span class="corner br">Three cards on a circular orbit. Hover to spin — pause to pick.</span>
+  <div class="wrap" style="text-align:center">
+    <div class="k">PLANNED PRICING</div>
+    <h2 style="max-width:600px;margin-left:auto;margin-right:auto">No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  </div>
+  <div class="stage">
+    <span class="hoverhint">Hover to orbit</span>
+      <!-- Card 1: MAILBOX · VF blue · rich dashboard content -->
+      <div class="card c1">
+        <div class="cardhead"><div class="brand">VF <b>MAIL · MAILBOX</b></div><span class="rec">RECOMMENDED</span></div>
+        <div class="stats">
+          <div class="stat"><span>Mailboxes</span><b>1</b></div>
+          <div class="stat"><span>Storage</span><b>10 GB</b></div>
+          <div class="stat"><span>Domain</span><b>Custom</b></div>
+        </div>
+        <div class="pricerow">
+          <div class="lead"><span>Monthly</span><span class="pr">€3.99<b>/ mo</b></span></div>
+          <div class="trail"><span>Year one</span><b>€47.88</b></div>
+        </div>
+        <div class="prog">
+          <div class="proglabel"><span>Founding seats claimed</span><span>68%</span></div>
+          <div class="progbar"><div class="proghandle"></div></div>
+        </div>
+        <div class="tiles">
+          <div class="locations">
+            <div><em>Region</em>EU · DE metal</div>
+            <div><em>Next</em>Custom domain, IMAP, POP</div>
+          </div>
+          <div class="thumbs"><div class="thumb">✉</div><div class="thumb">🇪🇺</div></div>
+        </div>
+      </div>
+      <!-- Card 2: FAMILY · slate · rich dashboard content -->
+      <div class="card c2">
+        <div class="cardhead"><div class="brand">VF <b>MAIL · FAMILY</b></div><span class="rec">FAMILY</span></div>
+        <div class="stats">
+          <div class="stat"><span>Mailboxes</span><b>5</b></div>
+          <div class="stat"><span>Storage</span><b>50 GB</b></div>
+          <div class="stat"><span>Domain</span><b>Shared</b></div>
+        </div>
+        <div class="pricerow">
+          <div class="lead"><span>Monthly</span><span class="pr">€9.99<b>/ mo</b></span></div>
+          <div class="trail"><span>Per box</span><b>€2.00</b></div>
+        </div>
+        <div class="prog">
+          <div class="proglabel"><span>Founding seats claimed</span><span>34%</span></div>
+          <div class="progbar"><div class="proghandle"></div></div>
+        </div>
+        <div class="tiles">
+          <div class="locations">
+            <div><em>Region</em>EU · DE metal</div>
+            <div><em>Next</em>Shared calendar, family filter</div>
+          </div>
+          <div class="thumbs"><div class="thumb">👥</div><div class="thumb">🇪🇺</div></div>
+        </div>
+      </div>
+      <!-- Card 3: TEAMS · steel · rich dashboard content -->
+      <div class="card c3">
+        <div class="cardhead"><div class="brand">VF <b>MAIL · TEAMS</b></div><span class="rec">TEAMS</span></div>
+        <div class="stats">
+          <div class="stat"><span>Per seat</span><b>€4.99</b></div>
+          <div class="stat"><span>Storage</span><b>25 GB</b></div>
+          <div class="stat"><span>Domain</span><b>Company</b></div>
+        </div>
+        <div class="pricerow">
+          <div class="lead"><span>Monthly</span><span class="pr">€4.99<b>/ user</b></span></div>
+          <div class="trail"><span>Per year</span><b>€59.88</b></div>
+        </div>
+        <div class="prog">
+          <div class="proglabel"><span>Founding seats claimed</span><span>12%</span></div>
+          <div class="progbar"><div class="proghandle"></div></div>
+        </div>
+        <div class="tiles">
+          <div class="locations">
+            <div><em>Region</em>EU · DE metal</div>
+            <div><em>Next</em>Admin console, SSO, logs</div>
+          </div>
+          <div class="thumbs"><div class="thumb">🏢</div><div class="thumb">🇪🇺</div></div>
+        </div>
+      </div>
+  </div>
+  <div class="below">
+    <p>One mailbox, custom domain included. EU metal, no ecosystem — the honest model we chose over free mail that pays for itself with your correspondence.</p>
+    <button class="cta">Join the founding wave</button>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release.</p>
+</section>
+<hr>
+
+<!-- S2 · STACK CASCADE -->
+<div class="opthead">
+  <span class="tag">S2 · STACK CASCADE</span>
+  <h3>All-light cascade, one card promoted</h3>
+  <p>Pure light-theme interpretation. All three cards are paper-white; two "behind" cards sit slightly smaller and dimmer above, the recommended card is full-width, ringed in blue, and populated. Same layered idea as your reference, but no dark cards anywhere — reads more Apple-store than Dribbble.</p>
+</div>
+<section class="s2">
+  <span class="corner tl">Pricing</span>
+  <span class="corner tr">VF Mail</span>
+  <span class="corner bl">Three tiers</span>
+  <span class="corner br">Two options tucked in the deck. One picked out for you.</span>
+  <div class="wrap" style="text-align:center">
+    <div class="k">PLANNED PRICING</div>
+    <h2 style="max-width:600px;margin-left:auto;margin-right:auto">No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  </div>
+  <div class="stage">
+    <div class="deck">
+      <div class="card behind"><span class="tk">FAMILY</span><span class="name">Five mailboxes under one roof.</span><span class="pr">€9.99<span>/ mo</span></span></div>
+      <div class="card behind"><span class="tk">TEAMS</span><span class="name">Company mail, one flat rate per seat.</span><span class="pr">€4.99<span>/ user</span></span></div>
+      <div class="card active">
+        <div class="top"><span class="tk">MAILBOX</span><span class="rec">RECOMMENDED</span></div>
+        <div class="pr">€3.99<span>/ month</span></div>
+        <p>One mailbox, custom domain included. EU metal, no ecosystem — you don't rent your correspondence back from the platform.</p>
+        <button class="cta">Join the founding wave →</button>
+      </div>
+    </div>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release.</p>
+</section>
+<hr>
+
+<!-- S3 · STACK LEDGER -->
+<div class="opthead">
+  <span class="tag">S3 · STACK LEDGER</span>
+  <h3>Expanded card on top, quiet ledger beneath</h3>
+  <p>Inverted arrangement — the recommended tier gets the full spotlight at the top, and the other tiers sit as a quiet stacked ledger underneath (like a "you can also switch to" list). Most catalog-like of the three; strongest in a scroll-through page where pricing sits between other sections.</p>
+</div>
+<section class="s3">
+  <span class="corner tl">Pricing</span>
+  <span class="corner tr">VF Mail</span>
+  <span class="corner bl">Recommended · Mailbox</span>
+  <span class="corner br">Or switch to a family plan or a team seat below.</span>
+  <div class="wrap" style="text-align:center">
+    <div class="k">PLANNED PRICING</div>
+    <h2 style="max-width:600px;margin-left:auto;margin-right:auto">No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
+  </div>
+  <div class="stage">
+    <div class="primary">
+      <div class="top"><span class="tk">MAILBOX</span><span class="rec">RECOMMENDED</span></div>
+      <div class="pr">€3.99<span>/ month</span></div>
+      <p>One mailbox, custom domain included. EU metal, no ecosystem — the honest model we chose over the free ones that pay for themselves with your correspondence.</p>
+      <button class="cta">Join the founding wave</button>
+    </div>
+    <div class="others">
+      <div class="peek"><span class="tk">FAMILY</span><span class="name">Five mailboxes under one roof.</span><span class="pr">€9.99<span>/ mo</span></span></div>
+      <div class="peek"><span class="tk">TEAMS</span><span class="name">Company mail on infrastructure you can point to.</span><span class="pr">€4.99<span>/ user</span></span></div>
+    </div>
+  </div>
+  <p class="pnote">Planned launch pricing — final figures are confirmed at each release.</p>
+</section>
+
+</body>
+</html>

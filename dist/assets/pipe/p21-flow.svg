@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" width="1400" height="500" role="img" aria-labelledby="p21-flow-title" preserveAspectRatio="xMidYMid slice">
+  <title id="p21-flow-title">A white ribbon road overlaid with a translucent sealed capsule containing the route line</title>
+  <defs>
+    <linearGradient id="p21-flow-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdfdfe"/>
+      <stop offset="100%" stop-color="#eceff3"/>
+    </linearGradient>
+    <linearGradient id="p21-flow-road" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#eceff3"/>
+      <stop offset="50%" stop-color="#f5f5f7"/>
+      <stop offset="100%" stop-color="#eceff3"/>
+    </linearGradient>
+    <linearGradient id="p21-flow-route" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#1f6ff2" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#1f6ff2" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#1f6ff2" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="500" fill="url(#p21-flow-bg)"/>
+
+  <!-- ribbon road -->
+  <path d="M -40 320 C 260 260, 460 380, 740 300 S 1180 250, 1440 300" fill="none" stroke="url(#p21-flow-road)" stroke-width="42"/>
+
+  <!-- lane dashes -->
+  <path d="M -40 320 C 260 260, 460 380, 740 300 S 1180 250, 1440 300" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="12 22"/>
+
+  <!-- sealed capsule -->
+  <g opacity="0.92">
+    <rect x="440" y="126" width="520" height="248" rx="124" fill="rgba(255,255,255,0.62)" stroke="#e4e6ea" stroke-width="1.4"/>
+    <rect x="440" y="126" width="520" height="248" rx="124" fill="none" stroke="rgba(31,111,242,0.28)" stroke-width="0.8"/>
+  </g>
+
+  <!-- route line inside capsule -->
+  <path d="M 470 280 C 570 220, 650 320, 770 270 S 900 250, 940 240" fill="none" stroke="url(#p21-flow-route)" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- start + end dots -->
+  <circle cx="470" cy="280" r="10" fill="#1f6ff2"/>
+  <circle cx="470" cy="280" r="18" fill="none" stroke="#1f6ff2" stroke-opacity="0.24" stroke-width="2"/>
+  <circle cx="940" cy="240" r="10" fill="#1d1d1f"/>
+
+  <!-- lock hint -->
+  <g transform="translate(680 220)" opacity="0.85">
+    <rect x="-14" y="4" width="28" height="22" rx="4" fill="#ffffff" stroke="#c9d0dd" stroke-width="1"/>
+    <path d="M -8 4 v -6 a 8 8 0 0 1 16 0 v 6" fill="none" stroke="#1f6ff2" stroke-width="1.8"/>
+  </g>
+</svg>
