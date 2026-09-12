@@ -410,9 +410,10 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     <h1>FuelIT<span>The cheapest litre, on your <em class="i">actual route.</em></span></h1>
     <p class="sub">Every fuel app can point at a cheap station. None of them do the real arithmetic — the litres a detour burns against the cents it saves, what your tank can actually reach, what a fill truly costs your car. FuelIT solves the whole equation, then hands the wheel to the navigator you already trust.</p>
     <div class="meta">
-      <span class="mchip hot">IN BUILD</span>
+      <span class="mchip hot">SPEC-COMPLETE · R·01</span>
+      <span class="mchip">9 EU COUNTRIES</span>
       <span class="mchip">OFFICIAL PRICE FEEDS</span>
-      <span class="mchip">EU-WIDE</span>
+      <span class="mchip">SOVEREIGN NAV·IT</span>
       <span class="mchip">NO LOCATION RESALE</span>
     </div>
     <div class="acts">
@@ -546,41 +547,65 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 <section id="roadmap">
   <div class="wrap">
     <div class="k rv">BUILD TRAJECTORY</div>
-    <h2 class="rv">Proven on our fills,<br><span class="mute">then yours.</span></h2>
+    <h2 class="rv">Spec-complete today,<br><span class="mute">5 months from a funded start.</span></h2>
 
     <div class="road rv">
       <div class="rd">
         <span class="num">R·01</span>
-        <h4>Germany first</h4>
-        <p>The best fuel-price data on earth — every price change legally reported within five minutes — meets the network's own cars. Real fills, real cycles, savings measured against receipts.</p>
-        <span class="st hot">IN BUILD</span>
+        <h4>Nine EU countries, three clients, one sovereign navigator</h4>
+        <p>Germany, France, Spain, Italy, Austria, UK, Portugal, Malta, Luxembourg — every official price feed integrated. iOS, Android, web PWA. Own turn-by-turn via NAV·IT: your route never touches Google or Apple maps. CarPlay + Android Auto entitlements filed. 691-file reference implementation on GitHub.</p>
+        <span class="st hot">SPEC COMPLETE</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
-        <h4>The corridor</h4>
-        <p>France, Spain, Austria and Italy adapters light up next — one continuous lane across borders, with the route mathematics switching national feeds mid-trip without you noticing.</p>
+        <h4>Founding-tier launch + Plus subscription</h4>
+        <p>Public launch after ~5 months of build. €2.99/month Plus tier via Stripe. Founding subscribers keep their launch price. Saved routes + price-drop alerts + fleet accounts + real Google/Apple/Waze handoff — pick your navigator.</p>
         <span class="st">NEXT</span>
       </div>
       <div class="rd">
         <span class="num">R·03</span>
-        <h4>The product</h4>
-        <p>The public app: vehicle profiles, price-window alerts, fleet accounts for vans and trades, the in-car navigator link riding shotgun on every route — and the same equation pointed at charging tariffs when combustion is conquered.</p>
+        <h4>EV charging + probe-data traffic + Netherlands + Belgium</h4>
+        <p>The same detour equation pointed at charging tariffs (ChargePlace + NAP data). NAV·IT gets an opt-in, k≥50-anonymised traffic layer — real-time routing without broadcasting your location. Two more country adapters.</p>
         <span class="st">PLANNED</span>
       </div>
     </div>
 
     <div class="docs rv">
       <div class="doc">
-        <span class="dk">WHITE PAPER</span>
-        <h4>The detour equation: what fuel apps refuse to compute</h4>
-        <p>The full stop-cost model — detour burn, tank state, intraday cycles — and why official feeds beat crowdsourcing. Published as the build hardens.</p>
-        <span class="tba">IN PREPARATION</span>
+        <span class="dk">ENGINEERING SPEC</span>
+        <h4>NAV·IT — the sovereign navigator that ships inside FuelIT</h4>
+        <p>OpenStreetMap + Valhalla + Photon + MapLibre. Three modes (full-offline / hybrid / online). Every route Ed25519-signed by origin. Verifiable by packet trace.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/blob/main/docs/architecture/sovereign-navigator-spec.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
-        <span class="dk">REPOSITORY</span>
-        <h4>Feed adapters</h4>
-        <p>The national price-feed adapters, open where the licences allow — repository access announced when the system opens beyond the VF network.</p>
-        <span class="tba">TBA</span>
+        <span class="dk">THREAT MODEL</span>
+        <h4>NAV·IT — STRIDE with residual risks named</h4>
+        <p>Nation-state passive observer, hostile server operator, compromised CDN. Every attack surface enumerated. Bug bounty from €500 to €25 000 for anyone who breaks a claim.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/blob/main/docs/security/nav-threat-model.md">PUBLISHED · 2026-09-12 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">PRIVACY MODEL</span>
+        <h4>GDPR position, in plain language</h4>
+        <p>What we retain (nothing joinable to you). What third parties see (nothing — no Google, Apple, or Mapbox in the chain). What we do differently, and how you verify it.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/blob/main/docs/legal/nav-privacy-model.md">PUBLISHED · 2026-09-12 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">INVESTOR PACK</span>
+        <h4>Full DD pack — 11 documents</h4>
+        <p>Executive summary, product, TAM, traction, technology + IP, team, financials, risks, the ask, data-room process, portfolio context. Nothing confidential — everything sensitive is under NDA in the data room.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/tree/main/docs/investor">PUBLISHED · 2026-09-12 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">BUILD COST ESTIMATE</span>
+        <h4>Realistic engineering cost, three team-shape paths</h4>
+        <p>Solo (€75-100k, 8 months) · small team (€140-180k, 5 months — recommended) · fast team (€210-280k, 4 months). MVP floor at ~€40-60k solo, Germany-only, no NAV·IT.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/blob/main/docs/build-cost-estimate.md">PUBLISHED · 2026-09-12 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">POST-MORTEMS</span>
+        <h4>Every SEV1/SEV2 published within 5 business days</h4>
+        <p>Terms § 8 warranty. Blameless-post-mortem policy. Drills published alongside real incidents. Signed post-mortems + linked to their remediating ADRs.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/tree/main/docs/postmortems">PUBLISHED · 2026-09-12 →</a></span>
       </div>
     </div>
   </div>
