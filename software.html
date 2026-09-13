@@ -163,17 +163,11 @@ h2 .mute{color:var(--faint)}
 .nx:hover .art img{transform:scale(1.04)}
 @media (max-width:820px){.next{grid-template-columns:1fr}}
 
-/* PERMANENCE — big block */
-.perm{background:linear-gradient(140deg,#0c0d0f 0%,#181a1e 60%,#0b47b8 100%);color:#fff;padding:80px 60px;border-radius:28px;margin-top:56px;position:relative;overflow:hidden}
-.perm::before{content:"";position:absolute;top:-40%;right:-20%;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(31,111,242,.5),transparent 70%);filter:blur(30px)}
-.perm h3{font-size:clamp(28px,3.6vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.08;max-width:22ch;position:relative}
-.perm h3 em{font-style:normal;background:linear-gradient(100deg,#c7dcff,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.perm p{font-size:15.5px;line-height:1.66;color:#c8ccd5;margin-top:22px;max-width:560px;position:relative}
-.perm .pts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:44px;background:rgba(255,255,255,.09);border-radius:14px;overflow:hidden;position:relative}
-.perm .pt{background:rgba(12,13,15,.85);padding:22px 22px}
-.perm .pt b{display:block;font-size:12px;letter-spacing:.24em;color:#7fa8ff;font-weight:700;margin-bottom:6px}
-.perm .pt span{font-size:13px;color:#c8ccd5;line-height:1.55;display:block}
-@media (max-width:820px){.perm{padding:56px 32px}.perm .pts{grid-template-columns:1fr}}
+/* PERMANENCE — headline commitment (on-theme) */
+.perm{margin-top:56px}
+.perm h3{font-size:clamp(24px,3.2vw,38px);font-weight:600;letter-spacing:-.032em;line-height:1.12;max-width:26ch;color:var(--ink)}
+.perm h3 em{font-style:normal;color:var(--core-deep)}
+.perm p{font-size:15.5px;line-height:1.66;color:var(--dove);margin-top:20px;max-width:640px}
 
 /* FOOT CTA */
 .foot{background:var(--silver);padding:100px 6vw;text-align:center;border-top:1px solid var(--line)}
@@ -434,19 +428,23 @@ h2 .mute{color:var(--faint)}
     <div class="perm rv">
       <h3>If VF discontinues a product, the source is <em>opened</em>, the last signed firmware remains verifiable in the transparency log, and the sealed vault format stays readable — permanently.</h3>
       <p>This is not a marketing promise. It is a Terms § 8 clause. Enforceable in Malta courts. Backed by an insurance-funded escrow for the source-release lane. And baked into the reproducibility guarantee: because every shipping binary is byte-reproducible from open source, the source drop actually reconstructs the product you bought.</p>
-      <div class="pts">
-        <div class="pt">
-          <b>THE SOURCE</b>
-          <span>Released under a permissive open-source licence within 90 days of end-of-life.</span>
-        </div>
-        <div class="pt">
-          <b>THE FIRMWARE</b>
-          <span>Last signed build remains verifiable in the public Merkle transparency log — forever.</span>
-        </div>
-        <div class="pt">
-          <b>THE DATA</b>
-          <span>Sealed vault format documented in a public spec. Your data stays readable long after we stop building.</span>
-        </div>
+    </div>
+
+    <div class="house rv" style="margin-top:44px">
+      <div class="hcell">
+        <div class="hd">THE SOURCE</div>
+        <h4>Released within 90 days</h4>
+        <p>Full source code released under a permissive open-source licence within 90 days of any end-of-life announcement. Escrow-backed across two EU jurisdictions.</p>
+      </div>
+      <div class="hcell">
+        <div class="hd">THE FIRMWARE</div>
+        <h4>Verifiable forever</h4>
+        <p>Last signed build remains verifiable in the public Merkle transparency log — forever. Third-party CI mirrors continue reproducibility checks post-EOL.</p>
+      </div>
+      <div class="hcell">
+        <div class="hd">THE DATA</div>
+        <h4>Format stays readable</h4>
+        <p>Sealed vault format documented in a public interoperability spec. Any conformant reader can extract your material — long after we stop building.</p>
       </div>
     </div>
   </div>
