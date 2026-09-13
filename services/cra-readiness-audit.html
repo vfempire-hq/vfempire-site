@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRA Readiness Audit — VF Empire</title>
+<meta name="description" content="Two-week fixed-fee audit against Cyber Resilience Act Annex I + Annex II for EU manufacturers of connected products. Gap analysis, remediation roadmap, regulator-ready.">
+<link rel="canonical" href="https://vfempire.com/services/cra-readiness-audit">
+<meta name="theme-color" content="#fbfbfd">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VF Empire">
+<meta property="og:title" content="CRA Readiness Audit — €12-18k, 2 weeks">
+<meta property="og:description" content="Fixed-fee audit of your product against the Cyber Resilience Act (Sep 11 2026 enforcement). Gap analysis + remediation roadmap + regulator-ready evidence pack.">
+<meta property="og:url" content="https://vfempire.com/services/cra-readiness-audit">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+
+:root{
+  --paper:#fbfbfd; --silver:#f5f5f7; --mist:#eceff3;
+  --ink:#1d1d1f; --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
+  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.35);
+  --warn:#c93221;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
+::selection{background:var(--core);color:#fff}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
+.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
+.crumb{font-size:12px;color:var(--faint);letter-spacing:.02em}
+.crumb a{color:var(--dove)}
+.crumb a:hover{color:var(--core)}
+.crumb b{color:var(--ink);font-weight:600}
+.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
+.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
+
+section{padding:104px 6vw}
+.wrap{width:min(1080px,100%);margin:0 auto}
+.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
+h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
+h2 .mute{color:var(--faint)}
+.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
+.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
+.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
+.bt.gho{color:var(--core)}
+.bt.gho:hover{background:rgba(31,111,242,.07)}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+.phero{min-height:82vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 6vw 60px;background:
+  radial-gradient(1000px 500px at 50% -10%, #ffffff 0%, transparent 70%),
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+.phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .eb b{color:var(--core)}
+.phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;max-width:16ch;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.phero h1 span{display:block;color:var(--faint);font-size:.5em;letter-spacing:-.03em;margin-top:16px;font-weight:600}
+.phero h1 span em{color:var(--core-deep)}
+.phero p.sub{max-width:600px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:26px auto 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .meta{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
+.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
+.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
+.phero .acts{display:flex;gap:14px;justify-content:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
+
+.fails{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
+.fl{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 28px;transition:transform .4s,box-shadow .4s}
+.fl:hover{transform:translateY(-4px);box-shadow:0 28px 50px -30px rgba(40,55,90,.28)}
+.fl .num{font-size:10px;letter-spacing:.3em;color:var(--warn);font-weight:700}
+.fl h4{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:10px 0 10px}
+.fl p{font-size:14px;line-height:1.62;color:var(--dove)}
+
+.aud{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
+.au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;display:flex;gap:16px;align-items:flex-start}
+.au.first{grid-column:1/-1;background:linear-gradient(140deg,#eff5ff,#fff);border-color:#c7dcff}
+.au .ic{width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center}
+.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au h4{font-size:17px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
+.au p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+
+.outs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.outs .c{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.outs .n{font-size:20px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.outs .n span{color:var(--core)}
+.outs p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+
+.timeline{display:flex;flex-direction:column;gap:1px;margin-top:52px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.tstep{background:#fff;padding:26px 30px;display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline}
+.tstep .day{font-size:11px;letter-spacing:.28em;color:var(--core);font-weight:700}
+.tstep h4{font-size:16px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
+.tstep p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+
+.deliv{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:52px}
+.dv{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.dv .dk{font-size:10px;letter-spacing:.28em;color:var(--core);font-weight:700;margin-bottom:8px}
+.dv h4{font-size:16.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
+.dv p{font-size:13px;line-height:1.55;color:var(--dove)}
+
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:52px;align-items:start}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px 32px}
+.pcard.hot{background:linear-gradient(140deg,#eff5ff,#fff);border-color:#c7dcff}
+.pcard .pk{font-size:10.5px;letter-spacing:.28em;color:var(--core);font-weight:700;margin-bottom:8px}
+.pcard h3{font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
+.pcard .price{font-size:38px;font-weight:600;letter-spacing:-.03em;margin:14px 0 4px;color:var(--ink)}
+.pcard .price small{font-size:14px;color:var(--dove);font-weight:400;margin-left:4px}
+.pcard ul{list-style:none;padding:0;margin:22px 0 0}
+.pcard li{font-size:13.5px;line-height:1.7;color:var(--dove);padding-left:22px;position:relative}
+.pcard li::before{content:"→";position:absolute;left:0;color:var(--core);font-weight:700}
+
+.faq{display:flex;flex-direction:column;gap:14px;margin-top:52px}
+.q{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.q h4{font-size:15.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
+.q p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+
+.sysreqgrid{display:grid;grid-template-columns:1fr 1.6fr;gap:44px}
+.sysreqhead{position:sticky;top:100px;align-self:flex-start}
+.sysreqrows{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sysreqrow{display:grid;grid-template-columns:180px 1fr;gap:14px;padding:16px 20px;background:#fff;align-items:baseline}
+.sysreqrow dt{font-size:11.5px;letter-spacing:.14em;color:var(--core);font-weight:700}
+.sysreqrow dd{font-size:14px;color:var(--ink);line-height:1.55}
+
+.foot{background:var(--silver);padding:100px 6vw;text-align:center;border-top:1px solid var(--line)}
+.foot h2{margin:0 auto;max-width:22ch}
+.foot .lead{margin:20px auto 32px}
+.foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.foot .fine{font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:60px}
+.foot .fine a{color:var(--dove);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.foot .fine a:hover{color:var(--core)}
+
+@media (max-width:900px){
+  .fails,.aud,.outs,.deliv{grid-template-columns:1fr}
+  .pricing{grid-template-columns:1fr}
+  .sysreqgrid{grid-template-columns:1fr}
+  .tstep{grid-template-columns:1fr}
+  section{padding:80px 6vw}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+      VF EMPIRE
+    </a>
+    <span class="crumb"><a href="/">VF Empire</a> &nbsp;/&nbsp; Services &nbsp;/&nbsp; <b>CRA Readiness Audit</b></span>
+    <a class="cta" href="mailto:services@vfempire.com?subject=CRA%20Readiness%20Audit">Book a call</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="eb"><b>SERVICE · 01</b> &nbsp;·&nbsp; CYBER RESILIENCE ACT &nbsp;·&nbsp; FIXED-FEE ENGAGEMENT</div>
+  <h1>CRA Readiness Audit<span>Two weeks. Fixed fee. <em class="i">Regulator-ready.</em></span></h1>
+  <p class="sub">Cyber Resilience Act enforcement begins <b>September 11 2026</b>. Fines reach 2.5% of global turnover. Every EU manufacturer of a "product with digital elements" — IoT, smart home, medical device, industrial sensor, connected appliance, security camera — is in scope. We audit your product against Annex I essential requirements + Annex II vulnerability handling, and hand you a remediation roadmap you can actually execute.</p>
+  <div class="meta">
+    <span class="mchip hot">€12-18K FIXED FEE</span>
+    <span class="mchip">2 WEEKS</span>
+    <span class="mchip">CRA ANNEX I + ANNEX II</span>
+    <span class="mchip">REMEDIATION ROADMAP</span>
+    <span class="mchip">MALTA · EU-SOVEREIGN</span>
+  </div>
+  <div class="acts">
+    <a class="bt pri" href="mailto:services@vfempire.com?subject=CRA%20Readiness%20Audit">Book a 30-minute call</a>
+    <a class="bt gho" href="#pricing">See what's included</a>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="k rv">WHY IT EXISTS</div>
+    <h2 class="rv">Sep 11 2026<br><span class="mute">is closer than it looks.</span></h2>
+    <p class="lead rv">Most product teams in Europe first heard "CRA" at a trade show in 2025, read the Regulation once, and moved on. The enforcement date is now less than twelve months out. When national market-surveillance authorities knock, they will ask for four things — and most product teams cannot answer any of them without weeks of scrambling.</p>
+
+    <div class="fails rv">
+      <div class="fl">
+        <span class="num">F·01</span>
+        <h4>"Show us your technical file"</h4>
+        <p>CRA Article 27 requires a technical file made available to national market-surveillance authorities on request. Most product teams do not have one that a regulator would accept.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·02</span>
+        <h4>"Show us your SBOM"</h4>
+        <p>Annex I requires a Software Bill of Materials per release. Most teams have a `package.json` or a `requirements.txt` — not a signed SPDX + CycloneDX SBOM in the shape a regulator or downstream customer expects.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·03</span>
+        <h4>"Show us your vulnerability handling process"</h4>
+        <p>Annex II requires a coordinated disclosure policy, 24-hour reporting of actively exploited vulnerabilities, and a defined patch SLA per severity. Most teams have "email us at security@" and hope.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·04</span>
+        <h4>"Show us your security-support lifecycle statement"</h4>
+        <p>Article 10 requires purchase-time disclosure of the security-support end date + user-facing documentation of the update mechanism. Most product teams have not committed to a public support lifecycle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">WHO IT SERVES</div>
+    <h2 class="rv">EU manufacturers<br><span class="mute">of connected products in scope.</span></h2>
+
+    <div class="aud rv">
+      <div class="au first">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div>
+          <h4>Any firm placing a "product with digital elements" on the EU market</h4>
+          <p>The CRA scope is deliberately broad. If your product has firmware, connects to a network, or ships with software the buyer relies on, you are in scope. Sold in the EU by a non-EU manufacturer? Still in scope via the importer / authorised representative provisions.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16M8 4v16M16 4v16"/></svg></div>
+        <div>
+          <h4>Consumer IoT + smart home</h4>
+          <p>Cameras, doorbells, hubs, lighting, appliances, wearables. The category with the most vendor-cloud-shutdown history and the highest CRA-scrutiny expected.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 12l4-4 4 4 4-4 4 4"/><rect x="3" y="14" width="18" height="6" rx="2"/></svg></div>
+        <div>
+          <h4>Industrial + commercial connected equipment</h4>
+          <p>Sensors, controllers, HVAC gateways, energy monitors, POS terminals, kiosks. CRA Class II likely; higher-scrutiny conformity route.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M8 12l2 2 4-4M6 3h12l3 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/></svg></div>
+        <div>
+          <h4>Medical-adjacent connected devices</h4>
+          <p>Devices that do not qualify as MDR-regulated medical devices but are connected — wellness wearables, tele-health accessories, in-home diagnostics. Dual regulatory posture (CRA + national health guidance).</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+        <div>
+          <h4>Automotive + telematics components</h4>
+          <p>Aftermarket connected components, fleet-telematics units, EV-charging hardware. CRA + Radio Equipment Directive + potentially UN R155.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <div class="k rv">WHAT YOU GET</div>
+    <h2 class="rv">Six deliverables,<br><span class="mute">everything a market-surveillance authority would ask for.</span></h2>
+
+    <div class="deliv rv">
+      <div class="dv">
+        <div class="dk">01</div>
+        <h4>CRA Annex I gap analysis</h4>
+        <p>Requirement-by-requirement mapping of your product against CRA Annex I essential requirements. Each requirement rated (compliant / partial / non-compliant) with specific evidence citations from your codebase, docs, and existing processes.</p>
+      </div>
+      <div class="dv">
+        <div class="dk">02</div>
+        <h4>Annex II vulnerability handling assessment</h4>
+        <p>Review of your current disclosure policy, patch SLA, bug bounty coverage, and CSIRT-reporting capability. Explicit gap list against Annex II obligations including the 24-hour actively-exploited-vuln reporting requirement.</p>
+      </div>
+      <div class="dv">
+        <div class="dk">03</div>
+        <h4>Conformity-assessment route recommendation</h4>
+        <p>Recommendation on Module A (internal control) vs Module H (full quality assurance) vs Notified Body engagement based on your product's classification (Important Product Class I / II or ordinary product with digital elements).</p>
+      </div>
+      <div class="dv">
+        <div class="dk">04</div>
+        <h4>Remediation roadmap with effort estimates</h4>
+        <p>Prioritised remediation list ordered by regulatory exposure + implementation cost. Each item scoped in engineering weeks + € cost estimate. What you can defer to R·02 vs what has to ship before Sep 11 2026.</p>
+      </div>
+      <div class="dv">
+        <div class="dk">05</div>
+        <h4>Technical-file structure template</h4>
+        <p>Template + sample outline for your CRA Article 27 technical file. Draws directly on the structure VF Empire published for VF Home + Guardian Shield + FileIT — real, regulator-facing documentation you can adapt.</p>
+      </div>
+      <div class="dv">
+        <div class="dk">06</div>
+        <h4>90-minute presentation + 4-week Q&A window</h4>
+        <p>Delivered on video call with your engineering + legal + product leads. Follow-up written Q&A over 4 weeks post-delivery. Not billable extra; part of the fixed fee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">HOW IT WORKS</div>
+    <h2 class="rv">Two calendar weeks,<br><span class="mute">start to deliverable.</span></h2>
+
+    <div class="timeline rv">
+      <div class="tstep">
+        <span class="day">DAY 0</span>
+        <div>
+          <h4>Kick-off call</h4>
+          <p>90 minutes with your engineering + product + legal leads. Product scope confirmed, in-scope SKUs listed, access to documentation + source repositories arranged, SBOM baseline requested. Signed NDA if not already in place.</p>
+        </div>
+      </div>
+      <div class="tstep">
+        <span class="day">DAYS 1-5</span>
+        <div>
+          <h4>Discovery + review</h4>
+          <p>We read your existing documentation, threat model (if any), incident-response playbook (if any), SBOM generation (if any). We map what exists against CRA Annex I + Annex II. Weekly written status Fridays.</p>
+        </div>
+      </div>
+      <div class="tstep">
+        <span class="day">DAYS 6-9</span>
+        <div>
+          <h4>Deliverable drafting</h4>
+          <p>Gap analysis + remediation roadmap + technical-file structure + conformity-route recommendation drafted. Reviewed internally by VF Empire's retained conformance consultant before delivery.</p>
+        </div>
+      </div>
+      <div class="tstep">
+        <span class="day">DAY 10</span>
+        <div>
+          <h4>Deliverable + 90-minute presentation</h4>
+          <p>Full deliverable set delivered as PDF + editable markdown. 90-minute video presentation for your team walking through findings, priorities, and open questions.</p>
+        </div>
+      </div>
+      <div class="tstep">
+        <span class="day">DAYS 11-38</span>
+        <div>
+          <h4>4-week Q&A window</h4>
+          <p>Follow-up questions answered in writing over 4 weeks post-delivery. Typical volume: 5-15 questions. Included in the fixed fee.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="k rv">PRICING</div>
+    <h2 class="rv">Fixed fee.<br><span class="mute">No hourly billing, no scope creep.</span></h2>
+    <p class="lead rv">Two tiers based on product complexity. Both fully-inclusive of engineering time, retained conformance consultant time, deliverable production, and the 4-week Q&A window.</p>
+
+    <div class="pricing rv">
+      <div class="pcard">
+        <div class="pk">STANDARD</div>
+        <h3>Single product, single SKU</h3>
+        <div class="price">€12 000<small>fixed</small></div>
+        <ul>
+          <li>One product line, up to 3 variants</li>
+          <li>2-week calendar timeline</li>
+          <li>All 6 deliverables above</li>
+          <li>90-minute presentation</li>
+          <li>4-week Q&A window</li>
+          <li>PDF + editable markdown</li>
+        </ul>
+      </div>
+      <div class="pcard hot">
+        <div class="pk">EXTENDED</div>
+        <h3>Multi-SKU + higher complexity</h3>
+        <div class="price">€18 000<small>fixed</small></div>
+        <ul>
+          <li>Up to 5 product lines OR 1 complex product (industrial / medical-adjacent)</li>
+          <li>3-week calendar timeline</li>
+          <li>All 6 deliverables plus per-SKU rating matrix</li>
+          <li>Two 60-minute presentations (technical + executive)</li>
+          <li>6-week Q&A window</li>
+          <li>PDF + editable markdown + optional workshop day at your office</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rv" style="margin-top:36px;padding:22px 24px;background:var(--silver);border-radius:14px;font-size:13.5px;line-height:1.6;color:var(--dove)">
+      <b style="color:var(--ink)">Not included:</b> ongoing retainer, hands-on remediation implementation, Notified Body engagement fees (if required for Module H), independent lab testing for CE marking. These are separate engagements — quoted after audit if you want us to continue.
+    </div>
+  </div>
+</section>
+
+<section id="credentials" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">WHY VF EMPIRE</div>
+    <h2 class="rv">We built it for our own product first.<br><span class="mute">The evidence is public.</span></h2>
+    <p class="lead rv">Every VF Empire product ships CRA-compliant from day one — full manufacturer registration, 24-hour actively-exploited-vuln reporting, SBOM per release, 5-year minimum security-support lifecycle. The documentation we hand you draws directly from our own published dossiers.</p>
+
+    <div class="outs rv">
+      <div class="c">
+        <div class="n">VF Home <span>CRA dossier</span><span>.</span></div>
+        <p>Full CRA compliance dossier for VF Home (P·24) — the smart-home hub — published at <a href="https://github.com/vfempire-hq/vf-home/blob/main/docs/legal/cra-compliance-dossier.md" style="color:var(--core-deep);font-weight:600">github.com/vfempire-hq/vf-home</a>. Real, regulator-facing evidence.</p>
+      </div>
+      <div class="c">
+        <div class="n">Threat model<span>s</span><span>.</span></div>
+        <p>STRIDE threat models across 7 VF products with 8+ adversary tiers each, published at <a href="/software" style="color:var(--core-deep);font-weight:600">vfempire.com/software</a>. The template + structure adapts directly to your product.</p>
+      </div>
+      <div class="c">
+        <div class="n">Terms § 8<span>.</span></div>
+        <p>Our own products carry an enforceable Terms § 8 warranty — refund + public post-mortem within 5 business days on material privacy breach. We take our own advice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="k rv">COMMON QUESTIONS</div>
+    <h2 class="rv">What most first calls ask.</h2>
+
+    <div class="faq rv">
+      <div class="q">
+        <h4>We're a non-EU manufacturer selling into the EU — does CRA apply to us?</h4>
+        <p>Yes. CRA applies to products placed on the EU market regardless of manufacturer origin. Non-EU manufacturers must either establish an EU authorised representative or work through an EU importer. The technical file + Declaration of Conformity requirements apply identically. We can help you structure the authorised-representative path.</p>
+      </div>
+      <div class="q">
+        <h4>We already have ISO 27001 / SOC 2 / cybersecurity insurance — do we need CRA on top?</h4>
+        <p>Yes. Those frameworks address information-security management for your organisation. CRA specifically addresses the product placed on the market — vulnerability handling for the product, SBOM for the product, security-support lifecycle for the product. They complement rather than replace CRA obligations.</p>
+      </div>
+      <div class="q">
+        <h4>Can we skip CRA if our product is B2B only?</h4>
+        <p>No. CRA applies to products placed on the EU market regardless of the buyer type. B2B products face the same essential requirements + vulnerability handling obligations. Class II classification is slightly more common for B2B industrial products — meaning conformity assessment via Notified Body may be required rather than self-attestation.</p>
+      </div>
+      <div class="q">
+        <h4>What if the audit reveals a gap we can't close by Sep 11 2026?</h4>
+        <p>The remediation roadmap prioritises exactly this question. You'll get an honest assessment of what has to ship before enforcement + what can be phased. In some cases the answer is "delay the EU launch of this SKU until compliant" — better to hear that now than in December 2026 from a market-surveillance letter.</p>
+      </div>
+      <div class="q">
+        <h4>Do you handle the actual conformity-assessment paperwork?</h4>
+        <p>The audit hands you the technical-file structure + Declaration of Conformity template + gap analysis. Filing paperwork with a Notified Body (for Module H) or maintaining the technical file (for Module A self-attestation) is a separate engagement — we quote that after the audit if you'd like us to continue.</p>
+      </div>
+      <div class="q">
+        <h4>Can you sign an NDA before the kick-off call?</h4>
+        <p>Yes. Standard mutual NDA signed within 24 hours of your request. If you have your own template we can review + turn around within 2 business days.</p>
+      </div>
+      <div class="q">
+        <h4>How do you handle payment?</h4>
+        <p>Invoiced in EUR by VF Empire Corp Ltd (Malta VAT MT 2686-9431), payable by SEPA transfer. 50% at kick-off, 50% at deliverable. Payment via Noirda GmbH (Germany VAT DE...) if you require a German-invoice counterparty for VAT-recovery convenience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sysreqgrid">
+      <div class="sysreqhead">
+        <div class="k rv">ENGAGEMENT DETAILS</div>
+        <h2 class="rv">Everything at a glance</h2>
+        <p class="lead rv">The practical shape of the engagement,<br/>in one panel.</p>
+      </div>
+      <dl class="sysreqrows rv">
+        <div class="sysreqrow"><dt>Fee</dt><dd>€12 000 Standard · €18 000 Extended · fixed · EUR</dd></div>
+        <div class="sysreqrow"><dt>Timeline</dt><dd>2 weeks Standard · 3 weeks Extended · calendar time</dd></div>
+        <div class="sysreqrow"><dt>Team</dt><dd>1 VF Empire senior engineer + retained CRA conformance consultant</dd></div>
+        <div class="sysreqrow"><dt>Deliverables</dt><dd>6 documents + presentation + 4-6 week Q&A window</dd></div>
+        <div class="sysreqrow"><dt>Format</dt><dd>PDF + editable markdown (regulator-facing) + video presentation recorded</dd></div>
+        <div class="sysreqrow"><dt>Language</dt><dd>English (primary) · German · French on request</dd></div>
+        <div class="sysreqrow"><dt>Payment terms</dt><dd>50% kick-off · 50% delivery · SEPA · via VF Empire Malta or Noirda GmbH DE</dd></div>
+        <div class="sysreqrow"><dt>NDA</dt><dd>Standard mutual signed within 24 hours or your template turned around 2 business days</dd></div>
+        <div class="sysreqrow"><dt>Follow-on</dt><dd>Threat Model + DPIA drafting (Service 02) · Signing infrastructure blueprint (Service 03) · ongoing retainer available</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="foot">
+  <div class="wrap">
+    <div class="k rv">BOOK A CALL</div>
+    <h2 class="rv">30 minutes.<br><span class="mute">You leave the call knowing whether we're the right fit.</span></h2>
+    <p class="lead rv">Discovery call is free. No sales script. We ask about your product + your CRA exposure; you ask us anything about the engagement. If the fit is right, we book. If it isn't, you leave with better questions to ask elsewhere.</p>
+
+    <div class="acts">
+      <a class="bt pri" href="mailto:services@vfempire.com?subject=CRA%20Readiness%20Audit%20-%20discovery%20call">Write to services@vfempire.com</a>
+      <a class="bt gho" href="/software">Read the software thesis</a>
+    </div>
+
+    <div class="fine">
+      VF Empire Corp Ltd · Malta C 94160 · VAT MT 2686-9431 · Virgo Louretana, Triq L-Mġarr, Għajnsielem, Gozo GSM1020, MT
+      &nbsp;·&nbsp; <a href="/">Home</a>
+      &nbsp;·&nbsp; <a href="/software">Software</a>
+      &nbsp;·&nbsp; <a href="/services/threat-model-dpia">Services · Threat Model</a>
+      &nbsp;·&nbsp; <a href="/services/signing-infrastructure">Services · Signing</a>
+      &nbsp;·&nbsp; <a href="mailto:info@vfempire.com">Contact</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
