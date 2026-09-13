@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VF Legacy — Everything you leave behind, closed by you | VF Empire</title>
+<meta name="description" content="P·23 on the VF build slate: a sealed digital-estate vault with multi-signal trigger, 30-day grace period, per-jurisdiction executor packets aligned with the ELI Model Rules on Digital Succession, and pre-drafted requests to 30 EU consumer platforms.">
+<link rel="canonical" href="https://vfempire.com/systems/vf-legacy">
+<meta name="theme-color" content="#fbfbfd">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VF Empire">
+<meta property="og:title" content="VF Legacy — everything you leave behind, closed by you">
+<meta property="og:description" content="EU-sovereign digital estate + inheritance vault. Multi-signal trigger, 30-day grace, 5-jurisdiction executor packets, 30-platform request library. Aligned with ELI Model Rules on Digital Succession.">
+<meta property="og:url" content="https://vfempire.com/systems/vf-legacy">
+<meta property="og:image" content="https://vfempire.com/assets/pipe/p23.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "VF Legacy",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "iOS, Android, Web",
+      "creator": {"@id": "https://vfempire.com/#org"},
+      "description": "A sealed digital-estate vault with multi-signal trigger and coordinated executor release. Malta-issued; 5-jurisdiction executor packet templates (MT+DE+FR+IE+IT); 30-platform request library; aligned with the ELI Model Rules on Digital Succession adopted 2025."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
+        {"@type": "ListItem", "position": 3, "name": "VF Legacy"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+
+:root{
+  --paper:#fbfbfd; --silver:#f5f5f7; --mist:#eceff3;
+  --ink:#1d1d1f; --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
+  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
+::selection{background:var(--core);color:#fff}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
+.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
+.crumb{font-size:12px;color:var(--faint);letter-spacing:.02em}
+.crumb a{color:var(--dove)}
+.crumb a:hover{color:var(--core)}
+.crumb b{color:var(--ink);font-weight:600}
+.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
+.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
+
+section{padding:104px 6vw}
+.wrap{width:min(1080px,100%);margin:0 auto}
+.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
+h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
+h2 .mute{color:var(--faint)}
+.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
+.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
+.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
+.bt.gho{color:var(--core)}
+.bt.gho:hover{background:rgba(31,111,242,.07)}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+.phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
+  radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+.phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .eb b{color:var(--core)}
+.phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
+.phero h1 span em{color:var(--core-deep)}
+.phero p.sub{max-width:500px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
+.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
+.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
+.phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
+.pheroart{position:relative;aspect-ratio:1;max-width:520px;margin:0 auto;opacity:0;animation:up 1.1s .48s cubic-bezier(.2,.7,.2,1) forwards}
+.pheroart img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+
+.fails{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
+.fl{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 28px;transition:transform .4s,box-shadow .4s}
+.fl:hover{transform:translateY(-4px);box-shadow:0 28px 50px -30px rgba(40,55,90,.28)}
+.fl .num{font-size:10px;letter-spacing:.3em;color:var(--core);font-weight:700}
+.fl h4{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:10px 0 10px}
+.fl p{font-size:14px;line-height:1.62;color:var(--dove)}
+
+.aud{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
+.au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;display:flex;gap:16px;align-items:flex-start}
+.au.first{grid-column:1/-1;background:linear-gradient(140deg,#eff5ff,#fff);border-color:#c7dcff}
+.au .ic{width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center}
+.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au h4{font-size:17px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
+.au p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+.au .co{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.au .co span{font-size:10px;letter-spacing:.14em;color:#3a3a3c;background:#fff;border:1px solid var(--line);padding:5px 11px;border-radius:99px;font-weight:600}
+
+.outs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.outs .c{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.outs .n{font-size:20px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.outs .n span{color:var(--core)}
+.outs p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+
+.mech{margin-top:52px;display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center}
+.mechart{aspect-ratio:1;position:relative;background:linear-gradient(160deg,#f4f6f9,#eceff3);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.mechart img{width:100%;height:100%;object-fit:cover;display:block}
+.layers{display:flex;flex-direction:column;gap:14px}
+.ly{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.ly .lt{display:flex;align-items:baseline;gap:14px;margin-bottom:7px}
+.ly .lt i{font-style:normal;font-size:9.5px;letter-spacing:.26em;color:var(--faint);font-weight:700}
+.ly .lt h4{font-size:15.5px;font-weight:600;letter-spacing:-.015em}
+.ly p{font-size:13px;line-height:1.6;color:var(--dove)}
+
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.rd{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.rd .num{font-size:11px;letter-spacing:.28em;color:var(--faint);font-weight:700;margin-bottom:8px}
+.rd h4{font-size:17.5px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.rd p{font-size:13.5px;line-height:1.6;color:var(--dove);margin-bottom:16px}
+.rd .st{display:inline-block;font-size:10px;letter-spacing:.2em;font-weight:700;padding:4px 12px;border-radius:99px;background:var(--silver);color:var(--dove)}
+.rd .st.hot{background:#eff5ff;color:var(--core-deep);border:1px solid #c7dcff}
+
+.docs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+.doc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.doc .dk{font-size:10px;letter-spacing:.28em;color:var(--core);font-weight:700;margin-bottom:8px}
+.doc h4{font-size:16.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
+.doc p{font-size:13px;line-height:1.55;color:var(--dove);margin-bottom:14px}
+.doc .tba a{font-size:11px;letter-spacing:.16em;color:var(--core-deep);font-weight:700}
+.doc .tba a:hover{color:var(--core)}
+
+.sysreqgrid{display:grid;grid-template-columns:1fr 1.6fr;gap:44px}
+.sysreqhead{position:sticky;top:100px;align-self:flex-start}
+.sysreqrows{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sysreqrow{display:grid;grid-template-columns:180px 1fr;gap:14px;padding:16px 20px;background:#fff;align-items:baseline}
+.sysreqrow dt{font-size:11.5px;letter-spacing:.14em;color:var(--core);font-weight:700}
+.sysreqrow dd{font-size:14px;color:var(--ink);line-height:1.55}
+
+.foot{background:var(--silver);padding:100px 6vw;text-align:center;border-top:1px solid var(--line)}
+.foot h2{margin:0 auto;max-width:22ch}
+.foot .lead{margin:20px auto 32px}
+.foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.foot .fine{font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:60px}
+.foot .fine a{color:var(--dove);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.foot .fine a:hover{color:var(--core)}
+
+@media (max-width:900px){
+  .phero{grid-template-columns:1fr}
+  .pheroart{max-width:340px}
+  .fails,.aud,.outs,.road,.docs{grid-template-columns:1fr}
+  .mech{grid-template-columns:1fr}
+  .sysreqgrid{grid-template-columns:1fr}
+  section{padding:80px 6vw}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+      VF EMPIRE
+    </a>
+    <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·23 VF Legacy</b></span>
+    <a class="cta" href="mailto:info@vfempire.com">Register interest</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div>
+    <div class="eb"><b>P·23</b> &nbsp;·&nbsp; DIGITAL ESTATE &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
+    <h1>VF Legacy<span>Everything you leave behind, <em class="i">closed by you.</em></span></h1>
+    <p class="sub">Every family that has lost someone in the last five years has a story about the 14-month bureaucratic ordeal of closing digital accounts. Apple Legacy Contact is Apple-only. Google Inactive Account Manager is Google-only. Everplans is US-only. No EU sovereign player exists in this category. VF Legacy is the answer — a sealed vault of your last wishes, a multi-signal trigger designed against both false positives and false negatives, and an executor packet aligned with the European Law Institute Model Rules on Digital Succession.</p>
+    <div class="meta">
+      <span class="mchip hot">SPEC-COMPLETE · R·01</span>
+      <span class="mchip">MT · DE · FR · IE · IT</span>
+      <span class="mchip">ELI MODEL RULES ALIGNED</span>
+      <span class="mchip">30-DAY GRACE + OWNER VETO</span>
+      <span class="mchip">12-MONTH PERMANENCE</span>
+    </div>
+    <div class="acts">
+      <a class="bt pri" href="mailto:info@vfempire.com?subject=VF%20Legacy">Register interest</a>
+      <a class="bt gho" href="/software">Read the thesis</a>
+    </div>
+  </div>
+  <div class="pheroart">
+    <img src="../assets/pipe/p23.png" alt="VF Legacy — a matte-white sculptural reliquary vessel on a white plinth, with a single cyan light-seam around its middle and a small cyan disc floating above the lid">
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="k rv">WHY IT HAS TO EXIST</div>
+    <h2 class="rv">The last mile of estate planning<br><span class="mute">is where everyone gets stuck.</span></h2>
+    <p class="lead rv">A properly executed will handles the legal instrument. It does not handle the operational reality: 20-40 accounts spread across 20-40 platforms, each with its own legacy process, its own forms, its own SLAs. Bereaved families spend months clicking through unfamiliar interfaces in unfamiliar terminology, or paying professional fees to have someone else do it. Four failures, one gap.</p>
+
+    <div class="fails rv">
+      <div class="fl">
+        <span class="num">F·01</span>
+        <h4>Per-vendor silos, not coordination</h4>
+        <p>Apple Legacy Contact, Google Inactive Account Manager, Facebook Memorialisation — every big platform has its own tool. None of them talk to each other. None of them know about the other 25 accounts your relative had.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·02</span>
+        <h4>US-only + expensive</h4>
+        <p>The category-leading tools (Everplans, Trustworthy) are US-jurisdictional and US-priced. European families in Malta, Berlin, Dublin, Milan get exactly nothing built for their legal frameworks.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·03</span>
+        <h4>No EU sovereign incumbent</h4>
+        <p>Not one. Boomers age into this problem every year and there is nowhere in Europe to send them for a coordinated, sovereign, legally-coherent product. The ELI Model Rules on Digital Succession landed in 2025 — the field is now ready and still empty.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·04</span>
+        <h4>DIY = spreadsheets + trust</h4>
+        <p>The current alternative is a note in a shared drive that Mom sort of updated three years ago plus a verbal understanding your sister was supposed to know about. When the moment comes, nobody knows who was supposed to close the Netflix account or what to do about the crypto wallet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">WHO IT SERVES</div>
+    <h2 class="rv">Built for the families<br><span class="mute">that will eventually be the executor.</span></h2>
+
+    <div class="aud rv">
+      <div class="au first">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V7l7-4z"/></svg></div>
+        <div>
+          <h4>Our own family first</h4>
+          <p>The VF network runs across three jurisdictions. Vincent's parents, siblings, and immediate family are the first users of VF Legacy — the Falzon family estate is dogfooded through the product end-to-end. Every design choice was made with a real family in mind.</p>
+          <div class="co"><span>VINCENT + FAMILY</span><span>MT · DE · UK</span><span>DOGFOODED FIRST</span></div>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></div>
+        <div>
+          <h4>Middle-aged adults</h4>
+          <p>The ones who watched their parents die and swore they'd never inflict that ordeal on their own children. The ones who have their affairs almost together but can never bring themselves to sit down and actually write out the accounts + credentials + wishes.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 8l8-5 8 5-8 5z"/><path d="M4 14l8 5 8-5M4 11l8 5 8-5"/></svg></div>
+        <div>
+          <h4>Cross-jurisdiction families</h4>
+          <p>Malta+Germany. Ireland+France. Italy+Netherlands. The families whose estate execution touches multiple EU jurisdictions and needs an executor packet appropriate to each.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3v18M6 8h12M6 13h10M6 18h8"/></svg></div>
+        <div>
+          <h4>The already-appointed executor</h4>
+          <p>You've been named executor in a will. You know what you're supposed to do; you don't know how. The VF Legacy vault is what the deceased would have wanted you to have: the account list, the credentials, the messages, the pre-drafted letters ready to send.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 21c-4-1.6-7-4.6-7-9V7l7-4 7 4v5c0 4.4-3 7.4-7 9z"/><path d="M9 11.5l2 2 4-4.5"/></svg></div>
+        <div>
+          <h4>The already-burned</h4>
+          <p>Everyone who watched a spouse die and then spent 18 months closing accounts, and swore they wouldn't inflict that on the next generation. Everyone who sees their parents ageing without any plan. This is the plan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="k rv">WHAT IT CHANGES</div>
+    <h2 class="rv">From verbal understandings<br><span class="mute">to sealed, dignified action.</span></h2>
+    <p class="lead rv">VF Legacy shifts the operational work of estate discharge from the six-week grief-heavy period after death to the calm hour when you sit down + record it. Executor opens a signed packet, reads a clean per-jurisdiction PDF, sends the pre-drafted letters. Multi-signal trigger design means it never fires when it shouldn't. Terms § 8 warranty pays out on material breach. The Permanence Guarantee means your vault outlives us if it has to.</p>
+
+    <div class="outs rv">
+      <div class="c"><div class="n">The trigger requires humans<span>.</span></div><p>Never automated. Two trusted contacts + a death certificate + a 30-day grace period during which you (if alive) can veto with your PIN. The mechanism cannot fire alone.</p></div>
+      <div class="c"><div class="n">The executor gets a packet, not a puzzle<span>.</span></div><p>Per-jurisdiction PDF drafted by counsel in that country. 30 pre-drafted platform letters ready to send. Categorised inventory with your action directive per item. No guessing.</p></div>
+      <div class="c"><div class="n">Your material outlives us<span>.</span></div><p>12-month Permanence Guarantee (extended from house-wide 90-day baseline because estate is a life event). Sealed vault format documented in a public interop spec. Migration path to national tools provided. If VF disappears, your vault stays readable — forever.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="mechanics" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">THE MECHANICS</div>
+    <h2 class="rv">Four layers,<br><span class="mute">around one signed release.</span></h2>
+    <p class="lead rv">R·01 ships as a Rust core with FFI bindings to Swift + Kotlin, a Fastify backend that never sees plaintext, and a Next.js web console for setup + executor unlock. Two new sub-primitives added to `vf-privacy-kit`: `legacy-trigger` for 2-of-N threshold release attestations, and a per-recipient message-encryption pattern via VF Mail sealed transport.</p>
+
+    <div class="mech rv">
+      <div class="mechart">
+        <img src="../assets/pipe/p23-mech.png" alt="Exploded diagram of the four layers of VF Legacy — executor packet, trigger switch, sealed instructions, kernel">
+      </div>
+      <div class="layers">
+        <div class="ly">
+          <div class="lt"><i>LAYER 1</i><h4>Vault</h4></div>
+          <p>SQLite on device, encrypted at rest with XChaCha20-Poly1305 keyed by your Argon2id-derived PIN. Stores the categorised inventory, credential-recovery pointers, per-recipient encrypted messages, and legal-document PDFs.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 2</i><h4>Trigger state machine</h4></div>
+          <p>Four independent signals: dead-man's-switch (default 90 days inactivity), 2-of-N trusted-contact attestation threshold, death certificate uploaded by executor, and explicit owner-initiated release for planned transitions. Threshold logic requires convergence.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 3</i><h4>30-day grace</h4></div>
+          <p>Once threshold met and release signed by two VF operators in different EU jurisdictions, the packet doesn't ship for 30 days. Owner can veto with PIN. Trusted contacts can withdraw attestations. Multi-channel notifications throughout. Only after grace does the packet reach the executor.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 4</i><h4>Executor packet</h4></div>
+          <p>Delivered via VF Mail sealed transport. Per-jurisdiction PDF plus JSON. Executor unlocks with their own PIN (if a VF Legacy user) or with a one-time recovery share the owner distributed physically (safe deposit box or sealed envelope with lawyer). Contains everything needed to discharge the digital estate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="k rv">BUILD TRAJECTORY</div>
+    <h2 class="rv">Spec-complete today,<br><span class="mute">Malta launch after legal work.</span></h2>
+
+    <div class="road rv">
+      <div class="rd">
+        <span class="num">R·01</span>
+        <h4>Five jurisdictions, thirty platforms</h4>
+        <p>Personal vault + text messages + multi-signal trigger + per-jurisdiction executor packets for MT + DE + FR + IE + IT + top-30 EU consumer platforms + jurisdiction-specific per-country additions. iOS + Android + web console. 6–8 months of build after seed close, then ~5 months of legal-heavy work to Malta launch.</p>
+        <span class="st hot">SPEC COMPLETE</span>
+      </div>
+      <div class="rd">
+        <span class="num">R·02</span>
+        <h4>Audio + video + business + crypto</h4>
+        <p>Audio + video messages to loved ones. Business-legacy mode (small-company continuity: keys, contracts, staff handoff). Crypto wallet integration (Ledger + Trezor Shamir handoff). Notary integration where jurisdiction requires. Extended platform library (100+). Family tier (5 members shared coordination). Delegated-setup mode for ageing parents.</p>
+        <span class="st">NEXT</span>
+      </div>
+      <div class="rd">
+        <span class="num">R·03</span>
+        <h4>Future-dated + family-wide + international</h4>
+        <p>Future-dated messages (grandchildren's 18th birthday, wedding, retirement). Family-wide vault with shared executor coordination. International estate planning cross-jurisdiction. Enterprise legacy for small-company continuity. Attorney referral integration.</p>
+        <span class="st">PLANNED</span>
+      </div>
+    </div>
+
+    <div class="docs rv">
+      <div class="doc">
+        <span class="dk">ENGINEERING SPEC</span>
+        <h4>VF Legacy — the full build plan</h4>
+        <p>Thirteen-section spec covering vault mechanics, multi-signal trigger state machine, per-recipient message encryption, executor packet generation, backend architecture (six capabilities only), banned dependencies, and the deliberately-minimal MCP scope.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/vf-legacy/blob/main/docs/architecture/vf-legacy-spec.md">PUBLISHED · 2026-09-13 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">THREAT MODEL</span>
+        <h4>STRIDE with the wrongful-trigger threat named</h4>
+        <p>Eight adversary tiers unique to Legacy (hostile executor, hostile family member, wrongful triggerer). Wrongful trigger flagged as the signature Legacy threat with a five-layer defence stack. Twelve threat-driven test scenarios enumerated.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/vf-legacy/blob/main/docs/security/threat-model.md">PUBLISHED · 2026-09-13 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">ELI MODEL RULES ALIGNMENT</span>
+        <h4>Aligned with the coordinating framework</h4>
+        <p>How VF Legacy's operational choices map to the European Law Institute Model Rules on Digital Succession, adopted 2025. Definitions, succession principles, third-party obligations, user autonomy, data protection, executor powers, cross-border recognition — each covered.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/vf-legacy/blob/main/docs/legal/eli-model-rules-alignment.md">PUBLISHED · 2026-09-13 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">INVESTOR PACK</span>
+        <h4>Full DD pack — 10 documents</h4>
+        <p>Executive summary, product, market and regulatory context, traction targets, technology and IP, team plan, financials, risks (with wrongful trigger honestly rated), the ask (€2–4m seed for the six-product family) and portfolio context.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/vf-legacy/tree/main/docs/investor">PUBLISHED · 2026-09-13 →</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sysreqgrid">
+      <div class="sysreqhead">
+        <div class="k rv">SYSTEM REQUIREMENTS</div>
+        <h2 class="rv">What the vault needs</h2>
+        <p class="lead rv">Everything on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+      </div>
+      <dl class="sysreqrows rv">
+        <div class="sysreqrow"><dt>Platforms</dt><dd>iOS 17+ and Android 12+ native apps. Web console (Next.js) for setup + executor unlock.</dd></div>
+        <div class="sysreqrow"><dt>De-Googled Android</dt><dd>Runs on GrapheneOS, /e/OS, LineageOS. No Google Play Services dependency.</dd></div>
+        <div class="sysreqrow"><dt>WSCD</dt><dd>Apple Secure Enclave on iOS. Android StrongBox on Android. Yubikey NFC as certified external fallback.</dd></div>
+        <div class="sysreqrow"><dt>Trigger signals</dt><dd>Dead-man's-switch + 2-of-N trusted-contact attestation + death certificate + explicit owner-initiated. No single signal fires release.</dd></div>
+        <div class="sysreqrow"><dt>Jurisdictions</dt><dd>Malta launch. Cross-border executor packets for Germany, France, Ireland, Italy on day one. Each drafted by that jurisdiction's counsel.</dd></div>
+        <div class="sysreqrow"><dt>Recovery</dt><dd>24-word recovery phrase for owner. Physical recovery-share PDF for executor (owner prints + distributes out-of-band). 2-of-N trusted-contact threshold as safety net.</dd></div>
+        <div class="sysreqrow"><dt>Grace period</dt><dd>30 days between release-attestation-signed and packet-ship. Owner can veto with PIN. Trusted contacts can withdraw attestations. Multi-channel notification throughout.</dd></div>
+        <div class="sysreqrow"><dt>Sub-processors</dt><dd>Hetzner (DE) + Cloudflare (EU) + VF Mail (in-house) + Postmark (EU) + Stripe (IE). No US-jurisdiction processor on user-data paths.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="foot">
+  <div class="wrap">
+    <div class="k rv">REGISTER INTEREST</div>
+    <h2 class="rv">Launch is 2027 Q2-Q3,<br><span class="mute">after per-jurisdiction legal work.</span></h2>
+    <p class="lead rv">R·01 launch target 2027 Q2-Q3 pending seed close, per-jurisdiction executor template completion, insurance underwriting (wrongful-trigger rider is novel), and IDPC Malta pre-consultation. Register interest to be told when Malta launches.</p>
+
+    <div class="acts">
+      <a class="bt pri" href="mailto:info@vfempire.com?subject=VF%20Legacy">Write to info@vfempire.com</a>
+      <a class="bt gho" href="/software">Read the software thesis</a>
+    </div>
+
+    <div class="fine">
+      VF Empire Corp Ltd · Malta C 94160 · VAT MT 2686-9431 · Virgo Louretana, Triq L-Mġarr, Għajnsielem, Gozo GSM1020, MT
+      &nbsp;·&nbsp; <a href="/">Home</a>
+      &nbsp;·&nbsp; <a href="/software">Software</a>
+      &nbsp;·&nbsp; <a href="/#pipeline">Pipeline</a>
+      &nbsp;·&nbsp; <a href="mailto:info@vfempire.com">Contact</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
