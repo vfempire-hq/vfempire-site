@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VF Home — The smart-home hub that outlives us | VF Empire</title>
+<meta name="description" content="P·24 on the VF build slate: a local-first smart-home hub coordinating Matter/Zigbee/Z-Wave devices + up to 4 ONVIF cameras with sealed remote access. CRA-compliant + Right-to-Repair-aligned + Permanence Guarantee baked into Terms § 8.">
+<link rel="canonical" href="https://vfempire.com/systems/vf-home">
+<meta name="theme-color" content="#fbfbfd">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VF Empire">
+<meta property="og:title" content="VF Home — the smart-home hub that outlives us">
+<meta property="og:description" content="Local-first hub. Matter + Zigbee + Z-Wave. Up to 4 ONVIF cameras with local NVR. Sealed remote access. CRA-compliant. Cannot become a paperweight if VF disappears.">
+<meta property="og:url" content="https://vfempire.com/systems/vf-home">
+<meta property="og:image" content="https://vfempire.com/assets/pipe/p24.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "VF Home",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Local-first hub firmware, iOS, Android, Web",
+      "creator": {"@id": "https://vfempire.com/#org"},
+      "description": "A local-first smart-home hub coordinating Matter + Zigbee + Z-Wave devices and up to 4 ONVIF cameras with local NVR. Sealed remote access via VF backend (opaque bytes only). CRA-compliant from Day 1. Runs on user hardware R·01; HomeSafe One appliance R·02."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
+        {"@type": "ListItem", "position": 3, "name": "VF Home"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+
+:root{
+  --paper:#fbfbfd; --silver:#f5f5f7; --mist:#eceff3;
+  --ink:#1d1d1f; --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
+  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.35);
+  --warn:#c93221;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
+::selection{background:var(--core);color:#fff}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
+.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
+.crumb{font-size:12px;color:var(--faint);letter-spacing:.02em}
+.crumb a{color:var(--dove)}
+.crumb a:hover{color:var(--core)}
+.crumb b{color:var(--ink);font-weight:600}
+.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
+.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
+
+section{padding:104px 6vw}
+.wrap{width:min(1080px,100%);margin:0 auto}
+.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
+h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
+h2 .mute{color:var(--faint)}
+.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
+.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
+.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
+.bt.gho{color:var(--core)}
+.bt.gho:hover{background:rgba(31,111,242,.07)}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+.phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
+  radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+.phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .eb b{color:var(--core)}
+.phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
+.phero h1 span em{color:var(--core-deep)}
+.phero p.sub{max-width:500px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
+.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
+.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
+.phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
+.pheroart{position:relative;aspect-ratio:1;max-width:520px;margin:0 auto;opacity:0;animation:up 1.1s .48s cubic-bezier(.2,.7,.2,1) forwards}
+.pheroart img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+
+.fails{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
+.fl{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 28px;transition:transform .4s,box-shadow .4s}
+.fl:hover{transform:translateY(-4px);box-shadow:0 28px 50px -30px rgba(40,55,90,.28)}
+.fl .num{font-size:10px;letter-spacing:.3em;color:var(--warn);font-weight:700}
+.fl h4{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:10px 0 10px}
+.fl p{font-size:14px;line-height:1.62;color:var(--dove)}
+
+.aud{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
+.au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;display:flex;gap:16px;align-items:flex-start}
+.au.first{grid-column:1/-1;background:linear-gradient(140deg,#eff5ff,#fff);border-color:#c7dcff}
+.au .ic{width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center}
+.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au h4{font-size:17px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
+.au p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+.au .co{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.au .co span{font-size:10px;letter-spacing:.14em;color:#3a3a3c;background:#fff;border:1px solid var(--line);padding:5px 11px;border-radius:99px;font-weight:600}
+
+.outs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.outs .c{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.outs .n{font-size:20px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.outs .n span{color:var(--core)}
+.outs p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+
+.mech{margin-top:52px;display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center}
+.mechart{aspect-ratio:1;position:relative;background:linear-gradient(160deg,#f4f6f9,#eceff3);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.mechart img{width:100%;height:100%;object-fit:cover;display:block}
+.layers{display:flex;flex-direction:column;gap:14px}
+.ly{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.ly .lt{display:flex;align-items:baseline;gap:14px;margin-bottom:7px}
+.ly .lt i{font-style:normal;font-size:9.5px;letter-spacing:.26em;color:var(--faint);font-weight:700}
+.ly .lt h4{font-size:15.5px;font-weight:600;letter-spacing:-.015em}
+.ly p{font-size:13px;line-height:1.6;color:var(--dove)}
+
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.rd{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.rd .num{font-size:11px;letter-spacing:.28em;color:var(--faint);font-weight:700;margin-bottom:8px}
+.rd h4{font-size:17.5px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.rd p{font-size:13.5px;line-height:1.6;color:var(--dove);margin-bottom:16px}
+.rd .st{display:inline-block;font-size:10px;letter-spacing:.2em;font-weight:700;padding:4px 12px;border-radius:99px;background:var(--silver);color:var(--dove)}
+.rd .st.hot{background:#eff5ff;color:var(--core-deep);border:1px solid #c7dcff}
+
+.docs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+.doc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.doc .dk{font-size:10px;letter-spacing:.28em;color:var(--core);font-weight:700;margin-bottom:8px}
+.doc h4{font-size:16.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
+.doc p{font-size:13px;line-height:1.55;color:var(--dove);margin-bottom:14px}
+.doc .tba a{font-size:11px;letter-spacing:.16em;color:var(--core-deep);font-weight:700}
+.doc .tba a:hover{color:var(--core)}
+
+.sysreqgrid{display:grid;grid-template-columns:1fr 1.6fr;gap:44px}
+.sysreqhead{position:sticky;top:100px;align-self:flex-start}
+.sysreqrows{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sysreqrow{display:grid;grid-template-columns:180px 1fr;gap:14px;padding:16px 20px;background:#fff;align-items:baseline}
+.sysreqrow dt{font-size:11.5px;letter-spacing:.14em;color:var(--core);font-weight:700}
+.sysreqrow dd{font-size:14px;color:var(--ink);line-height:1.55}
+
+.foot{background:var(--silver);padding:100px 6vw;text-align:center;border-top:1px solid var(--line)}
+.foot h2{margin:0 auto;max-width:22ch}
+.foot .lead{margin:20px auto 32px}
+.foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.foot .fine{font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:60px}
+.foot .fine a{color:var(--dove);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.foot .fine a:hover{color:var(--core)}
+
+@media (max-width:900px){
+  .phero{grid-template-columns:1fr}
+  .pheroart{max-width:340px}
+  .fails,.aud,.outs,.road,.docs{grid-template-columns:1fr}
+  .mech{grid-template-columns:1fr}
+  .sysreqgrid{grid-template-columns:1fr}
+  section{padding:80px 6vw}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+      VF EMPIRE
+    </a>
+    <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·24 VF Home</b></span>
+    <a class="cta" href="mailto:info@vfempire.com">Register interest</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div>
+    <div class="eb"><b>P·24</b> &nbsp;·&nbsp; SMART HOME &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
+    <h1>VF Home<span>The smart-home hub <em class="i">that outlives us.</em></span></h1>
+    <p class="sub">In the last twenty-four months mainstream consumers learned that "cloud-connected smart home" means "expires when the vendor gets bored." Belkin killed the entire Wemo line in a Milan press release. Logitech gave Pop-button owners two weeks. Neato's cloud died. Insteon went bankrupt. VF Home is the alternative — local-first firmware coordinating Matter + Zigbee + Z-Wave on hardware you already own, with sealed remote access and a Permanence Guarantee baked into Terms § 8.</p>
+    <div class="meta">
+      <span class="mchip hot">SPEC-COMPLETE · R·01</span>
+      <span class="mchip">MATTER · ZIGBEE · Z-WAVE</span>
+      <span class="mchip">UP TO 4 CAMERAS · LOCAL NVR</span>
+      <span class="mchip">CRA-COMPLIANT DAY 1</span>
+      <span class="mchip">PERMANENCE GUARANTEE</span>
+    </div>
+    <div class="acts">
+      <a class="bt pri" href="mailto:info@vfempire.com?subject=VF%20Home">Register interest</a>
+      <a class="bt gho" href="/software">Read the thesis</a>
+    </div>
+  </div>
+  <div class="pheroart">
+    <img src="../assets/pipe/p24.png" alt="VF Home — matte-white smooth-cornered ceramic cube on a white plinth, with a single cyan horizontal light-seam mid-height">
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="k rv">WHY IT HAS TO EXIST</div>
+    <h2 class="rv">Cloud-connected home<br><span class="mute">= vendor-decided expiry.</span></h2>
+    <p class="lead rv">Every mainstream smart-home brand has taught consumers the same lesson: the moment your vendor decides to stop paying for its cloud, your hardware becomes a paperweight. Belkin. Logitech. Neato. Insteon. Meanwhile Home Assistant exists but requires twenty hours of YAML to get going. Four failures, one productisation gap.</p>
+
+    <div class="fails rv">
+      <div class="fl">
+        <span class="num">F·01</span>
+        <h4>Vendor cloud shutdowns</h4>
+        <p>Belkin killed the entire Wemo line in a Milan press release in January 2026. Logitech gave Pop-button owners two weeks. Neato's floor-cleaner cloud died in 2025. Insteon went bankrupt with hundreds of thousands of devices in customers' homes.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·02</span>
+        <h4>Surveillance-camera business models</h4>
+        <p>Ring's police-access history. Nest footage subpoenaed. Wyze cloud outages. Arlo per-camera cloud-storage fees. When the camera vendor's business model is data ingestion, your intimate spaces become their product.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·03</span>
+        <h4>Voice assistants as third-party AI pipelines</h4>
+        <p>Alexa, Google Home, Siri Shortcuts — every voice request ships your speech to a third-party AI vendor's cloud. Every command you utter in your kitchen is training data somewhere else.</p>
+      </div>
+      <div class="fl">
+        <span class="num">F·04</span>
+        <h4>The FOSS alternative has a productisation gap</h4>
+        <p>Home Assistant exists. It is superb engineering. Loved by the technical minority. Requires a Raspberry Pi, a Docker install, and twenty hours of YAML to get running. Your 55-year-old parent will never use it as it stands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">WHO IT SERVES</div>
+    <h2 class="rv">Built for the households<br><span class="mute">that already own the hardware.</span></h2>
+
+    <div class="aud rv">
+      <div class="au first">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 10h16v10H4z"/><path d="M12 3l9 7H3z"/></svg></div>
+        <div>
+          <h4>Our own homes first</h4>
+          <p>Vincent's Malta home, his parents' home, Noirda GmbH's office. Three sites across two jurisdictions, every hub configuration exercised end-to-end. Ships to the Falzon family before it ships to anyone else's. If we can't run our own homes on it, it doesn't ship.</p>
+          <div class="co"><span>VINCENT · MT</span><span>PARENTS · MT</span><span>NOIRDA OFFICE · DE</span></div>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14M8 8l8 8M16 8l-8 8"/></svg></div>
+        <div>
+          <h4>Cloud-shutdown refugees</h4>
+          <p>Anyone who watched Belkin, Logitech, Neato or Insteon walk away from products they'd paid for. This is the alternative — with the promise, in writing, that we cannot do the same.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div>
+          <h4>Camera-privacy-first families</h4>
+          <p>Households where the doorbell + a garden camera + the garage feed matter, but where "cloud-hosted footage vendor" is not an acceptable answer. Local NVR. Encrypted at rest. Never sent to VF.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3v18M6 9h12M6 15h12"/></svg></div>
+        <div>
+          <h4>Home Assistant refugees</h4>
+          <p>Users who tried Home Assistant, loved what it does, and gave up on the YAML. Same architecture, same open protocols, wrapped in a supported hardware matrix + polished apps + Terms § 8 warranty + Permanence Guarantee.</p>
+        </div>
+      </div>
+      <div class="au">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 21c-4-1.6-7-4.6-7-9V7l7-4 7 4v5c0 4.4-3 7.4-7 9z"/><path d="M9 11.5l2 2 4-4.5"/></svg></div>
+        <div>
+          <h4>Trust-model buyers</h4>
+          <p>The audience that has already read the last two years of tech scandals and finished with the same question — <em class="i">who builds this differently?</em> — and is willing to pay €6.99/month for the answer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="k rv">WHAT IT CHANGES</div>
+    <h2 class="rv">From vendor-lottery<br><span class="mute">to enforceable permanence.</span></h2>
+    <p class="lead rv">Every existing smart-home hub asks users to trust that the vendor will keep the cloud running. VF Home moves the trust to a different place — into code you can rebuild, contracts you can enforce, and a supported-hardware matrix you can source from any retailer.</p>
+
+    <div class="outs rv">
+      <div class="c"><div class="n">Cloud is optional<span>.</span></div><p>Hub works standalone on the LAN. Sealed remote access via VF backend is an opt-in convenience — the relay sees encrypted bytes only, cannot decrypt payloads, and its unavailability does not affect local control.</p></div>
+      <div class="c"><div class="n">Vendor cannot brick it<span>.</span></div><p>Permanence Guarantee — enforceable Terms § 8 clause — releases source within 90 days on discontinuation, keeps last firmware verifiable forever in the transparency log, publishes hardware schematics for the R·02 appliance, and ships a Home Assistant migration tool.</p></div>
+      <div class="c"><div class="n">CRA-compliant from Day 1<span>.</span></div><p>Cyber Resilience Act enforcement begins September 11 2026. VF Home ships with manufacturer registration, 24-hour vulnerability reporting, SBOM per release, and 5-year minimum security-support — going into effect on the same day incumbents begin their scramble.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="mechanics" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">THE MECHANICS</div>
+    <h2 class="rv">Four layers,<br><span class="mute">on the hardware you already own.</span></h2>
+    <p class="lead rv">R·01 ships as a Rust hub-core with FFI bindings to Swift + Kotlin, a Fastify backend that never sees plaintext, and three USB coordinator dongles (~€75 total user hardware). One new sub-primitive added to `vf-privacy-kit`: `household-quorum` for 2-of-N threshold approval on firmware updates, member removal, and panic-wipe.</p>
+
+    <div class="mech rv">
+      <div class="mechart">
+        <img src="../assets/pipe/p24-mech.png" alt="Exploded diagram of the four layers of VF Home — coordinators, NVR, household, kernel">
+      </div>
+      <div class="layers">
+        <div class="ly">
+          <div class="lt"><i>LAYER 1</i><h4>Protocol coordinators</h4></div>
+          <p>Matter/Thread + Zigbee + Z-Wave via three USB dongles (Nordic nRF52840, ConBee III, Zooz 800 series as reference). Each protocol wrapped by an internal adapter presenting devices via one unified device model. Users see one device list.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 2</i><h4>Local NVR</h4></div>
+          <p>Up to 4 ONVIF-compliant IP cameras. H.265 encoding. Per-camera retention 7 / 30 / 90 days plus motion-triggered clips for up to 180 days. AES-256-GCM encryption at rest with keys derived from admin PIN. Motion detection via per-pixel-diff (classical algorithm; no ML at R·01). Never uploaded to VF.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 3</i><h4>Household + quorum</h4></div>
+          <p>Five roles (admin / adult / teen / child / guest) with role-based device + camera access. Sensitive operations (firmware updates, member removal, panic-wipe) require 2-of-N `household-quorum` threshold signature. Recovery-share physical distribution as safety net.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>LAYER 4</i><h4>Sealed remote-access kernel</h4></div>
+          <p>Persistent WebSocket to VF backend via sealed transport. Mobile clients establish end-to-end sealed sessions with the hub; VF relay routes encrypted bytes without decrypting. Failure of VF relay does not affect local control.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="k rv">BUILD TRAJECTORY</div>
+    <h2 class="rv">Spec-complete today,<br><span class="mute">shipping after CRA registration.</span></h2>
+
+    <div class="road rv">
+      <div class="rd">
+        <span class="num">R·01</span>
+        <h4>BYO hardware, triad protocols, 4 cameras</h4>
+        <p>Container + bare-metal firmware images for the supported-hardware matrix (Raspberry Pi 4/5, Intel NUC, Odroid H, generic mini-PC). Matter + Zigbee + Z-Wave via USB coordinators. Up to 4 ONVIF cameras with local NVR. iOS + Android + web console. Sealed remote access. 6–7 months of build after seed close, then CRA registration + hardware-matrix testing + IDPC pre-consultation to Malta launch.</p>
+        <span class="st hot">SPEC COMPLETE</span>
+      </div>
+      <div class="rd">
+        <span class="num">R·02</span>
+        <h4>HomeSafe One appliance + voice + extended NVR</h4>
+        <p>CE-marked HomeSafe One dedicated appliance (~€349 one-off). Extended NVR to 16 cameras. On-device voice control via local Whisper.cpp — voice never leaves the hub. Router-integration edge mode (bundles Guardian Shield DNS filter). HomeKit-compatible mode. DALI + KNX bridges. Family tier (8 members with granular permissions). Classical CV motion analytics (person/vehicle/animal detection, still no ML, no face recognition, ever).</p>
+        <span class="st">NEXT</span>
+      </div>
+      <div class="rd">
+        <span class="num">R·03</span>
+        <h4>HomeSafe Router + enterprise + solar</h4>
+        <p>HomeSafe Router replaces the user's ISP router entirely. Enterprise / small-firm tier for up to 50 devices with staff role management. Federated multi-property households (holiday home, elderly parent's house). Solar + storage energy-management orchestration. Business IoT integration with FileIT for tax-reportable asset registry.</p>
+        <span class="st">PLANNED</span>
+      </div>
+    </div>
+
+    <div class="docs rv">
+      <div class="doc">
+        <span class="dk">ENGINEERING SPEC</span>
+        <h4>VF Home — the full build plan</h4>
+        <p>Thirteen-section spec covering the hub firmware distribution model, the Matter/Zigbee/Z-Wave adapter architecture, the local NVR engine, sealed remote-access mechanics, household + quorum design, backend architecture (five capabilities only), and the CRA-compliance framework.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/vf-home/blob/main/docs/architecture/vf-home-spec.md">PUBLISHED · 2026-09-13 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">THREAT MODEL</span>
+        <h4>STRIDE with the physical dimension named</h4>
+        <p>Eight adversary tiers unique to Home (hostile executor, burglar, camera-network attacker, camera-vendor supply-chain). Nine primary threats. T·01 camera-footage exfiltration flagged with LOW consumer / MEDIUM state-actor residual. Twelve threat-driven test scenarios enumerated.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/vf-home/blob/main/docs/security/threat-model.md">PUBLISHED · 2026-09-13 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">CRA COMPLIANCE DOSSIER</span>
+        <h4>Registered manufacturer, day one</h4>
+        <p>Full Regulation (EU) 2024/2847 compliance covering Annex I essential requirements, Annex II vulnerability handling with 24-hour actively-exploited-vuln reporting SLA, SBOM per release in SPDX + CycloneDX, and 5-year minimum security-support lifecycle.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/vf-home/blob/main/docs/legal/cra-compliance-dossier.md">PUBLISHED · 2026-09-13 →</a></span>
+      </div>
+      <div class="doc">
+        <span class="dk">INVESTOR PACK</span>
+        <h4>Full DD pack — 10 documents</h4>
+        <p>Executive summary, product, market and regulatory tailwind, traction targets, technology and IP, team plan, financials, risks (with camera-footage sensitivity honestly rated), the ask (€2–4m seed for the seven-product family) and portfolio context.</p>
+        <span class="tba"><a href="https://github.com/vfempire-hq/vf-home/tree/main/docs/investor">PUBLISHED · 2026-09-13 →</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sysreqgrid">
+      <div class="sysreqhead">
+        <div class="k rv">SYSTEM REQUIREMENTS</div>
+        <h2 class="rv">What the hub needs</h2>
+        <p class="lead rv">Everything on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+      </div>
+      <dl class="sysreqrows rv">
+        <div class="sysreqrow"><dt>Hub hardware</dt><dd>BYO from supported matrix — Raspberry Pi 4/5, Intel NUC 11/12/13, Odroid H3/H4, generic x86_64 mini-PC (≥ 4 GB RAM + ≥ 64 GB storage). Full list at home.vfempire.com/interop/hardware-matrix.</dd></div>
+        <div class="sysreqrow"><dt>USB dongles</dt><dd>Matter/Thread: Nordic nRF52840. Zigbee: ConBee III / Sonoff ZBDongle-E. Z-Wave: Zooz 800 series / Aeotec Z-Stick 7. Total dongle cost ~€75.</dd></div>
+        <div class="sysreqrow"><dt>Cameras</dt><dd>Up to 4 ONVIF-compliant IP cameras (Profile S + T). ~30 tested cameras at launch. Ring / Nest / Wyze / Arlo not supported (cloud-only APIs).</dd></div>
+        <div class="sysreqrow"><dt>Platforms</dt><dd>iOS 17+, Android 12+ (native, degoogled-friendly). Web console (Next.js) for setup + advanced config. GrapheneOS, /e/OS, LineageOS supported.</dd></div>
+        <div class="sysreqrow"><dt>Remote access</dt><dd>Sealed WebSocket relay via VF backend. E2E encrypted between mobile ↔ hub. VF sees opaque bytes only.</dd></div>
+        <div class="sysreqrow"><dt>Household</dt><dd>5 roles (admin / adult / teen / child / guest). 2-of-N `household-quorum` required for firmware updates, member removal, panic-wipe.</dd></div>
+        <div class="sysreqrow"><dt>Local NVR</dt><dd>H.265 encoding. AES-256-GCM at rest. Retention configurable per camera (7 / 30 / 90 days) + motion-triggered clips 180 days. Local disk only.</dd></div>
+        <div class="sysreqrow"><dt>Sub-processors</dt><dd>Hetzner (DE) + Cloudflare (EU) + VF Mail (in-house) + Postmark (EU) + Stripe (IE). No US-jurisdiction processor on user-data paths. No camera-vendor cloud APIs.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="foot">
+  <div class="wrap">
+    <div class="k rv">REGISTER INTEREST</div>
+    <h2 class="rv">Launch is 2027 Q2-Q3,<br><span class="mute">after CRA registration + hardware-matrix testing.</span></h2>
+    <p class="lead rv">R·01 launch target 2027 Q2-Q3 pending seed close, CRA registration with Malta CSIRT, hardware-matrix test-bench setup, IDPC Malta pre-consultation, and insurance underwriting. Register interest to be told when Malta launches.</p>
+
+    <div class="acts">
+      <a class="bt pri" href="mailto:info@vfempire.com?subject=VF%20Home">Write to info@vfempire.com</a>
+      <a class="bt gho" href="/software">Read the software thesis</a>
+    </div>
+
+    <div class="fine">
+      VF Empire Corp Ltd · Malta C 94160 · VAT MT 2686-9431 · Virgo Louretana, Triq L-Mġarr, Għajnsielem, Gozo GSM1020, MT
+      &nbsp;·&nbsp; <a href="/">Home</a>
+      &nbsp;·&nbsp; <a href="/software">Software</a>
+      &nbsp;·&nbsp; <a href="/#pipeline">Pipeline</a>
+      &nbsp;·&nbsp; <a href="mailto:info@vfempire.com">Contact</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
