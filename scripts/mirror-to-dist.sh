@@ -14,7 +14,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Top-level HTML
-for f in index.html 401.html 404.html; do
+for f in index.html 401.html 404.html software.html security.html; do
   [ -f "$f" ] && cp -v "$f" "dist/$f"
 done
 
@@ -25,6 +25,10 @@ cp -v sitemap.xml     sitemap-full.xml || true
 # Systems
 mkdir -p dist/systems
 find systems -maxdepth 1 -name '*.html' -exec cp -v {} dist/systems/ \;
+
+# Services
+mkdir -p dist/services
+find services -maxdepth 1 -name '*.html' -exec cp -v {} dist/services/ \; 2>/dev/null || true
 
 # Legal + contact
 mkdir -p dist/legal dist/contact

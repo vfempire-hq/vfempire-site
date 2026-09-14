@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security posture — VF Empire</title>
+<meta name="description" content="How VF Empire proves its products are solid. Public repositories audited clean of secrets. Signed releases with 2-of-2 threshold. Reproducible builds. Bug bounty active. Terms § 8 warranty enforceable in Malta.">
+<link rel="canonical" href="https://vfempire.com/security">
+<meta name="theme-color" content="#fbfbfd">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VF Empire">
+<meta property="og:title" content="VF Empire — Security posture, verifiable end-to-end">
+<meta property="og:description" content="Public repos audited clean of secrets. Signed releases. Reproducible builds. Bug bounty. Terms § 8 warranty. Verifiable, not marketing.">
+<meta property="og:url" content="https://vfempire.com/security">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Hanken';src:url('fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+
+:root{
+  --paper:#fbfbfd; --silver:#f5f5f7; --mist:#eceff3;
+  --ink:#1d1d1f; --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
+  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.35);
+  --warn:#c93221;
+  --ok:#0b7a3e;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
+::selection{background:var(--core);color:#fff}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
+.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
+.crumb{font-size:12px;color:var(--faint);letter-spacing:.02em}
+.crumb a{color:var(--dove)}
+.crumb a:hover{color:var(--core)}
+.crumb b{color:var(--ink);font-weight:600}
+.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
+.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
+
+section{padding:104px 6vw}
+.wrap{width:min(1080px,100%);margin:0 auto}
+.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
+h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
+h2 .mute{color:var(--faint)}
+.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
+.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
+.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
+.bt.gho{color:var(--core)}
+.bt.gho:hover{background:rgba(31,111,242,.07)}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+.phero{min-height:72vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 6vw 60px;background:
+  radial-gradient(1000px 500px at 50% -10%, #ffffff 0%, transparent 70%),
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+.phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .eb b{color:var(--core)}
+.phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;max-width:18ch;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.phero h1 span{display:block;color:var(--faint);font-size:.5em;letter-spacing:-.03em;margin-top:16px;font-weight:600}
+.phero h1 span em{color:var(--core-deep)}
+.phero p.sub{max-width:620px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:26px auto 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
+.phero .meta{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
+.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
+.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
+
+.outs{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
+.outs .c{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;transition:transform .4s,box-shadow .4s}
+.outs .c:hover{transform:translateY(-3px);box-shadow:0 24px 44px -30px rgba(40,55,90,.25)}
+.outs .n{font-size:20px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.outs .n span{color:var(--core)}
+.outs p{font-size:13.5px;line-height:1.6;color:var(--dove)}
+.outs .sub{font-size:11.5px;letter-spacing:.18em;color:var(--dove);font-weight:700;margin-top:14px;text-transform:uppercase}
+.outs .sub b{color:var(--core-deep);font-weight:700}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:52px}
+.stat{background:#fff;padding:28px 22px;text-align:center}
+.stat .num{font-size:36px;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.stat .num.warn{color:var(--warn)}
+.stat .num.ok{color:var(--core-deep)}
+.stat .lbl{font-size:11px;letter-spacing:.24em;color:var(--dove);font-weight:700;margin-top:8px;text-transform:uppercase}
+.stat .det{font-size:12px;color:var(--faint);margin-top:6px}
+
+.audit{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:52px}
+.arow{background:#fff;padding:22px 26px;display:grid;grid-template-columns:1fr 100px 130px 140px 140px;gap:18px;align-items:center}
+.arow.head{background:var(--silver);font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--core);text-transform:uppercase}
+.arow .repo{font-size:14.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.arow .repo small{display:block;font-size:11px;color:var(--dove);font-weight:400;letter-spacing:0;margin-top:2px}
+.arow .cell{font-size:13px;color:var(--ink)}
+.arow .cell.ok{color:var(--core-deep);font-weight:700}
+.arow .cell.warn{color:var(--warn);font-weight:700}
+.arow .cell.dim{color:var(--dove)}
+
+.mech{margin-top:52px;display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:start}
+.mechart{aspect-ratio:1;position:relative;background:linear-gradient(160deg,#f4f6f9,#eceff3);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.mechart .placeholder{position:absolute;inset:22%;border-radius:50%;background:radial-gradient(circle at 42% 38%,#eaf2ff 0%,#7fb0ff 34%,var(--core) 62%,var(--core-deep) 100%);box-shadow:0 0 60px 12px var(--glow),inset 0 -12px 24px rgba(6,42,112,.55),inset 0 8px 16px rgba(255,255,255,.8);animation:breathe 4.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}
+.layers{display:flex;flex-direction:column;gap:14px}
+.ly{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.ly .lt{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.ly .lt i{font-style:normal;font-size:9.5px;letter-spacing:.26em;color:var(--faint);font-weight:700}
+.ly .lt h4{font-size:15.5px;font-weight:600;letter-spacing:-.015em}
+.ly p{font-size:13px;line-height:1.6;color:var(--dove)}
+
+.faq{display:flex;flex-direction:column;gap:14px;margin-top:52px}
+.q{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.q h4{font-size:15.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
+.q p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+
+.foot{background:var(--silver);padding:100px 6vw;text-align:center;border-top:1px solid var(--line)}
+.foot h2{margin:0 auto;max-width:22ch}
+.foot .lead{margin:20px auto 32px}
+.foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.foot .fine{font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:60px}
+.foot .fine a{color:var(--dove);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.foot .fine a:hover{color:var(--core)}
+
+@media (max-width:900px){
+  .outs{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .arow{grid-template-columns:1fr;gap:8px}
+  .arow.head{display:none}
+  .arow .cell::before{content:attr(data-label);font-size:10px;letter-spacing:.14em;color:var(--dove);font-weight:700;text-transform:uppercase;display:block;margin-bottom:2px}
+  .mech{grid-template-columns:1fr}
+  section{padding:80px 6vw}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+      VF EMPIRE
+    </a>
+    <span class="crumb"><a href="/">VF Empire</a> &nbsp;/&nbsp; <b>Security</b></span>
+    <a class="cta" href="mailto:security@vfempire.com">Report a finding</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="eb"><b>SECURITY</b> &nbsp;·&nbsp; VERIFIABLE END-TO-END &nbsp;·&nbsp; PUBLIC PROOF</div>
+  <h1>Security you can check<span>Not <em class="i">"trust us"</em> — check the trace.</span></h1>
+  <p class="sub">Every VF Empire product ships with claims we've made publicly verifiable. Signed releases with two-of-two threshold across separated EU jurisdictions. Reproducible builds from public source. Bug bounty with real payouts. Public repositories audited continuously for secret leaks. And a Terms § 8 warranty that pays out on material privacy breach — enforceable in Malta courts.</p>
+  <div class="meta">
+    <span class="mchip hot">GITLEAKS · CLEAN</span>
+    <span class="mchip">2-OF-2 THRESHOLD SIGNING</span>
+    <span class="mchip">REPRODUCIBLE BUILDS</span>
+    <span class="mchip">TERMS § 8 WARRANTY</span>
+    <span class="mchip">EU-SOVEREIGN INFRASTRUCTURE</span>
+  </div>
+</header>
+
+<section id="stats" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">CURRENT AUDIT · 2026-09-14</div>
+    <h2 class="rv">Public repositories<br><span class="mute">audited clean end-to-end.</span></h2>
+    <p class="lead rv">Every VF Empire public repository is continuously scanned for accidentally-committed secrets (API keys, tokens, private keys, database URLs, and around 150 other patterns) across full git history. Latest results published below — refreshed on every push, every pull request, and every Monday morning.</p>
+
+    <div class="stats rv">
+      <div class="stat">
+        <div class="num ok">4</div>
+        <div class="lbl">Public repos scanned</div>
+        <div class="det">All VF Empire org repos</div>
+      </div>
+      <div class="stat">
+        <div class="num ok">64</div>
+        <div class="lbl">Commits inspected</div>
+        <div class="det">Full history, not just tree</div>
+      </div>
+      <div class="stat">
+        <div class="num ok">~7 MB</div>
+        <div class="lbl">Code + history bytes</div>
+        <div class="det">Every deleted commit included</div>
+      </div>
+      <div class="stat">
+        <div class="num ok">0</div>
+        <div class="lbl">Secrets detected</div>
+        <div class="det">Across all four repositories</div>
+      </div>
+    </div>
+
+    <div class="audit rv">
+      <div class="arow head">
+        <div>Repository</div>
+        <div>Commits</div>
+        <div>Bytes scanned</div>
+        <div>Last audit</div>
+        <div>Result</div>
+      </div>
+      <div class="arow">
+        <div class="repo">snapit-desktop<small>P·20 · own-your-photo-library desktop app</small></div>
+        <div class="cell dim" data-label="Commits">35</div>
+        <div class="cell dim" data-label="Bytes">2.09 MB</div>
+        <div class="cell dim" data-label="Audit">2026-09-14</div>
+        <div class="cell ok" data-label="Result">CLEAN</div>
+      </div>
+      <div class="arow">
+        <div class="repo">vf-privacy-kit<small>Shared crypto substrate for the whole VF family</small></div>
+        <div class="cell dim" data-label="Commits">4</div>
+        <div class="cell dim" data-label="Bytes">177 KB</div>
+        <div class="cell dim" data-label="Audit">2026-09-14</div>
+        <div class="cell ok" data-label="Result">CLEAN</div>
+      </div>
+      <div class="arow">
+        <div class="repo">vfmail-desktop<small>P·16 · end-to-end encrypted mail (in customer beta)</small></div>
+        <div class="cell dim" data-label="Commits">6</div>
+        <div class="cell dim" data-label="Bytes">1.78 MB</div>
+        <div class="cell dim" data-label="Audit">2026-09-14</div>
+        <div class="cell ok" data-label="Result">CLEAN</div>
+      </div>
+      <div class="arow">
+        <div class="repo">vfempire-site<small>This corporate site, all product pages + investor content</small></div>
+        <div class="cell dim" data-label="Commits">19</div>
+        <div class="cell dim" data-label="Bytes">3.15 MB</div>
+        <div class="cell dim" data-label="Audit">2026-09-14</div>
+        <div class="cell ok" data-label="Result">CLEAN</div>
+      </div>
+    </div>
+
+    <p class="rv" style="margin-top:24px;font-size:12.5px;color:var(--dove);text-align:center">
+      Scanner: <b>gitleaks v8.24.2</b> — the industry-standard open-source secret detector. Ruleset covers AWS + GCP + Azure keys, Stripe (<code style="background:#fff;padding:1px 5px;border-radius:3px;border:1px solid var(--line);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px">rk_live_</code>), GitHub + GitLab tokens, RSA + SSH private keys, OAuth secrets, JWT secrets, database URLs, and around 150 more patterns.
+    </p>
+  </div>
+</section>
+
+<section id="mechanics">
+  <div class="wrap">
+    <div class="k rv">HOW WE STAY CLEAN</div>
+    <h2 class="rv">Two independent gates,<br><span class="mute">plus a quarterly audit.</span></h2>
+    <p class="lead rv">Zero findings today is a snapshot. Staying at zero requires the mechanism to be automatic. Two enforcement layers plus an ongoing audit cadence keep the trend line flat.</p>
+
+    <div class="mech rv">
+      <div class="mechart"><div class="placeholder"></div></div>
+      <div class="layers">
+        <div class="ly">
+          <div class="lt"><i>GATE 1</i><h4>Pre-commit hook (local)</h4></div>
+          <p>Runs at <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">git commit</code> time on every contributor's machine. Refuses commits containing high-entropy secrets before they enter git history. Config lives at <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">.pre-commit-config.yaml</code> in every VF public repository.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>GATE 2</i><h4>GitHub Actions CI (backstop)</h4></div>
+          <p>Runs on every push, every pull request, and every Monday 06:00 UTC. Full git-history scan, not just the current tree. A finding blocks the PR merge. Config at <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">.github/workflows/security-scan.yml</code>.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>REVIEW</i><h4>Quarterly audit + version bump</h4></div>
+          <p>Every quarter we bump gitleaks to the latest version + re-run against full history in every public repo. New rule patterns sometimes match on historical files that were fine under the previous ruleset — those get fixed before the bump lands. Documented in each product's quarterly transparency report.</p>
+        </div>
+        <div class="ly">
+          <div class="lt"><i>ESCALATION</i><h4>Incident response</h4></div>
+          <p>If a finding ever lands in a merged commit, the secret is assumed compromised. Immediate rotation of the credential, history purge via <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">git filter-repo</code>, force-push under owner approval, post-mortem within 5 business days per Terms § 8.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="posture" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">THE WIDER POSTURE</div>
+    <h2 class="rv">Everything we say about security<br><span class="mute">is something you can independently check.</span></h2>
+    <p class="lead rv">Secret-free public repositories are one property. Four others together define the security posture VF Empire ships every product against.</p>
+
+    <div class="outs rv">
+      <div class="c">
+        <div class="n">2-of-2 threshold signing<span>.</span></div>
+        <p>Every firmware release + rule pack + signed manifest is signed by two operators in separated EU jurisdictions with a 15-minute inspection window between signature and publish. A single compromised operator cannot ship a malicious release.</p>
+        <div class="sub">Verifiable via <b>public transparency log</b> per product</div>
+      </div>
+      <div class="c">
+        <div class="n">Reproducible builds<span>.</span></div>
+        <p>Every VF product binary is byte-for-byte reproducible from public source. Third-party CI mirrors (Berlin + Reykjavik) build continuously and compare their output against ours. Divergence would be publicly detectable within hours.</p>
+        <div class="sub">Verifiable via <b>public reproducibility receipts</b></div>
+      </div>
+      <div class="c">
+        <div class="n">Bug bounty · <span>€500 – €25 000</span><span>.</span></div>
+        <p>Tiered by severity. Real payouts, published quarterly with severity histogram. Coordinated disclosure with 90-day default window. Reporters credited unless anonymous. The programme is how we discover what we missed.</p>
+        <div class="sub">Report at <b>bounty.vfempire.com</b></div>
+      </div>
+      <div class="c">
+        <div class="n">Terms § 8 warranty<span>.</span></div>
+        <p>Material privacy breach = automatic refund + public post-mortem within 5 business days. Enforceable in Malta courts. Not a marketing pledge — a contract clause backed by insurance-funded escrow.</p>
+        <div class="sub">Full clause at <b>vfempire.com/terms</b></div>
+      </div>
+      <div class="c">
+        <div class="n">Warrant canary<span>.</span></div>
+        <p>Every product publishes a canary refreshed every 30 days. If it stops updating, users know we have received a national-security order or gag warrant we cannot disclose.</p>
+        <div class="sub">Live at each product's <b>/canary.txt</b></div>
+      </div>
+      <div class="c">
+        <div class="n">Permanence Guarantee<span>.</span></div>
+        <p>If VF Empire ever discontinues a product, the source is released under a permissive open-source licence within 90 days. Last signed firmware remains verifiable in the transparency log forever. Sealed vault format documented in a public spec. Your data stays readable long after we stop building.</p>
+        <div class="sub">Full guarantee at <b>vfempire.com/software</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="k rv">COMMON QUESTIONS</div>
+    <h2 class="rv">What buyers + auditors ask.</h2>
+
+    <div class="faq rv">
+      <div class="q">
+        <h4>Why is the source public if you're selling the product?</h4>
+        <p>Public source is the mechanism by which every other claim on this page becomes checkable. Reproducible builds require public source. Independent auditability requires public source. Bug bounty scale requires public source. The licence is proprietary — the source is public. Same posture as Bitwarden, Signal, Home Assistant, ProtonMail clients, Nextcloud, and every trust-critical consumer product that competes on verifiability.</p>
+      </div>
+      <div class="q">
+        <h4>Doesn't public source mean competitors just copy you?</h4>
+        <p>Bitwarden is fully open, at over $100M ARR + growing. Signal is fully open, dominant in E2EE messaging. Home Assistant is FOSS, dominant in home automation. None of them lost to clones. The moat for trust-critical consumer products is brand + community + support + regulatory position — not code. If anything, public source is a competitive advantage in this category, not a giveaway.</p>
+      </div>
+      <div class="q">
+        <h4>What's scanned + how deep?</h4>
+        <p>Full git history in every public VF Empire repository. Not just the current tree — every deleted file, every squashed commit, every orphan branch. Gitleaks v8.24.2 runs approximately 150 rule patterns covering the standard universe of secret types (cloud provider keys, payment provider tokens, source control tokens, database URLs, private keys of various formats, JWT signing secrets, generic high-entropy strings). Scan runs on every push + every PR + weekly cron.</p>
+      </div>
+      <div class="q">
+        <h4>What happens if you find something in the future?</h4>
+        <p>Immediate rotation of the leaked credential (assume compromised). History purge via <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">git filter-repo</code>. Force-push with owner approval. Post-mortem published at <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">/post-mortems/{id}</code> within 5 business days per Terms § 8. If a paying customer is materially affected, refund is automatic under the warranty. Insurance covers any additional exposure.</p>
+      </div>
+      <div class="q">
+        <h4>What about the private repositories?</h4>
+        <p>Seven currently — FileIT, FuelIT, Guardian Shield, VF Wallet, VF Legacy, VF Home, vf-certificates. All under the same pre-commit + CI gitleaks discipline, but internal-only until launch. On each product's launch, we review whether to graduate the repo to public with proprietary licence + Permanence-Guarantee auto-conversion (the same posture as the four repos above).</p>
+      </div>
+      <div class="q">
+        <h4>Can I get involved in the security review?</h4>
+        <p>Yes. Bug bounty at <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">bounty.vfempire.com</code>, coordinated disclosure via <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">security@vfempire.com</code>, PGP key at <code style="background:var(--silver);padding:1px 4px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:12px">vfempire.com/security/pgp</code>. If you want to run your own reproducibility CI mirror as an independent third party we are actively welcoming additional mirrors in EU jurisdictions — write to the same address.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="foot">
+  <div class="wrap">
+    <div class="k rv">REPORT A FINDING · TALK TO US</div>
+    <h2 class="rv">Security is a two-way street.<br><span class="mute">Tell us what we missed.</span></h2>
+    <p class="lead rv">Bug bounty pays €500 for design typos, up to €25 000 for novel privacy leaks. Coordinated disclosure honoured. Reporter credited unless anonymous. Response within 24 hours, patch within CVSS-severity-appropriate SLA, public post-mortem when material.</p>
+
+    <div class="acts">
+      <a class="bt pri" href="mailto:security@vfempire.com">Write to security@vfempire.com</a>
+      <a class="bt gho" href="/software">Read the software thesis</a>
+    </div>
+
+    <div class="fine">
+      VF Empire Corp Ltd · Malta C 94160 · VAT MT 2686-9431 · Virgo Louretana, Triq L-Mġarr, Għajnsielem, Gozo GSM1020, MT
+      &nbsp;·&nbsp; <a href="/">Home</a>
+      &nbsp;·&nbsp; <a href="/software">Software</a>
+      &nbsp;·&nbsp; <a href="/services/cra-readiness-audit">Services · CRA</a>
+      &nbsp;·&nbsp; <a href="/services/threat-model-dpia">Services · Threat Model</a>
+      &nbsp;·&nbsp; <a href="/services/signing-infrastructure">Services · Signing</a>
+      &nbsp;·&nbsp; <a href="mailto:info@vfempire.com">Contact</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
