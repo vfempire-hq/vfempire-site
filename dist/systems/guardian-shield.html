@@ -518,7 +518,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Five subsystems,<br><span class="mute">one honest trust model.</span></h2>
-    <p class="lead rv">R·01 ships five subsystems. Everything else backlogged. Each subsystem uses well-studied open primitives (ClamAV, YARA, WireGuard-Go, HIBP, OpenPhish, age, Argon2) — no proprietary black boxes, no commercial threat-intel SDKs, no third-party analytics on any code path that touches user data.</p>
+    <p class="lead rv">R·01 ships five subsystems. Everything else backlogged. Each subsystem uses well-studied open primitives (ClamAV, YARA, WireGuard-Go, HIBP, OpenPhish, age, Argon2) — no proprietary black boxes, no commercial threat-intel SDKs, no third-party analytics on any code path that touches user data. Guardian Shield is also what every other VF product depends on for its own defence — the vault primitive that seals VF Wallet, VF Legacy, VF Home + VF Mail; the DNS filter that runs on every VF machine; the scanner that verifies our own signed binaries. <a href="/security" style="color:var(--core);font-weight:600">See the live security audit ▸</a></p>
 
     <div class="mech rv">
       <div class="mechart"><img src="../assets/pipe/p18-mech.png" alt="Five circles orbiting a glowing blue core — the five subsystems of Guardian Shield"></div>
@@ -648,6 +648,42 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 
     <p class="pnote rv" style="margin-top:36px;text-align:center;color:var(--faint);font-size:12.5px;letter-spacing:.02em">
       Terms § 8 warranty: material privacy breach = refund of the current subscription period + public post-mortem within 5 business days. Enforceable in Maltese jurisdiction.
+    </p>
+  </div>
+</section>
+
+
+<section id="permanence" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">THE PERMANENCE GUARANTEE</div>
+    <h2 class="rv">If VF ever exits,<br><span class="mute">your shield stays yours.</span></h2>
+    <p class="lead rv">Norton was acquired into Gen Digital. Kaspersky got banned in 13 jurisdictions. Avast was fined $16.5M for selling browsing history. LastPass users watched their vaults get breached with no jurisdictional recourse. Every incumbent in this market has, at some point, either exited, been acquired away from its trust posture, or been documented harming its users. Guardian Shield's answer is a contractually-enforceable Permanence Guarantee — the differentiator against every past disappointment.</p>
+
+    <div class="outs rv" style="grid-template-columns:repeat(2,1fr);margin-top:52px">
+      <div class="c">
+        <div class="n">Source · released within 90 days<span>.</span></div>
+        <p>If VF Empire ever discontinues Guardian Shield, the full source code — Rust core, all three clients, all four backend services, CI + build toolchain — is released under a permissive open-source licence within 90 days. Escrowed in Malta + Ireland, insurance-funded execution.</p>
+        <div class="sub">Enforceable via <b>Terms § 8</b> in Malta courts</div>
+      </div>
+      <div class="c">
+        <div class="n">Transparency log · verifiable forever<span>.</span></div>
+        <p>Every signed pack + firmware release entered in a public Merkle-tree log. Verification keys mirrored to Software Heritage + Wayback Machine. A signature Guardian Shield produced in 2029 will still verify in 2049 — even if VF no longer exists.</p>
+        <div class="sub">Public keys at <b>transparency.vfempire.com/keys</b></div>
+      </div>
+      <div class="c">
+        <div class="n">Vault format · readable always<span>.</span></div>
+        <p>The sealed vault format is a public spec at <code style="background:#fff;padding:1px 5px;border-radius:3px;border:1px solid var(--line);font-family:ui-monospace,Menlo,monospace;font-size:11.5px">vf-privacy-kit/docs/vault-format.md</code>. The reference decryption implementation is open-source. Every version ships an "Export vault" lane. Your passwords are never locked into a format only Guardian Shield can read.</p>
+        <div class="sub">Reference code at <b>github.com/vfempire-hq/vf-privacy-kit</b></div>
+      </div>
+      <div class="c">
+        <div class="n">Signed packs · 6-month runway<span>.</span></div>
+        <p>If Guardian Shield ends, the pack-distributor stays online for six months post-announcement — signed daily updates continue, giving every licence-holder time to migrate to another suite or take over pack production under the released source. Insurance-funded.</p>
+        <div class="sub">Runway underwritten by <b>Lloyd's-syndicated policy</b></div>
+      </div>
+    </div>
+
+    <p class="rv" style="margin-top:36px;text-align:center;font-size:13px;color:var(--dove)">
+      Full mechanism documented in <a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/architecture/adr/0013-permanence-guarantee.md" style="color:var(--core);font-weight:600">ADR-0013 Permanence Guarantee ▸</a> &nbsp;·&nbsp; Escrow deed at <a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/legal/permanence-guarantee-escrow-deed.md" style="color:var(--core);font-weight:600">docs/legal/permanence-guarantee-escrow-deed.md ▸</a>
     </p>
   </div>
 </section>
