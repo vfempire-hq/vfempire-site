@@ -1,5 +1,7 @@
 # vfempire-site
 
+[![security-scan](https://github.com/vfempire-hq/vfempire-site/actions/workflows/security-scan.yml/badge.svg)](https://github.com/vfempire-hq/vfempire-site/actions/workflows/security-scan.yml)
+
 The corporate website for **VF Empire Corp Ltd** — Malta C 94160, VAT MT 2686-9431. Live at [vfempire.com](https://vfempire.com/).
 
 Static HTML, hand-crafted, served by **Cloudflare Workers Assets** from `dist/`.
