@@ -95,6 +95,11 @@ h2 .mute{color:var(--faint)}
 .arow .cell.ok{color:var(--core-deep);font-weight:700}
 .arow .cell.warn{color:var(--warn);font-weight:700}
 .arow .cell.dim{color:var(--dove)}
+.arow .cell.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(11,122,62,.08);border:1px solid rgba(11,122,62,.22);color:var(--ok);padding:6px 12px 6px 14px;border-radius:99px;font-weight:700;font-size:11.5px;letter-spacing:.06em;transition:background .22s,transform .22s,box-shadow .22s;justify-self:start;text-decoration:none}
+.arow .cell.pill:hover{background:rgba(11,122,62,.14);transform:translateY(-1px);box-shadow:0 4px 10px -4px rgba(11,122,62,.25)}
+.arow .cell.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(11,122,62,.15)}
+.arow .cell.pill .arw{font-size:10px;opacity:.55;margin-left:2px;transition:transform .22s}
+.arow .cell.pill:hover .arw{transform:translateX(2px);opacity:.9}
 
 .mech{margin-top:52px;display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:start}
 .mechart{aspect-ratio:1;position:relative;background:linear-gradient(160deg,#f4f6f9,#eceff3);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -192,40 +197,41 @@ h2 .mute{color:var(--faint)}
         <div>Commits</div>
         <div>Bytes scanned</div>
         <div>Last audit</div>
-        <div>Result</div>
+        <div>Result &nbsp;·&nbsp; verify live</div>
       </div>
       <div class="arow">
         <div class="repo">snapit-desktop<small>P·20 · own-your-photo-library desktop app</small></div>
         <div class="cell dim" data-label="Commits">35</div>
         <div class="cell dim" data-label="Bytes">2.09 MB</div>
         <div class="cell dim" data-label="Audit">2026-09-14</div>
-        <div class="cell ok" data-label="Result">CLEAN</div>
+        <a class="cell pill" data-label="Result" href="https://github.com/vfempire-hq/snapit-desktop/actions/workflows/security-scan.yml" target="_blank" rel="noopener" title="Live CI history · gitleaks scan runs on every push"><span class="dot"></span>CLEAN · CI PASSING<span class="arw">▸</span></a>
       </div>
       <div class="arow">
         <div class="repo">vf-privacy-kit<small>Shared crypto substrate for the whole VF family</small></div>
         <div class="cell dim" data-label="Commits">4</div>
         <div class="cell dim" data-label="Bytes">177 KB</div>
         <div class="cell dim" data-label="Audit">2026-09-14</div>
-        <div class="cell ok" data-label="Result">CLEAN</div>
+        <a class="cell pill" data-label="Result" href="https://github.com/vfempire-hq/vf-privacy-kit/actions/workflows/security-scan.yml" target="_blank" rel="noopener" title="Live CI history · gitleaks scan runs on every push"><span class="dot"></span>CLEAN · CI PASSING<span class="arw">▸</span></a>
       </div>
       <div class="arow">
         <div class="repo">vfmail-desktop<small>P·16 · end-to-end encrypted mail (in customer beta)</small></div>
         <div class="cell dim" data-label="Commits">6</div>
         <div class="cell dim" data-label="Bytes">1.78 MB</div>
         <div class="cell dim" data-label="Audit">2026-09-14</div>
-        <div class="cell ok" data-label="Result">CLEAN</div>
+        <a class="cell pill" data-label="Result" href="https://github.com/vfempire-hq/vfmail-desktop/actions/workflows/security-scan.yml" target="_blank" rel="noopener" title="Live CI history · gitleaks scan runs on every push"><span class="dot"></span>CLEAN · CI PASSING<span class="arw">▸</span></a>
       </div>
       <div class="arow">
         <div class="repo">vfempire-site<small>This corporate site, all product pages + investor content</small></div>
         <div class="cell dim" data-label="Commits">19</div>
         <div class="cell dim" data-label="Bytes">3.15 MB</div>
         <div class="cell dim" data-label="Audit">2026-09-14</div>
-        <div class="cell ok" data-label="Result">CLEAN</div>
+        <a class="cell pill" data-label="Result" href="https://github.com/vfempire-hq/vfempire-site/actions/workflows/security-scan.yml" target="_blank" rel="noopener" title="Live CI history · gitleaks scan runs on every push"><span class="dot"></span>CLEAN · CI PASSING<span class="arw">▸</span></a>
       </div>
     </div>
 
     <p class="rv" style="margin-top:24px;font-size:12.5px;color:var(--dove);text-align:center">
       Scanner: <b>gitleaks v8.24.2</b> — the industry-standard open-source secret detector. Ruleset covers AWS + GCP + Azure keys, Stripe (<code style="background:#fff;padding:1px 5px;border-radius:3px;border:1px solid var(--line);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px">rk_live_</code>), GitHub + GitLab tokens, RSA + SSH private keys, OAuth secrets, JWT secrets, database URLs, and around 150 more patterns.
+      <br><span style="font-size:11.5px;color:var(--faint);letter-spacing:.02em">Click any <b style="color:var(--ok)">CLEAN · CI PASSING</b> pill to open the live workflow history on GitHub.</span>
     </p>
   </div>
 </section>
