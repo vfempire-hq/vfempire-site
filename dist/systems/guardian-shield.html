@@ -410,15 +410,16 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     <h1>Guardian Shield<span>Security you own, <em class="i">not rent.</em></span></h1>
     <p class="sub">Everything the big security suites do — password vault, malware scanning, VPN, DNS filter, breach watch — rebuilt on one principle the industry abandoned: your protection runs on your hardware, answers to you, and is never anyone else's data business. Every claim backed by reproducible builds, a public transparency log, and a €25 000 bug bounty for anyone who breaks a promise.</p>
     <div class="meta">
-      <span class="mchip hot">SPEC-COMPLETE · R·01</span>
+      <span class="mchip hot">IN BUILD · R·01 SPEC-COMPLETE</span>
       <span class="mchip">5 SUBSYSTEMS</span>
       <span class="mchip">REPRODUCIBLE BUILDS</span>
       <span class="mchip">TRANSPARENCY LOG</span>
       <span class="mchip">2-OF-2 SIGNING</span>
+      <span class="mchip">PERMANENCE GUARANTEE</span>
     </div>
     <div class="acts">
-      <a class="bt pri" href="mailto:info@vfempire.com?subject=Guardian%20Shield">Register interest</a>
-      <a class="bt gho" href="/#pipeline">Back to the slate</a>
+      <a class="bt pri" href="#pricing">Reserve founding-tier slot</a>
+      <a class="bt gho" href="#status">Read the honest build status</a>
     </div>
   </div>
   <div class="pheroart"><img src="../assets/pipe/p18.png" alt="Guardian Shield — a minimal white shield with a glowing blue rim and a blue orb at its centre"></div>
@@ -625,35 +626,61 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 </section>
 
 
-<section id="pricing">
+<section id="status">
   <div class="wrap">
-    <div class="k rv">HOW IT SHIPS</div>
-    <h2 class="rv">One tier. €4.99/mo.<br><span class="mute">The honest renewal <em class="i">is</em> the product.</span></h2>
-    <p class="lead rv">The industry sells at €25 and renews at €100. Guardian Shield sells at €4.99/mo and renews at €4.99/mo. That's the whole pricing story. There is no dark-pattern trap door.</p>
+    <div class="k rv">BUILD STATUS · 2026-09-14</div>
+    <h2 class="rv">In build.<br><span class="mute">Not yet on sale. Honest about it.</span></h2>
+    <p class="lead rv">Guardian Shield is architecturally spec-complete + audit-reviewed, but code implementation across the five subsystems is a 5-7 month build with the Path B team. We won't take a subscription payment until every subsystem is in the shippable column. That's the industry's original sin — collecting money for security software that hasn't been built yet. We won't repeat it.</p>
+
+    <div class="outs rv" style="grid-template-columns:repeat(2,1fr);margin-top:52px">
+      <div class="c">
+        <div class="n">What ships today<span>.</span></div>
+        <p>Full architecture spec (13 ADRs), threat model, privacy model + DPIA, 11-doc investor pack, 4 operational runbooks, cross-product integration contracts, Permanence Guarantee (ADR-0013). Verify-side crypto (Ed25519 signature verification, BLAKE3 fingerprinting, 2-of-2 threshold-signature checker). CI hardening — gitleaks-clean audit, banned-deps enforcement, reproducible-builds workflow. All source public.</p>
+        <div class="sub">Verifiable at <b><a href="https://github.com/vfempire-hq/guardian-shield" style="color:var(--core-deep)">github.com/vfempire-hq/guardian-shield</a></b></div>
+      </div>
+      <div class="c">
+        <div class="n">What still needs building<span>.</span></div>
+        <p>The five subsystems' actual runtime code. The pack-distributor Worker. The transparency-log signing infrastructure. Postgres persistence for vault + signer-bindings. Real HIBP relay. Client UI wiring across desktop + iOS + Android. Production 2-of-2 signing hardware infrastructure. Third-party security audit. Full public-facing R·01 timeline: 5-7 months once the Path B team is engaged.</p>
+        <div class="sub">Full ledger at <b><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/BUILD-STATUS-2026-09-14.md" style="color:var(--core-deep)">docs/BUILD-STATUS-2026-09-14.md ▸</a></b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="pricing" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">FOUNDING-TIER RESERVE</div>
+    <h2 class="rv">Reserve your slot.<br><span class="mute">Pay nothing until it ships.</span></h2>
+    <p class="lead rv">The industry pattern is to charge a subscription for a promise. We're inverting that. Reserve a founding-tier slot with your email. No card entered, no charge to worry about. When R·01 ships + a paying customer can independently verify every claim on this page, we'll write and let you activate the subscription at your locked-in founding-tier rate. If we haven't shipped by <b style="color:var(--core-deep)">2027-09-14</b>, we release the reserve list — no obligation, no dark pattern.</p>
 
     <div class="docs rv" style="grid-template-columns:1fr 1fr;margin-top:56px">
       <div class="doc">
-        <span class="dk">FREE TIER</span>
-        <h4>Password vault (20 entries) + breach watch (5/hr) + DNS filter (default blocklist)</h4>
-        <p>Enough to protect a single-user setup. No advertising injected. No feature nagware. If you never upgrade, we still owe you the same privacy commitments as a paying subscriber.</p>
-        <span class="tba">€0 · FOREVER</span>
+        <span class="dk">FOUNDING TIER · FIRST 500</span>
+        <h4>All five subsystems, all platforms, lifetime-locked founding rate</h4>
+        <p>Unlimited vault + unlimited breach lookups + full malware scanner + all VPN exits + custom DNS rules + priority sync. Founding-tier rate <b>never</b> renews above its locked price. Family slots + R·02 features at no additional cost.</p>
+        <span class="tba">€39 / YEAR · LIFETIME-LOCKED · WHEN SHIPPED</span>
       </div>
       <div class="doc">
-        <span class="dk">PLUS</span>
-        <h4>All five subsystems, all platforms, family slots at R·02</h4>
-        <p>Unlimited vault + unlimited breach lookups + full malware scanner + all VPN exits + custom DNS rules + priority sync. Founding-year subscribers keep their €4.99/mo forever — no renewal jump.</p>
-        <span class="tba">€4.99 / MONTH · €39 / YEAR</span>
+        <span class="dk">FREE TIER · FOREVER</span>
+        <h4>Password vault (20 entries) + breach watch (5/hr) + DNS filter (default blocklist)</h4>
+        <p>Enough to protect a single-user setup. No advertising injected. No feature nagware. If you never upgrade, we still owe you the same privacy commitments as a paying subscriber. Ships alongside the paid tier.</p>
+        <span class="tba">€0 · FOREVER · WHEN SHIPPED</span>
       </div>
     </div>
 
+    <div style="margin-top:36px;text-align:center">
+      <a class="bt pri" href="mailto:info@vfempire.com?subject=Guardian%20Shield%20founding-tier%20reserve&body=I%27d%20like%20to%20reserve%20a%20founding-tier%20slot.%20Notify%20me%20when%20R%C2%B701%20ships.">Reserve founding-tier slot (no payment)</a>
+    </div>
+
     <p class="pnote rv" style="margin-top:36px;text-align:center;color:var(--faint);font-size:12.5px;letter-spacing:.02em">
-      Terms § 8 warranty: material privacy breach = refund of the current subscription period + public post-mortem within 5 business days. Enforceable in Maltese jurisdiction.
+      <b style="color:var(--dove)">No card required · No charge until R·01 ships + you activate ·</b> Terms § 8 warranty applies from first paid month: material privacy breach = refund of the current subscription period + public post-mortem within 5 business days, enforceable in Maltese jurisdiction. If R·01 fails to ship by 2027-09-14, the reserve list is released + a public post-mortem is published explaining why.
     </p>
   </div>
 </section>
 
 
-<section id="permanence" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="permanence">
   <div class="wrap">
     <div class="k rv">THE PERMANENCE GUARANTEE</div>
     <h2 class="rv">If VF ever exits,<br><span class="mute">your shield stays yours.</span></h2>
@@ -693,9 +720,9 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Own your shield<span class="mute">, finally.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Register interest and we'll write when Guardian Shield opens beyond our own estate — or commission the system your field is missing.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Reserve a founding-tier slot — no card, no charge until R·01 ships + you activate. Or write to commission a variant your organisation needs before public launch.</p>
     <div style="margin-top:36px">
-      <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Guardian%20Shield">info@vfempire.com</a>
+      <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Guardian%20Shield%20founding-tier%20reserve&body=I%27d%20like%20to%20reserve%20a%20founding-tier%20slot.%20Notify%20me%20when%20R%C2%B701%20ships.">Reserve founding-tier slot</a>
     </div>
   </div>
 </section>
