@@ -131,10 +131,10 @@ const page = c => `<!DOCTYPE html>
 }
 </script>
 <style>
-.phero{padding:130px 6vw 60px;background:
-  radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
+.phero{padding:130px 0 60px;background:
+  radial-gradient(1200px 620px at 72% 30%, #ffffff 0%, transparent 68%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%);border-bottom:1px solid var(--line)}
-.phero .in{min-height:calc(92vh - 190px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;width:min(1150px,100%);margin:0 auto}
+.phero .in{min-height:calc(92vh - 190px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;width:min(1150px,100%);margin:0 auto;padding:0 6vw}
 .phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .eb b{color:var(--core)}
 .phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
@@ -143,7 +143,7 @@ const page = c => `<!DOCTYPE html>
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.pheroart img{display:block;width:min(430px,84vw);height:auto;margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
+.pheroart img{display:block;width:min(880px,50vw);height:auto;margin:0 auto;filter:drop-shadow(0 40px 60px rgba(29,29,31,.12)) drop-shadow(0 20px 30px rgba(29,29,31,.08))}
 
 /* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
@@ -217,7 +217,7 @@ ${pricingCss}
   .phero{padding-top:110px}
   .phero .in{grid-template-columns:1fr;min-height:0;text-align:left}
   .pheroart{order:-1}
-  .pheroart img{width:min(300px,70vw)}
+  .pheroart img{width:min(360px,80vw)}
 }
 </style>
 </head>
