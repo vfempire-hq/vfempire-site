@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VF Empire journal</title>
+    <link>https://vfempire.com/journal/</link>
+    <atom:link href="https://vfempire.com/journal/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>The dated build log of VF Empire, the systems house in Malta, EU: what shipped on vfempire.com and in the product repositories, entry by entry, with feeds.</description>
+    <language>en-gb</language>
+    <copyright>2026 VF Empire Corp Ltd</copyright>
+    <lastBuildDate>Tue, 15 Sep 2026 11:46:54 +0000</lastBuildDate>
+    <generator>vfempire-site journal generator</generator>
+    <item>
+      <title>One voice, one stylesheet, a journal</title>
+      <link>https://vfempire.com/journal/site-pass-one-stylesheet</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/site-pass-one-stylesheet</guid>
+      <pubDate>Tue, 15 Sep 2026 11:46:54 +0000</pubDate>
+      <description>Every page of the site went through a copy rewrite under the stop-slop rules, the per-page CSS collapsed into one house stylesheet, and every page gained structured data, social cards and a place in the sitemap. The pass ends with this journal and its two feeds.</description>
+    </item>
+    <item>
+      <title>FileIT wave 6: pipeline verified, 123 tests</title>
+      <link>https://vfempire.com/journal/fileit-wave-6-end-to-end</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/fileit-wave-6-end-to-end</guid>
+      <pubDate>Tue, 15 Sep 2026 10:36:29 +0000</pubDate>
+      <description>Wave 6 added a working end-to-end integration test that walks the critical path from rule-pack load through mock-HMRC submission in a single Vitest run, taking the count to 123 passing tests. The same morning the workstation preview went live at /preview/fileit/.</description>
+    </item>
+    <item>
+      <title>FileIT: 112 to 122 tests, Malta live</title>
+      <link>https://vfempire.com/journal/fileit-wave-5-malta-live</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/fileit-wave-5-malta-live</guid>
+      <pubDate>Tue, 15 Sep 2026 10:15:45 +0000</pubDate>
+      <description>Wave 5 brought the second live jurisdiction. Two Malta 2026 rules now compute against real CFR rates, the gateway dispatches UK and Malta live with Germany and Ireland stubbed, and the count moved from 112 to 122 passing tests.</description>
+    </item>
+    <item>
+      <title>FileIT wave 4: the HMRC MTD adapter</title>
+      <link>https://vfempire.com/journal/fileit-wave-4-hmrc-mtd-adapter</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/fileit-wave-4-hmrc-mtd-adapter</guid>
+      <pubDate>Tue, 15 Sep 2026 06:49:31 +0000</pubDate>
+      <description>Wave 4 shipped the HMRC MTD adapter: OAuth 2.0 token refresh plus VAT100 and SA100 submission clients, sandbox by default and production gated by environment. The count moved from 98 to 112 passing tests.</description>
+    </item>
+    <item>
+      <title>FileIT: 73 to 98 tests, both mappers real</title>
+      <link>https://vfempire.com/journal/fileit-first-waves-73-to-98-tests</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/fileit-first-waves-73-to-98-tests</guid>
+      <pubDate>Tue, 15 Sep 2026 06:27:27 +0000</pubDate>
+      <description>The first waves of real code landed on the FileIT page: a build-status section with 73 passing tests, then the VAT100 and SA100 HMRC MTD field mappers both real and the count at 98. The same morning the P·04 and P·15 tiles merged into one product with the reserve model live.</description>
+    </item>
+    <item>
+      <title>SnapIT R·02a is live</title>
+      <link>https://vfempire.com/journal/snapit-r02a-live</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/snapit-r02a-live</guid>
+      <pubDate>Tue, 15 Sep 2026 06:27:14 +0000</pubDate>
+      <description>SnapIT flipped to R·02a LIVE on both its product page and the landing-page card. Linux and Windows builds ship today with a local-first catalogue scan, household profiles and an Ed25519-signed licence verified offline, at one-off founding pricing from €59.</description>
+    </item>
+    <item>
+      <title>Guardian Shield: the reserve model</title>
+      <link>https://vfempire.com/journal/guardian-shield-reserve-model</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/guardian-shield-reserve-model</guid>
+      <pubDate>Mon, 14 Sep 2026 23:30:29 +0000</pubDate>
+      <description>The Guardian Shield page gained a public build-status section that says what exists and what does not, a founding-tier reserve with no card and no charge until R·01 ships, and a Permanence Guarantee section with a link to the security page.</description>
+    </item>
+    <item>
+      <title>The security page, with gitleaks in CI</title>
+      <link>https://vfempire.com/journal/security-page-gitleaks-ci</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/security-page-gitleaks-ci</guid>
+      <pubDate>Mon, 14 Sep 2026 21:08:03 +0000</pubDate>
+      <description>The /security page went live with a public audit table, and the repository gained gitleaks in a pre-commit hook and a GitHub Actions workflow that runs the binary directly on every push, every pull request and every Monday. Four public repositories, 64 commits, zero secrets found.</description>
+    </item>
+    <item>
+      <title>Three CRA consulting pages go live</title>
+      <link>https://vfempire.com/journal/services-pages-live</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/services-pages-live</guid>
+      <pubDate>Sun, 13 Sep 2026 16:15:33 +0000</pubDate>
+      <description>The three fixed-fee engagements got their own pages and a Services dropdown in the nav: a two-week CRA Readiness Audit, a three to four week Threat Model and DPIA, and a four to six week Signing Infrastructure and SBOM Blueprint.</description>
+    </item>
+    <item>
+      <title>VF Wallet, VF Legacy and VF Home spec-complete</title>
+      <link>https://vfempire.com/journal/vf-wallet-legacy-home-spec-complete</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/vf-wallet-legacy-home-spec-complete</guid>
+      <pubDate>Sun, 13 Sep 2026 15:43:50 +0000</pubDate>
+      <description>The three candidate products named on the software page shipped as spec-complete pages in one day: VF Wallet (P·22), VF Legacy (P·23) with its Life Archive section and ADR-0011, and VF Home (P·24), each with a three-render image set matched to the house theme.</description>
+    </item>
+    <item>
+      <title>Software thesis and Permanence Guarantee</title>
+      <link>https://vfempire.com/journal/software-thesis-permanence-guarantee</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/software-thesis-permanence-guarantee</guid>
+      <pubDate>Sun, 13 Sep 2026 14:56:54 +0000</pubDate>
+      <description>The /software thesis page went live: five industry failures with dated examples, the five VF principles that answer them, the house standard every product inherits, the three next candidates, and the Permanence Guarantee. Software joined the top-level nav.</description>
+    </item>
+    <item>
+      <title>FileIT depth-build shipped, R·01 spec-complete</title>
+      <link>https://vfempire.com/journal/fileit-depth-build-shipped</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/fileit-depth-build-shipped</guid>
+      <pubDate>Sun, 13 Sep 2026 02:14:20 +0000</pubDate>
+      <description>The self-filing ledger page linked its public repository and flipped to spec-complete at R·01, with the landing-page chip to match. The published set: a thirteen-section engineering spec, a STRIDE threat model across eight adversary tiers, the human and AI collaboration model and an 11-document investor pack.</description>
+    </item>
+    <item>
+      <title>Guardian Shield and FuelIT pages match R·01</title>
+      <link>https://vfempire.com/journal/guardian-shield-fuelit-spec-refresh</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/guardian-shield-fuelit-spec-refresh</guid>
+      <pubDate>Sat, 12 Sep 2026 23:51:23 +0000</pubDate>
+      <description>Late on the first day the Guardian Shield page was refreshed to match its R·01 spec, the P·18 tile on the landing page gained the five-subsystem description, and the FuelIT page was brought up to its spec-complete state.</description>
+    </item>
+    <item>
+      <title>Repo init: NAV·IT and privacy hardening</title>
+      <link>https://vfempire.com/journal/repo-init-nav-it-privacy-hardening</link>
+      <guid isPermaLink="true">https://vfempire.com/journal/repo-init-nav-it-privacy-hardening</guid>
+      <pubDate>Sat, 12 Sep 2026 20:15:02 +0000</pubDate>
+      <description>The repository was initialised with the NAV·IT (P·21) page and the privacy hardening the site has kept since: zero third-party scripts, self-hosted fonts, a strict CSP, HSTS with preload and an RFC 9116 security.txt. The same evening it took the vfempire-hq name, an MIT licence and the FLUX Dev renders for the NAV·IT image set.</description>
+    </item>
+  </channel>
+</rss>

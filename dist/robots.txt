@@ -1,4 +1,27 @@
+# vfempire.com
+# Search engines and answer engines are welcome: discoverability is the point.
+# Nothing on this site is private, tracked, or behind a login.
+
 User-agent: *
+Allow: /
+Disallow: /dev/
+Disallow: /401
+Disallow: /404
+
+# Answer engines (explicitly welcome)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: Applebot
 Allow: /
 
 Sitemap: https://vfempire.com/sitemap.xml

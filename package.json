@@ -1,0 +1,19 @@
+{
+  "name": "vfempire-site",
+  "private": true,
+  "type": "module",
+  "description": "vfempire.com: static, hand-authored HTML built by build.mjs and served from dist/ by Cloudflare Workers Assets.",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "python3 scripts/verify.py && node build.mjs --check",
+    "dev": "python3 -m http.server 8000 --directory dist",
+    "brand": "node scripts/brand-kit.mjs",
+    "assets": "node scripts/assets-inventory.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5",
+    "fontkit": "^2.0.4",
+    "wawoff2": "^2.0.1"
+  }
+}

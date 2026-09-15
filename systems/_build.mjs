@@ -1,4 +1,4 @@
-// VF systems-page generator — clones the fuelit.html house template exactly.
+// VF systems-page generator: clones the fuelit.html house template exactly.
 // Usage: node _build.mjs   (writes <slug>.html per product in this dir)
 import fs from 'fs';
 import path from 'path';
@@ -28,23 +28,82 @@ const ICONS = {
   doc: '<path d="M7 3h7l4 4v14H7V3z"/><path d="M14 3v4h4M10 12h5M10 16h5"/>',
   chat: '<path d="M4 5h16v10H9l-5 4V5z"/>',
 };
-const ic = n => `<svg width="18" height="18" viewBox="0 0 24 24">${ICONS[n] || ICONS.arrow}</svg>`;
+const ic = n => `<svg width="22" height="22" viewBox="0 0 24 24">${ICONS[n] || ICONS.arrow}</svg>`;
+
+// Product pages that are maintained by hand (not generated) but can be linked as related systems.
+const HAND_META = {
+  'fileit':          { name: 'FileIT',          pn: 'P·04', sector: 'ACCOUNTING',     line: 'The self-filing ledger: books to stamped submission at HMRC MTD, ELSTER, CFR and ROS.' },
+  'fuelit':          { name: 'FuelIT',          pn: 'P·17', sector: 'MOBILITY',       line: 'Official fuel-price feeds ranked against your route, tank and real range across nine EU countries.' },
+  'guardian-shield': { name: 'Guardian Shield', pn: 'P·18', sector: 'SECURITY',       line: 'Vault, malware scanner, WireGuard VPN, DNS filter and breach watch on infrastructure you own.' },
+  'mapit':           { name: 'MapIT',           pn: 'P·19', sector: 'COMMERCE',       line: 'Write your list once; MapIT prices the whole basket at every store in your zone.' },
+  'snapit':          { name: 'SnapIT',          pn: 'P·20', sector: 'MEDIA',          line: 'Every drive you own scanned into one private photo and video library. Live, from €59.' },
+  'nav-it':          { name: 'NAV·IT',          pn: 'P·21', sector: 'SOVEREIGN INFRASTRUCTURE', line: 'A self-hosted turn-by-turn navigator on open map data. Ships inside FuelIT and MapIT.' },
+  'vf-mail':         { name: 'VF Mail',         pn: 'P·16', sector: 'EMAIL',          line: 'A whole mail system of our own (server, shield and address) on metal we hold. In beta.' },
+  'vf-home':         { name: 'VF Home',         pn: 'P·24', sector: 'SMART HOME',     line: 'Matter, Zigbee and Z-Wave on hardware you own, with local NVR and the Permanence Guarantee.' },
+  'vf-legacy':       { name: 'VF Legacy',       pn: 'P·23', sector: 'DIGITAL ESTATE', line: 'Everything you leave behind, closed by you: sealed instructions and per-jurisdiction executor packets.' },
+  'vf-wallet':       { name: 'VF Wallet',       pn: 'P·22', sector: 'IDENTITY',       line: 'The EU digital identity wallet built for people: full ARF conformance and a user-inspectable audit log.' },
+};
+let META = {};
+
+const faqHtml = c => (c.faq && c.faq.length) ? `<section id="faq" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      ${c.faq.map(f => `<div class="q">
+        <h4>${f.q}</h4>
+        <p>${f.a}</p>
+      </div>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+` : '';
+
+const relatedHtml = c => {
+  const rel = (c.related || []).map(slug => [slug, META[slug]]).filter(([, m]) => m);
+  if (!rel.length) return '';
+  return `<section id="related">
+  <div class="wrap">
+    <div class="k rv">RELATED SYSTEMS</div>
+    <h2 class="rv">Built the same way.<br><span class="mute">Read next.</span></h2>
+    <div class="related rv">
+      ${rel.map(([slug, m]) => `<a href="/systems/${slug}">
+        <span class="rk">${m.pn} · ${m.sector}</span>
+        <h4>${m.name}</h4>
+        <p>${m.line}</p>
+        <span class="go">Open →</span>
+      </a>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+`;
+};
 
 const page = c => `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${c.name} — ${c.titleTag} | VF Empire</title>
+<title>${c.name}: ${c.titleTag} | VF Empire</title>
 <meta name="description" content="${c.metaDesc}">
 <link rel="canonical" href="https://vfempire.com/systems/${c.slug}">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="${c.name} — ${c.ogTitle}">
+<meta property="og:title" content="${c.name}: ${c.ogTitle}">
 <meta property="og:description" content="${c.ogDesc}">
 <meta property="og:url" content="https://vfempire.com/systems/${c.slug}">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/${c.img}.png">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${c.name}: ${c.ogTitle}">
+<meta name="twitter:description" content="${c.ogDesc}">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/${c.img}.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -56,13 +115,15 @@ const page = c => `<!DOCTYPE html>
       "applicationCategory": "${c.appCategory}",
       "operatingSystem": "${c.os}",
       "creator": {"@id": "https://vfempire.com/#org"},
+      "url": "https://vfempire.com/systems/${c.slug}",
+      "image": "https://vfempire.com/assets/pipe/${c.img}.png",
       "description": ${JSON.stringify(c.ldDesc)}
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
+        {"@type": "ListItem", "position": 2, "name": "Systems", "item": "https://vfempire.com/systems/"},
         {"@type": "ListItem", "position": 3, "name": "${c.name}"}
       ]
     }
@@ -70,104 +131,46 @@ const page = c => `<!DOCTYPE html>
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-/* house dot-rail scrollbar — native bar hidden, jade dot rendered by scrollrail.js */
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
-.phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
+.phero{padding:130px 6vw 60px;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
-  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%);border-bottom:1px solid var(--line)}
+.phero .in{min-height:calc(92vh - 190px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;width:min(1150px,100%);margin:0 auto}
 .phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .eb b{color:var(--core)}
 .phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.pheroart img{display:block;width:min(430px,84vw);height:auto;margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
 .fl:hover{background:#fff;padding-left:22px}
 .fl:hover::before{transform:scaleY(1)}
-.fl .num{font-size:13px;font-weight:600;color:var(--faint);letter-spacing:.1em;padding-top:3px}
+.fl .num{font-size:13px;font-weight:600;color:var(--dove);letter-spacing:.1em;padding-top:3px}
 .fl:hover .num{color:var(--core)}
 .fl h4{font-size:19px;font-weight:600;letter-spacing:-.025em}
 .fl p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 @media(max-width:880px){.fl{grid-template-columns:44px 1fr;gap:8px 16px}.fl p{grid-column:2}}
 
 /* image band */
-.band{margin-top:70px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#fff;position:relative}
-.band img{display:block;width:100%;mix-blend-mode:multiply}
+.band{margin:80px calc(50% - 50vw) 0;width:100vw;position:relative;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band img{display:block;width:100%;max-height:72vh;object-fit:cover;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
-.au .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au .ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .au h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
 .au p{font-size:13.5px;line-height:1.62;color:var(--dove)}
 .au.first{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:linear-gradient(160deg,#0e2a63,var(--core-deep) 55%,var(--core));border-color:transparent}
-.au.first .ic{background:rgba(255,255,255,.14)}
 .au.first .ic svg{stroke:#fff}
 .au.first h4{color:#fff}
 .au.first p{color:rgba(255,255,255,.75);max-width:640px}
@@ -175,7 +178,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -183,7 +186,10 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
+.pillars{margin-top:12px;font-size:14.5px}
+.pillars a{color:var(--core-deep);border-bottom:1px solid var(--line)}
+.pillars a:hover{color:var(--core);border-color:var(--core)}
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -197,48 +203,21 @@ h2 .mute{color:var(--faint)}
 /* roadmap */
 .road{margin-top:56px;border-top:1px solid var(--line)}
 .rd{display:grid;grid-template-columns:80px 1.1fr 1.6fr auto;align-items:center;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line)}
-.rd .num{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.14em}
+.rd .num{font-size:12px;font-weight:600;color:var(--dove);letter-spacing:.14em}
 .rd h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .rd p{font-size:13.5px;line-height:1.55;color:var(--dove)}
-.rd .st{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#2b3a55;background:var(--mist);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap}
-.rd .st.hot{color:#fff;background:var(--core);border-color:var(--core)}
-@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .st{grid-column:2;justify-self:start}}
+@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .status{grid-column:2;justify-self:start}}
 
-/* papers & code */
-.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
-.doc{background:#fff;border:1px dashed var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;gap:8px}
-.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
-.doc h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
-.doc p{font-size:13.5px;line-height:1.6;color:var(--dove)}
-.doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
-@media(max-width:880px){.docs{grid-template-columns:1fr}}
 
 ${pricingCss}
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
-  .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
+  .phero{padding-top:110px}
+  .phero .in{grid-template-columns:1fr;min-height:0;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
 </head>
@@ -250,12 +229,14 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
       VF EMPIRE
     </a>
-    <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>${c.pn} ${c.name}</b></span>
+    <span class="crumb"><a href="/systems/">Systems</a> &nbsp;/&nbsp; <b>${c.pn} ${c.name}</b></span>
+    <div class="nl"><a href="/systems/">Systems</a><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
   </div>
 </nav>
 
 <header class="phero">
+<div class="in">
   <div>
     <div class="eb"><b>${c.pn}</b> &nbsp;·&nbsp; ${c.sector} &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>${c.name}<span>${c.tagline}</span></h1>
@@ -269,7 +250,8 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/${c.img}.webp" alt="${c.heroAlt}"></div>
+  <div class="pheroart"><img src="../assets/pipe/${c.img}.webp" alt="${c.heroAlt}" width="896" height="1152" fetchpriority="high"></div>
+</div>
 </header>
 
 <section id="why">
@@ -286,16 +268,15 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       </div>`).join('\n      ')}
     </div>
 
-    <div class="band rv">
-      <img src="../assets/pipe/${c.img}-flow.png" alt="${c.flowAlt}" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
-      <span class="cap">${c.cap}</span>
-    </div>
+    <figure class="band rv">
+      <img src="../assets/pipe/${c.img}-flow.png" alt="${c.flowAlt}" width="2304" height="1792" loading="lazy" decoding="async">
+      <figcaption class="cap">${c.cap}</figcaption>
+    </figure>
   </div>
 </section>
 
 <section id="who" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="k rv">WHO IT SERVES</div>
     <h2 class="rv">${c.whoH}</h2>
 
     <div class="aud rv">
@@ -335,9 +316,10 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">${c.mechH}</h2>
     <p class="lead rv">${c.mechLead}</p>
+    <p class="lead rv pillars">Every VF system runs on the <a href="/harness">harness stack</a>, is steered by the <a href="/engine">Helmsman engine</a> and is watched from a <a href="/dashboards">command dashboard</a>.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/${c.img}-mech.png" alt="${c.mechAlt}" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
+      <div class="mechart"><img src="../assets/pipe/${c.img}-mech.png" alt="${c.mechAlt}"></div>
       <div class="layers">
         ${c.layers.map((l, i) => `<div class="ly">
           <div class="lt"><i>LAYER ${i + 1}</i><h4>${l.h}</h4></div>
@@ -350,7 +332,6 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="k rv">BUILD TRAJECTORY</div>
     <h2 class="rv">${c.roadH}</h2>
 
     <div class="road rv">
@@ -358,29 +339,16 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         <span class="num">R·0${i + 1}</span>
         <h4>${r.h}</h4>
         <p>${r.p}</p>
-        <span class="st${i === 0 ? ' hot' : ''}">${i === 0 ? 'IN BUILD' : i === 1 ? 'NEXT' : 'PLANNED'}</span>
+        <span class="status${i === 0 ? ' hot' : ''}">${i === 0 ? 'IN BUILD' : i === 1 ? 'NEXT' : 'PLANNED'}</span>
       </div>`).join('\n      ')}
-    </div>
-
-    <div class="docs rv">
-      <div class="doc">
-        <span class="dk">WHITE PAPER</span>
-        <h4>${c.paper.h}</h4>
-        <p>${c.paper.p}</p>
-        <span class="tba">IN PREPARATION</span>
-      </div>
-      <div class="doc">
-        <span class="dk">REPOSITORY</span>
-        <h4>${c.repo.h}</h4>
-        <p>${c.repo.p}</p>
-        <span class="tba">TBA</span>
-      </div>
     </div>
   </div>
 </section>
 
-${sysreqHtml(c.slug)}
+${faqHtml(c)}
 ${PRICING[c.slug] ? pricingHtml(c.slug, c.name) : ''}
+${sysreqHtml(c.slug)}
+${relatedHtml(c)}
 
 <section class="cta-band">
   <div class="wrap">
@@ -396,44 +364,20 @@ ${PRICING[c.slug] ? pricingHtml(c.slug, c.name) : ''}
 <footer>
   <div class="legal">
     <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
   </div>
 </div>
 
-<script>
-(() => {
-  const el = document.getElementById('consent');
-  if (localStorage.getItem('vf-consent')) { el.remove(); return; }
-  setTimeout(() => el.classList.add('show'), 1400);
-  const choose = v => { localStorage.setItem('vf-consent', v); el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
-  document.getElementById('cacc').onclick = () => choose('accepted');
-  document.getElementById('cdec').onclick = () => choose('declined');
-})();
-
-const io = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting && (e.intersectionRatio >= .18 || e.boundingClientRect.height > innerHeight * .6)){
-      e.target.classList.add('on');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:[0,.18]});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
-  [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
-});
-</script>
-<script src="/assets/scrollrail.js" defer></script>
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>
@@ -444,7 +388,14 @@ for (const f of ['content-a.mjs', 'content-b.mjs', 'content-c.mjs']) {
   const p = path.join(DIR, f);
   if (fs.existsSync(p)) packs.push(...(await import(p)).default);
 }
+// Retired slugs stay in the content packs for the record but are not built.
+const RETIRED = new Set(['back-office-autopilot']);
+META = { ...HAND_META };
+for (const c of packs) if (!RETIRED.has(c.slug)) META[c.slug] = { name: c.name, pn: c.pn, sector: c.sector, line: c.ogDesc };
+// Pages that diverged from the template and are maintained by hand: never overwrite.
+const HAND_MAINTAINED = new Set(['vf-mail']);
 for (const c of packs) {
+  if (RETIRED.has(c.slug) || HAND_MAINTAINED.has(c.slug)) continue;
   fs.writeFileSync(path.join(DIR, c.slug + '.html'), page(c));
   console.log('built', c.slug + '.html');
 }

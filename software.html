@@ -3,20 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Software you own — The VF Empire thesis | VF Empire</title>
-<meta name="description" content="The software you use was built to own you. VF Empire builds the opposite — local-first, EU-sovereign, no third-party AI, no advertising, verifiable by design. The five failures of modern software and our answer to each.">
+<title>Software you own: the VF Empire thesis | VF Empire</title>
+<meta name="description" content="The VF Empire thesis: five failures of modern software and the five principles that answer them. Local-first, EU-sovereign, no third-party AI, verifiable.">
 <link rel="canonical" href="https://vfempire.com/software">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Software you own — the VF Empire thesis">
-<meta property="og:description" content="Post-acquisition enshittification, forced AI ingestion, cloud shutdowns, dark-pattern billing, data-broker business models. Five industry failures — five VF principles that answer each.">
+<meta property="og:title" content="Software you own: the VF Empire thesis">
+<meta property="og:description" content="Post-acquisition enshittification, forced AI ingestion, cloud shutdowns, dark-pattern billing, data-broker business models. Five industry failures, and five VF principles that answer each.">
 <meta property="og:url" content="https://vfempire.com/software">
-<meta property="og:image" content="https://vfempire.com/assets/hero-core.png">
-<meta property="og:image:width" content="1344">
-<meta property="og:image:height" content="768">
+<meta property="og:image" content="https://vfempire.com/assets/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:title" content="Software you own: the VF Empire thesis">
+<meta name="twitter:description" content="Post-acquisition enshittification, forced AI ingestion, cloud shutdowns, dark-pattern billing, data-broker business models. Five industry failures, and five VF principles that answer each.">
+<meta name="twitter:image" content="https://vfempire.com/assets/brand/og-default.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,7 +32,7 @@
     {
       "@type": "WebPage",
       "@id": "https://vfempire.com/software",
-      "name": "Software you own — the VF Empire thesis",
+      "name": "Software you own: the VF Empire thesis",
       "url": "https://vfempire.com/software",
       "isPartOf": {"@id": "https://vfempire.com/#site"},
       "about": {"@id": "https://vfempire.com/#org"},
@@ -41,43 +49,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-  --warn:#c93221;
-  --warn-bg:#fef2f0;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* NAV — same as index/systems */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:34px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.crumb{font-size:12.5px;color:var(--dove);letter-spacing:.01em}
-.crumb a{color:var(--dove)}
-.crumb a:hover{color:var(--core)}
-.crumb b{color:var(--ink);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* HERO */
 .phero{min-height:calc(100vh - 52px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 6vw 60px;background:
   radial-gradient(1000px 500px at 50% -10%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -87,24 +58,7 @@ em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spa
 .phero h1 span em{font-style:normal;color:var(--core-deep)}
 .phero .sub{max-width:640px;font-size:17.5px;line-height:1.6;color:var(--dove);margin:28px auto 34px;font-weight:400}
 .phero .meta{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:28px}
-.mchip{font-size:10.5px;letter-spacing:.18em;font-weight:600;color:var(--dove);border:1px solid var(--line);border-radius:99px;padding:6px 14px;text-transform:uppercase;background:#fff}
-.mchip.hot{background:#eff5ff;color:var(--core-deep);border-color:#c7dcff}
 .phero .acts{display:flex;gap:14px;justify-content:center}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core);border:1px solid transparent}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* SECTIONS */
-section{padding:110px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(32px,4.6vw,58px);font-weight:600;letter-spacing:-.045em;line-height:1.04}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
 
 /* FAILURES GRID */
 .fails{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:56px}
@@ -163,7 +117,7 @@ h2 .mute{color:var(--faint)}
 .nx:hover .art img{transform:scale(1.04)}
 @media (max-width:820px){.next{grid-template-columns:1fr}}
 
-/* PERMANENCE — headline commitment (on-theme) */
+/* PERMANENCE: headline commitment (on-theme) */
 .perm{margin-top:56px}
 .perm h3{font-size:clamp(24px,3.2vw,38px);font-weight:600;letter-spacing:-.032em;line-height:1.12;max-width:26ch;color:var(--ink)}
 .perm h3 em{font-style:normal;color:var(--core-deep)}
@@ -174,16 +128,16 @@ h2 .mute{color:var(--faint)}
 .foot h2{margin:0 auto;max-width:20ch}
 .foot .lead{margin:20px auto 32px}
 .foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.foot .fine{font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:60px}
-.foot .fine a{color:var(--dove);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
-.foot .fine a:hover{color:var(--core)}
 
 @media (max-width:820px){
   .fails{grid-template-columns:1fr}
   .house{grid-template-columns:1fr}
-  section{padding:80px 6vw}
 }
 </style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 
@@ -194,14 +148,40 @@ h2 .mute{color:var(--faint)}
       VF EMPIRE
     </a>
     <span class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <b>Software thesis</b></span>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Talk to us</a>
   </div>
 </nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
 
 <header class="phero">
   <div class="eb">VF EMPIRE · THE SOFTWARE THESIS · MALTA, EU</div>
   <h1>Software <span><em>you own.</em></span></h1>
-  <p class="sub">Most of the software you use every day was built to own <em class="i">you</em>. We build the opposite — local-first on your hardware, subscription-only, no third-party AI, no ads, no data brokers, and verifiable end-to-end. The five failures of modern software, and the answer to each.</p>
+  <p class="sub">Most of the software you use every day was built to own <em class="i">you</em>. We build the opposite: local-first on your hardware, subscription-only, no third-party AI, no ads, no data brokers, and verifiable end-to-end. The five failures of modern software, and the answer to each.</p>
   <div class="meta">
     <span class="mchip hot">21 PRODUCTS ON THE SLATE</span>
     <span class="mchip">LOCAL-FIRST</span>
@@ -220,13 +200,13 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">THE STATE OF SOFTWARE · 2026</div>
     <h2 class="rv">Five failures<br><span class="mute">the industry stopped hiding.</span></h2>
-    <p class="lead rv">Everything the modern user hates about software traces back to five business decisions the industry has openly made. Not accidents. Not bugs. Choices. Each with a receipt from the last twenty-four months.</p>
+    <p class="lead rv">The things you hate about modern software trace back to five business decisions the industry made in the open. Each comes with a receipt from the last twenty-four months.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>Post-acquisition enshittification</h4>
-        <p>A private-equity roll-up buys the tools you rely on and turns them hostile inside a year. <b>Bending Spoons alone</b> has swallowed Evernote, WeTransfer, Vimeo, Meetup, Komoot, Filmic Pro, Eventbrite and AOL — laying off around 75% of engineering on each and pushing subscription prices up 30–85% within months.</p>
+        <p>A private-equity roll-up buys the tools you rely on and turns them hostile inside a year. <b>Bending Spoons alone</b> has swallowed Evernote, WeTransfer, Vimeo, Meetup, Komoot, Filmic Pro, Eventbrite and AOL, laying off around 75% of engineering on each and pushing subscription prices up 30–85% within months.</p>
         <div class="cite">Evernote personal annual $69.99 → $129.99 · WeTransfer free tier capped at 10 uploads/month · Vimeo &amp; Eventbrite acquired Dec 2025</div>
       </div>
       <div class="fl">
@@ -244,13 +224,13 @@ h2 .mute{color:var(--faint)}
       <div class="fl">
         <span class="num">F·04</span>
         <h4>Dark-pattern billing</h4>
-        <p>The subscription is the product. Year one is cheap; auto-renewal is deliberately opaque. The <b>US FTC extracted $2.5B from Amazon in Sept 2025</b> over Prime signup and cancellation dark patterns — the largest consumer-protection settlement in agency history. The UK CMA has done the same to major security suites.</p>
+        <p>The subscription is the product. Year one is cheap; auto-renewal is deliberately opaque. The <b>US FTC extracted $2.5B from Amazon in Sept 2025</b> over Prime signup and cancellation dark patterns, the largest consumer-protection settlement in agency history. The UK CMA has done the same to major security suites.</p>
         <div class="cite">Amazon FTC settlement Sept 2025 · CMA auto-renewal enforcement against Norton, McAfee &amp; Bitdefender 2024-25</div>
       </div>
       <div class="fl" style="grid-column:1/-1">
         <span class="num">F·05</span>
         <h4>You are the inventory</h4>
-        <p>Free apps sell your data. Paid apps still sell your data. <b>Fitbit's own privacy policy permits employer-facing sharing</b>; a 2025 Duke University study found 79% of fitness apps share user data with third parties; a California jury ruled in 2025 that <b>Meta violated the state's privacy statute over Flo period-tracking data</b> — nine-figure class exposure follows. When you don't pay, you're the inventory. When you do pay, you're often still the inventory.</p>
+        <p>Free apps sell your data. Paid apps still sell your data. <b>Fitbit's own privacy policy permits employer-facing sharing</b>; a 2025 Duke University study found 79% of fitness apps share user data with third parties; a California jury ruled in 2025 that <b>Meta violated the state's privacy statute over Flo period-tracking data</b>; nine-figure class exposure follows. Pay nothing and you are the inventory; pay, and you are often still the inventory.</p>
         <div class="cite">Duke 2025: 79% of fitness apps share data · Flo/Meta CIPA verdict 2025 · JMIR 2025 flagged Google/Fitbit as most permissive · 107 US BIPA class actions in 2025 alone</div>
       </div>
     </div>
@@ -262,13 +242,13 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">THE VF ANSWER</div>
     <h2 class="rv">Five principles.<br><span class="mute">Every VF product inherits all five.</span></h2>
-    <p class="lead rv">Not features. Not marketing lines. Non-negotiable house rules — enforced by architecture (local encryption, sealed transport, signed packs), by contract (Terms § 8 warranty with refund + public post-mortem), and by the fact that we sell no ads and hold no other revenue stream that could compromise them.</p>
+    <p class="lead rv">Non-negotiable house rules, enforced by architecture (local encryption, sealed transport, signed packs), by contract (Terms § 16 warranty with refund + public post-mortem), and by the fact that we sell no ads and hold no other revenue stream that could compromise them.</p>
 
     <div class="prins rv">
       <div class="pr">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2M12 12v4"/></svg></div>
         <h4>Local-first</h4>
-        <p>Your data lives on your hardware. Servers see only opaque sealed blobs — never plaintext.</p>
+        <p>Your data lives on your hardware. Servers see only opaque sealed blobs, never plaintext.</p>
       </div>
       <div class="pr">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M8 8h8M8 16h5"/><path d="M4 4l16 16" stroke-width="2.2"/></svg></div>
@@ -288,7 +268,7 @@ h2 .mute{color:var(--faint)}
       <div class="pr">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/><circle cx="12" cy="12" r="10"/></svg></div>
         <h4>Verifiable</h4>
-        <p>Reproducible builds. Ed25519-signed updates. Public transparency log. Every claim we make can be independently checked.</p>
+        <p>Reproducible builds. Ed25519-signed updates. Public transparency log. You can check every claim we make yourself.</p>
       </div>
     </div>
   </div>
@@ -299,12 +279,12 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">THE HOUSE STANDARD</div>
     <h2 class="rv">Trust, mechanised.<br><span class="mute">Six primitives every product inherits.</span></h2>
-    <p class="lead rv">The five principles above are enforced by six shared mechanisms — the same across every VF product. If you learn them once, you know how every VF app behaves. If we ever violate one, you have a receipt in hand.</p>
+    <p class="lead rv">Six shared mechanisms enforce the five principles above, the same across every VF product. Learn them once and you know how every VF app behaves. If we ever violate one, you have a receipt in hand.</p>
 
     <div class="house rv">
       <div class="hcell">
         <div class="hd">P·01</div>
-        <h4>Terms § 8 warranty</h4>
+        <h4>Terms § 16 warranty</h4>
         <p>A material privacy breach on our part = automatic refund + public post-mortem within 5 business days. Enforceable in Malta.</p>
       </div>
       <div class="hcell">
@@ -325,12 +305,12 @@ h2 .mute{color:var(--faint)}
       <div class="hcell">
         <div class="hd">P·05</div>
         <h4>Bug bounty · €500 – €25 000</h4>
-        <p>Design typos to novel privacy leaks. Paid out publicly with severity histogram at <code>bounty.vfempire.com</code>. Every payout accumulates trust across the family.</p>
+        <p>Design typos to novel privacy leaks. We pay out publicly, with a severity histogram at <code>bounty.vfempire.com</code>. Each payout adds to the record for the whole family.</p>
       </div>
       <div class="hcell">
         <div class="hd">P·06</div>
         <h4>Permanence guarantee</h4>
-        <p>If VF ever discontinues a product, the source is released under an open licence and the last signed firmware remains verifiable in the transparency log. Nothing you bought becomes a paperweight.</p>
+        <p>If VF ever discontinues a product, we release the source under an open licence and the last signed firmware remains verifiable in the transparency log. Nothing you bought becomes a paperweight.</p>
       </div>
     </div>
   </div>
@@ -341,13 +321,13 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">THE CURRENT SLATE</div>
     <h2 class="rv">Twenty-one products.<br><span class="mute">One trust model.</span></h2>
-    <p class="lead rv">Every VF product ships against the five principles and inherits all six house primitives. Different domains — same architecture, same shared crypto kit, same warranty. <a href="/systems/vf-mail"><b>VF Mail</b></a> is already in the world, in beta on our own mail node. The slate is deliberately broad because the failure pattern above shows up across every corner of the software market.</p>
+    <p class="lead rv">Every VF product ships against the five principles and inherits all six house primitives. Different domains, same architecture, same shared crypto kit, same warranty. <a href="/systems/vf-mail"><b>VF Mail</b></a> is already in the world, in beta on our own mail node. The slate is deliberately broad because the failure pattern above shows up across the whole software market.</p>
 
     <div class="slate rv">
       <a class="slot" href="/systems/field-intelligence"><div class="pn">P·01</div><h5>Field Intelligence</h5><div class="st">IN BUILD</div></a>
       <a class="slot" href="/systems/private-care-watch"><div class="pn">P·02</div><h5>Private Care Watch</h5><div class="st">IN BUILD</div></a>
       <a class="slot" href="/systems/the-apprentice"><div class="pn">P·03</div><h5>The Apprentice</h5><div class="st">IN BUILD</div></a>
-      <a class="slot" href="/systems/back-office-autopilot"><div class="pn">P·04</div><h5>Back-Office Autopilot</h5><div class="st">IN BUILD</div></a>
+      <a class="slot" href="/systems/fileit"><div class="pn">P·04</div><h5>FileIT</h5><div class="st hot">IN BUILD</div></a>
       <a class="slot" href="/systems/everyday-law-navigator"><div class="pn">P·05</div><h5>Everyday-Law Navigator</h5><div class="st">IN BUILD</div></a>
       <a class="slot" href="/systems/triage-continuity"><div class="pn">P·06</div><h5>Triage &amp; Continuity</h5><div class="st">IN BUILD</div></a>
       <a class="slot" href="/systems/site-truth-engine"><div class="pn">P·07</div><h5>Site Truth Engine</h5><div class="st">IN BUILD</div></a>
@@ -358,7 +338,7 @@ h2 .mute{color:var(--faint)}
       <a class="slot" href="/systems/citizen-services-desk"><div class="pn">P·12</div><h5>Citizen Services</h5><div class="st">IN BUILD</div></a>
       <a class="slot" href="/systems/claims-advocate"><div class="pn">P·13</div><h5>Claims Advocate</h5><div class="st">IN BUILD</div></a>
       <a class="slot" href="/systems/offline-first-response"><div class="pn">P·14</div><h5>Offline-First</h5><div class="st">IN BUILD</div></a>
-      <a class="slot" href="/systems/self-filing-ledger"><div class="pn">P·15</div><h5>Self-Filing Ledger</h5><div class="st hot">SPEC COMPLETE</div></a>
+      <a class="slot" href="/systems/fileit"><div class="pn">P·15</div><h5>Merged into FileIT</h5><div class="st">P·04</div></a>
       <a class="slot" href="/systems/vf-mail"><div class="pn">P·16</div><h5>VF Mail</h5><div class="st hot">IN BETA</div></a>
       <a class="slot" href="/systems/fuelit"><div class="pn">P·17</div><h5>FuelIT</h5><div class="st hot">SPEC COMPLETE</div></a>
       <a class="slot" href="/systems/guardian-shield"><div class="pn">P·18</div><h5>Guardian Shield</h5><div class="st hot">SPEC COMPLETE</div></a>
@@ -378,33 +358,33 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">THE NEXT WAVE</div>
     <h2 class="rv">The three gaps<br><span class="mute">the industry left open.</span></h2>
-    <p class="lead rv">Deep research into 2024–2026 software failures identified three specific openings where VF's positioning matters more than any incumbent's. Each maps to a live regulatory tailwind. Each is under active spec.</p>
+    <p class="lead rv">Our research into 2024–2026 software failures identified three openings where VF's positioning matters more than any incumbent's. Each maps to a live regulatory tailwind, and each is under active spec.</p>
 
     <div class="next rv">
       <a class="nx" href="/systems/vf-wallet" style="display:block;color:inherit">
-        <div class="art"><img src="assets/pipe/p22.webp" alt="VF Wallet — matte-white folded ID card with a cyan seal disc on the front, standing on a white plinth" loading="lazy"></div>
+        <div class="art"><img src="assets/pipe/p22.webp" alt="VF Wallet: matte-white folded ID card with a cyan seal disc on the front, standing on a white plinth" loading="lazy"></div>
         <div class="pn">P·22 · SPEC COMPLETE</div>
         <h4>VF <span>Wallet</span></h4>
         <div class="cat">EUDI · AGE VERIFICATION · IDENTITY</div>
-        <p>Every EU adult must have access to a digital identity wallet by end-2026 under eIDAS 2.0. National wallets ship functional but slow, ugly and government-flavoured. VF Wallet is the private-sector alternative — full ARF conformance, user-inspectable audit log that VF cannot see, zero-knowledge age proofs integrated with the EU Age Verification App. Malta launch, cross-border acceptance in DE/FR/IE/IT day one.</p>
+        <p>Every EU adult must have access to a digital identity wallet by end-2026 under eIDAS 2.0. National wallets ship functional but slow, ugly and government-flavoured. VF Wallet is the private-sector alternative: full ARF conformance, user-inspectable audit log that VF cannot see, zero-knowledge age proofs integrated with the EU Age Verification App. Malta launch, cross-border acceptance in DE/FR/IE/IT day one.</p>
         <div class="row"><span>Regulatory window</span><b>2026 mandate</b></div>
         <div class="row"><span>Fit with slate</span><b>5 / 5</b></div>
         <div class="row"><span>Build band</span><b>€220–290k</b></div>
         <span class="cs">SPEC COMPLETE · READ THE PAGE →</span>
       </a>
       <a class="nx" href="/systems/vf-legacy" style="display:block;color:inherit">
-        <div class="art"><img src="assets/pipe/p23.webp" alt="VF Legacy — matte-white sculptural reliquary vessel on a white plinth, with a cyan light-seam around the middle and a cyan disc floating above the closed lid" loading="lazy"></div>
+        <div class="art"><img src="assets/pipe/p23.webp" alt="VF Legacy: matte-white sculptural reliquary vessel on a white plinth, with a cyan light-seam around the middle and a cyan disc floating above the closed lid" loading="lazy"></div>
         <div class="pn">P·23 · SPEC COMPLETE</div>
         <h4>VF <span>Legacy</span></h4>
         <div class="cat">DIGITAL ESTATE · INHERITANCE</div>
-        <p>Boring, universal, unclaimed. Apple Legacy Contact and Google Inactive Account Manager are per-vendor silos; no EU sovereign player exists. VF Legacy is a sealed vault of "if I die" instructions with a multi-signal trigger (dead-man's-switch + 2-of-N trusted contacts + death certificate) and a 30-day grace period, pre-drafted GDPR Art. 17 erasure requests for the top-30 EU platforms, and per-jurisdiction executor packets aligned with the European Law Institute Model Rules on Digital Succession.</p>
+        <p>The market is boring, universal and unclaimed. Apple Legacy Contact and Google Inactive Account Manager are per-vendor silos; no EU sovereign player exists. VF Legacy is a sealed vault of "if I die" instructions with a multi-signal trigger (dead-man's-switch + 2-of-N trusted contacts + death certificate) and a 30-day grace period, pre-drafted GDPR Art. 17 erasure requests for the top-30 EU platforms, and per-jurisdiction executor packets aligned with the European Law Institute Model Rules on Digital Succession.</p>
         <div class="row"><span>Market gap</span><b>No EU incumbent</b></div>
         <div class="row"><span>Fit with slate</span><b>5 / 5</b></div>
         <div class="row"><span>Build band</span><b>€180–240k</b></div>
         <span class="cs">SPEC COMPLETE · READ THE PAGE →</span>
       </a>
       <a class="nx" href="/systems/vf-home" style="display:block;color:inherit">
-        <div class="art"><img src="assets/pipe/p24.webp" alt="VF Home — matte-white smooth-cornered ceramic cube on a white plinth, with a single cyan horizontal light-seam mid-height" loading="lazy"></div>
+        <div class="art"><img src="assets/pipe/p24.webp" alt="VF Home: matte-white smooth-cornered ceramic cube on a white plinth, with a single cyan horizontal light-seam mid-height" loading="lazy"></div>
         <div class="pn">P·24 · SPEC COMPLETE</div>
         <h4>VF <span>Home</span></h4>
         <div class="cat">LOCAL SMART-HOME HUB</div>
@@ -426,25 +406,25 @@ h2 .mute{color:var(--faint)}
     <p class="lead rv">The single most repeated pain in software over the last two years is <em class="i">the vendor decided</em>. Belkin decided to end Wemo. Logitech decided to end POP. Neato decided to end its cloud. 23andMe decided to enter Chapter 11 with seven million genomes as inventory. VF makes one commitment, in writing, that answers this in advance.</p>
 
     <div class="perm rv">
-      <h3>If VF discontinues a product, the source is <em>opened</em>, the last signed firmware remains verifiable in the transparency log, and the sealed vault format stays readable — permanently.</h3>
-      <p>This is not a marketing promise. It is a Terms § 8 clause. Enforceable in Malta courts. Backed by an insurance-funded escrow for the source-release lane. And baked into the reproducibility guarantee: because every shipping binary is byte-reproducible from open source, the source drop actually reconstructs the product you bought.</p>
+      <h3>If VF discontinues a product, the source is <em>opened</em>, the last signed firmware remains verifiable in the transparency log, and the sealed vault format stays readable, permanently.</h3>
+      <p>It is a Terms § 15 clause, enforceable in Malta courts and backed by an insurance-funded escrow for the source-release lane. It is also baked into the reproducibility guarantee: because every shipping binary is byte-reproducible from open source, the source drop reconstructs the product you bought.</p>
     </div>
 
     <div class="house rv" style="margin-top:44px">
       <div class="hcell">
         <div class="hd">THE SOURCE</div>
         <h4>Released within 90 days</h4>
-        <p>Full source code released under a permissive open-source licence within 90 days of any end-of-life announcement. Escrow-backed across two EU jurisdictions.</p>
+        <p>We release the full source code under a permissive open-source licence within 90 days of any end-of-life announcement. Escrow-backed across two EU jurisdictions.</p>
       </div>
       <div class="hcell">
         <div class="hd">THE FIRMWARE</div>
         <h4>Verifiable forever</h4>
-        <p>Last signed build remains verifiable in the public Merkle transparency log — forever. Third-party CI mirrors continue reproducibility checks post-EOL.</p>
+        <p>The last signed build remains verifiable in the public Merkle transparency log, forever. Third-party CI mirrors continue reproducibility checks post-EOL.</p>
       </div>
       <div class="hcell">
         <div class="hd">THE DATA</div>
         <h4>Format stays readable</h4>
-        <p>Sealed vault format documented in a public interoperability spec. Any conformant reader can extract your material — long after we stop building.</p>
+        <p>Sealed vault format documented in a public interoperability spec. Any conformant reader can extract your material, long after we stop building.</p>
       </div>
     </div>
   </div>
@@ -455,29 +435,81 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">TALK TO US</div>
     <h2 class="rv">If the failure list<br><span class="mute">reads like your day, write.</span></h2>
-    <p class="lead rv">If you're an EU municipality, a small firm, a family or an individual who has read the last two years of scandals and finished with the same question — <em class="i">who builds this differently?</em> — that's what VF Empire is for.</p>
+    <p class="lead rv">If you're an EU municipality, a small firm, a family or an individual who has read the last two years of scandals and finished with the same question, <em class="i">who builds this differently?</em>, then VF Empire is for you.</p>
 
     <div class="acts">
       <a class="bt pri" href="mailto:info@vfempire.com?subject=VF%20Software%20Thesis">Write to info@vfempire.com</a>
       <a class="bt gho" href="/#pipeline">See the twenty-one products</a>
     </div>
-
-    <div class="fine">
-      VF Empire Corp Ltd · Malta C 94160 · VAT MT 2686-9431 · Virgo Louretana, Triq L-Mġarr, Għajnsielem, Gozo GSM1020, MT
-      &nbsp;·&nbsp; <a href="/">Home</a>
-      &nbsp;·&nbsp; <a href="/#pipeline">Pipeline</a>
-      &nbsp;·&nbsp; <a href="mailto:info@vfempire.com">Contact</a>
-    </div>
   </div>
 </section>
 
-<script>
-// Reveal-on-scroll — same pattern as index and systems pages
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
-</script>
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
+  </div>
+</footer>
+
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
+  <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="dec" id="cdec">Decline</button>
+    <button class="acc" id="cacc">Accept</button>
+  </div>
+</div>
+
+
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>

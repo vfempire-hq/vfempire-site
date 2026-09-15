@@ -1,0 +1,254 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "VF Empire journal",
+  "home_page_url": "https://vfempire.com/journal/",
+  "feed_url": "https://vfempire.com/journal/feed.json",
+  "description": "The dated build log of VF Empire, the systems house in Malta, EU: what shipped on vfempire.com and in the product repositories, entry by entry, with feeds.",
+  "language": "en-GB",
+  "authors": [
+    {
+      "name": "VF Empire",
+      "url": "https://vfempire.com/"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://vfempire.com/journal/site-pass-one-stylesheet",
+      "url": "https://vfempire.com/journal/site-pass-one-stylesheet",
+      "title": "One voice, one stylesheet, a journal",
+      "summary": "Every page of the site went through a copy rewrite under the stop-slop rules, the per-page CSS collapsed into one house stylesheet, and every page gained structured data, social cards and a place in the sitemap. The pass ends with this journal and its two feeds.",
+      "content_html": "<p>The site pass that shipped today touched all 34 pages in the source tree. The copy rewrite applied the stop-slop rules the house now works to: no em dashes, no reversals, no adverb crutches, a named actor in every sentence, and every mechanism-backed guarantee kept word for word. Product copy for the templated pages moved into content packs, so the next edit is a data change rather than a hand edit of generated HTML.</p>\n<p>Under the copy, the stylesheet changed shape. Each page used to carry its own copy of the tokens, nav, buttons, footer and consent notice. Those now live once in <code>/house.css</code>, linked from every page, with page-specific layout kept in each page's own style block. The nav, footer and consent notice are the same on every page, and every subpage now carries the primary links to <a href=\"/#pipeline\">Systems</a>, <a href=\"/software\">Software</a>, <a href=\"/security\">Security</a> and <a href=\"/contact/\">Contact</a>.</p>\n<p>The SEO and answer-engine backend went in at the same time: a robots directive, Open Graph and Twitter cards, a font preload, BreadcrumbList on every subpage, FAQPage schema wherever a visible FAQ block exists, Service and Offer schema on the <a href=\"/services/cra-readiness-audit\">service pages</a>, ContactPage on the contact page, a homepage ItemList of the build slate, a sitemap with all 33 public URLs, a robots.txt that welcomes answer engines, and a plain-text <a href=\"/llms.txt\">/llms.txt</a> map of the site. The reveal animation now has a no-JS fallback.</p>\n<p>Two scripts guard the result before every commit: a verify pass that greps for em dashes and slop words, validates every JSON-LD block, counts h1s and checks balanced tags, and an seo-pass script that adds the generic head tags and schema a new page is missing. A standing instructions file, a page skeleton and the September site review document set the plan for what comes next.</p>\n<p>The last item in that plan for today is this journal: the commit history already read like release notes, so it now has a URL, dated entries, an <a href=\"/journal/feed.xml\">RSS feed</a> and a <a href=\"/journal/feed.json\">JSON Feed</a>.</p>",
+      "date_published": "2026-09-15T11:46:54+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/fileit-wave-6-end-to-end",
+      "url": "https://vfempire.com/journal/fileit-wave-6-end-to-end",
+      "title": "FileIT wave 6: pipeline verified, 123 tests",
+      "summary": "Wave 6 added a working end-to-end integration test that walks the critical path from rule-pack load through mock-HMRC submission in a single Vitest run, taking the count to 123 passing tests. The same morning the workstation preview went live at /preview/fileit/.",
+      "content_html": "<p>Wave 6 closed the loop. The <a href=\"/systems/fileit\">FileIT</a> page now records an end-to-end integration test that walks the full critical path, from rule-pack load through compute, return, sign and submit, ending at a mock HMRC endpoint, all inside a single Vitest run. The test asserts that HMRC receives the exact numbers the tax engine computed: zero drift between rule-pack output and the wire-level submission. The count moved from 122 to 123 passing tests.</p>\n<p>The build-status section on the page was rewritten for the milestone. Six engineering waves in one session, 123 passing tests, two live jurisdictions (UK and Malta), and the HMRC MTD OAuth and submission lane real. The status kicker reads \"123 tests, e2e pipeline verified\" and the page links the latest commit, 71fae64, in the public repository at github.com/vfempire-hq/fileit.</p>\n<p>A second commit the same morning put the workstation UI online. The preview app lives at <a href=\"/preview/fileit/\">/preview/fileit/</a> and the hero on the product page now opens with it. It shows the workstation a director or an accountant will sit in front of once R·01 ships.</p>\n<p>What still needs building is listed on the page in the same detail: the remaining ten return-type mappers (CT600, USt-VA, ESt, KSt, CFR-VAT, CFR-PIT, CFR-CIT, ROS-VAT3, Form11, Form12), nine more Malta rules, the Germany and Ireland rule packs, PSD2 ingest, the local-AI classifier, the reconciliation engine, encrypted-at-rest persistence, the ERiC FFI, an external security audit, and software recognition from HMRC and CFR. The remaining R·01 estimate is three to five months once the team is engaged.</p>\n<p>The reserve model stands: no subscription payment until every filing lane is live and independently verifiable. The previous wave, with Malta going live, is in <a href=\"/journal/fileit-wave-5-malta-live\">the wave 5 entry</a>. The wider posture the repository ships under is on the <a href=\"/security\">security page</a>.</p>",
+      "date_published": "2026-09-15T10:36:29+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/fileit-wave-5-malta-live",
+      "url": "https://vfempire.com/journal/fileit-wave-5-malta-live",
+      "title": "FileIT: 112 to 122 tests, Malta live",
+      "summary": "Wave 5 brought the second live jurisdiction. Two Malta 2026 rules now compute against real CFR rates, the gateway dispatches UK and Malta live with Germany and Ireland stubbed, and the count moved from 112 to 122 passing tests.",
+      "content_html": "<p>Malta went live in wave 5. The <a href=\"/systems/fileit\">FileIT</a> tax engine now carries two Malta 2026 rules computed against real CFR rates: VAT at 18% and personal income tax for the single-status band 1. They sit beside the six UK 2026-27 rules from the earlier waves, and the gateway's ledger and tax routes dispatch by jurisdiction, with the UK and Malta live and Germany and Ireland stubbed. The test count moved from 112 to 122.</p>\n<p>Malta matters to this build for a reason the page has stated since the spec shipped: the VF network runs three companies in three jurisdictions, and every one of their books, accounts and returns goes through this system before any customer's does. VF Empire Corp Ltd is the Maltese company, so the CFR lane is the one the house files on first.</p>\n<p>The remaining Malta work is listed on the page rather than left implied: nine more rules covering the full progressive bands, the married and parent computations, and corporation tax, plus the three CFR return-type mappers (CFR-VAT, CFR-PIT, CFR-CIT). Software recognition from CFR is a separate item on the same list.</p>\n<p>The four R·01 jurisdictions and their authorities have not changed: HMRC MTD for the UK, ELSTER for Germany, CFR for Malta and ROS for Ireland. The four compliance dossiers, one per jurisdiction, are part of the documentation set published with the depth build on 13 September.</p>\n<p>The wave before this one shipped the HMRC MTD adapter; that entry is at <a href=\"/journal/fileit-wave-4-hmrc-mtd-adapter\">wave 4</a>. The wave after it verified the pipeline end to end. The principles the ledger is built against, local-first, no third-party AI on user-data paths and the Permanence Guarantee, are set out on the <a href=\"/software\">software page</a>, and the public repository is listed on the <a href=\"/security\">security page</a>.</p>",
+      "date_published": "2026-09-15T10:15:45+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/fileit-wave-4-hmrc-mtd-adapter",
+      "url": "https://vfempire.com/journal/fileit-wave-4-hmrc-mtd-adapter",
+      "title": "FileIT wave 4: the HMRC MTD adapter",
+      "summary": "Wave 4 shipped the HMRC MTD adapter: OAuth 2.0 token refresh plus VAT100 and SA100 submission clients, sandbox by default and production gated by environment. The count moved from 98 to 112 passing tests.",
+      "content_html": "<p>Wave 4 gave <a href=\"/systems/fileit\">FileIT</a> its first real filing lane. The HMRC MTD adapter shipped with OAuth 2.0 token refresh and submission clients for the two return types the mappers already cover, VAT100 and SA100. The adapter targets the HMRC sandbox by default; production is gated by environment so nothing can reach a live tax office by accident. The test count moved from 98 to 112.</p>\n<p>The adapter is layer 3 of the four the page describes: a ledger core that runs local-first on the owner's machine, a mapping engine that turns the trial balance into each jurisdiction's statutory format, one filing adapter per authority speaking that system's native protocol, and a gate in front of anything that leaves the building. HMRC MTD is the first adapter because the UK is the first jurisdiction in R·01; ELSTER, CFR and ROS follow the same shape.</p>\n<p>Two things the adapter does not yet have are written on the page next to what it does. Real OAuth client credentials still have to come from the tax authorities' developer hubs, and HMRC software recognition is a separate step before any live production submission. The page keeps the founding-tier pricing behind the same condition: no charge until R·01 ships and a filing has gone through each of HMRC MTD, ELSTER, CFR and ROS.</p>\n<p>The submission path itself is the one the <a href=\"/security\">security page</a> describes for every VF product: Ed25519 client signatures, origin-signed responses, and no third-party AI on user-data paths. The previous wave, where both mappers became real, is in <a href=\"/journal/fileit-first-waves-73-to-98-tests\">the 73 to 98 entry</a>; the next one took Malta live. The wider thesis is on the <a href=\"/software\">software page</a>.</p>",
+      "date_published": "2026-09-15T06:49:31+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/fileit-first-waves-73-to-98-tests",
+      "url": "https://vfempire.com/journal/fileit-first-waves-73-to-98-tests",
+      "title": "FileIT: 73 to 98 tests, both mappers real",
+      "summary": "The first waves of real code landed on the FileIT page: a build-status section with 73 passing tests, then the VAT100 and SA100 HMRC MTD field mappers both real and the count at 98. The same morning the P·04 and P·15 tiles merged into one product with the reserve model live.",
+      "content_html": "<p>The <a href=\"/systems/fileit\">FileIT</a> page gained a build-status section on the morning of 15 September, opening at 73 passing tests and real code shipped. By the next commit the two HMRC MTD field mappers, VAT100 and SA100, were both real and the count stood at 98. The page lists what those early waves contain: a safe-expression rule evaluator (recursive descent, nine builtins, no eval), six UK 2026-27 rules computed against real HMRC rates, and gateway ledger and tax routes with an Ed25519 client signature, trust-on-first-use binding, a cross-protocol replay guard and origin-signed responses. CI runs on the repository and the source is published under FSL-1.1-ALv2.</p>\n<p>Earlier that morning the product had also been tidied on the slate. The Self-Filing Ledger had appeared twice, as P·04 and as P·15, and the two tiles merged into one product with one page. The reserve model went live at the same time: a founding-tier slot reserved with an email address, no card entered, no charge until R·01 ships and a paying customer can independently verify every claim on the page. The two founding tiers are €29 a month for full books and returns filed direct to the registry and tax office, and €12 a month for the ledger without the filing layer, both lifetime-locked. If R·01 has not shipped by 2028-03-15 the reserve list is released with a public post-mortem.</p>\n<p>The same reserve model had gone onto <a href=\"/systems/guardian-shield\">Guardian Shield</a> the night before, and the same Terms § 8 warranty applies from the first paid month, enforceable in Malta. The <a href=\"/software\">software page</a> sets out why VF prices this way, and the <a href=\"/security\">security page</a> lists the private repositories under the pre-commit and CI gitleaks discipline, FileIT among them.</p>\n<p>The next wave, the HMRC MTD adapter, is in <a href=\"/journal/fileit-wave-4-hmrc-mtd-adapter\">the wave 4 entry</a>.</p>",
+      "date_published": "2026-09-15T06:27:27+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/snapit-r02a-live",
+      "url": "https://vfempire.com/journal/snapit-r02a-live",
+      "title": "SnapIT R·02a is live",
+      "summary": "SnapIT flipped to R·02a LIVE on both its product page and the landing-page card. Linux and Windows builds ship today with a local-first catalogue scan, household profiles and an Ed25519-signed licence verified offline, at one-off founding pricing from €59.",
+      "content_html": "<p><a href=\"/systems/snapit\">SnapIT</a> is the first product on the slate to carry a LIVE chip. On 15 September the product page and the P·20 card on the <a href=\"/\">landing page</a> both flipped to R·02a LIVE, and the hero button now reads \"Get SnapIT, from €59\".</p>\n<p>R·02a is what ships today, as the roadmap on the page states it: a local-first catalogue scan across any folder or NAS mount, household profiles with Argon2id-hashed PINs, and an Ed25519-signed licence pair verified offline. The builds are a Linux .deb and a Windows .exe. Pricing is one-off and perpetual: the Founding seat is €59 for the first 500 buyers, Standard is €89, with household and larger tiers above that and an optional €29 per major version for anyone who wants upgrades. The source is public under FSL-1.1-ALv2.</p>\n<p>The product does one job the page spells out at length: it scans every drive you own (phone, laptop, PC, NAS, backups), finds every photo and every video, and files the whole thing into one library on your own storage, read by no one else. The four layers are a reader, a repair bench for files whose metadata a messenger stripped, clustering, and an archive on your disk, your NAS or your own S3-compatible bucket.</p>\n<p>R·02b is next: a signed macOS build with Developer ID notarisation, event clustering by time, place, camera and burst structure, plain-language search across your own archive, strictly opt-in on-device face grouping, and an auto-updater on top of the R·02a signing.</p>\n<p>The public repository, snapit-desktop, is one of the four the <a href=\"/security\">security page</a> shows scanned clean of secrets, with 35 commits inspected on 14 September. The principles it ships against, including the Permanence Guarantee, are on the <a href=\"/software\">software page</a>.</p>",
+      "date_published": "2026-09-15T06:27:14+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/guardian-shield-reserve-model",
+      "url": "https://vfempire.com/journal/guardian-shield-reserve-model",
+      "title": "Guardian Shield: the reserve model",
+      "summary": "The Guardian Shield page gained a public build-status section that says what exists and what does not, a founding-tier reserve with no card and no charge until R·01 ships, and a Permanence Guarantee section with a link to the security page.",
+      "content_html": "<p>Late on 14 September the <a href=\"/systems/guardian-shield\">Guardian Shield</a> page changed how it asks for money. The commit calls it option B: public honest-status corrections. A build-status section dated 2026-09-14 now states that the product is architecturally spec-complete and audit-reviewed, that the runtime code for the five subsystems is a five to seven month build with the Path B team, and that VF will not take a subscription payment until every subsystem is in the shippable column.</p>\n<p>The section lists both columns. What exists: the full architecture spec with 13 ADRs, the threat model, the privacy model and DPIA, an 11-document investor pack, four operational runbooks, cross-product integration contracts, the Permanence Guarantee as ADR-0013, and the verify-side cryptography. What does not yet: the five subsystems' runtime code, the pack-distributor Worker, the transparency-log signing infrastructure, persistence for the vault and signer bindings, the real HIBP relay, the client UI across desktop, iOS and Android, and the production 2-of-2 signing hardware.</p>\n<p>The pricing section became a reserve. A founding-tier slot is reserved with an email address, no card entered, no charge. Once R·01 ships and a paying customer can independently verify every claim on the page, VF writes and lets you activate at the locked founding rate: €39 a year, lifetime-locked, first 500. The free tier (a 20-entry vault, five breach lookups an hour, the default DNS blocklist) stays at €0.</p>\n<p>An hour earlier the page had gained its Permanence Guarantee section. If VF ever discontinues Guardian Shield, the full source (Rust core, all three clients, all four backend services, CI and build toolchain) is released under a permissive licence within 90 days, escrowed in Malta and Ireland and insurance-funded; the pack-distributor stays online for six months after the announcement; every signed pack stays verifiable in the public transparency log; and the sealed vault format is a public spec. The section links to the <a href=\"/security\">security page</a>, and the guarantee in full is on the <a href=\"/software\">software page</a>. <a href=\"/systems/fileit\">FileIT</a> took the same reserve model the following morning.</p>",
+      "date_published": "2026-09-14T23:30:29+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/security-page-gitleaks-ci",
+      "url": "https://vfempire.com/journal/security-page-gitleaks-ci",
+      "title": "The security page, with gitleaks in CI",
+      "summary": "The /security page went live with a public audit table, and the repository gained gitleaks in a pre-commit hook and a GitHub Actions workflow that runs the binary directly on every push, every pull request and every Monday. Four public repositories, 64 commits, zero secrets found.",
+      "content_html": "<p>The <a href=\"/security\">security page</a> went live on the evening of 14 September, wired into the nav, with a fix to the mirror script that copies source into <code>dist/</code>. It publishes the proof behind the products: signed releases with a 2-of-2 threshold across separated EU jurisdictions, reproducible builds from public source, a bug bounty from €500 to €25 000, a warrant canary refreshed every 30 days, and the Terms § 8 warranty enforceable in Malta.</p>\n<p>The centrepiece is the audit table. As of 2026-09-14 it shows four public repositories scanned, 64 commits inspected across complete git history, about 7 MB of code and history bytes, and zero secrets detected. The rows name the repositories, among them snapit-desktop (35 commits), vf-privacy-kit (4) and vfmail-desktop (6), each with a link to verify the result live. The scanner is gitleaks v8.24.2, with a ruleset of around 150 patterns covering cloud provider keys, Stripe keys, GitHub and GitLab tokens, private keys, OAuth and JWT secrets and database URLs.</p>\n<p>Four commits in the following half hour put the discipline into this repository itself. Gitleaks now runs at two gates: a pre-commit hook on the developer's machine, which refuses a commit that contains a secret, and a GitHub Actions workflow as the backstop, running on every push, every pull request and every Monday at 06:00 UTC against full history, with a finding blocking the merge. The workflow was then switched from the action wrapper to the gitleaks binary run directly, so it works the same on personal-account repositories, organisation-owned repositories and forks with no licence secret required. The README gained the security-scan badge, and the audit table gained house-styled CI pills.</p>\n<p>The same signing and transparency-log mechanisms the page describes are what the <a href=\"/services/signing-infrastructure\">Signing Infrastructure</a> engagement builds for clients. The public repositories belong to <a href=\"/systems/snapit\">SnapIT</a> and <a href=\"/systems/vf-mail\">VF Mail</a> among others; the seven private ones, FileIT and Guardian Shield included, sit under the same gitleaks discipline until launch. The principles behind the page are on the <a href=\"/software\">software page</a>.</p>",
+      "date_published": "2026-09-14T21:08:03+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/services-pages-live",
+      "url": "https://vfempire.com/journal/services-pages-live",
+      "title": "Three CRA consulting pages go live",
+      "summary": "The three fixed-fee engagements got their own pages and a Services dropdown in the nav: a two-week CRA Readiness Audit, a three to four week Threat Model and DPIA, and a four to six week Signing Infrastructure and SBOM Blueprint.",
+      "content_html": "<p>On 13 September the consulting side of the house got its pages. Three fixed-fee engagements, each with a page of its own and a Services dropdown in the nav to reach them.</p>\n<p>Service 01 is the <a href=\"/services/cra-readiness-audit\">CRA Readiness Audit</a>: two weeks, €12-18k fixed fee, a gap analysis and remediation roadmap against Cyber Resilience Act Annex I and Annex II. The page opens on the date that makes the service urgent: CRA enforcement begins on 11 September 2026, fines reach 2.5% of global turnover, and every EU manufacturer of a product with digital elements is in scope. It names the four things a national market-surveillance authority will ask for, starting with the Article 27 technical file most product teams do not have.</p>\n<p>Service 02 is <a href=\"/services/threat-model-dpia\">Threat Model + DPIA Drafting</a>: three to four weeks, €18-30k, two stakeholder workshops, and two documents the CRA and GDPR both expect: a STRIDE threat model with named adversary tiers, and a GDPR Article 35 Data Protection Impact Assessment written to a standard a regulator accepts. The page is direct about the failure it fixes: DPIAs that rate every risk low so that no Article 36 consultation is triggered, which the IDPC, BfDI, CNIL, DPC and Garante have all rejected.</p>\n<p>Service 03 is the <a href=\"/services/signing-infrastructure\">Signing Infrastructure + SBOM Blueprint</a>: four to six weeks, €25-40k, and the mechanism rather than the report: 2-of-N threshold signing, an RFC 6962 transparency log, SBOM automation per release and reproducibility CI mirrors. It is the same infrastructure every VF product ships with, described on the <a href=\"/security\">security page</a>.</p>\n<p>Every engagement starts with a 30-minute call booked through the <a href=\"/contact/\">contact page</a>.</p>",
+      "date_published": "2026-09-13T16:15:33+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/vf-wallet-legacy-home-spec-complete",
+      "url": "https://vfempire.com/journal/vf-wallet-legacy-home-spec-complete",
+      "title": "VF Wallet, VF Legacy and VF Home spec-complete",
+      "summary": "The three candidate products named on the software page shipped as spec-complete pages in one day: VF Wallet (P·22), VF Legacy (P·23) with its Life Archive section and ADR-0011, and VF Home (P·24), each with a three-render image set matched to the house theme.",
+      "content_html": "<p>The three next candidates the <a href=\"/software\">software page</a> had named shipped as full product pages on 13 September, each marked spec-complete at R·01.</p>\n<p><a href=\"/systems/vf-wallet\">VF Wallet</a> (P·22) is the EU digital identity wallet built for people: full ARF v1.4 conformance, a user-inspectable audit log, and zero-knowledge age proofs integrated with the EU Age Verification App. R·01 covers PID, QEAA, PuB-EAA, EAA and age verification proofs on iOS and Android, with a Malta launch and day-one cross-border acceptance in Germany, France, Ireland and Italy via the EU Trust List. The launch target is 2027 Q1-Q2 pending seed close, the ARF conformance audit, Malta MCA notification and Trust-List entry.</p>\n<p><a href=\"/systems/vf-legacy\">VF Legacy</a> (P·23) is digital estate and succession: a sealed vault of \"if I die\" instructions, a trigger that requires humans (two trusted contacts plus a death certificate plus a 30-day grace period with owner veto), and per-jurisdiction executor packets aligned with the ELI Model Rules on Digital Succession. Later the same afternoon the page gained its Life Archive section and the ADR-0011 doc card: ten platform sources ingested continuously during your lifetime into the same client-side encrypted vault, a Memoir Viewer unlocked after trigger, and six categorical rejections written into the spec, the code and the Terms. The product carries a 12-month Permanence Guarantee, extended from the house-wide 90 days because an estate is a life event.</p>\n<p><a href=\"/systems/vf-home\">VF Home</a> (P·24) is the smart-home hub that outlives its vendor: Matter, Zigbee and Z-Wave on hardware you already own, up to four ONVIF cameras with a local NVR, sealed remote access, and CRA compliance from day one. The Permanence Guarantee is written into the firmware licence.</p>\n<p>All three pages carry the same documentation set as the earlier products, published the same day: an engineering spec, a threat model, a regulatory dossier and an investor pack. The P·22 to P·24 renders were re-rendered to match the house theme, and the candidate cards on the software page received the product images. The hardening they all inherit is on the <a href=\"/security\">security page</a>.</p>",
+      "date_published": "2026-09-13T15:43:50+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/software-thesis-permanence-guarantee",
+      "url": "https://vfempire.com/journal/software-thesis-permanence-guarantee",
+      "title": "Software thesis and Permanence Guarantee",
+      "summary": "The /software thesis page went live: five industry failures with dated examples, the five VF principles that answer them, the house standard every product inherits, the three next candidates, and the Permanence Guarantee. Software joined the top-level nav.",
+      "content_html": "<p>The <a href=\"/software\">software page</a> is the argument the whole slate rests on, and it went live on the morning of 13 September. It opens with five failures of software in 2024 to 2026, each with the cases that prove it: private-equity roll-ups that turn the tools you rely on hostile inside a year, AI features that read files you never agreed to share, products that become paperweights when the vendor tires of its cloud, subscriptions built on opaque auto-renewal, and paid apps that sell your data anyway.</p>\n<p>Against them the page sets the five VF principles and the house standard every product ships against, enforced by architecture, by contract and by the fact that VF sells no ads. The house primitives are listed one by one: the Terms § 8 warranty (a material privacy breach means an automatic refund and a public post-mortem within five business days, enforceable in Malta), reproducible builds verified by third-party CI mirrors in Berlin and Reykjavik, 2-of-2 threshold signing, a public RFC 6962 transparency log, a bug bounty from €500 to €25 000, and the Permanence Guarantee.</p>\n<p>The page then names the three next candidates from the research, VF Wallet, VF Legacy and VF Home, with a regulatory window, a fit score and a build band for each; all three shipped as spec-complete pages later the same day. Software became a top-level nav entry between Systems and Research.</p>\n<p>The Permanence Guarantee section was rebuilt in the house theme that afternoon. Its terms: if VF discontinues a product, the source is released under a permissive open-source licence within 90 days of the end-of-life announcement, the last signed firmware remains verifiable in the transparency log, and the sealed vault format stays readable, permanently. It is a Terms § 8 clause, enforceable in Malta courts and backed by an insurance-funded escrow across two EU jurisdictions. The same guarantee is restated on the <a href=\"/security\">security page</a> and in the <a href=\"/legal/terms\">Terms</a>, and every product page, from <a href=\"/systems/guardian-shield\">Guardian Shield</a> to <a href=\"/systems/vf-home\">VF Home</a>, inherits it.</p>",
+      "date_published": "2026-09-13T14:56:54+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/fileit-depth-build-shipped",
+      "url": "https://vfempire.com/journal/fileit-depth-build-shipped",
+      "title": "FileIT depth-build shipped, R·01 spec-complete",
+      "summary": "The self-filing ledger page linked its public repository and flipped to spec-complete at R·01, with the landing-page chip to match. The published set: a thirteen-section engineering spec, a STRIDE threat model across eight adversary tiers, the human and AI collaboration model and an 11-document investor pack.",
+      "content_html": "<p>In the early hours of 13 September the self-filing ledger page, now <a href=\"/systems/fileit\">FileIT</a>, linked its public repository at github.com/vfempire-hq/fileit and flipped its chip to spec-complete at R·01. The P·15 chip on the <a href=\"/\">landing page</a> followed a few minutes later.</p>\n<p>The depth build is the documentation set the page lists as published on 2026-09-13. The engineering spec runs to thirteen sections: ingest normaliser, hybrid AI architecture, a rules DSL for the tax engine, filing adapters per authority, an MCP server so your own AI agent can query the ledger read-only, the human-AI collaboration model and the banned-dependency list. The threat model applies STRIDE across eight adversary tiers, from a nation-state attack on the signature supply chain to a hostile household adversary, with residual-risk analysis and a DPIA covering all four R·01 jurisdictions. A separate document sets the collaboration model: AI proposes, human disposes, with bright lines on what the AI will not do. The investor pack has eleven documents and states the ask, a €2-4m seed.</p>\n<p>R·01 as specified is the full stack in four jurisdictions: bank, card, invoice and receipt ingest, a local AI classifier, a double-entry ledger, jurisdiction-specific tax engines and direct filing to HMRC MTD, ELSTER, Malta CFR and Ireland ROS, on web, iOS and Android. The four-layer architecture (ledger core, mapping engine, filing adapters, the gate) is the same shape the <a href=\"/systems/guardian-shield\">Guardian Shield</a> spec follows, and the model never gets the last word: every mapping traces back to source entries and no return leaves without passing evaluation.</p>\n<p>Two days later the first real code landed, recorded in the <a href=\"/journal/fileit-first-waves-73-to-98-tests\">73 to 98 tests entry</a>. The principles behind the build are on the <a href=\"/software\">software page</a>.</p>",
+      "date_published": "2026-09-13T02:14:20+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/guardian-shield-fuelit-spec-refresh",
+      "url": "https://vfempire.com/journal/guardian-shield-fuelit-spec-refresh",
+      "title": "Guardian Shield and FuelIT pages match R·01",
+      "summary": "Late on the first day the Guardian Shield page was refreshed to match its R·01 spec, the P·18 tile on the landing page gained the five-subsystem description, and the FuelIT page was brought up to its spec-complete state.",
+      "content_html": "<p>The last three commits of 12 September brought two product pages up to the state of their specs. The <a href=\"/systems/guardian-shield\">Guardian Shield</a> page was refreshed to match the R·01 spec, the P·18 tile on the <a href=\"/\">landing page</a> gained the spec-complete chip and the five-subsystem description, and the <a href=\"/systems/fuelit\">FuelIT</a> page was refreshed to its spec-complete state.</p>\n<p>Guardian Shield R·01 ships five subsystems on infrastructure you own: a password vault (Argon2id-wrapped XChaCha20-Poly1305, plaintext never on the wire), a malware scanner (ClamAV and YARA, both local, files never leave the device), a WireGuard VPN with three VF-operated exits or your own Mullvad or IVPN config, a DNS and URL filter at the OS resolver, and a zero-knowledge breach watch where only the first five characters of a hash travel. Every update is signed twice in public, by two operators in different EU jurisdictions, then inspected for 15 minutes, then entered in a public Merkle-tree log. The documentation set, engineering spec, threat model across six adversary tiers, verification checklist and investor pack, is dated 2026-09-12.</p>\n<p>FuelIT is the fuel-price navigator: official government price feeds from nine EU countries ranked against your route, your tank and your real range. It ships with <a href=\"/systems/nav-it\">NAV·IT</a>, the house's own sovereign turn-by-turn engine, so the destination you tap never touches Google or Apple. The landing-page tile carries the same chip.</p>\n<p>The verification claims on the Guardian Shield page are the ones the <a href=\"/security\">security page</a> later made general across the house: files never leave the device, verifiable by packet trace; vault plaintext never on the wire, verifiable by canary-string trace.</p>",
+      "date_published": "2026-09-12T23:51:23+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    },
+    {
+      "id": "https://vfempire.com/journal/repo-init-nav-it-privacy-hardening",
+      "url": "https://vfempire.com/journal/repo-init-nav-it-privacy-hardening",
+      "title": "Repo init: NAV·IT and privacy hardening",
+      "summary": "The repository was initialised with the NAV·IT (P·21) page and the privacy hardening the site has kept since: zero third-party scripts, self-hosted fonts, a strict CSP, HSTS with preload and an RFC 9116 security.txt. The same evening it took the vfempire-hq name, an MIT licence and the FLUX Dev renders for the NAV·IT image set.",
+      "content_html": "<p>The repository for vfempire.com was initialised on the evening of 12 September 2026. The first commit carried two things: the <a href=\"/systems/nav-it\">NAV·IT</a> product page (P·21) and the privacy hardening the site has held to ever since.</p>\n<p>The hardening is a list of zeros. Zero third-party scripts: no analytics, no pixel, no session recorder, no tag manager. Zero third-party fonts: Hanken and Instrument Italic are self-hosted. Zero third-party image hosts, zero cookies, with the consent notice storing accept or decline in localStorage only. A strict content security policy with <code>default-src 'self'</code> and <code>frame-ancestors 'none'</code>, HSTS with preload, cross-origin isolation headers, and an RFC 9116 disclosure endpoint at <code>.well-known/security.txt</code>. Every claim is checkable by inspecting the served directory.</p>\n<p>NAV·IT is the navigator that never sells your route: a self-hosted turn-by-turn engine built on OpenStreetMap data with Valhalla routing, Photon geocoding and MapLibre rendering, running on VF's own origin box in Germany behind an anonymising Cloudflare Worker that strips the IP before the origin sees it. Every routing response is Ed25519-signed, and full-offline mode produces zero network traffic during navigation, verifiable by packet trace. It ships inside <a href=\"/systems/fuelit\">FuelIT</a> and <a href=\"/systems/mapit\">MapIT</a> and is never sold as a standalone data business, an ad platform or an SDK. Its engineering spec, threat model, privacy model and verification checklist are dated the same day.</p>\n<p>Three more commits followed that evening: the repository took the vfempire-hq organisation name and an MIT licence for the site (product code stays in the per-product repositories under their own licences), a master-token reference in the deployment notes was sanitised before the public push, and NAV·IT received its visual polish with FLUX Dev renders for the P·21 image set. Two days later the same discipline became a gitleaks gate, recorded on the <a href=\"/security\">security page</a>.</p>",
+      "date_published": "2026-09-12T20:15:02+00:00",
+      "authors": [
+        {
+          "name": "VF Empire",
+          "url": "https://vfempire.com/"
+        }
+      ],
+      "tags": [
+        "build log"
+      ]
+    }
+  ]
+}

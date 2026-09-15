@@ -3,17 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VF Mail — A Whole Mail System of Our Own | VF Empire</title>
-<meta name="description" content="VF Mail by VF Empire — server, shield and address on metal we hold. The first @vfempire.com inboxes already run on our own node. Your inbox stops being an ad company’s product. In build in Malta, EU.">
+<title>VF Mail: Server, shield and address, all yours | VF Empire</title>
+<meta name="description" content="Private email service from VF Empire, Malta: server, deliverability shield and address on EU metal we hold, end-to-end encrypted, free in Early Access.">
 <link rel="canonical" href="https://vfempire.com/systems/vf-mail">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="VF Mail — Your inbox is someone’s product. Take it back.">
-<meta property="og:description" content="A complete mail system — server, deliverability shield, address — running on owned infrastructure. First light already: our own company mail runs on it. On the VF build slate.">
+<meta property="og:title" content="VF Mail: Server, shield and address, all yours">
+<meta property="og:description" content="Private email service from VF Empire, Malta: server, deliverability shield and address on EU metal we hold, end-to-end encrypted, free in Early Access.">
 <meta property="og:url" content="https://vfempire.com/systems/vf-mail">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p16.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VF Mail: Server, shield and address, all yours">
+<meta name="twitter:description" content="Private email service from VF Empire, Malta: server, deliverability shield and address on EU metal we hold, end-to-end encrypted, free in Early Access.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p16.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,7 +33,7 @@
       "applicationCategory": "CommunicationApplication",
       "operatingSystem": "Web, iOS, Android, IMAP/SMTP",
       "creator": {"@id": "https://vfempire.com/#org"},
-      "description": "VF Mail is an email system in development by VF Empire Corp Ltd: a complete mail stack — server, security shield and addresses — operated on company-held infrastructure, currently carrying VF Empire’s own corporate mail as its first deployment."
+      "description": "VF Mail is an email system in development by VF Empire Corp Ltd: a complete mail stack (server, security shield and addresses) operated on company-held infrastructure, currently carrying VF Empire’s own corporate mail as its first deployment."
     },
     {
       "@type": "BreadcrumbList",
@@ -38,61 +47,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-/* house dot-rail scrollbar — native bar hidden, jade dot rendered by scrollrail.js */
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
 .phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -102,23 +56,20 @@ h2 .mute{color:var(--faint)}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px;transition:transform .2s}
 .mchip:hover{transform:translateY(-1px)}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core);position:relative;padding-left:26px;box-shadow:0 6px 22px -8px rgba(31,111,242,.55)}
 .mchip.hot::before{content:"";position:absolute;left:12px;top:50%;width:7px;height:7px;border-radius:50%;background:#fff;transform:translateY(-50%);animation:pulseDot 1.8s ease-in-out infinite;box-shadow:0 0 0 0 rgba(255,255,255,.85)}
 @keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.75)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0)}}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
 .fl:hover{background:#fff;padding-left:22px}
 .fl:hover::before{transform:scaleY(1)}
-.fl .num{font-size:13px;font-weight:600;color:var(--faint);letter-spacing:.1em;padding-top:3px}
+.fl .num{font-size:13px;font-weight:600;color:var(--dove);letter-spacing:.1em;padding-top:3px}
 .fl:hover .num{color:var(--core)}
 .fl h4{font-size:19px;font-weight:600;letter-spacing:-.025em}
 .fl p{font-size:13.5px;line-height:1.6;color:var(--dove)}
@@ -129,16 +80,15 @@ h2 .mute{color:var(--faint)}
 .band img{display:block;width:100%;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
-.au .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au .ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .au h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
 .au p{font-size:13.5px;line-height:1.62;color:var(--dove)}
 .au.first{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:linear-gradient(160deg,#0e2a63,var(--core-deep) 55%,var(--core));border-color:transparent}
-.au.first .ic{background:rgba(255,255,255,.14)}
 .au.first .ic svg{stroke:#fff}
 .au.first h4{color:#fff}
 .au.first p{color:rgba(255,255,255,.75);max-width:640px}
@@ -146,7 +96,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -154,7 +104,7 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -168,7 +118,7 @@ h2 .mute{color:var(--faint)}
 /* roadmap */
 .road{margin-top:56px;border-top:1px solid var(--line)}
 .rd{display:grid;grid-template-columns:80px 1.1fr 1.6fr auto;align-items:center;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line)}
-.rd .num{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.14em}
+.rd .num{font-size:12px;font-weight:600;color:var(--dove);letter-spacing:.14em}
 .rd h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .rd p{font-size:13.5px;line-height:1.55;color:var(--dove)}
 .rd .st{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#2b3a55;background:var(--mist);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap}
@@ -178,12 +128,11 @@ h2 .mute{color:var(--faint)}
 /* papers & code */
 .docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
 .doc{background:#fff;border:1px dashed var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;gap:8px}
-.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
+.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--dove)}
 .doc h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .doc p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 .doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
 @media(max-width:880px){.docs{grid-template-columns:1fr}}
-
 
 /* ═══════════ pricing (revolver) ═══════════ */
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
@@ -299,7 +248,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -331,7 +280,7 @@ h2 .mute{color:var(--faint)}
   100%     {left:0;    opacity:1}
 }
 
-.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--dove);text-align:center}
 
 /* ═══════════ system requirements ═══════════ */
 #sysreq{padding:110px 6vw}
@@ -361,31 +310,79 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
   .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- seo-pass -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://vfempire.com/systems/vf-mail#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I download VF Mail today?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. VF Mail is in Early Access and free until November 1. Linux ships as a native AppImage or .deb with a one-line installer that verifies SHA-256 and needs no root. Windows builds from source with one PowerShell command that installs Rust and WebView2 silently, no admin. The notarised macOS .dmg lands with the paid launch on November 1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Early Access include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The full VF Mail: a sovereign vault, end-to-end encrypted mail between VF users, encrypted direct messages, a real Files system on your own disk, and offline everything. There is no signup, no telemetry and no analytics. When the paid launch flips on November 1, your vault carries forward and you keep a founder-tier discount for life."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use my own domain and my usual mail client?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Bring your own domain, or use a vfempire.mail alias; a custom domain is included from the first tier. VF Mail speaks IMAP and SMTP everywhere, so any client you prefer works alongside the house web and mobile clients. Migration from Gmail, Fastmail or Proton is a one-click import, and you can leave again with a full export."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What will VF Mail cost after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no free tier; a thirty-day trial takes its place. Mailbox is €3.99 a month for one mailbox with 10 GB and a custom domain. Family is €9.99 a month for five mailboxes and 50 GB. Teams is €4.99 per user a month with 25 GB on your company domain. The price you join at is the price you renew at."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my mail stored and who can read it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On EU metal in Malta, encrypted at rest, under EU jurisdiction. The transport core is a modern, memory-safe server stack of the Stalwart generation with SPF, DKIM, DMARC, MTA-STS and DANE. There are no ads, no tracking pixels of our own and no profile built from your correspondence, and the door opens from the inside: standard protocols, no hostage data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will my mail reach Gmail and Outlook inboxes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deliverability is the hardest promise in owned mail, and VF Mail runs it as a managed operation: warmed IPs, strict authentication, feedback loops, blocklist vigilance and provider-relations discipline, continuously. The first @vfempire.com inboxes already run on the node, so the playbook is written from real correspondence and real deliverability battles. VF claims no magic fix, only the operation."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -396,15 +393,41 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       VF EMPIRE
     </a>
     <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·16 VF Mail</b></span>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
   </div>
 </nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
 
 <header class="phero">
   <div>
     <div class="eb"><b>P·16</b> &nbsp;·&nbsp; EMAIL &nbsp;·&nbsp; EARLY ACCESS · LIVE</div>
     <h1>VF Mail<span>Server. Shield. Address.<br><em class="i">All of it yours.</em></span></h1>
-    <p class="sub">Email became a duopoly renting you an address inside an advertising ecosystem. VF Mail is the other path: a complete mail system — server, deliverability shield and address — on metal we hold. The first release is downloadable now, free while in Early Access, before the paid launch on November 1.</p>
+    <p class="sub">Email became a duopoly renting you an address inside an advertising ecosystem. VF Mail is the other path: a complete mail system (server, deliverability shield and address) on metal we hold. The first release is downloadable now, free while in Early Access, before the paid launch on November 1.</p>
     <div class="meta">
       <span class="mchip hot">EARLY ACCESS</span>
       <span class="mchip">FREE UNTIL NOV 1</span>
@@ -420,7 +443,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <a class="bt gho" href="/contact/">All the ways to reach us →</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p16.webp" alt="Minimal 3D render of an envelope monolith with a blue wax seal — VF Mail by VF Empire"></div>
+  <div class="pheroart"><img alt="Minimal 3D render of an envelope monolith with a blue wax seal (VF Mail by VF Empire)" src="../assets/pipe/p16.webp" width="896" height="1152" fetchpriority="high"></div>
 </header>
 
 <style>
@@ -469,7 +492,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="dl-wrap">
     <div class="dl-eyebrow">Download</div>
     <h2 class="dl-h2">Get it on your metal in <em>one command</em>.</h2>
-    <p class="dl-lede">Sovereign beta. Your keys never leave your hardware, ever. Free while we polish for the paid launch — feedback earns you a founder&rsquo;s licence when the switch flips.</p>
+    <p class="dl-lede">Sovereign beta. Your keys never leave your hardware. Free while we polish for the paid launch; feedback earns you a founder&rsquo;s licence when the switch flips.</p>
 
     <div class="dl-grid">
 
@@ -479,7 +502,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
           <div class="dl-os-name">Windows</div>
           <span class="dl-os-tag">Source · one-liner</span>
         </div>
-        <p class="dl-desc">Signed NSIS installer lands with the paid launch. Build from source today with one PowerShell command — installs Rust + WebView2 silently, no admin.</p>
+        <p class="dl-desc">Signed NSIS installer lands with the paid launch. Build from source today with one PowerShell command; it installs Rust + WebView2 silently, no admin.</p>
         <div class="term">
           <div class="term-bar"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span><span class="term-lbl">PowerShell</span></div>
           <div class="term-body">
@@ -503,7 +526,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
             <button class="term-copy" data-copy-btn aria-label="Copy command"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M6 15V6a2 2 0 0 1 2-2h9"/></svg></button>
           </div>
         </div>
-        <div class="dl-links">Or grab the file directly &mdash; <a href="https://inbox.vfempire.com/downloads/vfmail-latest.AppImage">.AppImage</a> · <a href="https://inbox.vfempire.com/downloads/vfmail-latest.deb">.deb</a></div>
+        <div class="dl-links">Or grab the file directly: <a href="https://inbox.vfempire.com/downloads/vfmail-latest.AppImage">.AppImage</a> · <a href="https://inbox.vfempire.com/downloads/vfmail-latest.deb">.deb</a></div>
       </div>
 
       <div class="dl-card soon">
@@ -527,7 +550,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
     <div class="dl-note">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
       <div>
-        <b>What Early Access gets you:</b> the full VF Mail — sovereign vault, end-to-end encrypted mail between VF users, encrypted direct messages, a real Files system on your own disk, offline everything. No signup, no telemetry, no analytics. When the paid launch flips on <b>November 1</b>, your vault carries forward and you keep a founder-tier discount for life.
+        <b>Early Access includes</b> the full VF Mail: sovereign vault, end-to-end encrypted mail between VF users, encrypted direct messages, a real Files system on your own disk, offline everything. No signup, no telemetry, no analytics. On <b>November 1</b>, when the paid launch flips, your vault carries forward and you keep a founder-tier discount for life.
       </div>
     </div>
   </div>
@@ -538,36 +561,13 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <span>Command copied</span>
 </div>
 
-<script>
-document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
-  btn.addEventListener('click',async()=>{
-    const pre = btn.parentElement.querySelector('[data-copy]');
-    if(!pre) return;
-    const cmd = pre.getAttribute('data-copy');
-    try { await navigator.clipboard.writeText(cmd); }
-    catch(_) {
-      // Fallback for older browsers
-      const ta = document.createElement('textarea');
-      ta.value = cmd; ta.style.position='fixed'; ta.style.opacity='0';
-      document.body.appendChild(ta); ta.select();
-      document.execCommand('copy'); document.body.removeChild(ta);
-    }
-    const orig = btn.innerHTML;
-    btn.classList.add('done');
-    btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>';
-    const toast = document.getElementById('copyToast');
-    toast.classList.add('show');
-    setTimeout(()=>{ btn.classList.remove('done'); btn.innerHTML = orig; }, 1800);
-    setTimeout(()=>toast.classList.remove('show'), 2000);
-  });
-});
-</script>
+<script src="/assets/page/systems-vf-mail.js" defer></script>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">Two companies read<br><span class="mute">the world’s morning mail.</span></h2>
-    <p class="lead rv">The most personal document stream in your life — contracts, medical letters, passwords resets, love and grief — flows through infrastructure owned by a handful of firms whose business model is knowing you. Leaving is technically possible and practically punished.</p>
+    <p class="lead rv">The most personal document stream in your life (contracts, medical letters, password resets, love and grief) flows through infrastructure owned by a handful of firms whose business model is knowing you. Leaving is technically possible and practically punished.</p>
 
     <div class="fails rv">
       <div class="fl">
@@ -578,22 +578,22 @@ document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
       <div class="fl">
         <span class="num">F·02</span>
         <h4>Inside the ad machine</h4>
-        <p>Google stopped scanning Gmail content for ad targeting in 2017 — but the inbox still lives inside an advertising company’s ecosystem, feeding an identity that follows you across every property. The mail is the moat.</p>
+        <p>Google stopped scanning Gmail content for ad targeting in 2017, but the inbox still lives inside an advertising company’s ecosystem, feeding an identity that follows you across the company’s other properties. The mail is the moat.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>Independence is punished</h4>
-        <p>Run your own server by the book — SPF, DKIM, DMARC, clean lists — and the big providers may spam-folder you anyway, because your IP has no history with them. The deliverability wall is the real lock-in, and it is undocumented by design.</p>
+        <p>Run your own server by the book (SPF, DKIM, DMARC, clean lists) and the big providers may spam-folder you anyway, because your IP has no history with them. The deliverability wall is the lock-in, and it is undocumented by design.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>Privacy mail proved the demand</h4>
-        <p>Proton grew past a hundred million accounts on the promise of mail outside the ad economy. The demand is proven — what is missing is the full-system offer: not just an encrypted inbox, but the whole stack, owned.</p>
+        <p>Proton grew past a hundred million accounts on the promise of mail outside the ad economy. The demand is proven; the missing piece is the full-system offer: the whole stack, owned.</p>
       </div>
     </div>
 
     <div class="band rv">
-      <img src="../assets/pipe/p16-flow.png" alt="Abstract render of mail envelopes flowing through one blue-sealed gateway — the owned mail path" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
+      <img alt="VF Mail flow render: mail envelopes flowing through one blue-sealed gateway, the owned mail path" src="../assets/pipe/p16-flow.png" width="2304" height="1792" loading="lazy" decoding="async">
       <span class="cap">TWO COMPANIES’ MAIL CLIENTS HANDLE ROUGHLY THREE-QUARTERS OF THE WORLD’S EMAIL OPENS</span>
     </div>
   </div>
@@ -610,25 +610,25 @@ document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
           <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
         </div>
         <div>
-          <h4>Our own companies — already live</h4>
-          <p>VF Mail carries VF Empire’s corporate mail today: the first @vfempire.com inboxes run on our own node, on our own metal. Dogfood first is house law — the system earns the right to carry your mail by carrying ours through every rough edge first.</p>
+          <h4>Our own companies, already live</h4>
+          <p>VF Mail carries VF Empire’s corporate mail today: the first @vfempire.com inboxes run on our own node, on our own metal. Dogfood first is house law: the system earns the right to carry your mail by carrying ours through the rough edges first.</p>
           <div class="co"><span>FIRST LIGHT LIVE</span><span>@VFEMPIRE.COM ON-NODE</span><span>OUR METAL</span><span>HOUSE LAW: DOGFOOD FIRST</span></div>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
         <h4>Individuals leaving the duopoly</h4>
-        <p>A real address on real infrastructure with EU jurisdiction — your correspondence outside any advertising identity, without becoming your own sysadmin.</p>
+        <p>A real address on real infrastructure with EU jurisdiction: your correspondence outside any advertising identity, without becoming your own sysadmin.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2M11 21v-3h2v3"/></svg></div>
         <h4>Small companies</h4>
-        <p>Company mail on company terms: custom domain, team inboxes, and a provider whose business model is the service fee — not the metadata.</p>
+        <p>Company mail on company terms: custom domain, team inboxes, and a provider whose business model is the service fee.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"/></svg></div>
         <h4>Confidentiality professions</h4>
-        <p>Lawyers, doctors, accountants, journalists — professions whose correspondence carries duties that sit uneasily inside foreign ad-tech ecosystems.</p>
+        <p>Lawyers, doctors, accountants, journalists: professions whose correspondence carries duties that sit uneasily inside foreign ad-tech ecosystems.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
@@ -642,13 +642,13 @@ document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
 <section id="how">
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
-    <h2 class="rv">The whole stack,<br><span class="mute">not another app on theirs.</span></h2>
-    <p class="lead rv">Most “private email” is a client on someone else’s cloud. VF Mail is the full system — transport, storage, shield and interface — with the hard part, deliverability, run as a managed discipline so you never fight that war yourself.</p>
+    <h2 class="rv">The whole stack,<br><span class="mute">on metal we hold.</span></h2>
+    <p class="lead rv">Most “private email” is a client on someone else’s cloud. VF Mail is the full system (transport, storage, shield and interface), with the hard part, deliverability, run as a managed discipline so you never fight that war yourself.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">An address that answers to you<span>.</span></div><p>Your mail on infrastructure we hold and you can leave — full export, standard protocols, no hostage data. Ownership means the door opens from the inside.</p></div>
-      <div class="c"><div class="n">The reputation war, handled<span>.</span></div><p>Warmed IPs, strict authentication, feedback loops, blocklist vigilance — we run the deliverability battle for you as an operations discipline. That is the product’s hardest promise, stated honestly: run, not magically solved.</p></div>
-      <div class="c"><div class="n">A shield on the front door<span>.</span></div><p>Spam and phishing defence at the server, aggressive transport encryption, and none of the engagement machinery — no ads, no tracking pixels of our own, no profile built from your correspondence.</p></div>
+      <div class="c"><div class="n">An address that answers to you<span>.</span></div><p>Your mail on infrastructure we hold and you can leave: full export, standard protocols, no hostage data. Ownership means the door opens from the inside.</p></div>
+      <div class="c"><div class="n">The reputation war, handled<span>.</span></div><p>Warmed IPs, strict authentication, feedback loops, blocklist vigilance: we run the deliverability battle for you as an operations discipline. That is the product’s hardest promise: an operation we run, with no claim of a magic fix.</p></div>
+      <div class="c"><div class="n">A shield on the front door<span>.</span></div><p>Spam and phishing defence at the server, aggressive transport encryption, and none of the engagement machinery: no ads, no tracking pixels of our own, no profile built from your correspondence.</p></div>
     </div>
   </div>
 </section>
@@ -657,28 +657,34 @@ document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Modern stack,<br><span class="mute">old-school ownership.</span></h2>
-    <p class="lead rv">The build stands on the modern self-hosted mail generation — hardened, memory-safe server software on clean-IP metal — wrapped in the operational layer that makes owned mail practical for people with lives.</p>
+    <p class="lead rv">The build stands on the modern self-hosted mail generation (hardened, memory-safe server software on clean-IP metal), wrapped in the operational layer that makes owned mail practical for people with lives. Like every VF system, it leaves the lab with the <a href="/engine" style="color:var(--core);font-weight:600">engine</a> fitted and the <a href="/harness" style="color:var(--core);font-weight:600">harness</a> tuned.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p16-mech.png" alt="Layered render of a mail server monolith with one blue seal of authentication" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
+      <div class="mechart"><img alt="VF Mail mechanics render: a layered mail server monolith with one blue seal of authentication" src="../assets/pipe/p16-mech.png" width="2304" height="1792" loading="lazy" decoding="async"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>The transport core</h4></div>
-          <p>A modern, memory-safe mail server stack — the Stalwart generation of software — on clean-reputation infrastructure in EU jurisdiction, with full standards compliance: SPF, DKIM, DMARC, MTA-STS, DANE.</p>
+          <p>A modern, memory-safe mail server stack (the Stalwart generation of software) on clean-reputation infrastructure in EU jurisdiction, with full standards compliance: SPF, DKIM, DMARC, MTA-STS, DANE.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>The shield layer</h4></div>
-          <p>Inbound filtering, phishing and malware defence, and outbound reputation protection — the security department every mail admin wishes they had, built into the service.</p>
+          <p>Inbound filtering, phishing and malware defence, and outbound reputation protection: the security department a mail admin wishes they had, built into the service.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>The reputation operation</h4></div>
-          <p>IP warming, deliverability monitoring, blocklist response and provider-relations discipline, run continuously. This layer is why owned mail usually fails — and why VF Mail is an operated system, not a software download.</p>
+          <p>IP warming, deliverability monitoring, blocklist response and provider-relations discipline, run continuously. Owned mail usually fails at this layer, which is why VF Mail ships as an operated system.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>The inbox surface</h4></div>
-          <p>Clean web and mobile clients plus full IMAP/SMTP for any client you prefer — an interface in the house style: quiet, fast, and structurally incapable of advertising to you.</p>
+          <p>Clean web and mobile clients plus full IMAP/SMTP for any client you prefer. The interface follows the house style: quiet, fast, and structurally incapable of advertising to you.</p>
         </div>
       </div>
+    </div>
+
+    <div class="related rv">
+      <a href="/systems/guardian-shield"><span class="rk">P·18 · SECURITY</span><h4>Guardian Shield</h4><p>Vault, malware scanner, WireGuard VPN, DNS filter and breach watch on hardware you own.</p><span class="go">Open →</span></a>
+      <a href="/systems/vf-legacy"><span class="rk">P·23 · DIGITAL ESTATE</span><h4>VF Legacy</h4><p>A sealed vault of last wishes, a 30-day grace trigger and executor packets for five EU jurisdictions.</p><span class="go">Open →</span></a>
+      <a href="/systems/vf-wallet"><span class="rk">P·22 · IDENTITY</span><h4>VF Wallet</h4><p>Full ARF conformance, zero-knowledge age proofs and an audit log you own; Malta launch, EU acceptance.</p><span class="go">Open →</span></a>
     </div>
   </div>
 </section>
@@ -691,8 +697,8 @@ document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
     <div class="road rv">
       <div class="rd">
         <span class="num">R·01</span>
-        <h4>First light — our own mail</h4>
-        <p>The VF group’s corporate mail live on the owned node — real correspondence, real deliverability battles, the operations playbook written from experience.</p>
+        <h4>First light: our own mail</h4>
+        <p>The VF group’s corporate mail live on the owned node: real correspondence, real deliverability battles, the operations playbook written from experience.</p>
         <span class="st">LIVE</span>
       </div>
       <div class="rd">
@@ -704,25 +710,11 @@ document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
       <div class="rd">
         <span class="num">R·03</span>
         <h4>The open door</h4>
-        <p>General availability for individuals and companies: addresses, custom domains and team mail on VF-held infrastructure — the inbox as a service you own, not a product you are.</p>
+        <p>General availability for individuals and companies: addresses, custom domains and team mail on VF-held infrastructure: the inbox as a service you own.</p>
         <span class="st">PLANNED</span>
       </div>
     </div>
 
-    <div class="docs rv">
-      <div class="doc">
-        <span class="dk">WHITE PAPER</span>
-        <h4>The owned inbox</h4>
-        <p>The VF position paper on mail sovereignty: the deliverability wall, the concentration numbers, and the operations discipline that makes independent mail viable.</p>
-        <span class="tba">IN PREPARATION</span>
-      </div>
-      <div class="doc">
-        <span class="dk">REPOSITORY</span>
-        <h4>vf-mail</h4>
-        <p>Deployment configurations and shield tooling around the open-source mail core. What we harden, we document — the independent-mail ecosystem wins together.</p>
-        <span class="tba">TBA</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -732,24 +724,39 @@ document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What you need to run it</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Domain</dt><dd>Bring your own; or use vfempire.mail alias.</dd></div>
         <div class="sysreqrow"><dt>Devices</dt><dd>IMAP + SMTP everywhere; native apps roadmap.</dd></div>
         <div class="sysreqrow"><dt>Storage</dt><dd>EU metal in Malta; encrypted at rest.</dd></div>
-        <div class="sysreqrow"><dt>Migration</dt><dd>From Gmail, Fastmail, Proton — one-click import.</dd></div>
+        <div class="sysreqrow"><dt>Migration</dt><dd>From Gmail, Fastmail, Proton: one-click import.</dd></div>
       </dl>
     </div>
   </div>
 </section>
 
 
+<section class="alt">
+  <div class="wrap">
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      <div class="q"><h4>Can I download VF Mail today?</h4><p>Yes. VF Mail is in Early Access and free until November 1. Linux ships as a native AppImage or .deb with a one-line installer that verifies SHA-256 and needs no root. Windows builds from source with one PowerShell command that installs Rust and WebView2 silently, no admin. The notarised macOS .dmg lands with the paid launch on November 1.</p></div>
+      <div class="q"><h4>What does Early Access include?</h4><p>The full VF Mail: a sovereign vault, end-to-end encrypted mail between VF users, encrypted direct messages, a real Files system on your own disk, and offline everything. There is no signup, no telemetry and no analytics. When the paid launch flips on November 1, your vault carries forward and you keep a founder-tier discount for life.</p></div>
+      <div class="q"><h4>Can I use my own domain and my usual mail client?</h4><p>Yes. Bring your own domain, or use a vfempire.mail alias; a custom domain is included from the first tier. VF Mail speaks IMAP and SMTP everywhere, so any client you prefer works alongside the house web and mobile clients. Migration from Gmail, Fastmail or Proton is a one-click import, and you can leave again with a full export.</p></div>
+      <div class="q"><h4>What will VF Mail cost after launch?</h4><p>There is no free tier; a thirty-day trial takes its place. Mailbox is €3.99 a month for one mailbox with 10 GB and a custom domain. Family is €9.99 a month for five mailboxes and 50 GB. Teams is €4.99 per user a month with 25 GB on your company domain. The price you join at is the price you renew at.</p></div>
+      <div class="q"><h4>Where is my mail stored and who can read it?</h4><p>On EU metal in Malta, encrypted at rest, under EU jurisdiction. The transport core is a modern, memory-safe server stack of the Stalwart generation with SPF, DKIM, DMARC, MTA-STS and DANE. There are no ads, no tracking pixels of our own and no profile built from your correspondence, and the door opens from the inside: standard protocols, no hostage data.</p></div>
+      <div class="q"><h4>Will my mail reach Gmail and Outlook inboxes?</h4><p>Deliverability is the hardest promise in owned mail, and VF Mail runs it as a managed operation: warmed IPs, strict authentication, feedback loops, blocklist vigilance and provider-relations discipline, continuously. The first @vfempire.com inboxes already run on the node, so the playbook is written from real correspondence and real deliverability battles. VF claims no magic fix, only the operation.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="pricing">
   <div class="wrap">
     <div class="k rv">PLANNED PRICING</div>
     <h2 class="rv">No free tier.<br><span class="mute">Free mail is the model we left.</span></h2>
-    <p class="lead rv">Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you. Custom domain included from the first tier.</p>
+    <p class="lead rv">You pay for free email with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you. Custom domain included from the first tier.</p>
     <div class="stage orbit-3">
       <span class="hoverhint">Hover the cards to see every tier</span>
 <div class="card t-blue p1">
@@ -832,64 +839,87 @@ document.querySelectorAll('[data-copy-btn]').forEach(btn=>{
   </div>
     </div>
     <p class="extra rv">Thirty-day trial instead of a free tier.</p>
-    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+    <p class="pnote rv">Planned launch pricing; VF confirms final figures at each release. The price you join at is the price you renew at: no first-year bait, no renewal games.</p>
   </div>
 </section>
-
 
 
 <section class="cta-band">
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Your mail. Your metal.<br><span class="mute">Our watch.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">VF Mail has first light — our own company mail runs on it now. If you want your inbox back when the doors open, register interest. Early pilots migrate first.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">VF Mail has first light: our own company mail runs on it now. If you want your inbox back when the doors open, register interest. Early pilots migrate first.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=VF%20Mail">info@vfempire.com</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="legal">
-    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
   </div>
 </div>
 
-<script>
-(() => {
-  const el = document.getElementById('consent');
-  if (localStorage.getItem('vf-consent')) { el.remove(); return; }
-  setTimeout(() => el.classList.add('show'), 1400);
-  const choose = v => { localStorage.setItem('vf-consent', v); el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
-  document.getElementById('cacc').onclick = () => choose('accepted');
-  document.getElementById('cdec').onclick = () => choose('declined');
-})();
 
-const io = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting && (e.intersectionRatio >= .18 || e.boundingClientRect.height > innerHeight * .6)){
-      e.target.classList.add('on');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:[0,.18]});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
-  [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
-});
-</script>
-<script src="/assets/scrollrail.js" defer></script>
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>

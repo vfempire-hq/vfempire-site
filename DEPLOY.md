@@ -35,8 +35,9 @@ npx wrangler login
 
 ```bash
 # 1. Make your edits under systems/, index.html, etc.
-# 2. Mirror to dist/ (the served directory)
-./scripts/mirror-to-dist.sh   # OR manually cp -r changed files into dist/
+# 2. Build (generated pages, shared partials, sitemap, dist/ with hashed CSS + image variants)
+node build.mjs                # first time: npm ci
+python3 scripts/verify.py && python3 scripts/linkcheck.py
 
 # 3. Dry-run — see what Cloudflare will do without shipping
 npx wrangler deploy --dry-run

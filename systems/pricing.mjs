@@ -1,4 +1,4 @@
-// VF planned-pricing sections — data + revolver-card renderer for all 20 systems.
+// VF planned-pricing sections: data + revolver-card renderer for all 20 systems.
 // Source of truth for numbers: ~/VF-PRICE-LIST.md (Vincent-approved 2026-09-11).
 // Honesty law: everything is labeled PLANNED PRICING until purchasable.
 //
@@ -12,7 +12,8 @@ export const pricingCss = `
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
 #pricing .wrap{width:min(1080px,100%);margin:0 auto;text-align:center}
 #pricing .stage{width:min(560px,100%);position:relative;margin:80px auto 60px;aspect-ratio:1.7/1;transform-style:preserve-3d}
-#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
+@media(max-width:600px){#pricing .stage{aspect-ratio:1.15/1;margin-top:60px}#pricing .card{padding:16px 16px 14px}#pricing .stats{grid-template-columns:1fr 1fr;gap:10px}#pricing .pricerow .pr{font-size:36px}#pricing .tiles{flex-wrap:wrap}}
+#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--dove);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
 #pricing .hoverhint::before,#pricing .hoverhint::after{content:'';width:32px;height:1px;background:var(--faint);opacity:.5}
 #pricing .stage:hover .hoverhint{opacity:.35}
 
@@ -122,7 +123,7 @@ export const pricingCss = `
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -154,7 +155,7 @@ export const pricingCss = `
   100%     {left:0;    opacity:1}
 }
 
-.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--dove);text-align:center}
 
 /* ═══════════ system requirements ═══════════ */
 #sysreq{padding:110px 6vw}
@@ -183,9 +184,9 @@ export const pricingCss = `
 }
 `;
 
-const NOTE = 'Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.';
+const NOTE = 'Planned launch pricing; VF confirms final figures at each release. The price you join at is the price you renew at: no first-year bait, no renewal games.';
 
-// Per-tier meaningful stats — 3 concise metrics that read as product identity
+// Per-tier meaningful stats: 3 concise metrics that read as product identity
 // rather than generic "Region: EU". Keyed by slug → array of {label, value}
 // triplets in the SAME ORDER as the tiers in PRICING[slug].tiers.
 export const STATS = {
@@ -281,36 +282,36 @@ export const STATS = {
   ],
 };
 
-// Per-product system requirements — displayed as a separate section on the
+// Per-product system requirements: displayed as a separate section on the
 // profile page (between mechanics and roadmap). Concise hardware/OS/network
 // facts a prospective buyer wants to see before pricing.
 export const SYSREQ = {
-  'field-intelligence':      { title: 'What the farm needs', rows: [ ['Farm data','A field boundary — GPS or drawn.'], ['Hardware','None. Runs from the web.'], ['Internet','Occasional — daily sync is enough.'], ['Integrations','Optional: your existing weather station or soil probe.'] ] },
-  'private-care-watch':      { title: 'What the home needs', rows: [ ['Sensor hub','One VF hub, plugged into any power outlet.'], ['Camera','None — motion + radar only.'], ['Internet','Home broadband, ~1 Mbps sustained.'], ['Data residency','EU metal. Your data never leaves the region.'] ] },
+  'field-intelligence':      { title: 'What the farm needs', rows: [ ['Farm data','A field boundary, GPS or drawn.'], ['Hardware','None. Runs from the web.'], ['Internet','Occasional; a daily sync is enough.'], ['Integrations','Optional: your existing weather station or soil probe.'] ] },
+  'private-care-watch':      { title: 'What the home needs', rows: [ ['Sensor hub','One VF hub, plugged into any power outlet.'], ['Camera','None; motion + radar only.'], ['Internet','Home broadband, ~1 Mbps sustained.'], ['Data residency','EU metal. Your data never leaves the region.'] ] },
   'the-apprentice':          { title: 'What the tradesperson needs', rows: [ ['Device','Any modern phone or tablet.'], ['Model','Runs local when the device supports it; falls back to EU cloud.'], ['Codes','UK, MT, DE building + electrical codes on day one.'], ['Offline','Full capability without connection for the copilot.'] ] },
   'back-office-autopilot':   { title: 'What the firm needs', rows: [ ['Books','Existing accounts import or start clean.'], ['Filings','MT + UK from day one; EU expansion Q2.'], ['Bank','Read-only feeds; you approve every action.'], ['Storage','EU-held, encrypted at rest, exportable at any moment.'] ] },
-  'everyday-law-navigator':  { title: 'What you need to run it', rows: [ ['Device','Phone, tablet or browser.'], ['Coverage','MT + UK jurisdictions at launch; EU roadmap.'], ['Documents','Optional upload for grounded answers.'], ['Confidentiality','Nothing you upload is used to train models.'] ] },
-  'triage-continuity':       { title: 'What the person needs', rows: [ ['Device','Phone or watch.'], ['Model','Local screening, EU-hosted continuity record.'], ['Practitioners','Optional link — you invite them, revocable.'], ['Crisis path','Always free, always on, no login required.'] ] },
-  'site-truth-engine':       { title: 'What the site needs', rows: [ ['Cameras','Any existing IP cameras — RTSP or ONVIF.'], ['Compute','One VF edge box per site (included in pricing).'], ['Internet','Uplink only for dashboard sync; footage stays on site.'], ['Plans','Upload once — PDF or DXF.'] ] },
-  'grid-home-optimiser':     { title: 'What the home needs', rows: [ ['Hub','One VF energy hub, DIN-rail or plug-in.'], ['Meter','Existing smart meter — no swap required.'], ['Supplier','Works with any EU supplier — no switch.'], ['Extras','Optional: EV wallbox, heat pump for orchestration tier.'] ] },
-  'self-training-qc-vision': { title: 'What the line needs', rows: [ ['Edge unit','One VF industrial box, DIN-rail mount, fanless.'], ['Cameras','2–4 GigE machine-vision cameras per line, spec\'d for you.'], ['Network','Isolated line VLAN; nothing leaves without your say.'], ['Training','You show it good vs bad — no ML engineer required.'] ] },
+  'everyday-law-navigator':  { title: 'What you need to run it', rows: [ ['Device','Phone, tablet or browser.'], ['Coverage','MT + UK jurisdictions at launch; EU roadmap.'], ['Documents','Optional upload for grounded answers.'], ['Confidentiality','We never train models on what you upload.'] ] },
+  'triage-continuity':       { title: 'What the person needs', rows: [ ['Device','Phone or watch.'], ['Model','Local screening, EU-hosted continuity record.'], ['Practitioners','Optional link: you invite them, revocable.'], ['Crisis path','Always free, always on, no login required.'] ] },
+  'site-truth-engine':       { title: 'What the site needs', rows: [ ['Cameras','Any existing IP cameras, RTSP or ONVIF.'], ['Compute','One VF edge box per site (included in pricing).'], ['Internet','Uplink only for dashboard sync; footage stays on site.'], ['Plans','Upload once, PDF or DXF.'] ] },
+  'grid-home-optimiser':     { title: 'What the home needs', rows: [ ['Hub','One VF energy hub, DIN-rail or plug-in.'], ['Meter','Your existing smart meter; no swap required.'], ['Supplier','Works with any EU supplier; no switch needed.'], ['Extras','Optional: EV wallbox, heat pump for orchestration tier.'] ] },
+  'self-training-qc-vision': { title: 'What the line needs', rows: [ ['Edge unit','One VF industrial box, DIN-rail mount, fanless.'], ['Cameras','2–4 GigE machine-vision cameras per line, spec\'d for you.'], ['Network','Isolated line VLAN; nothing leaves without your say.'], ['Training','You show it good vs bad; no ML engineer required.'] ] },
   'different-minds-engine':  { title: 'What the learner needs', rows: [ ['Device','Any tablet, phone or Chromebook.'], ['Age','From 6, EN + MT at launch.'], ['Assessment','Optional formal profile import; not required.'], ['Data','EU-held, family-controlled, exportable.'] ] },
-  'low-resource-language-ai':{ title: 'What you need to run it', rows: [ ['Languages','Maltese ↔ English at launch. Roadmap: more low-resource EU languages.'], ['Devices','Any modern browser, phone, tablet.'], ['Institutions','On-premise option — runs on your metal, air-gapped.'], ['API','REST, streaming, batched. Documented.'] ] },
-  'citizen-services-desk':   { title: 'What the council needs', rows: [ ['Deployment','Sovereign — runs in your data centre or your chosen EU host.'], ['Languages','Two per commune at launch, more on request.'], ['Systems','Read-only feeds from existing case, permit and payment systems.'], ['Residents','24/7 chat + phone in the languages you serve.'] ] },
-  'claims-advocate':         { title: 'What the claim needs', rows: [ ['Policy','PDF, image or link — we decode the wording.'], ['Evidence','Photos, letters, receipts — upload or camera-in.'], ['Insurers','No integration required; works via letter + email.'], ['Payout','You keep 100% — no percentage cut, ever.'] ] },
+  'low-resource-language-ai':{ title: 'What you need to run it', rows: [ ['Languages','Maltese ↔ English at launch. Roadmap: more low-resource EU languages.'], ['Devices','Any modern browser, phone, tablet.'], ['Institutions','On-premise option: runs on your metal, air-gapped.'], ['API','REST, streaming, batched. Documented.'] ] },
+  'citizen-services-desk':   { title: 'What the council needs', rows: [ ['Deployment','Sovereign: runs in your data centre or your chosen EU host.'], ['Languages','Two per commune at launch, more on request.'], ['Systems','Read-only feeds from existing case, permit and payment systems.'], ['Residents','24/7 chat + phone in the languages you serve.'] ] },
+  'claims-advocate':         { title: 'What the claim needs', rows: [ ['Policy','PDF, image or link; we decode the wording.'], ['Evidence','Photos, letters, receipts, uploaded or camera-in.'], ['Insurers','No integration required; works via letter + email.'], ['Payout','You keep 100%: no percentage cut, ever.'] ] },
   'offline-first-response':  { title: 'What the responders need', rows: [ ['Node','Hardened outdoor-rated compute, LTE + LoRa fallback.'], ['Users','Unlimited field-app users per node.'], ['Power','Mains + 12h battery + solar option.'], ['Sync','Meshes with other nodes; syncs to HQ when uplink returns.'] ] },
-  'vf-mail':                 { title: 'What you need to run it', rows: [ ['Domain','Bring your own; or use vfempire.mail alias.'], ['Devices','IMAP + SMTP everywhere; native apps roadmap.'], ['Storage','EU metal in Malta; encrypted at rest.'], ['Migration','From Gmail, Fastmail, Proton — one-click import.'] ] },
-  'self-filing-ledger':      { title: 'What the ledger needs', rows: [ ['Regions','Malta and UK from day one; wider EU roadmap.'], ['Import','From Xero, QuickBooks, Sage — or start clean.'], ['Bank','Read-only feeds; you approve every filing.'], ['Sovereignty','Books export in one click; you own the data outright.'] ] },
-  'fuelit':                  { title: 'What the driver needs', rows: [ ['Device','iPhone or Android phone.'], ['Vehicle','Any — pump prices are universal; range math is optional.'], ['Pairing','Plays alongside your car\'s GPS — no replacement.'], ['CarPlay + Android Auto','Both, with the Plus tier.'] ] },
+  'vf-mail':                 { title: 'What you need to run it', rows: [ ['Domain','Bring your own; or use vfempire.mail alias.'], ['Devices','IMAP + SMTP everywhere; native apps roadmap.'], ['Storage','EU metal in Malta; encrypted at rest.'], ['Migration','From Gmail, Fastmail, Proton: one-click import.'] ] },
+  'self-filing-ledger':      { title: 'What the ledger needs', rows: [ ['Regions','Malta and UK from day one; wider EU roadmap.'], ['Import','From Xero, QuickBooks, Sage: or start clean.'], ['Bank','Read-only feeds; you approve every filing.'], ['Sovereignty','Books export in one click; you own the data outright.'] ] },
+  'fuelit':                  { title: 'What the driver needs', rows: [ ['Device','iPhone or Android phone.'], ['Vehicle','Any: pump prices are universal; range math is optional.'], ['Pairing','Plays alongside your car\'s GPS: no replacement.'], ['CarPlay + Android Auto','Both, with the Plus tier.'] ] },
   'guardian-shield':         { title: 'What you get on the shield', rows: [ ['Devices','5 across Windows, Mac, iOS, Android.'], ['Renewal','€59/year for life. No price bump on renewal.'], ['Vault','Password + document vault included.'], ['Identity','Breach watch across the major dark-web dumps.'] ] },
   'mapit':                   { title: 'What the shopper needs', rows: [ ['Device','Phone.'], ['Coverage','Your town\'s major grocers, expanding.'], ['Model','Prices via public feeds + confirmed by users; no receipt-selling.'], ['Data','Your baskets stay on your device unless you pin them.'] ] },
-  'snapit':                  { title: 'What the library needs', rows: [ ['Device','Windows, Mac, Linux — desktop-first, mobile companion.'], ['Storage','Your disk, your NAS, your S3-compatible bucket.'], ['Licence','One-off, perpetual, no phone-home.'], ['Upgrades','Optional — €29 per major version if you want it.'] ] },
+  'snapit':                  { title: 'What the library needs', rows: [ ['Device','Windows, Mac, Linux: desktop-first, mobile companion.'], ['Storage','Your disk, your NAS, your S3-compatible bucket.'], ['Licence','One-off, perpetual, no phone-home.'], ['Upgrades','Optional: €29 per major version if you want it.'] ] },
 };
 
 export const PRICING = {
   'field-intelligence': {
-    h: 'Flat for the farm.<br><span class="mute">Not a tax per hectare.</span>',
-    lead: 'Per-hectare pricing yields pennies on a three-hectare holding and feels like a tax. So the farm pays one flat figure — and the basic satellite view stays free, because the market gives that away and so do we.',
+    h: 'Flat for the farm.<br><span class="mute">Hectares don’t change the price.</span>',
+    lead: 'Per-hectare pricing yields pennies on a three-hectare holding and feels like a tax, so the farm pays one flat figure. The basic satellite view stays free, because the market gives that away and so do we.',
     thumbs: ['FARM', 'EU'],
     tiers: [
       { t: 'ONE FIELD', p: 'Free', per: '', d: 'A single field, basic satellite view and weather. Free forever.' },
@@ -320,17 +321,17 @@ export const PRICING = {
   },
   'private-care-watch': {
     h: 'The hub near cost.<br><span class="mute">The watching is the product.</span>',
-    lead: 'One price covers fall alerting, routine drift and the family app together — nothing essential sold back as an add-on.',
+    lead: 'One price covers fall alerting, routine drift and the family app together, with nothing essential sold back as an add-on.',
     thumbs: ['HOME', 'EU'],
     tiers: [
       { t: 'THE HUB', p: '€249', per: 'one-off', d: 'The in-home sensor hub, priced near hardware cost. No camera, no cloud.' },
-      { t: 'CARE WATCH', p: '€29', per: '/ month', d: 'Fall alerting, routine drift, family app — everything, all-in.', hot: true },
+      { t: 'CARE WATCH', p: '€29', per: '/ month', d: 'Fall alerting, routine drift, family app. Everything, all-in.', hot: true },
       { t: 'RESIDENCE', p: '€49', per: '/ month per home', d: 'Multi-room coverage for small residences and shared homes.' },
     ],
   },
   'the-apprentice': {
     h: 'One tradesperson.<br><span class="mute">One clean number.</span>',
-    lead: 'Priced under a single workshop data licence — for the copilot, the lookups and the paperwork together.',
+    lead: 'Priced under a single workshop data licence, for the copilot, the lookups and the paperwork together.',
     thumbs: ['TOOL', 'EU'],
     tiers: [
       { t: 'TRADESPERSON', p: '€29', per: '/ month', d: 'The full apprentice: job copilot, code lookups, paperwork. €290 a year.', hot: true },
@@ -339,7 +340,7 @@ export const PRICING = {
   },
   'back-office-autopilot': {
     h: 'Above the software.<br><span class="mute">Far below a human back office.</span>',
-    lead: 'Bookkeeping software starts near €10 a month; a human back office starts near €100. The autopilot sits between — and it is built for owners who run more than one company.',
+    lead: 'Bookkeeping software starts near €10 a month; a human back office starts near €100. The autopilot sits between, and it is built for owners who run more than one company.',
     thumbs: ['BOOK', 'EU'],
     tiers: [
       { t: 'ONE COMPANY', p: '€29', per: '/ month', d: 'One entity, the whole back office: books and filings prepared for your approval.' },
@@ -348,8 +349,8 @@ export const PRICING = {
     extra: 'Thirty-day free trial.',
   },
   'everyday-law-navigator': {
-    h: 'Priced for a dispute.<br><span class="mute">Not for a law firm.</span>',
-    lead: 'Generic chatbots are free and government guidance is free — so the basics stay free here too. You pay for the grounded layer: your jurisdiction, your documents, your deadlines.',
+    h: 'Priced for a dispute.<br><span class="mute">Sized to the stakes.</span>',
+    lead: 'Generic chatbots are free and government guidance is free, so the basics stay free here too. You pay for the grounded layer: your jurisdiction, your documents, your deadlines.',
     thumbs: ['LAW', 'EU'],
     tiers: [
       { t: 'LOOKUP', p: 'Free', per: '', d: 'Situation lookups with sourced answers, limited monthly.' },
@@ -359,7 +360,7 @@ export const PRICING = {
   },
   'triage-continuity': {
     h: 'The crisis path is free.<br><span class="mute">It always will be.</span>',
-    lead: 'Check-ins and crisis routing are never paywalled. The paid layer is continuity: the record that follows you between practitioners.',
+    lead: 'VF never paywalls check-ins and crisis routing. The paid layer is continuity: the record that follows you between practitioners.',
     thumbs: ['CARE', 'EU'],
     tiers: [
       { t: 'CHECK-IN', p: 'Free', per: '', d: 'Daily check-ins and crisis routing. Never behind a paywall.' },
@@ -368,8 +369,8 @@ export const PRICING = {
     ],
   },
   'site-truth-engine': {
-    h: 'Per site.<br><span class="mute">Not per camera.</span>',
-    lead: 'The incumbents charge per camera or start at five figures a year. Site Truth runs on the cameras you already own — one flat figure per site, unlimited cameras.',
+    h: 'Per site.<br><span class="mute">Unlimited cameras.</span>',
+    lead: 'The incumbents charge per camera or start at five figures a year. Site Truth runs on the cameras you already own: one flat figure per site, unlimited cameras.',
     thumbs: ['SITE', 'EU'],
     tiers: [
       { t: 'SITE', p: '€299', per: '/ month per site', d: 'Unlimited cameras on your existing hardware.', hot: true },
@@ -381,14 +382,14 @@ export const PRICING = {
     lead: 'Optimisation in this class documents hundreds of euros a year in savings. The hub is priced like hardware; the subscription is priced to disappear inside what it saves.',
     thumbs: ['WATT', 'EU'],
     tiers: [
-      { t: 'THE HUB', p: '€149', per: 'one-off', d: 'The home energy hub. Works with your existing supplier — no switch required.' },
+      { t: 'THE HUB', p: '€149', per: 'one-off', d: 'The home energy hub. Works with your existing supplier; no switch required.' },
       { t: 'OPTIMISE', p: '€7.99', per: '/ month', d: 'Core optimisation: tariff windows, load shifting, solar self-use.', hot: true },
       { t: 'ORCHESTRATE', p: '€12.99', per: '/ month', d: 'Full orchestration: EV, heat pump and dynamic tariffs together.' },
     ],
   },
   'self-training-qc-vision': {
-    h: 'Equipment money.<br><span class="mute">Not board-meeting money.</span>',
-    lead: 'Machine-vision QC today means tens of thousands with integrators in the building. This is priced like a piece of line equipment an owner can sign off alone — first year lands under €8,000.',
+    h: 'Equipment money.<br><span class="mute">An owner can sign it off alone.</span>',
+    lead: 'Machine-vision QC today means tens of thousands with integrators in the building. VF prices this like a piece of line equipment an owner can sign off alone; the first year lands under €8,000.',
     thumbs: ['LINE', 'EU'],
     tiers: [
       { t: 'LINE UNIT', p: '€4,900', per: 'per line · one-off', d: 'Edge unit and cameras spec&rsquo;d for your line, self-serve setup.' },
@@ -406,28 +407,28 @@ export const PRICING = {
   },
   'low-resource-language-ai': {
     h: 'Maltese stays free.<br><span class="mute">The category gets a price.</span>',
-    lead: 'Nobody sells a serious Maltese AI — so core translation stays free as the national-service layer, and the paid tiers price a category that didn&rsquo;t exist.',
+    lead: 'No one sells a serious Maltese AI, so core translation stays free as the national-service layer, and the paid tiers price a category that didn&rsquo;t exist.',
     thumbs: ['MT', 'EU'],
     tiers: [
       { t: 'CORE', p: 'Free', per: '', d: 'Maltese ↔ English translation, free forever. Every use grows the corpus.' },
       { t: 'PREMIUM', p: '€7.99', per: '/ month', d: 'Writing assistance, learning tools and speech.', hot: true },
       { t: 'API', p: '€15', per: '/ million characters', d: 'Maltese-grade translation for products and pipelines.' },
     ],
-    extra: 'Institutions from €250/month — bilingual workflow tooling, on-premise option included.',
+    extra: 'Institutions from €250/month: bilingual workflow tooling, on-premise option included.',
   },
   'citizen-services-desk': {
     h: 'Priced by population.<br><span class="mute">Sovereignty included.</span>',
-    lead: 'The market quotes behind closed doors, and sovereign deployment is sold as the expensive extra. Here it is the product — flat annual bands any council can budget.',
+    lead: 'The market quotes behind closed doors and sells sovereign deployment as the expensive extra. Here it is the product: flat annual bands any council can budget.',
     thumbs: ['CITY', 'EU'],
     tiers: [
       { t: 'SMALL', p: '€6,000', per: '/ year', d: 'Communes under 10,000 residents.' },
       { t: 'MID', p: '€24,000', per: '/ year', d: '10,000 to 100,000 residents.', hot: true },
-      { t: 'LARGE', p: 'from €60,000', per: '/ year', d: 'Cities past 100,000 — scoped and quoted openly.' },
+      { t: 'LARGE', p: 'from €60,000', per: '/ year', d: 'Cities past 100,000, scoped and quoted openly.' },
     ],
   },
   'claims-advocate': {
-    h: 'Pay per claim.<br><span class="mute">Not per month of hoping.</span>',
-    lead: 'Letter generators are free now, and letters alone don&rsquo;t win appeals. The price buys the decode, the evidence file and the escalation map for one claim — no percentage taken from your payout.',
+    h: 'Pay per claim.<br><span class="mute">One price, one claim.</span>',
+    lead: 'Letter generators are free now, and letters alone don&rsquo;t win appeals. The price buys the decode, the evidence file and the escalation map for one claim, with no percentage taken from your payout.',
     thumbs: ['FILE', 'EU'],
     tiers: [
       { t: 'CLAIM PACK', p: '€39', per: 'per claim', d: 'Policy decode, evidence file, appeal drafts. One claim, end to end.', hot: true },
@@ -435,8 +436,8 @@ export const PRICING = {
     ],
   },
   'offline-first-response': {
-    h: 'A kit, not a seat count.<br><span class="mute">Volunteers don&rsquo;t do per-user.</span>',
-    lead: 'Volunteer organisations buy hardware with the licence inside, not per-seat software. So the field app is unlimited-users, and the price is the node.',
+    h: 'Priced per kit.<br><span class="mute">Volunteers don&rsquo;t do per-user.</span>',
+    lead: 'Volunteer organisations buy hardware with the licence inside, so the field app is unlimited-users and the price is the node.',
     thumbs: ['SOS', 'EU'],
     tiers: [
       { t: 'STARTER KIT', p: '€2,900', per: 'one-off', d: 'One hardened node, year-one organisation licence, unlimited field-app users.', hot: true },
@@ -447,7 +448,7 @@ export const PRICING = {
   },
   'vf-mail': {
     h: 'No free tier.<br><span class="mute">Free mail is the model we left.</span>',
-    lead: 'Free email is paid for with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you. Custom domain included from the first tier.',
+    lead: 'You pay for free email with your correspondence. VF Mail has one honest model: you pay a small fee, and nobody else pays for you. Custom domain included from the first tier.',
     thumbs: ['MAIL', 'EU'],
     tiers: [
       { t: 'MAILBOX', p: '€3.99', per: '/ month', d: 'One mailbox, custom domain included. EU metal, no ecosystem.', hot: true },
@@ -458,7 +459,7 @@ export const PRICING = {
   },
   'self-filing-ledger': {
     h: 'Software money.<br><span class="mute">Accountant results.</span>',
-    lead: 'A traditional accountant runs €900–1,500 a year. The ledger files for a fraction of that — and the software tier stands alone if you only want the books.',
+    lead: 'A traditional accountant runs €900–1,500 a year. The ledger files for a fraction of that, and the software tier stands alone if you only want the books.',
     thumbs: ['BOOK', 'EU'],
     tiers: [
       { t: 'SOFTWARE', p: '€19', per: '/ month', d: 'The self-filing ledger: books, VAT logic, live position.' },
@@ -467,7 +468,7 @@ export const PRICING = {
   },
   'fuelit': {
     h: 'Free where it counts.<br><span class="mute">€9.99 a year where it thinks.</span>',
-    lead: 'Fuel prices are public data — charging for them would be a toll on what is already yours. Plus prices the thinking: range math, handoffs, alerts.',
+    lead: 'Fuel prices are public data; charging for them would be a toll on what is already yours. Plus prices the thinking: range math, handoffs, alerts.',
     thumbs: ['FUEL', 'EU'],
     tiers: [
       { t: 'CORE', p: 'Free', per: '', d: 'Prices on your route, station cards, the map. Forever.' },
@@ -476,7 +477,7 @@ export const PRICING = {
   },
   'guardian-shield': {
     h: '€59 this year.<br><span class="mute">€59 every year.</span>',
-    lead: 'The industry sells at €25 and renews at €100. Guardian Shield renews at the price you joined at — the honest renewal is the product.',
+    lead: 'The industry sells at €25 and renews at €100. Guardian Shield renews at the price you joined at. The honest renewal is the product.',
     thumbs: ['SEC', 'EU'],
     tiers: [
       { t: 'SHIELD', p: '€59', per: '/ year · 5 devices', d: 'The full shield. Same price at every renewal.', hot: true },
@@ -485,7 +486,7 @@ export const PRICING = {
   },
   'mapit': {
     h: 'The basket stays free.<br><span class="mute">We don&rsquo;t sell you to retailers.</span>',
-    lead: 'Everything in this category is "free" — funded by ads, cashback cuts and receipt-data sales. MapIT sells neither ads nor you. Plus is the only revenue, and it is optional.',
+    lead: 'Everything in this category is "free", funded by ads, cashback cuts and receipt-data sales. MapIT sells neither ads nor you. Plus is the only revenue, and it is optional.',
     thumbs: ['SHOP', 'EU'],
     tiers: [
       { t: 'CORE', p: 'Free', per: '', d: 'Basket compare across your town. No ads, no data sales.' },
@@ -501,7 +502,7 @@ export const PRICING = {
       { t: 'FAMILY / PRO', p: '€129', per: 'one-off', d: 'Five seats plus the advanced toolset.' },
       { t: 'UPGRADES', p: '€29', per: 'per major version', d: 'Optional, and only when a new major version is worth it.' },
     ],
-    note: 'Planned launch pricing — final figures are confirmed at release. One-off means one-off: the licence never expires and never phones home.',
+    note: 'Planned launch pricing; VF confirms final figures at release. One-off means one-off: the licence never expires and never phones home.',
   },
 };
 
@@ -589,7 +590,7 @@ function tierCard(brand, product, tier, idx, all, thumbs, pos, statsRow) {
   </div>`;
 }
 
-// System requirements section — separate from pricing, sits above it on
+// System requirements section: separate from pricing, sits above it on
 // the profile page. Two-column layout: title/subtitle on the left, spec
 // rows on the right.
 export function sysreqHtml(slug) {
@@ -601,7 +602,7 @@ export function sysreqHtml(slug) {
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">${s.title}</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         ${s.rows.map(([label, value]) => `<div class="sysreqrow"><dt>${label}</dt><dd>${value}</dd></div>`).join('\n        ')}
@@ -637,7 +638,7 @@ export function pricingHtml(slug, brand = 'VF') {
   const orbitClass = show.length === 2 ? 'orbit-2' : 'orbit-3';
 
   const stats = STATS[slug] || [];
-  // stats overlay is indexed against the original PRICING.tiers order — map
+  // stats overlay is indexed against the original PRICING.tiers order: map
   // each shown tier back to its original index so hot-tier reordering picks
   // the correct stats row for each card.
   const cards = show.map((t, i) => {

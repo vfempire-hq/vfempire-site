@@ -3,17 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NAV·IT — A sovereign navigator, made in the EU | VF Empire</title>
-<meta name="description" content="P·21 on the VF build slate: a fully self-hosted turn-by-turn navigator built inside FuelIT and MapIT. Open map data, our own routing, zero third-party trackers. Every route stays yours — architecture, not a settings toggle.">
+<title>NAV·IT: A sovereign navigator, made in the EU | VF Empire</title>
+<meta name="description" content="Self-hosted turn-by-turn navigator on OpenStreetMap from VF Empire, Malta: EU origin, full-offline mode, no Google, Apple or Mapbox SDK.">
 <link rel="canonical" href="https://vfempire.com/systems/nav-it">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="NAV·IT — a sovereign navigator, made in the EU">
+<meta property="og:title" content="NAV·IT: A sovereign navigator, made in the EU">
 <meta property="og:description" content="Self-hosted turn-by-turn navigator. Open map data. Our own routing. Zero third-party trackers. Ships inside FuelIT and MapIT.">
 <meta property="og:url" content="https://vfempire.com/systems/nav-it">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p21.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NAV·IT: A sovereign navigator, made in the EU">
+<meta name="twitter:description" content="Self-hosted turn-by-turn navigator. Open map data. Our own routing. Zero third-party trackers. Ships inside FuelIT and MapIT.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p21.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,7 +33,7 @@
       "applicationCategory": "TravelApplication",
       "operatingSystem": "Mobile + Web, privacy-first",
       "creator": {"@id": "https://vfempire.com/#org"},
-      "description": "A sovereign, self-hosted turn-by-turn navigator built on OpenStreetMap + Valhalla + Photon + MapLibre. Zero third-party telemetry. Ships inside FuelIT + MapIT. Runs in three modes: full-offline, hybrid, online — every mode designed so no third-party mapping vendor learns the user's location or destination."
+      "description": "A sovereign, self-hosted turn-by-turn navigator built on OpenStreetMap + Valhalla + Photon + MapLibre. Zero third-party telemetry. Ships inside FuelIT + MapIT. Runs in three modes (full-offline, hybrid, online), each designed so no third-party mapping vendor learns the user's location or destination."
     },
     {
       "@type": "BreadcrumbList",
@@ -38,54 +47,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
 .phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -95,20 +56,17 @@ h2 .mute{color:var(--faint)}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
 .fl:hover{background:#fff;padding-left:22px}
 .fl:hover::before{transform:scaleY(1)}
-.fl .num{font-size:13px;font-weight:600;color:var(--faint);letter-spacing:.1em;padding-top:3px}
+.fl .num{font-size:13px;font-weight:600;color:var(--dove);letter-spacing:.1em;padding-top:3px}
 .fl:hover .num{color:var(--core)}
 .fl h4{font-size:19px;font-weight:600;letter-spacing:-.025em}
 .fl p{font-size:13.5px;line-height:1.6;color:var(--dove)}
@@ -119,16 +77,15 @@ h2 .mute{color:var(--faint)}
 .band img{display:block;width:100%;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
-.au .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au .ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .au h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
 .au p{font-size:13.5px;line-height:1.62;color:var(--dove)}
 .au.first{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:linear-gradient(160deg,#0e2a63,var(--core-deep) 55%,var(--core));border-color:transparent}
-.au.first .ic{background:rgba(255,255,255,.14)}
 .au.first .ic svg{stroke:#fff}
 .au.first h4{color:#fff}
 .au.first p{color:rgba(255,255,255,.75);max-width:640px}
@@ -136,7 +93,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -144,7 +101,7 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -158,7 +115,7 @@ h2 .mute{color:var(--faint)}
 /* roadmap */
 .road{margin-top:56px;border-top:1px solid var(--line)}
 .rd{display:grid;grid-template-columns:80px 1.1fr 1.6fr auto;align-items:center;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line)}
-.rd .num{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.14em}
+.rd .num{font-size:12px;font-weight:600;color:var(--dove);letter-spacing:.14em}
 .rd h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .rd p{font-size:13.5px;line-height:1.55;color:var(--dove)}
 .rd .st{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#2b3a55;background:var(--mist);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap}
@@ -168,18 +125,15 @@ h2 .mute{color:var(--faint)}
 /* papers & code */
 .docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
 .doc{background:#fff;border:1px dashed var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;gap:8px}
-.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
+.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--dove)}
 .doc h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .doc p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 .doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
 @media(max-width:880px){.docs{grid-template-columns:1fr}}
 
-
 }
 
-
 }
-
 
 /* ═══════════ pricing (revolver) ═══════════ */
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
@@ -295,7 +249,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -327,7 +281,7 @@ h2 .mute{color:var(--faint)}
   100%     {left:0;    opacity:1}
 }
 
-.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--dove);text-align:center}
 
 /* ═══════════ system requirements ═══════════ */
 #sysreq{padding:110px 6vw}
@@ -357,39 +311,79 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
   .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
-<style id="house-scrollbar">
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-</style>
-<script src="/assets/scrollrail.js" defer></script>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- seo-pass -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://vfempire.com/systems/nav-it#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does NAV·IT work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Full-offline mode produces zero network traffic during navigation, verified by packet trace and documented in the threat model. You download Ed25519-signed region packs, from 50 MB for Malta to 1.5 GB for Germany, verified at download and at every load. Hybrid mode, the default, needs no local storage and routes through VF's anonymising gateway instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does NAV·IT send my route to Google, Apple or Mapbox?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. NAV·IT runs on OpenStreetMap data with Valhalla routing, Photon geocoding and MapLibre rendering, served from VF's own origin box in Germany. There is no third-party mapping SDK on the device. In hybrid mode the only network contact is navigator.vfempire.com, through a Cloudflare Worker gateway that strips your IP before the origin sees the request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I buy NAV·IT on its own?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NAV·IT is infrastructure. It ships inside FuelIT and MapIT; you pay for those, and NAV·IT is included at every FuelIT tier. VF never monetises it as a standalone data business, an ad platform or an SDK sold to third parties. If that ever changes, a superseding ADR appears in git the same day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which phones does NAV·IT support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iPhone on iOS 16+, Android 10+ with no Google Play Services requirement, or any modern web browser. It runs on GrapheneOS, /e/OS and LineageOS, and on the PinePhone. iOS verifies every routing response with CryptoKit's Curve25519; Android uses native JDK 15+ Ed25519. A tampered response is refused, so a hostile CDN cannot forge routes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which countries does NAV·IT cover at launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "R·01 ships inside FuelIT for the FuelIT-9: Germany, France, Spain, Italy, Austria, the UK, Portugal, Malta and Luxembourg, with full-offline and hybrid modes and downloadable signed region packs. R·02 brings NAV·IT's own map to CarPlay and Android Auto. R·03 makes MapIT a standalone navigator on the same engine, and R·04 adds an opt-in, k-anonymised traffic layer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I verify the privacy claims myself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The engineering spec, threat model and privacy model are published, plus a verification checklist with seven reproducible checks for external auditors: packet-trace commands, signature-verification steps and a log-inspection procedure. VF's origin box Ed25519-signs every routing response. A bug bounty from €500 to €25 000 pays anyone who runs the checklist and breaks a claim."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -400,15 +394,41 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       VF EMPIRE
     </a>
     <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·21 NAV·IT</b></span>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
   </div>
 </nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
 
 <header class="phero">
   <div>
     <div class="eb"><b>P·21</b> &nbsp;·&nbsp; SOVEREIGN INFRASTRUCTURE &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>NAV·IT<span>A navigator that <em class="i">never sells your route.</em></span></h1>
-    <p class="sub">Every mapping app knows where you go. NAV·IT is the alternative — a fully self-hosted turn-by-turn navigator built on open map data, our own routing, our own tiles, our own edge. Zero third-party trackers. Every route stays yours by architecture, not by settings toggle. Ships inside FuelIT and MapIT.</p>
+    <p class="sub">Mainstream mapping apps know where you go. NAV·IT is the alternative: a self-hosted turn-by-turn navigator built on open map data, our own routing, our own tiles, our own edge. Zero third-party trackers. Every route stays yours; the architecture enforces it. Ships inside FuelIT and MapIT.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD</span>
       <span class="mchip">OPEN MAP DATA (OSM)</span>
@@ -421,41 +441,41 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p21.png" alt="NAV·IT — a minimal white compass rose with a glowing blue north-pointing needle, sealed inside a translucent shell"></div>
+  <div class="pheroart"><img alt="NAV·IT: a minimal white compass rose with a glowing blue north-pointing needle, sealed inside a translucent shell" src="../assets/pipe/p21.png" width="1024" height="1280" fetchpriority="high"></div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">Every FuelIT drive ended<br><span class="mute">in somebody else's data.</span></h2>
-    <p class="lead rv">You tap Go on a fuel stop. FuelIT hands you to Google Maps. From that moment, Google knows the route you're driving, the station you chose, and — by inference — that you used FuelIT to pick it. Every "no data sold" promise had a hole the shape of a map tile. Four failures, one gap.</p>
+    <p class="lead rv">You tap Go on a fuel stop. FuelIT hands you to Google Maps. From that moment, Google knows the route you're driving, the station you chose, and, by inference, that you used FuelIT to pick it. The "no data sold" promise had a hole the shape of a map tile.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>The handoff is the leak</h4>
-        <p>Consumer navigators are ad + data businesses. The moment your phone opens Google Maps or Waze with a destination in the URL, that destination is logged, joined to your device identifier, retained, and used to train models sold to third parties. The privacy claim of the pre-handoff app doesn't survive the tap.</p>
+        <p>Consumer navigators are ad + data businesses. The moment your phone opens Google Maps or Waze with a destination in the URL, the platform logs that destination, joins it to your device identifier, retains it, and uses it to train models sold to third parties. The privacy claim of the pre-handoff app doesn't survive the tap.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
         <h4>Their SDK is not neutral</h4>
-        <p>Even the "we run our own map" alternatives usually mean: our own logo, someone else's SDK. Google Maps SDK, Mapbox SDK and Apple MapKit all phone home from every device that installs them, keyed to a device fingerprint. The map you see is not privately delivered — it just doesn't say so.</p>
+        <p>Even the "we run our own map" alternatives usually mean: our own logo, someone else's SDK. Google Maps SDK, Mapbox SDK and Apple MapKit all phone home from every device that installs them, keyed to a device fingerprint. The app doesn't tell you that the map you see phones home.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>Offline is a hoax</h4>
-        <p>"Download maps for offline" is universally advertised. Universally lies. The moment you open the app online for anything else — traffic, search, ETA — the offline session's routes are stitched into your online profile. There is no product on the shelf where offline actually means offline.</p>
+        <p>Mainstream navigators all advertise "download maps for offline", and all of them stitch the offline session's routes into your online profile the moment you open the app online for anything else: traffic, search, ETA. No product on the shelf makes offline mean offline.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>Live traffic costs your location</h4>
-        <p>Real-time traffic requires broadcasting the live position of vehicles — yours or others' — to whoever's building the model. HERE and TomTom sell that. Google collects it via every Android in a car. There is no "live traffic without location telemetry" on the market. You're either paying with money or paying with position.</p>
+        <p>Real-time traffic requires broadcasting the live position of vehicles, yours or others', to whoever is building the model. HERE and TomTom sell that. Google collects it via every Android in a car. No product on the market offers live traffic without location telemetry. You pay with money or with position.</p>
       </div>
     </div>
 
     <div class="band rv">
-      <img src="../assets/pipe/p21-flow.png" alt="A white ribbon road overlaid with a translucent sealed capsule containing the route line — the route is present but enclosed">
-      <span class="cap">EVERY MAP TILE CAN BE PRIVATELY SERVED — THE INDUSTRY JUST CHOSE NOT TO</span>
+      <img alt="NAV·IT flow render: a white ribbon road overlaid with a translucent sealed capsule containing the route line" src="../assets/pipe/p21-flow.png" width="1408" height="1024" loading="lazy" decoding="async">
+      <span class="cap">EVERY MAP TILE CAN BE PRIVATELY SERVED. THE INDUSTRY CHOSE NOT TO</span>
     </div>
   </div>
 </section>
@@ -472,29 +492,29 @@ html{scrollbar-width:none;-ms-overflow-style:none}
         </div>
         <div>
           <h4>Our own products first</h4>
-          <p>FuelIT and MapIT can't credibly promise "no data sold" while handing every drive to Google. Fixing that took building an entire navigator — and it turns out we're not the only ones who want it. NAV·IT is proven on our own products first: FuelIT ships with it, MapIT ships on it. Every claim tested on the VF network's daily drives before it reaches the public.</p>
+          <p>FuelIT and MapIT can't credibly promise "no data sold" while handing every drive to Google. Fixing that took building an entire navigator, and we're not the only ones who want it. NAV·IT proves itself on our own products first: FuelIT ships with it, MapIT ships on it. We test every claim on the VF network's daily drives before it reaches the public.</p>
           <div class="co"><span>FUELIT · SHIPS INSIDE</span><span>MAPIT · RUNS ON</span><span>VF NETWORK · PROVEN</span></div>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 12h13M12 5l7 7-7 7"/></svg></div>
         <h4>Long-haul &amp; cross-border drivers</h4>
-        <p>People who cross Europe every week and dislike sharing their entire route history with a US ad platform. Offline packs work in every tunnel, every mountain pass, every mobile-signal gap.</p>
+        <p>People who cross Europe every week and dislike sharing their entire route history with a US ad platform. Offline packs work in every tunnel, mountain pass and mobile-signal gap.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 12h18M7 18v2M17 18v2"/></svg></div>
         <h4>Fleets that owe their drivers privacy</h4>
-        <p>Van and small-fleet operators whose drivers are tracked by insurers, fuel-card brokers and every consumer navigator installed. NAV·IT hands the operator route quality without handing anyone else a driving profile.</p>
+        <p>Van and small-fleet operators. Insurers, fuel-card brokers and every installed consumer navigator track their drivers; NAV·IT hands the operator route quality without handing anyone else a driving profile.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M5.6 18.4L18.4 5.6"/></svg></div>
         <h4>Journalists, lawyers, activists</h4>
-        <p>Anyone whose destination is confidential by profession. Full-offline mode produces zero network traffic during navigation — verified by packet trace, documented in the threat model, backed by a bug bounty for anyone who can break the claim.</p>
+        <p>Anyone whose destination is confidential by profession. Full-offline mode produces zero network traffic during navigation: verified by packet trace, documented in the threat model, backed by a bug bounty for anyone who can break the claim.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><circle cx="7" cy="7" r="1" fill="currentColor"/><circle cx="7" cy="17" r="1" fill="currentColor"/></svg></div>
         <h4>De-Googled Android + Linux phone users</h4>
-        <p>NAV·IT has no dependency on Google Play Services. Runs on GrapheneOS, /e/OS, LineageOS. Runs on PinePhone. Runs on the phones the mainstream mapping apps refuse to ship for — because those users were already asking for exactly this product.</p>
+        <p>NAV·IT has no dependency on Google Play Services. Runs on GrapheneOS, /e/OS, LineageOS. Runs on PinePhone. Runs on the phones the mainstream mapping apps refuse to ship for, because those users were already asking for this product.</p>
       </div>
     </div>
   </div>
@@ -504,12 +524,12 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">From "trust us"<br><span class="mute">to "check the trace."</span></h2>
-    <p class="lead rv">The measure of a privacy-first navigator isn't the words on the marketing page — it's what a packet capture of a full drive contains. NAV·IT is judged on evidence, published in git, reproducible by anyone.</p>
+    <p class="lead rv">The measure of a privacy-first navigator is what a packet capture of a full drive contains. We judge NAV·IT on evidence, published in git, reproducible by anyone.</p>
 
     <div class="outs rv">
       <div class="c"><div class="n">Three modes, one guarantee<span>.</span></div><p>Full-offline: zero network traffic during navigation. Hybrid (default): routing over our anonymising Cloudflare gateway that strips your IP before origin. Online: same guarantee, no local cache required. Never a third-party origin.</p></div>
-      <div class="c"><div class="n">Open primitives, signed responses<span>.</span></div><p>OpenStreetMap data, Valhalla routing, Photon geocoding, MapLibre rendering — all Apache-2 / BSD / MIT. Every routing response Ed25519-signed by our origin box; a compromised CDN cannot forge routes.</p></div>
-      <div class="c"><div class="n">Verifiable by an outsider<span>.</span></div><p>Public engineering spec. Public threat model. Public privacy model. Reproducible verification checklist for auditors. Bug bounty (€500–€25 000) for anyone who can break a claim. Trust is what you can prove, not what you say.</p></div>
+      <div class="c"><div class="n">Open primitives, signed responses<span>.</span></div><p>OpenStreetMap data, Valhalla routing, Photon geocoding, MapLibre rendering, all Apache-2 / BSD / MIT. Our origin box Ed25519-signs every routing response; a compromised CDN cannot forge routes.</p></div>
+      <div class="c"><div class="n">Verifiable by an outsider<span>.</span></div><p>Public engineering spec. Public threat model. Public privacy model. Reproducible verification checklist for auditors. Bug bounty (€500–€25 000) for anyone who can break a claim. Trust is what you can prove.</p></div>
     </div>
   </div>
 </section>
@@ -518,10 +538,10 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Four layers,<br><span class="mute">every one auditable.</span></h2>
-    <p class="lead rv">Built the VF way: open primitives, our own infrastructure, cryptographic guarantees, public specs. Every layer answers a specific privacy question — with code you can read.</p>
+    <p class="lead rv">Built the VF way: open primitives, our own infrastructure, cryptographic guarantees, public specs. Every layer answers a specific privacy question, with code you can read. Like every VF system, it leaves the lab with the <a href="/engine" style="color:var(--core);font-weight:600">engine</a> fitted and the <a href="/harness" style="color:var(--core);font-weight:600">harness</a> tuned.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p21-mech.png" alt="A white compass over a translucent planet mesh, with three sealed lanes — full-offline, hybrid, online — glowing beneath it"></div>
+      <div class="mechart"><img alt="NAV·IT mechanics render: a white compass over a translucent planet mesh, with three sealed lanes (full-offline, hybrid, online) glowing beneath it" src="../assets/pipe/p21-mech.png" width="1408" height="1024" loading="lazy" decoding="async"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>Open data plane</h4></div>
@@ -533,11 +553,11 @@ html{scrollbar-width:none;-ms-overflow-style:none}
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>Anonymising edge</h4></div>
-          <p>Cloudflare Worker gateway strips CF-Connecting-IP, X-Forwarded-For, User-Agent before origin sees them. Rate-limiting by rolling per-minute HMAC token, not by IP — we don't need to see IP. 24h edge log retention, IP field-masked at ingest.</p>
+          <p>Cloudflare Worker gateway strips CF-Connecting-IP, X-Forwarded-For, User-Agent before origin sees them. Rate-limiting by rolling per-minute HMAC token; we don't need to see IP. 24h edge log retention, IP field-masked at ingest.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>Cryptographic clients</h4></div>
-          <p>iOS uses CryptoKit's Curve25519 to verify every routing response against the origin's compiled-in public key. Android uses JDK 15+ native Ed25519. A tampered response is refused. Offline packs are Ed25519-signed too — verified at download and at every load. A hostile CDN cannot forge routes.</p>
+          <p>iOS uses CryptoKit's Curve25519 to verify every routing response against the origin's compiled-in public key. Android uses JDK 15+ native Ed25519. A tampered response is refused. Offline packs are Ed25519-signed too, verified at download and at every load. A hostile CDN cannot forge routes.</p>
         </div>
       </div>
     </div>
@@ -552,26 +572,26 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     <div class="road rv">
       <div class="rd">
         <span class="num">R·01</span>
-        <h4>Inside FuelIT — Germany + FR + ES + IT + AT + UK + PT + MT + LU</h4>
+        <h4>Inside FuelIT: Germany + FR + ES + IT + AT + UK + PT + MT + LU</h4>
         <p>The FuelIT-9. Full-offline + hybrid modes. Downloadable Ed25519-signed region packs. Origin box in Hetzner Nürnberg. Cloudflare Worker gateway with IP stripping. Verification checklist published for external auditors.</p>
         <span class="st hot">IN BUILD</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
         <h4>CarPlay + Android Auto on the sovereign stack</h4>
-        <p>Not Apple/Google's map inside CarPlay — NAV·IT's. The whole point of the entitlement is running our own map on the in-dash screen. The privacy claim survives all the way to the windshield.</p>
+        <p>NAV·IT's own map inside CarPlay, in place of Apple's or Google's. The whole point of the entitlement is running our own map on the in-dash screen. The privacy claim survives all the way to the windshield.</p>
         <span class="st">NEXT</span>
       </div>
       <div class="rd">
         <span class="num">R·03</span>
-        <h4>MapIT — a standalone product on the same engine</h4>
-        <p>NAV·IT was built for FuelIT, but the engine is general. MapIT ships as a full consumer navigator on the same infrastructure — same privacy guarantees, same offline packs, same signed responses. One backend, two products.</p>
+        <h4>MapIT: a standalone product on the same engine</h4>
+        <p>We built NAV·IT for FuelIT, but the engine is general. MapIT ships as a full consumer navigator on the same infrastructure: same privacy guarantees, same offline packs, same signed responses. One backend, two products.</p>
         <span class="st">PLANNED</span>
       </div>
       <div class="rd">
         <span class="num">R·04</span>
-        <h4>Probe-data traffic layer — opt-in, k-anonymised</h4>
-        <p>Live traffic without location broadcast. Users who opt in send OSM segment IDs + speed + hour-of-week — no coordinates, no session, no fine-grained timestamps. Published back only when k≥50 contributors are pooled per segment-hour. Off by default, forever.</p>
+        <h4>Probe-data traffic layer: opt-in, k-anonymised</h4>
+        <p>Live traffic without location broadcast. Users who opt in send OSM segment IDs + speed + hour-of-week: no coordinates, no session, no fine-grained timestamps. We publish it back only when k≥50 contributors are pooled per segment-hour. Off by default, forever.</p>
         <span class="st">PLANNED</span>
       </div>
     </div>
@@ -579,20 +599,20 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     <div class="docs rv">
       <div class="doc">
         <span class="dk">ENGINEERING SPEC</span>
-        <h4>NAV·IT — the full build plan</h4>
+        <h4>NAV·IT: the full build plan</h4>
         <p>Everything a competent engineer needs to reproduce the system. Client modes, data model, backend services, iOS + Android integration, offline packs, privacy properties.</p>
         <span class="tba">PUBLISHED · 2026-09-12</span>
       </div>
       <div class="doc">
         <span class="dk">THREAT MODEL</span>
         <h4>STRIDE analysis with residual risks named</h4>
-        <p>Every plausible attack against the privacy claim, enumerated. Every mitigation, tested. Every risk we can't fully mitigate, named — no hand-waving.</p>
+        <p>Every plausible attack against the privacy claim, enumerated. Every mitigation, tested. Every residual risk named, with no hand-waving.</p>
         <span class="tba">PUBLISHED · 2026-09-12</span>
       </div>
       <div class="doc">
         <span class="dk">PRIVACY MODEL</span>
         <h4>GDPR position, in plain language</h4>
-        <p>What NAV·IT collects (nothing joinable to you). Who sees what (only our infrastructure). Sub-processor list. Data-subject rights. Residual risks we don't hide.</p>
+        <p>It covers what NAV·IT collects (nothing joinable to you), who sees what (only our infrastructure), the sub-processor list, data-subject rights, and the residual risks we don't hide.</p>
         <span class="tba">PUBLISHED · 2026-09-12</span>
       </div>
       <div class="doc">
@@ -606,15 +626,13 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 </section>
 
 
-
-
 <section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="sysreqgrid">
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What the driver needs</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Device</dt><dd>iPhone (iOS 16+), Android (10+ · Google Play Services NOT required), or any modern web browser.</dd></div>
@@ -631,19 +649,19 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">HOW IT SHIPS</div>
     <h2 class="rv">Inside the products you buy.<br><span class="mute">Never a data business itself.</span></h2>
-    <p class="lead rv">NAV·IT is infrastructure, not a consumer product. It ships inside FuelIT and MapIT — you pay for those, and NAV·IT is included. It is never monetised as a standalone data business, an ad platform, or an SDK sold to third parties.</p>
+    <p class="lead rv">NAV·IT is infrastructure. It ships inside FuelIT and MapIT; you pay for those, and NAV·IT is included. We never monetise it as a standalone data business, an ad platform, or an SDK sold to third parties.</p>
 
     <div class="docs rv" style="grid-template-columns:1fr 1fr;margin-top:56px">
       <div class="doc">
         <span class="dk">SHIPS INSIDE</span>
-        <h4>FuelIT — the fuel-price navigator</h4>
+        <h4>FuelIT: the fuel-price navigator</h4>
         <p>NAV·IT is FuelIT's map + turn-by-turn engine. Every FuelIT drive stays private end-to-end from the moment the app fetches your route to the moment you park. Included at every FuelIT tier.</p>
         <a class="tba" href="/systems/fuelit">P·17 FUELIT →</a>
       </div>
       <div class="doc">
         <span class="dk">RUNS ON</span>
-        <h4>MapIT — general-purpose navigator</h4>
-        <p>NAV·IT is also the engine for MapIT, VF's standalone consumer navigator (R·03). Same privacy guarantees, same offline packs, same signed responses. One backend, two products — twice the surface, no additional privacy surface.</p>
+        <h4>MapIT: general-purpose navigator</h4>
+        <p>NAV·IT is also the engine for MapIT, VF's standalone consumer navigator (R·03). Same privacy guarantees, same offline packs, same signed responses. One backend, two products: twice the surface, no additional privacy surface.</p>
         <a class="tba" href="/systems/mapit">P·19 MAPIT →</a>
       </div>
     </div>
@@ -651,61 +669,107 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     <p class="pnote rv" style="margin-top:36px;text-align:center;color:var(--faint);font-size:12.5px;letter-spacing:.02em">
       The engine itself is never sold, licensed, or embedded in third-party apps. If that ever changes, a superseding ADR appears in git the same day.
     </p>
+
+    <div class="related rv">
+      <a href="/systems/fuelit"><span class="rk">P·17 · MOBILITY</span><h4>FuelIT</h4><p>Official pump prices ranked against your route, tank and real range across nine countries.</p><span class="go">Open →</span></a>
+      <a href="/systems/mapit"><span class="rk">P·19 · COMMERCE</span><h4>MapIT</h4><p>Your shopping list priced at every store in your zone, split trips and driving counted.</p><span class="go">Open →</span></a>
+      <a href="/systems/guardian-shield"><span class="rk">P·18 · SECURITY</span><h4>Guardian Shield</h4><p>Vault, malware scanner, WireGuard VPN, DNS filter and breach watch on hardware you own.</p><span class="go">Open →</span></a>
+    </div>
   </div>
 </section>
 
+
+<section class="alt">
+  <div class="wrap">
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      <div class="q"><h4>Does NAV·IT work offline?</h4><p>Yes. Full-offline mode produces zero network traffic during navigation, verified by packet trace and documented in the threat model. You download Ed25519-signed region packs, from 50 MB for Malta to 1.5 GB for Germany, verified at download and at every load. Hybrid mode, the default, needs no local storage and routes through VF's anonymising gateway instead.</p></div>
+      <div class="q"><h4>Does NAV·IT send my route to Google, Apple or Mapbox?</h4><p>No. NAV·IT runs on OpenStreetMap data with Valhalla routing, Photon geocoding and MapLibre rendering, served from VF's own origin box in Germany. There is no third-party mapping SDK on the device. In hybrid mode the only network contact is navigator.vfempire.com, through a Cloudflare Worker gateway that strips your IP before the origin sees the request.</p></div>
+      <div class="q"><h4>Can I buy NAV·IT on its own?</h4><p>NAV·IT is infrastructure. It ships inside FuelIT and MapIT; you pay for those, and NAV·IT is included at every FuelIT tier. VF never monetises it as a standalone data business, an ad platform or an SDK sold to third parties. If that ever changes, a superseding ADR appears in git the same day.</p></div>
+      <div class="q"><h4>Which phones does NAV·IT support?</h4><p>iPhone on iOS 16+, Android 10+ with no Google Play Services requirement, or any modern web browser. It runs on GrapheneOS, /e/OS and LineageOS, and on the PinePhone. iOS verifies every routing response with CryptoKit's Curve25519; Android uses native JDK 15+ Ed25519. A tampered response is refused, so a hostile CDN cannot forge routes.</p></div>
+      <div class="q"><h4>Which countries does NAV·IT cover at launch?</h4><p>R·01 ships inside FuelIT for the FuelIT-9: Germany, France, Spain, Italy, Austria, the UK, Portugal, Malta and Luxembourg, with full-offline and hybrid modes and downloadable signed region packs. R·02 brings NAV·IT's own map to CarPlay and Android Auto. R·03 makes MapIT a standalone navigator on the same engine, and R·04 adds an opt-in, k-anonymised traffic layer.</p></div>
+      <div class="q"><h4>How can I verify the privacy claims myself?</h4><p>The engineering spec, threat model and privacy model are published, plus a verification checklist with seven reproducible checks for external auditors: packet-trace commands, signature-verification steps and a log-inspection procedure. VF's origin box Ed25519-signs every routing response. A bug bounty from €500 to €25 000 pays anyone who runs the checklist and breaks a claim.</p></div>
+    </div>
+  </div>
+</section>
 
 <section class="cta-band">
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">The map<span class="mute"> that stops broadcasting.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Register interest and we'll write when NAV·IT opens as a public engine — or read the full engineering spec, threat model, and privacy model already published in git.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Register interest and we'll write when NAV·IT opens as a public engine, or read the full engineering spec, threat model, and privacy model already published in git.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=NAV%C2%B7IT">info@vfempire.com</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="legal">
-    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
   </div>
 </div>
 
-<script>
-(() => {
-  const el = document.getElementById('consent');
-  if (localStorage.getItem('vf-consent')) { el.remove(); return; }
-  setTimeout(() => el.classList.add('show'), 1400);
-  const choose = v => { localStorage.setItem('vf-consent', v); el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
-  document.getElementById('cacc').onclick = () => choose('accepted');
-  document.getElementById('cdec').onclick = () => choose('declined');
-})();
 
-const io = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting && (e.intersectionRatio >= .18 || e.boundingClientRect.height > innerHeight * .6)){
-      e.target.classList.add('on');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:[0,.18]});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
-  [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
-});
-</script>
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>

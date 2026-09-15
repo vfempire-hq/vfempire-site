@@ -3,17 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Everyday-Law Navigator — Legal Information for Everyone Else | VF Empire</title>
-<meta name="description" content="Everyday-Law Navigator by VF Empire — rights, contracts, tenancy and dispute information for people who can’t bill hours. Legal information, not legal advice. In build in Malta, EU.">
+<title>Everyday-Law Navigator: Plain-language law guide | VF Empire</title>
+<meta name="description" content="Everyday-Law Navigator by VF Empire: plain-language legal information on tenancy, consumer and employment rights, every source cited. In build in Malta, EU.">
 <link rel="canonical" href="https://vfempire.com/systems/everyday-law-navigator">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Everyday-Law Navigator — The law applies to everyone. Understanding it shouldn’t cost £300 an hour.">
-<meta property="og:description" content="Plain-language legal information for tenancy, consumer, employment and everyday disputes — organised, sourced, and honest about its limits. On the VF build slate.">
+<meta property="og:title" content="Everyday-Law Navigator: the law applies to everyone. Understanding it shouldn’t cost £300 an hour.">
+<meta property="og:description" content="Plain-language legal information for tenancy, consumer, employment and everyday disputes: organised, sourced, honest about its limits. On the VF build slate.">
 <meta property="og:url" content="https://vfempire.com/systems/everyday-law-navigator">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p05.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Everyday-Law Navigator: the law applies to everyone. Understanding it shouldn’t cost £300 an hour.">
+<meta name="twitter:description" content="Plain-language legal information for tenancy, consumer, employment and everyday disputes: organised, sourced, honest about its limits. On the VF build slate.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p05.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,13 +33,15 @@
       "applicationCategory": "ReferenceApplication",
       "operatingSystem": "Web, iOS, Android",
       "creator": {"@id": "https://vfempire.com/#org"},
+      "url": "https://vfempire.com/systems/everyday-law-navigator",
+      "image": "https://vfempire.com/assets/pipe/p05.png",
       "description": "Everyday-Law Navigator is a legal-information system in development by VF Empire Corp Ltd: plain-language guidance on rights, contracts, tenancy and everyday disputes with sources shown. It provides legal information, not legal advice, and routes users to qualified professionals and existing advice services where matters require them."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
+        {"@type": "ListItem", "position": 2, "name": "Systems", "item": "https://vfempire.com/systems/"},
         {"@type": "ListItem", "position": 3, "name": "Everyday-Law Navigator"}
       ]
     }
@@ -38,104 +49,46 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-/* house dot-rail scrollbar — native bar hidden, jade dot rendered by scrollrail.js */
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
-.phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
+.phero{padding:130px 6vw 60px;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
-  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%);border-bottom:1px solid var(--line)}
+.phero .in{min-height:calc(92vh - 190px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;width:min(1150px,100%);margin:0 auto}
 .phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .eb b{color:var(--core)}
 .phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.pheroart img{display:block;width:min(430px,84vw);height:auto;margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
 .fl:hover{background:#fff;padding-left:22px}
 .fl:hover::before{transform:scaleY(1)}
-.fl .num{font-size:13px;font-weight:600;color:var(--faint);letter-spacing:.1em;padding-top:3px}
+.fl .num{font-size:13px;font-weight:600;color:var(--dove);letter-spacing:.1em;padding-top:3px}
 .fl:hover .num{color:var(--core)}
 .fl h4{font-size:19px;font-weight:600;letter-spacing:-.025em}
 .fl p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 @media(max-width:880px){.fl{grid-template-columns:44px 1fr;gap:8px 16px}.fl p{grid-column:2}}
 
 /* image band */
-.band{margin-top:70px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#fff;position:relative}
-.band img{display:block;width:100%;mix-blend-mode:multiply}
+.band{margin:80px calc(50% - 50vw) 0;width:100vw;position:relative;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band img{display:block;width:100%;max-height:72vh;object-fit:cover;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
-.au .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au .ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .au h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
 .au p{font-size:13.5px;line-height:1.62;color:var(--dove)}
 .au.first{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:linear-gradient(160deg,#0e2a63,var(--core-deep) 55%,var(--core));border-color:transparent}
-.au.first .ic{background:rgba(255,255,255,.14)}
 .au.first .ic svg{stroke:#fff}
 .au.first h4{color:#fff}
 .au.first p{color:rgba(255,255,255,.75);max-width:640px}
@@ -143,7 +96,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -151,7 +104,10 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
+.pillars{margin-top:12px;font-size:14.5px}
+.pillars a{color:var(--core-deep);border-bottom:1px solid var(--line)}
+.pillars a:hover{color:var(--core);border-color:var(--core)}
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -165,28 +121,18 @@ h2 .mute{color:var(--faint)}
 /* roadmap */
 .road{margin-top:56px;border-top:1px solid var(--line)}
 .rd{display:grid;grid-template-columns:80px 1.1fr 1.6fr auto;align-items:center;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line)}
-.rd .num{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.14em}
+.rd .num{font-size:12px;font-weight:600;color:var(--dove);letter-spacing:.14em}
 .rd h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .rd p{font-size:13.5px;line-height:1.55;color:var(--dove)}
-.rd .st{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#2b3a55;background:var(--mist);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap}
-.rd .st.hot{color:#fff;background:var(--core);border-color:var(--core)}
-@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .st{grid-column:2;justify-self:start}}
-
-/* papers & code */
-.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
-.doc{background:#fff;border:1px dashed var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;gap:8px}
-.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
-.doc h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
-.doc p{font-size:13.5px;line-height:1.6;color:var(--dove)}
-.doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
-@media(max-width:880px){.docs{grid-template-columns:1fr}}
+@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .status{grid-column:2;justify-self:start}}
 
 
 /* ═══════════ pricing (revolver) ═══════════ */
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
 #pricing .wrap{width:min(1080px,100%);margin:0 auto;text-align:center}
 #pricing .stage{width:min(560px,100%);position:relative;margin:80px auto 60px;aspect-ratio:1.7/1;transform-style:preserve-3d}
-#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
+@media(max-width:600px){#pricing .stage{aspect-ratio:1.15/1;margin-top:60px}#pricing .card{padding:16px 16px 14px}#pricing .stats{grid-template-columns:1fr 1fr;gap:10px}#pricing .pricerow .pr{font-size:36px}#pricing .tiles{flex-wrap:wrap}}
+#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--dove);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
 #pricing .hoverhint::before,#pricing .hoverhint::after{content:'';width:32px;height:1px;background:var(--faint);opacity:.5}
 #pricing .stage:hover .hoverhint{opacity:.35}
 
@@ -296,7 +242,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -328,7 +274,7 @@ h2 .mute{color:var(--faint)}
   100%     {left:0;    opacity:1}
 }
 
-.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--dove);text-align:center}
 
 /* ═══════════ system requirements ═══════════ */
 #sysreq{padding:110px 6vw}
@@ -358,31 +304,18 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
-  .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
+  .phero{padding-top:110px}
+  .phero .in{grid-template-columns:1fr;min-height:0;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 
@@ -392,16 +325,43 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
       VF EMPIRE
     </a>
-    <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·05 Everyday-Law Navigator</b></span>
+    <span class="crumb"><a href="/systems/">Systems</a> &nbsp;/&nbsp; <b>P·05 Everyday-Law Navigator</b></span>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
   </div>
 </nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
 
 <header class="phero">
+<div class="in">
   <div>
     <div class="eb"><b>P·05</b> &nbsp;·&nbsp; LEGAL ACCESS &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>Everyday-Law Navigator<span>Know where you stand,<br><em class="i">before you decide where to go.</em></span></h1>
-    <p class="sub">Most legal problems never reach a lawyer — they reach a search bar, a forum, or nothing at all. Everyday-Law Navigator organises the law that governs ordinary life into plain language with sources shown. Legal information, not legal advice — and honest about that line.</p>
+    <p class="sub">Most legal problems never reach a lawyer. They reach a search bar, a forum, or nothing at all. Everyday-Law Navigator organises the law that governs ordinary life into plain language with sources shown. It gives legal information, not legal advice, and is honest about that line.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD</span>
       <span class="mchip">PLAIN LANGUAGE</span>
@@ -413,14 +373,15 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p05.webp" alt="Minimal 3D render of balance scales holding one blue cube — Everyday-Law Navigator by VF Empire"></div>
+  <div class="pheroart"><img src="../assets/pipe/p05.webp" alt="Minimal 3D render of balance scales holding one blue cube: Everyday-Law Navigator by VF Empire" width="896" height="1152" fetchpriority="high"></div>
+</div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">Justice has a gap.<br><span class="mute">Billions of people live in it.</span></h2>
-    <p class="lead rv">The unmet need for legal understanding is one of the largest measured gaps in the world — and the help that exists is scattered across agencies, jurisdictions and hourly rates most people will never pay.</p>
+    <p class="lead rv">The unmet need for legal understanding is one of the largest measured gaps in the world, and the help that exists is scattered across agencies, jurisdictions and hourly rates most people will never pay.</p>
 
     <div class="fails rv">
       <div class="fl">
@@ -431,62 +392,61 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="fl">
         <span class="num">F·02</span>
         <h4>The meter runs in hundreds</h4>
-        <p>Hourly rates commonly run £140–570 in the UK and €150–400 in Germany. For a €900 dispute, professional help is economically irrational — so people go without understanding, or go alone.</p>
+        <p>Hourly rates commonly run £140–570 in the UK and €150–400 in Germany. For a €900 dispute, professional help is economically irrational, so people go without understanding, or go alone.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>Alone before the court</h4>
-        <p>Small-claims and tribunal systems are explicitly built for self-representation — yet the people navigating them get little help understanding procedure, evidence or their own position before walking in.</p>
+        <p>Small-claims and tribunal systems are built for self-representation, yet the people using them get little help understanding procedure, evidence or their own position before walking in.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>Good help is fragmented</h4>
-        <p>Citizens Advice, Verbraucherzentralen, legal-aid schemes, ombudsmen — real help exists, and this system routes to it. The failure is fragmentation: knowing which door, in which jurisdiction, with which deadline, is itself a legal-research task.</p>
+        <p>Citizens Advice, Verbraucherzentralen, legal-aid schemes, ombudsmen: real help exists, and this system routes to it. The failure is fragmentation. Knowing which door, in which jurisdiction, with which deadline, is itself a legal-research task.</p>
       </div>
     </div>
 
-    <div class="band rv">
-      <img src="../assets/pipe/p05-flow.png" alt="Abstract render of tangled paths resolving into one clear blue route — the way through the system" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
-      <span class="cap">AN ESTIMATED 5.1 BILLION PEOPLE WORLDWIDE HAVE UNMET JUSTICE NEEDS</span>
-    </div>
+    <figure class="band rv">
+      <img src="../assets/pipe/p05-flow.png" alt="Abstract render of tangled paths resolving into one clear blue route: the way through the system" width="2304" height="1792" loading="lazy" decoding="async">
+      <figcaption class="cap">AN ESTIMATED 5.1 BILLION PEOPLE WORLDWIDE HAVE UNMET JUSTICE NEEDS</figcaption>
+    </figure>
   </div>
 </section>
 
 <section id="who" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="k rv">WHO IT SERVES</div>
     <h2 class="rv">For everyone the<br><span class="mute">hourly rate priced out.</span></h2>
 
     <div class="aud rv">
       <div class="au first">
         <div>
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"/></svg></div>
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"/></svg></div>
         </div>
         <div>
           <h4>The tenant with a deposit problem</h4>
-          <p>The archetype user: a real dispute, a few hundred euros at stake, a landlord who stopped answering, and no idea whether the law is on their side. The Navigator’s first job is that person — position explained, options mapped, deadlines flagged, right door pointed to.</p>
+          <p>The archetype user: a real dispute, a few hundred euros at stake, a landlord who stopped answering, and no idea whether the law is on their side. The Navigator’s first job is that person: position explained, options mapped, deadlines flagged, right door pointed to.</p>
           <div class="co"><span>REAL STAKES</span><span>SMALL AMOUNTS</span><span>NO LAWYER BUDGET</span><span>NEEDS A MAP</span></div>
         </div>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 9v11h14V9"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 9v11h14V9"/></svg></div>
         <h4>Tenants & landlords</h4>
-        <p>Deposits, repairs, notice periods, rent rules — the highest-volume legal territory in ordinary life, explained per jurisdiction with the statute shown.</p>
+        <p>Deposits, repairs, notice periods, rent rules: the highest-volume legal territory in ordinary life, explained per jurisdiction with the statute shown.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
         <h4>Employees</h4>
-        <p>Contracts, dismissal, unpaid wages, working time — what the law says, what the deadlines are, and when a matter genuinely needs a lawyer or a union.</p>
+        <p>Contracts, dismissal, unpaid wages, working time: the law, the deadlines, and the point at which a matter needs a lawyer or a union.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
         <h4>Consumers</h4>
-        <p>Faulty goods, cancelled flights, subscription traps, warranty rights — EU consumer law is strong and largely unused because nobody can find their piece of it.</p>
+        <p>Faulty goods, cancelled flights, subscription traps, warranty rights: EU consumer law is strong and largely unused, because few people can find their piece of it.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7V3z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7V3z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></div>
         <h4>Micro-businesses</h4>
-        <p>The sole trader reading a contract at midnight — obligations, red flags and standard terms explained before signing, with professional review flagged where it matters.</p>
+        <p>The sole trader reading a contract at midnight gets obligations, red flags and standard terms explained before signing, with professional review flagged where it matters.</p>
       </div>
     </div>
   </div>
@@ -496,12 +456,12 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">Understanding first.<br><span class="mute">The right door second.</span></h2>
-    <p class="lead rv">The Navigator does not replace lawyers and never claims to. It moves people from confusion to informed — and routes them to qualified help and existing advice services the moment a matter crosses the line.</p>
+    <p class="lead rv">The Navigator does not replace lawyers and never claims to. It moves you from confused to informed, and routes you to qualified help and existing advice services the moment a matter crosses the line.</p>
 
     <div class="outs rv">
       <div class="c"><div class="n">Your position, in plain words<span>.</span></div><p>The relevant law for your situation and jurisdiction, explained in ordinary language with every source cited and checkable.</p></div>
-      <div class="c"><div class="n">Options and deadlines mapped<span>.</span></div><p>What paths exist — complaint, ombudsman, small claims, walking away — with costs, time limits and realistic effort laid out side by side.</p></div>
-      <div class="c"><div class="n">Routed, not stranded<span>.</span></div><p>When a matter needs a professional, the system says so plainly and points to the right one: legal aid, advice agencies, ombudsmen or a qualified lawyer.</p></div>
+      <div class="c"><div class="n">Options and deadlines mapped<span>.</span></div><p>The paths available (complaint, ombudsman, small claims, walking away) with costs, time limits and realistic effort laid out side by side.</p></div>
+      <div class="c"><div class="n">Routed to the right door<span>.</span></div><p>The moment a matter needs a professional, the system says so plainly and points to the right one: legal aid, advice agencies, ombudsmen or a qualified lawyer.</p></div>
     </div>
   </div>
 </section>
@@ -510,14 +470,15 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Sourced law in.<br><span class="mute">Honest boundaries out.</span></h2>
-    <p class="lead rv">The architecture is built around the one failure this category cannot afford: confident wrongness. Every answer is grounded in cited law, scoped to jurisdiction, and fenced by an honesty layer that knows what the system must not do.</p>
+    <p class="lead rv">VF built the architecture around the one failure this category cannot afford: confident wrongness. The grounding engine ties every answer to cited law and resolves the jurisdiction first; a boundary layer fences what the system must not do.</p>
+    <p class="lead rv pillars">Every VF system runs on the <a href="/harness">harness stack</a>, is steered by the <a href="/engine">Helmsman engine</a> and is watched from a <a href="/dashboards">command dashboard</a>.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p05-mech.png" alt="Layered render of statute volumes feeding one clear blue answer plane" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
+      <div class="mechart"><img src="../assets/pipe/p05-mech.png" alt="Layered render of statute volumes feeding one clear blue answer plane"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>The law corpus</h4></div>
-          <p>Statutes, regulations and official guidance ingested per jurisdiction with version and validity tracking — law changes, and the corpus must know when it did.</p>
+          <p>Statutes, regulations and official guidance ingested per jurisdiction with version and validity tracking, because law changes and the corpus must know when it did.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>The grounding engine</h4></div>
@@ -525,11 +486,11 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>The boundary layer</h4></div>
-          <p>Hard rules encoding the information/advice line per jurisdiction. Matters requiring reserved legal activities are detected and routed out — by architecture, not by disclaimer alone.</p>
+          <p>Hard rules encoding the information/advice line per jurisdiction. The layer detects matters requiring reserved legal activities and routes them out by architecture.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>The navigator surface</h4></div>
-          <p>Situation-first interface: describe the problem, get position, options, deadlines and documents — with the routing directory of real-world help one tap away.</p>
+          <p>Situation-first interface: describe the problem, get position, options, deadlines and documents, with the routing directory of real-world help one tap away.</p>
         </div>
       </div>
     </div>
@@ -538,7 +499,6 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="k rv">BUILD TRAJECTORY</div>
     <h2 class="rv">One jurisdiction proven,<br><span class="mute">then the map grows.</span></h2>
 
     <div class="road rv">
@@ -546,63 +506,58 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         <span class="num">R·01</span>
         <h4>The first corpus</h4>
         <p>Tenancy and consumer law for the pilot jurisdictions, grounding and boundary layers proven, routing directory of advice services live.</p>
-        <span class="st hot">IN BUILD</span>
+        <span class="status hot">IN BUILD</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
         <h4>The everyday span</h4>
         <p>Employment and contract coverage, document explanation, and small-claims procedural guides per jurisdiction.</p>
-        <span class="st">NEXT</span>
+        <span class="status">NEXT</span>
       </div>
       <div class="rd">
         <span class="num">R·03</span>
         <h4>The public map</h4>
         <p>General availability across initial EU markets and the UK, multilingual delivery, and partnerships with the advice organisations already doing this work.</p>
-        <span class="st">PLANNED</span>
-      </div>
-    </div>
-
-    <div class="docs rv">
-      <div class="doc">
-        <span class="dk">WHITE PAPER</span>
-        <h4>The line we will not cross</h4>
-        <p>The VF position paper on legal-information AI: the honest boundary between information and advice, why it exists, and how to build a system that keeps it.</p>
-        <span class="tba">IN PREPARATION</span>
-      </div>
-      <div class="doc">
-        <span class="dk">REPOSITORY</span>
-        <h4>everyday-law-navigator</h4>
-        <p>Corpus tooling and grounding pipeline. The boundary-layer rule sets will be published — the safety architecture of a system like this should be inspectable.</p>
-        <span class="tba">TBA</span>
+        <span class="status">PLANNED</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+<section id="faq" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="sysreqgrid">
-      <div class="sysreqhead">
-        <div class="k rv">SYSTEM REQUIREMENTS</div>
-        <h2 class="rv">What you need to run it</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      <div class="q">
+        <h4>Is Everyday-Law Navigator legal advice?</h4>
+        <p>No. It provides legal information: your position in plain words, with every source cited and checkable. A boundary layer encodes the information/advice line per jurisdiction and routes matters requiring reserved legal activities to legal aid, advice agencies, ombudsmen or a qualified lawyer. The Navigator moves you from confused to informed, and says plainly when a professional is needed.</p>
       </div>
-      <dl class="sysreqrows rv">
-        <div class="sysreqrow"><dt>Device</dt><dd>Phone, tablet or browser.</dd></div>
-        <div class="sysreqrow"><dt>Coverage</dt><dd>MT + UK jurisdictions at launch; EU roadmap.</dd></div>
-        <div class="sysreqrow"><dt>Documents</dt><dd>Optional upload for grounded answers.</dd></div>
-        <div class="sysreqrow"><dt>Confidentiality</dt><dd>Nothing you upload is used to train models.</dd></div>
-      </dl>
+      <div class="q">
+        <h4>Which areas of law does it cover?</h4>
+        <p>Tenancy and consumer law come first: deposits, repairs, notice periods, rent rules, faulty goods, cancelled flights, subscription traps and warranty rights. Employment and contract coverage follows, with document explanation and small-claims procedural guides per jurisdiction. Micro-businesses get contract obligations and red flags explained before signing.</p>
+      </div>
+      <div class="q">
+        <h4>Which countries does it cover?</h4>
+        <p>The pilot jurisdictions first, with the corpus ingested per jurisdiction and version tracking because law changes. The grounding engine resolves your jurisdiction before anything else. The public map phase targets general availability across initial EU markets and the UK, with multilingual delivery and partnerships with the advice organisations already doing this work.</p>
+      </div>
+      <div class="q">
+        <h4>How do I know an answer is right?</h4>
+        <p>Every statement traces to a cited source. The grounding engine is retrieval-first: statutes, regulations and official guidance are ingested with validity tracking, and the system gives no answer where the corpus has no ground. VF built the architecture around the one failure this category cannot afford, confident wrongness.</p>
+      </div>
+      <div class="q">
+        <h4>When does it ship?</h4>
+        <p>Everyday-Law Navigator is in build. The first corpus covers tenancy and consumer law for the pilot jurisdictions, with grounding and boundary layers proven and a routing directory of advice services live. Employment and contract coverage follows. Register interest; real cases shape the corpus priorities.</p>
+      </div>
     </div>
   </div>
 </section>
-
 
 <section id="pricing">
   <div class="wrap">
     <div class="k rv">PLANNED PRICING</div>
-    <h2 class="rv">Priced for a dispute.<br><span class="mute">Not for a law firm.</span></h2>
-    <p class="lead rv">Generic chatbots are free and government guidance is free — so the basics stay free here too. You pay for the grounded layer: your jurisdiction, your documents, your deadlines.</p>
+    <h2 class="rv">Priced for a dispute.<br><span class="mute">Sized to the stakes.</span></h2>
+    <p class="lead rv">Generic chatbots are free and government guidance is free, so the basics stay free here too. You pay for the grounded layer: your jurisdiction, your documents, your deadlines.</p>
     <div class="stage orbit-3">
       <span class="hoverhint">Hover the cards to see every tier</span>
 <div class="card t-slate p1">
@@ -685,64 +640,127 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   </div>
     </div>
     
-    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+    <p class="pnote rv">Planned launch pricing; VF confirms final figures at each release. The price you join at is the price you renew at: no first-year bait, no renewal games.</p>
   </div>
 </section>
 
+
+<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sysreqgrid">
+      <div class="sysreqhead">
+        <div class="k rv">SYSTEM REQUIREMENTS</div>
+        <h2 class="rv">What you need to run it</h2>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
+      </div>
+      <dl class="sysreqrows rv">
+        <div class="sysreqrow"><dt>Device</dt><dd>Phone, tablet or browser.</dd></div>
+        <div class="sysreqrow"><dt>Coverage</dt><dd>MT + UK jurisdictions at launch; EU roadmap.</dd></div>
+        <div class="sysreqrow"><dt>Documents</dt><dd>Optional upload for grounded answers.</dd></div>
+        <div class="sysreqrow"><dt>Confidentiality</dt><dd>We never train models on what you upload.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<section id="related">
+  <div class="wrap">
+    <div class="k rv">RELATED SYSTEMS</div>
+    <h2 class="rv">Built the same way.<br><span class="mute">Read next.</span></h2>
+    <div class="related rv">
+      <a href="/systems/citizen-services-desk">
+        <span class="rk">P·12 · CIVIC</span>
+        <h4>Citizen Services Desk</h4>
+        <p>A citizen-services AI desk municipalities run on their own metal: local language, local control, European by architecture. On the VF build slate.</p>
+        <span class="go">Open →</span>
+      </a>
+      <a href="/systems/claims-advocate">
+        <span class="rk">P·13 · INSURANCE</span>
+        <h4>Claims Advocate</h4>
+        <p>Evidence assembly, policy analysis and appeal support for insurance claimants: the policyholder’s side of the table, equipped at last. On the VF build slate.</p>
+        <span class="go">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 
 <section class="cta-band">
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">The law already<br><span class="mute">protects you. Now find out how.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Everyday-Law Navigator is in build. If you’ve ever faced a dispute with no idea where you stood, register interest — real cases shape the corpus priorities.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Everyday-Law Navigator is in build. If you’ve ever faced a dispute with no idea where you stood, register interest. Real cases shape the corpus priorities.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Everyday-Law%20Navigator">info@vfempire.com</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="legal">
-    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
   </div>
 </div>
 
-<script>
-(() => {
-  const el = document.getElementById('consent');
-  if (localStorage.getItem('vf-consent')) { el.remove(); return; }
-  setTimeout(() => el.classList.add('show'), 1400);
-  const choose = v => { localStorage.setItem('vf-consent', v); el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
-  document.getElementById('cacc').onclick = () => choose('accepted');
-  document.getElementById('cdec').onclick = () => choose('declined');
-})();
-
-const io = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting && (e.intersectionRatio >= .18 || e.boundingClientRect.height > innerHeight * .6)){
-      e.target.classList.add('on');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:[0,.18]});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
-  [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
-});
-</script>
-<script src="/assets/scrollrail.js" defer></script>
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>

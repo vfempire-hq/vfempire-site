@@ -3,18 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VF Wallet — The EU identity wallet built for people | VF Empire</title>
-<meta name="description" content="P·22 on the VF build slate: a private-sector EU Digital Identity Wallet — full ARF conformance, user-inspectable audit log, zero-knowledge age proofs, Malta launch with day-one cross-border acceptance in Germany, France, Ireland and Italy.">
+<title>VF Wallet: EU identity wallet built for people | VF Empire</title>
+<meta name="description" content="Private-sector EU Digital Identity Wallet from VF Empire, Malta: full ARF conformance, zero-knowledge age proofs, an audit log you own, cross-border day one.">
 <link rel="canonical" href="https://vfempire.com/systems/vf-wallet">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/assets/house.76140f4c53.css">
+<script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="VF Wallet — the EU identity wallet built for people">
-<meta property="og:description" content="eIDAS 2.0 conformant, Malta-issued, cross-border by architecture. Zero-knowledge age proofs. User-owned audit log. Permanence Guarantee. Not government software.">
+<meta property="og:title" content="VF Wallet: EU identity wallet built for people">
+<meta property="og:description" content="Private-sector EU Digital Identity Wallet from VF Empire, Malta: full ARF conformance, zero-knowledge age proofs, an audit log you own, cross-border day one.">
 <meta property="og:url" content="https://vfempire.com/systems/vf-wallet">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p22.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:title" content="VF Wallet: EU identity wallet built for people">
+<meta name="twitter:description" content="Private-sector EU Digital Identity Wallet from VF Empire, Malta: full ARF conformance, zero-knowledge age proofs, an audit log you own, cross-border day one.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p22.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,57 +47,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.crumb{font-size:12px;color:var(--faint);letter-spacing:.02em}
-.crumb a{color:var(--dove)}
-.crumb a:hover{color:var(--core)}
-.crumb b{color:var(--ink);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-
-/* hero */
 .phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -100,8 +57,6 @@ h2 .mute{color:var(--faint)}
 .phero h1 span em{color:var(--core-deep)}
 .phero p.sub{max-width:500px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;aspect-ratio:1;max-width:520px;margin:0 auto;opacity:0;animation:up 1.1s .48s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
@@ -123,8 +78,8 @@ h2 .mute{color:var(--faint)}
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;display:flex;gap:16px;align-items:flex-start}
 .au.first{grid-column:1/-1;background:linear-gradient(140deg,#eff5ff,#fff);border-color:#c7dcff}
-.au .ic{width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center}
-.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au .ic{width:22px;height:22px;flex:0 0 22px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .au h4{font-size:17px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
 .au p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 .au .co{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
@@ -182,9 +137,6 @@ h2 .mute{color:var(--faint)}
 .foot h2{margin:0 auto;max-width:22ch}
 .foot .lead{margin:20px auto 32px}
 .foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.foot .fine{font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:60px}
-.foot .fine a{color:var(--dove);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
-.foot .fine a:hover{color:var(--core)}
 
 @media (max-width:900px){
   .phero{grid-template-columns:1fr}
@@ -192,9 +144,74 @@ h2 .mute{color:var(--faint)}
   .fails,.aud,.outs,.road,.docs{grid-template-columns:1fr}
   .mech{grid-template-columns:1fr}
   .sysreqgrid{grid-template-columns:1fr}
-  section{padding:80px 6vw}
 }
 </style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- seo-pass -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://vfempire.com/systems/vf-wallet#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an EU Digital Identity Wallet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Regulation (EU) 2024/1183 requires every member state to offer a digital identity wallet to every resident by end-2026, with a target of 80% adoption by 2030. National wallets will ship as government IT. VF Wallet is the private-sector alternative the Regulation itself permits: full ARF v1.4 conformance, Malta-issued, built by VF Empire for people."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I prove I am over 18 without revealing my date of birth?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, where the credential permits. VF Wallet uses zero-knowledge age proofs to prove age ≥ 18 without disclosing the date itself, integrated with the EU Age Verification App shipping end-2026. Before any disclosure the wallet displays every field the verifier asked for and warns on every over-broad request, so you present only what was requested."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who can see what I present?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only you can see it. Every presentation is recorded in an append-only audit log on your device, BLAKE3-chained and WSCD-signed, with the verifier's purpose statement verbatim, the fields disclosed and the session binding. It is exportable as PDF or JSON, included in your sealed sync blob for backup, and VF cannot see it. Panic-wipe destroys it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is VF Wallet accepted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Malta issuance on day one, with cross-border acceptance in Germany, France, Ireland and Italy via the EU Trust List. R·01 carries PID, QEAA, PuB-EAA, EAA and Age Verification proofs. R·02 adds the mobile driving licence (ISO 18013-5), health, employer and tax-residence attestations, business-entity wallets, and extends coverage to Austria, the Netherlands, Portugal, Spain and the rest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which phones does VF Wallet run on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iOS 17+ with the Apple Secure Enclave, and Android 12+ with StrongBox, including GrapheneOS, /e/OS and LineageOS with no Google Play Services dependency. A Yubikey NFC serves as the certified external fallback; signing keys never leave hardware. Recovery uses a 24-word phrase and new-device pairing, with 2-of-2 EU threshold recovery on the Plus tier and a duress PIN option."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does VF Wallet launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The R·01 launch target is 2027 Q1-Q2, pending seed close, the ARF conformance audit, Malta MCA notification and Trust-List entry: roughly seven months of parallel regulatory work from wave-3 code close, after 6 to 7 months of build. Two operators in different EU jurisdictions sign every release into a public Merkle transparency log, with CI mirrors in Berlin and Reykjavik."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -205,15 +222,41 @@ h2 .mute{color:var(--faint)}
       VF EMPIRE
     </a>
     <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·22 VF Wallet</b></span>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Register interest</a>
   </div>
 </nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
 
 <header class="phero">
   <div>
     <div class="eb"><b>P·22</b> &nbsp;·&nbsp; IDENTITY &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>VF Wallet<span>The EU identity wallet <em class="i">built for people.</em></span></h1>
-    <p class="sub">Every EU adult must have a digital identity wallet by end-2026. National wallets ship — the Regulation makes them mandatory — but they will ship as government IT: functional, ugly, single-jurisdiction. VF Wallet is the private-sector alternative — full ARF conformance, zero-knowledge age proofs, and an audit log you own that we cannot see.</p>
+    <p class="sub">Every EU adult must have a digital identity wallet by end-2026. National wallets will ship (the Regulation makes them mandatory) as government IT: functional, ugly, single-jurisdiction. VF Wallet is the private-sector alternative: full ARF conformance, zero-knowledge age proofs, and an audit log you own that we cannot see.</p>
     <div class="meta">
       <span class="mchip hot">SPEC-COMPLETE · R·01</span>
       <span class="mchip">MT · DE · FR · IE · IT</span>
@@ -227,7 +270,7 @@ h2 .mute{color:var(--faint)}
     </div>
   </div>
   <div class="pheroart">
-    <img src="../assets/pipe/p22.png" alt="VF Wallet — a matte-white identity card wrapped in a glowing blue ring, with a sapphire seal floating above it" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <picture><source type="image/avif" srcset="/assets/pipe/p22.png.avif"><source type="image/webp" srcset="/assets/pipe/p22.png.webp"><img alt="VF Wallet: a matte-white identity card wrapped in a glowing blue ring, with a sapphire seal floating above it" src="../assets/pipe/p22.png" width="1024" height="1344" fetchpriority="high"></picture>
     <div class="placeholder" style="display:none"></div>
   </div>
 </header>
@@ -236,23 +279,23 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">Every EU adult gets a wallet.<br><span class="mute">Someone should build a good one.</span></h2>
-    <p class="lead rv">Regulation (EU) 2024/1183 mandates that every member state offers a digital identity wallet to every resident by end-2026, with a target of 80% adoption by 2030. This is real, EU-level regulation, actively rolling out. Four failure modes are already visible in the national wallets pilot phase. One gap, filled by the private-sector alternative the Regulation itself permits.</p>
+    <p class="lead rv">Regulation (EU) 2024/1183 mandates that every member state offers a digital identity wallet to every resident by end-2026, with a target of 80% adoption by 2030. This is EU-level regulation, rolling out now. Four failure modes are visible in the national wallets pilot phase. One gap, filled by the private-sector alternative the Regulation itself permits.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
-        <h4>Built to comply, not to compete</h4>
-        <p>National wallets are contracted to systems integrators + delivered as government IT projects. They will pass conformance and they will be functional. Nobody is losing sleep over their UI.</p>
+        <h4>Built to comply rather than to compete</h4>
+        <p>States contract national wallets to systems integrators and deliver them as government IT projects. They will pass conformance and they will be functional. No one on those projects is losing sleep over the UI.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
         <h4>The government logs what you present</h4>
-        <p>Some national implementations retain server-side presentation logs — some for operational reasons, some by design. Users have no export path and no visibility of what's kept.</p>
+        <p>Some national implementations retain server-side presentation logs, for operational reasons or by design. Users have no export path and no visibility of what's kept.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>No serious answer if the vendor quits</h4>
-        <p>When a government wallet is retired or replaced, the users get whatever migration the state chooses. Historical precedent is not reassuring. Belkin killed Wemo in a Milan press release; states can be equally sudden.</p>
+        <p>If the state retires or replaces a government wallet, users get whatever migration the state chooses. Historical precedent is not reassuring. Belkin killed Wemo in a Milan press release; states can be equally sudden.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
@@ -273,7 +316,7 @@ h2 .mute{color:var(--faint)}
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V7l7-4z"/><path d="M9 12l2 2 4-5"/></svg></div>
         <div>
           <h4>Our own identities first</h4>
-          <p>The VF network runs across three jurisdictions — Malta, Germany, United Kingdom. Vincent, the operators, the sister companies — every VF identity goes through this wallet before any customer's does. The proof runs on our own floor.</p>
+          <p>The VF network runs across three jurisdictions: Malta, Germany, United Kingdom. Vincent, the operators and the sister companies all put their VF identity through this wallet before any customer does. The proof runs on our own floor.</p>
           <div class="co"><span>VF EMPIRE · MT</span><span>NOIRDA GMBH · DE</span><span>GUARDIAN NETWORK · UK</span></div>
         </div>
       </div>
@@ -281,14 +324,14 @@ h2 .mute{color:var(--faint)}
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></div>
         <div>
           <h4>Cross-border residents</h4>
-          <p>Anyone whose life is spread across two or three member states. Malta+Germany. Ireland+France. Italy+Netherlands. The daily paper cuts of proving identity across borders is the pain this product was designed for.</p>
+          <p>Anyone whose life is spread across two or three member states. Malta+Germany. Ireland+France. Italy+Netherlands. We designed this product for the daily paper cuts of proving identity across borders.</p>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 8l8-5 8 5-8 5z"/><path d="M4 14l8 5 8-5M4 11l8 5 8-5"/></svg></div>
         <div>
           <h4>Age-verification-first users</h4>
-          <p>Buying wine online. Age-gated forums. Every place you'd rather prove "over 18" without handing over a photograph of your driving licence. Zero-knowledge age proofs make the wallet earn its keep on day one.</p>
+          <p>Buying wine online. Age-gated forums. Any place you'd rather prove "over 18" without handing over a photograph of your driving licence. Zero-knowledge age proofs make the wallet earn its keep on day one.</p>
         </div>
       </div>
       <div class="au">
@@ -302,7 +345,7 @@ h2 .mute{color:var(--faint)}
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 21c-4-1.6-7-4.6-7-9V7l7-4 7 4v5c0 4.4-3 7.4-7 9z"/><path d="M9 11.5l2 2 4-4.5"/></svg></div>
         <div>
           <h4>The already-burned</h4>
-          <p>Everyone who watched a wallet, ledger, or trust-critical service get sold, enshittified, retired, or subpoenaed. This one is built the other way — Terms § 8 warranty, Permanence Guarantee, transparency log for every release.</p>
+          <p>Anyone who watched a wallet, ledger, or trust-critical service get sold, enshittified, retired, or subpoenaed. We built this one the other way: Terms § 16 warranty, Permanence Guarantee (Terms § 15), transparency log for every release.</p>
         </div>
       </div>
     </div>
@@ -313,12 +356,12 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">From "trust the state"<br><span class="mute">to "check the audit trail."</span></h2>
-    <p class="lead rv">Every national wallet asks users to trust the state's IT contractor. VF Wallet ships evidence instead. Selective disclosure verified per presentation. Audit log the user owns and we cannot see. Zero-knowledge age proofs where the credential permits. And every firmware release signed twice, in public, in different EU jurisdictions.</p>
+    <p class="lead rv">National wallets ask users to trust the state's IT contractor. VF Wallet ships evidence instead: selective disclosure verified per presentation, an audit log the user owns and we cannot see, zero-knowledge age proofs where the credential permits, and every firmware release signed twice, in public, in different EU jurisdictions.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">Only what the verifier asked for<span>.</span></div><p>Every field explicitly displayed before disclosure. Every over-broad request warned. Every disclosure recorded in <em>your</em> audit log — never ours.</p></div>
+      <div class="c"><div class="n">Only what the verifier asked for<span>.</span></div><p>The wallet displays every field before disclosure, warns on every over-broad request, and records every disclosure in <em>your</em> audit log, never ours.</p></div>
       <div class="c"><div class="n">Zero-knowledge where mathematics allows<span>.</span></div><p>Prove age ≥ 18 without revealing your date of birth. Integrated with the EU Age Verification App shipping end-2026. First-mover on the primitive.</p></div>
-      <div class="c"><div class="n">Verifiable end-to-end<span>.</span></div><p>Every firmware update signed by two operators in different EU jurisdictions. Recorded in a public Merkle transparency log. Reproducible builds validated by third-party CI mirrors in Berlin and Reykjavik.</p></div>
+      <div class="c"><div class="n">Verifiable end-to-end<span>.</span></div><p>Two operators in different EU jurisdictions sign every firmware update and record it in a public Merkle transparency log. Third-party CI mirrors in Berlin and Reykjavik validate the reproducible builds.</p></div>
     </div>
   </div>
 </section>
@@ -327,11 +370,11 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Four layers,<br><span class="mute">one honest wallet.</span></h2>
-    <p class="lead rv">R·01 ships as a Rust core with FFI bindings to Swift and Kotlin, a thin backend that never sees plaintext, and a reference verifier for third-party integrators. Every subsystem uses well-studied open primitives (Ed25519, X25519, Argon2id, XChaCha20-Poly1305, BLAKE3) plus two new sub-primitives added to `vf-privacy-kit` — `zk-age-proof` and `wsc-attestation`.</p>
+    <p class="lead rv">R·01 ships as a Rust core with FFI bindings to Swift and Kotlin, a thin backend that never sees plaintext, and a reference verifier for third-party integrators. Every subsystem uses well-studied open primitives (Ed25519, X25519, Argon2id, XChaCha20-Poly1305, BLAKE3) plus two new sub-primitives added to `vf-privacy-kit`: `zk-age-proof` and `wsc-attestation`. Like every VF system, it leaves the lab with the <a href="/engine" style="color:var(--core);font-weight:600">engine</a> fitted and the <a href="/harness" style="color:var(--core);font-weight:600">harness</a> tuned.</p>
 
     <div class="mech rv">
       <div class="mechart">
-        <img src="../assets/pipe/p22-mech.png" alt="Exploded diagram of the four wallet layers around a glowing blue kernel" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <picture><source type="image/avif" srcset="/assets/pipe/p22-mech.png.avif"><source type="image/webp" srcset="/assets/pipe/p22-mech.png.webp"><img alt="Exploded diagram of the four VF Wallet layers around a glowing blue kernel" src="../assets/pipe/p22-mech.png" width="1024" height="1344" loading="lazy" decoding="async"></picture>
         <div class="placeholder" style="display:none">
           <div class="dot"></div><div class="dot"></div><div class="dot"></div>
           <div class="dot"></div><div class="dot hot"></div><div class="dot"></div>
@@ -341,21 +384,27 @@ h2 .mute{color:var(--faint)}
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>App shell</h4></div>
-          <p>Native SwiftUI on iOS 17+; Kotlin/Compose on Android 12+ including GrapheneOS and /e/OS — zero Google Play Services dependency. The user-facing surface: consent screens, presentation flows, audit-log inspection, panic-wipe.</p>
+          <p>Native SwiftUI on iOS 17+; Kotlin/Compose on Android 12+ including GrapheneOS and /e/OS, with zero Google Play Services dependency. The user-facing surface: consent screens, presentation flows, audit-log inspection, panic-wipe.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>Audit log ring</h4></div>
-          <p>Append-only SQLite table on device, BLAKE3-chained, WSCD-signed. Every presentation recorded with the verifier's purpose statement verbatim, fields disclosed, session binding. Exportable as PDF or JSON. Included in the sealed sync blob for backup. Destroyed by panic-wipe.</p>
+          <p>Append-only SQLite table on device, BLAKE3-chained, WSCD-signed. It records every presentation with the verifier's purpose statement verbatim, fields disclosed, session binding. Exportable as PDF or JSON. Included in the sealed sync blob for backup. Panic-wipe destroys it.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>Credential vault</h4></div>
-          <p>SQLite database encrypted at rest with XChaCha20-Poly1305. Key derived from PIN via Argon2id (t=3, m=64 MiB, p=4). Stores credentials in their native format — mdoc for ISO 18013-7, SD-JWT-VC for attestations, zero-knowledge proofs for age verification.</p>
+          <p>SQLite database encrypted at rest with XChaCha20-Poly1305. Key derived from PIN via Argon2id (t=3, m=64 MiB, p=4). Stores credentials in their native format: mdoc for ISO 18013-7, SD-JWT-VC for attestations, zero-knowledge proofs for age verification.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>WSCD kernel</h4></div>
           <p>Wallet Secure Cryptographic Device. Apple Secure Enclave on iOS. Android StrongBox Keymaster on Android. Certified external hardware (Yubikey NFC) as fallback. Signing keys never leave hardware. Attestation to verifiers on request.</p>
         </div>
       </div>
+    </div>
+
+    <div class="related rv">
+      <a href="/systems/vf-legacy"><span class="rk">P·23 · DIGITAL ESTATE</span><h4>VF Legacy</h4><p>A sealed vault of last wishes, a 30-day grace trigger and executor packets for five EU jurisdictions.</p><span class="go">Open →</span></a>
+      <a href="/systems/guardian-shield"><span class="rk">P·18 · SECURITY</span><h4>Guardian Shield</h4><p>Vault, malware scanner, WireGuard VPN, DNS filter and breach watch on hardware you own.</p><span class="go">Open →</span></a>
+      <a href="/systems/vf-mail"><span class="rk">P·16 · EMAIL</span><h4>VF Mail</h4><p>Server, shield and address on metal we hold; the first @vfempire.com inboxes already run on it.</p><span class="go">Open →</span></a>
     </div>
   </div>
 </section>
@@ -389,7 +438,7 @@ h2 .mute{color:var(--faint)}
     <div class="docs rv">
       <div class="doc">
         <span class="dk">ENGINEERING SPEC</span>
-        <h4>VF Wallet — the full build plan</h4>
+        <h4>VF Wallet: the full build plan</h4>
         <p>Thirteen-section spec covering credential model, WSCD abstraction, selective disclosure, ARF §7 presentation protocols, thin backend architecture, Trust List integration, banned dependencies and the MCP server contract.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/vf-wallet/blob/main/docs/architecture/vf-wallet-spec.md">PUBLISHED · 2026-09-13 →</a></span>
       </div>
@@ -402,12 +451,12 @@ h2 .mute{color:var(--faint)}
       <div class="doc">
         <span class="dk">ARF CONFORMANCE DOSSIER</span>
         <h4>Requirement-by-requirement mapping</h4>
-        <p>The evidence pack VF submits to the accredited conformance-audit body. WSCD, selective disclosure, presentation protocols, Trust List integration, privacy commitments, cryptography — mapped section-by-section against ARF v1.4 with test evidence.</p>
+        <p>The evidence pack VF submits to the accredited conformance-audit body. WSCD, selective disclosure, presentation protocols, Trust List integration, privacy commitments, cryptography, mapped section-by-section against ARF v1.4 with test evidence.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/vf-wallet/blob/main/docs/legal/arf-conformance-dossier.md">PUBLISHED · 2026-09-13 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">INVESTOR PACK</span>
-        <h4>Full DD pack — 10 documents</h4>
+        <h4>Full DD pack, 10 documents</h4>
         <p>Executive summary, product, market and regulatory tailwind, traction targets, technology and IP, team plan, financials, risks, the ask (€2–4m seed for the five-product family) and portfolio context.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/vf-wallet/tree/main/docs/investor">PUBLISHED · 2026-09-13 →</a></span>
       </div>
@@ -421,7 +470,7 @@ h2 .mute{color:var(--faint)}
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What the wallet needs</h2>
-        <p class="lead rv">Everything on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Platforms</dt><dd>iOS 17+ and Android 12+. Web reference verifier (Next.js) for verifier developers only.</dd></div>
@@ -437,33 +486,100 @@ h2 .mute{color:var(--faint)}
   </div>
 </section>
 
+<section class="alt">
+  <div class="wrap">
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      <div class="q"><h4>What is an EU Digital Identity Wallet?</h4><p>Regulation (EU) 2024/1183 requires every member state to offer a digital identity wallet to every resident by end-2026, with a target of 80% adoption by 2030. National wallets will ship as government IT. VF Wallet is the private-sector alternative the Regulation itself permits: full ARF v1.4 conformance, Malta-issued, built by VF Empire for people.</p></div>
+      <div class="q"><h4>Can I prove I am over 18 without revealing my date of birth?</h4><p>Yes, where the credential permits. VF Wallet uses zero-knowledge age proofs to prove age ≥ 18 without disclosing the date itself, integrated with the EU Age Verification App shipping end-2026. Before any disclosure the wallet displays every field the verifier asked for and warns on every over-broad request, so you present only what was requested.</p></div>
+      <div class="q"><h4>Who can see what I present?</h4><p>Only you can see it. Every presentation is recorded in an append-only audit log on your device, BLAKE3-chained and WSCD-signed, with the verifier's purpose statement verbatim, the fields disclosed and the session binding. It is exportable as PDF or JSON, included in your sealed sync blob for backup, and VF cannot see it. Panic-wipe destroys it.</p></div>
+      <div class="q"><h4>Where is VF Wallet accepted?</h4><p>Malta issuance on day one, with cross-border acceptance in Germany, France, Ireland and Italy via the EU Trust List. R·01 carries PID, QEAA, PuB-EAA, EAA and Age Verification proofs. R·02 adds the mobile driving licence (ISO 18013-5), health, employer and tax-residence attestations, business-entity wallets, and extends coverage to Austria, the Netherlands, Portugal, Spain and the rest.</p></div>
+      <div class="q"><h4>Which phones does VF Wallet run on?</h4><p>iOS 17+ with the Apple Secure Enclave, and Android 12+ with StrongBox, including GrapheneOS, /e/OS and LineageOS with no Google Play Services dependency. A Yubikey NFC serves as the certified external fallback; signing keys never leave hardware. Recovery uses a 24-word phrase and new-device pairing, with 2-of-2 EU threshold recovery on the Plus tier and a duress PIN option.</p></div>
+      <div class="q"><h4>When does VF Wallet launch?</h4><p>The R·01 launch target is 2027 Q1-Q2, pending seed close, the ARF conformance audit, Malta MCA notification and Trust-List entry: roughly seven months of parallel regulatory work from wave-3 code close, after 6 to 7 months of build. Two operators in different EU jurisdictions sign every release into a public Merkle transparency log, with CI mirrors in Berlin and Reykjavik.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="foot">
   <div class="wrap">
     <div class="k rv">REGISTER INTEREST</div>
     <h2 class="rv">The wallet ships<br><span class="mute">after the audit clears.</span></h2>
-    <p class="lead rv">R·01 launch target 2027 Q1-Q2 pending seed close, ARF conformance audit, Malta MCA notification, and Trust-List entry — approximately seven months of parallel regulatory work from wave-3 code close.</p>
+    <p class="lead rv">R·01 launch target 2027 Q1-Q2 pending seed close, ARF conformance audit, Malta MCA notification, and Trust-List entry, approximately seven months of parallel regulatory work from wave-3 code close.</p>
 
     <div class="acts">
       <a class="bt pri" href="mailto:info@vfempire.com?subject=VF%20Wallet">Write to info@vfempire.com</a>
       <a class="bt gho" href="/software">Read the software thesis</a>
     </div>
-
-    <div class="fine">
-      VF Empire Corp Ltd · Malta C 94160 · VAT MT 2686-9431 · Virgo Louretana, Triq L-Mġarr, Għajnsielem, Gozo GSM1020, MT
-      &nbsp;·&nbsp; <a href="/">Home</a>
-      &nbsp;·&nbsp; <a href="/software">Software</a>
-      &nbsp;·&nbsp; <a href="/#pipeline">Pipeline</a>
-      &nbsp;·&nbsp; <a href="mailto:info@vfempire.com">Contact</a>
-    </div>
   </div>
 </section>
 
-<script>
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
-</script>
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
+  </div>
+</footer>
+
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
+  <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="dec" id="cdec">Decline</button>
+    <button class="acc" id="cacc">Accept</button>
+  </div>
+</div>
+
+
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>

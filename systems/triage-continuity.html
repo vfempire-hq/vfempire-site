@@ -3,17 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Triage & Continuity — Wellbeing Check-In That Routes to Humans | VF Empire</title>
-<meta name="description" content="Triage & Continuity by VF Empire — on-device wellbeing check-ins that route people to human care and remember the journey. Not another chatbot pretending to be a therapist. In build in Malta, EU.">
+<title>Triage & Continuity: Wellbeing bridge to care | VF Empire</title>
+<meta name="description" content="Triage & Continuity by VF Empire: on-device wellbeing check-ins that route people to human care and carry the journey record with them. In build in Malta, EU.">
 <link rel="canonical" href="https://vfempire.com/systems/triage-continuity">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Triage & Continuity — Not a therapist. The bridge to one.">
+<meta property="og:title" content="Triage & Continuity: The bridge to human care, and only the bridge">
 <meta property="og:description" content="Wellbeing check-ins on your own device, routing to human care, carrying your story so you never repeat it from zero. On the VF build slate.">
 <meta property="og:url" content="https://vfempire.com/systems/triage-continuity">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p06.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Triage & Continuity: The bridge to human care, and only the bridge">
+<meta name="twitter:description" content="Wellbeing check-ins on your own device, routing to human care, carrying your story so you never repeat it from zero. On the VF build slate.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p06.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,13 +33,15 @@
       "applicationCategory": "HealthApplication",
       "operatingSystem": "iOS, Android",
       "creator": {"@id": "https://vfempire.com/#org"},
+      "url": "https://vfempire.com/systems/triage-continuity",
+      "image": "https://vfempire.com/assets/pipe/p06.png",
       "description": "Triage & Continuity is a wellbeing system in development by VF Empire Corp Ltd: on-device check-ins, structured routing to human mental-health care, and continuity of the care journey with the user’s consent. It is a routing and continuity tool, not a diagnostic or therapeutic device."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
+        {"@type": "ListItem", "position": 2, "name": "Systems", "item": "https://vfempire.com/systems/"},
         {"@type": "ListItem", "position": 3, "name": "Triage & Continuity"}
       ]
     }
@@ -38,104 +49,46 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-/* house dot-rail scrollbar — native bar hidden, jade dot rendered by scrollrail.js */
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
-.phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
+.phero{padding:130px 6vw 60px;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
-  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%);border-bottom:1px solid var(--line)}
+.phero .in{min-height:calc(92vh - 190px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;width:min(1150px,100%);margin:0 auto}
 .phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .eb b{color:var(--core)}
 .phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.pheroart img{display:block;width:min(430px,84vw);height:auto;margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
 .fl:hover{background:#fff;padding-left:22px}
 .fl:hover::before{transform:scaleY(1)}
-.fl .num{font-size:13px;font-weight:600;color:var(--faint);letter-spacing:.1em;padding-top:3px}
+.fl .num{font-size:13px;font-weight:600;color:var(--dove);letter-spacing:.1em;padding-top:3px}
 .fl:hover .num{color:var(--core)}
 .fl h4{font-size:19px;font-weight:600;letter-spacing:-.025em}
 .fl p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 @media(max-width:880px){.fl{grid-template-columns:44px 1fr;gap:8px 16px}.fl p{grid-column:2}}
 
 /* image band */
-.band{margin-top:70px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#fff;position:relative}
-.band img{display:block;width:100%;mix-blend-mode:multiply}
+.band{margin:80px calc(50% - 50vw) 0;width:100vw;position:relative;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band img{display:block;width:100%;max-height:72vh;object-fit:cover;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
-.au .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au .ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .au h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
 .au p{font-size:13.5px;line-height:1.62;color:var(--dove)}
 .au.first{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:linear-gradient(160deg,#0e2a63,var(--core-deep) 55%,var(--core));border-color:transparent}
-.au.first .ic{background:rgba(255,255,255,.14)}
 .au.first .ic svg{stroke:#fff}
 .au.first h4{color:#fff}
 .au.first p{color:rgba(255,255,255,.75);max-width:640px}
@@ -143,7 +96,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -151,7 +104,10 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
+.pillars{margin-top:12px;font-size:14.5px}
+.pillars a{color:var(--core-deep);border-bottom:1px solid var(--line)}
+.pillars a:hover{color:var(--core);border-color:var(--core)}
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -165,28 +121,18 @@ h2 .mute{color:var(--faint)}
 /* roadmap */
 .road{margin-top:56px;border-top:1px solid var(--line)}
 .rd{display:grid;grid-template-columns:80px 1.1fr 1.6fr auto;align-items:center;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line)}
-.rd .num{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.14em}
+.rd .num{font-size:12px;font-weight:600;color:var(--dove);letter-spacing:.14em}
 .rd h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .rd p{font-size:13.5px;line-height:1.55;color:var(--dove)}
-.rd .st{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#2b3a55;background:var(--mist);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap}
-.rd .st.hot{color:#fff;background:var(--core);border-color:var(--core)}
-@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .st{grid-column:2;justify-self:start}}
-
-/* papers & code */
-.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
-.doc{background:#fff;border:1px dashed var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;gap:8px}
-.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
-.doc h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
-.doc p{font-size:13.5px;line-height:1.6;color:var(--dove)}
-.doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
-@media(max-width:880px){.docs{grid-template-columns:1fr}}
+@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .status{grid-column:2;justify-self:start}}
 
 
 /* ═══════════ pricing (revolver) ═══════════ */
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
 #pricing .wrap{width:min(1080px,100%);margin:0 auto;text-align:center}
 #pricing .stage{width:min(560px,100%);position:relative;margin:80px auto 60px;aspect-ratio:1.7/1;transform-style:preserve-3d}
-#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
+@media(max-width:600px){#pricing .stage{aspect-ratio:1.15/1;margin-top:60px}#pricing .card{padding:16px 16px 14px}#pricing .stats{grid-template-columns:1fr 1fr;gap:10px}#pricing .pricerow .pr{font-size:36px}#pricing .tiles{flex-wrap:wrap}}
+#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--dove);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
 #pricing .hoverhint::before,#pricing .hoverhint::after{content:'';width:32px;height:1px;background:var(--faint);opacity:.5}
 #pricing .stage:hover .hoverhint{opacity:.35}
 
@@ -296,7 +242,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -328,7 +274,7 @@ h2 .mute{color:var(--faint)}
   100%     {left:0;    opacity:1}
 }
 
-.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--dove);text-align:center}
 
 /* ═══════════ system requirements ═══════════ */
 #sysreq{padding:110px 6vw}
@@ -358,31 +304,18 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
-  .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
+  .phero{padding-top:110px}
+  .phero .in{grid-template-columns:1fr;min-height:0;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 
@@ -392,16 +325,43 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
       VF EMPIRE
     </a>
-    <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·06 Triage & Continuity</b></span>
+    <span class="crumb"><a href="/systems/">Systems</a> &nbsp;/&nbsp; <b>P·06 Triage & Continuity</b></span>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
   </div>
 </nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
 
 <header class="phero">
+<div class="in">
   <div>
     <div class="eb"><b>P·06</b> &nbsp;·&nbsp; HEALTH &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
-    <h1>Triage & Continuity<span>The bridge to human care,<br><em class="i">not the replacement for it.</em></span></h1>
-    <p class="sub">The mental-health system loses people twice: once in the months of waiting, and once in the retelling — every new professional, the same story from zero. Triage & Continuity is a check-in and routing system that keeps you moving toward human care, and carries your journey with you.</p>
+    <h1>Triage & Continuity<span>The bridge to human care,<br><em class="i">and only the bridge.</em></span></h1>
+    <p class="sub">The mental-health system loses people twice: once in the months of waiting, and once in the retelling, the same story from zero to each new professional. Triage & Continuity is a check-in and routing system that keeps you moving toward human care, and carries your journey with you.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD</span>
       <span class="mchip">ON-DEVICE FIRST</span>
@@ -413,30 +373,31 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p06.webp" alt="Minimal 3D render of two stepping stones joined by a blue thread — Triage & Continuity by VF Empire"></div>
+  <div class="pheroart"><img src="../assets/pipe/p06.webp" alt="Minimal 3D render of two stepping stones joined by a blue thread (Triage & Continuity by VF Empire)" width="896" height="1152" fetchpriority="high"></div>
+</div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">The waiting room is months long.<br><span class="mute">And nobody holds your file.</span></h2>
-    <p class="lead rv">Between the moment someone seeks help and the moment they sit across from a professional lies a gap the system was never built to manage — and a generation of AI chatbots rushed into it with promises they could not keep.</p>
+    <p class="lead rv">Between the moment someone seeks help and the moment they sit across from a professional lies a gap the system was never built to manage, and a generation of AI chatbots rushed into it with promises they could not keep.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>The wait is the wound</h4>
-        <p>In Germany, analyses prepared for the Bundestag document typical waits of three to six months for a therapy place. Demand for support keeps climbing across Europe — the front door of the system is where people are lost.</p>
+        <p>In Germany, analyses prepared for the Bundestag document typical waits of three to six months for a therapy place. Demand for support keeps climbing across Europe; the front door of the system is where people get lost.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
         <h4>The story resets every time</h4>
-        <p>GP to counsellor to therapist to crisis line — each handover starts from zero, and the retelling itself is a documented burden. Continuity of the journey is the unowned problem in mental-health care.</p>
+        <p>GP to counsellor to therapist to crisis line: each handover starts from zero, and the retelling itself is a documented burden. Continuity of the journey is the unowned problem in mental-health care.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>The chatbot era overpromised</h4>
-        <p>AI “therapist” apps have ended in shutdowns, FTC action over data sharing, and litigation over harms to vulnerable users. The lesson is not that software has no role — it is that pretending software is a clinician is the wrong role.</p>
+        <p>AI “therapist” apps have ended in shutdowns, FTC action over data sharing, and litigation over harms to vulnerable users. Software has a role; pretending it is a clinician is the wrong one.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
@@ -445,48 +406,47 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       </div>
     </div>
 
-    <div class="band rv">
-      <img src="../assets/pipe/p06-flow.png" alt="Abstract render of a path of stones crossing toward a lit doorway — the route to human care" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
-      <span class="cap">GERMANY: 3–6 MONTH TYPICAL WAITS FOR A THERAPY PLACE</span>
-    </div>
+    <figure class="band rv">
+      <img src="../assets/pipe/p06-flow.png" alt="Abstract render of a path of stones crossing toward a lit doorway: the route to human care" width="2304" height="1792" loading="lazy" decoding="async">
+      <figcaption class="cap">GERMANY: 3–6 MONTH TYPICAL WAITS FOR A THERAPY PLACE</figcaption>
+    </figure>
   </div>
 </section>
 
 <section id="who" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="k rv">WHO IT SERVES</div>
     <h2 class="rv">For the person<br><span class="mute">in the gap.</span></h2>
 
     <div class="aud rv">
       <div class="au first">
         <div>
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
         </div>
         <div>
           <h4>The person waiting for care</h4>
-          <p>The system’s first user is the person who has already asked for help and been handed a waiting time. Structured check-ins hold the thread, the record grows instead of resetting, and if things worsen, routing escalates — to humans, every time.</p>
+          <p>The system’s first user is the person who has already asked for help and been handed a waiting time. Structured check-ins hold the thread, the record grows instead of resetting, and if things worsen, routing escalates to humans, every time.</p>
           <div class="co"><span>ALREADY SEEKING HELP</span><span>MONTHS FROM A PLACE</span><span>JOURNEY HELD</span><span>HUMAN ESCALATION</span></div>
         </div>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
         <h4>Families & supporters</h4>
-        <p>The people carrying someone through the wait get guidance on what to watch for and where the real doors are — without ever seeing more than the person chooses to share.</p>
+        <p>The people carrying someone through the wait get guidance on what to watch for and where the real doors are, without seeing more than the person chooses to share.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
         <h4>Employers of care</h4>
         <p>Organisations that want to offer staff something honest: a private check-in and routing tool, structurally incapable of reporting anyone’s inner life to their employer.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
         <h4>Practitioners, on consent</h4>
-        <p>When the user chooses, a professional receives an arrival summary instead of a cold start — the journey so far, in minutes, not the first three sessions.</p>
+        <p>If the user chooses, a professional receives an arrival summary instead of a cold start: the journey so far, in minutes.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
         <h4>Underserved regions</h4>
-        <p>Places where the nearest practitioner is a ferry or a hundred kilometres away. Routing knows the real map of available care, including remote options.</p>
+        <p>Places where the nearest practitioner is a ferry or a hundred kilometres away. The routing directory holds the real map of available care, including remote options.</p>
       </div>
     </div>
   </div>
@@ -496,12 +456,12 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">Held, routed,<br><span class="mute">and never asked to start over.</span></h2>
-    <p class="lead rv">Triage & Continuity does three honest things: it checks in, it routes to human care, and it remembers — with the user owning every word of the record. It does not diagnose, does not treat, and does not pretend.</p>
+    <p class="lead rv">Triage & Continuity does three honest things: it checks in, it routes to human care, and it remembers, with the user owning every word of the record. It does not diagnose, does not treat, and does not pretend.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">A thread that holds<span>.</span></div><p>Structured check-ins across the waiting months — a felt trajectory made visible, so neither the person nor their eventual practitioner starts blind.</p></div>
-      <div class="c"><div class="n">The right door, faster<span>.</span></div><p>Routing built on the actual care landscape — GPs, therapists, community services, crisis lines — matched to need, location and urgency, with escalation paths that go straight to humans.</p></div>
-      <div class="c"><div class="n">Your story, portable<span>.</span></div><p>The journey record belongs to the user, on their device — shared with a chosen professional in one consented handover, never sold, never mined.</p></div>
+      <div class="c"><div class="n">A thread that holds<span>.</span></div><p>Structured check-ins across the waiting months: a felt trajectory made visible, so neither the person nor their eventual practitioner starts blind.</p></div>
+      <div class="c"><div class="n">The right door, faster<span>.</span></div><p>Routing built on the real care landscape (GPs, therapists, community services, crisis lines), matched to need, location and urgency, with escalation paths that go straight to humans.</p></div>
+      <div class="c"><div class="n">Your story, portable<span>.</span></div><p>The journey record belongs to the user, on their device, shared with a chosen professional in one consented handover, never sold, never mined.</p></div>
     </div>
   </div>
 </section>
@@ -510,18 +470,19 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">On the device.<br><span class="mute">Off the market.</span></h2>
-    <p class="lead rv">Data about a person’s inner life is the most sensitive class there is. The architecture answers accordingly: processing on the user’s own device, a record only the user holds, and routing logic that treats escalation to humans as the primary function — not a liability footnote.</p>
+    <p class="lead rv">Data about a person’s inner life is the most sensitive class there is. The architecture answers accordingly: processing on the user’s own device, a record only the user holds, and routing logic that treats escalation to humans as the primary function.</p>
+    <p class="lead rv pillars">Every VF system runs on the <a href="/harness">harness stack</a>, is steered by the <a href="/engine">Helmsman engine</a> and is watched from a <a href="/dashboards">command dashboard</a>.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p06-mech.png" alt="Layered render of a private device core with one blue continuity thread rising from it" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
+      <div class="mechart"><img src="../assets/pipe/p06-mech.png" alt="Layered render of a private device core with one blue continuity thread rising from it"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>The check-in layer</h4></div>
-          <p>Brief structured conversations and validated-questionnaire-style self-reports, processed on-device. Designed for consistency over the long haul, not engagement metrics.</p>
+          <p>Brief structured conversations and validated-questionnaire-style self-reports, processed on-device. Designed for consistency over the long haul, with no engagement metrics.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>The continuity record</h4></div>
-          <p>A longitudinal journal of check-ins, encrypted on the user’s device. The user reads it, exports it, deletes it. There is no server-side behavioural profile — by architecture.</p>
+          <p>A longitudinal journal of check-ins, encrypted on the user’s device. The user reads it, exports it, deletes it. There is no server-side behavioural profile, by architecture.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>The routing engine</h4></div>
@@ -529,7 +490,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>The handover surface</h4></div>
-          <p>Consented, structured summaries for the professional the user reaches — the journey so far, in clinical-friendly form, generated only when the user says so.</p>
+          <p>Consented, structured summaries for the professional the user reaches: the journey so far, in clinical-friendly form, generated only when the user says so.</p>
         </div>
       </div>
     </div>
@@ -538,71 +499,65 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="k rv">BUILD TRAJECTORY</div>
-    <h2 class="rv">Built with clinicians,<br><span class="mute">not instead of them.</span></h2>
+    <h2 class="rv">Built with clinicians,<br><span class="mute">every claim reviewed.</span></h2>
 
     <div class="road rv">
       <div class="rd">
         <span class="num">R·01</span>
         <h4>The check-in core</h4>
         <p>On-device check-in and continuity record, crisis escalation paths wired and tested, routing directory live for the pilot regions.</p>
-        <span class="st hot">IN BUILD</span>
+        <span class="status hot">IN BUILD</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
         <h4>The clinical loop</h4>
         <p>Practitioner handover format developed with working clinicians; routing coverage expanded; regulatory review of every claim the product makes.</p>
-        <span class="st">NEXT</span>
+        <span class="status">NEXT</span>
       </div>
       <div class="rd">
         <span class="num">R·03</span>
         <h4>The open bridge</h4>
         <p>General availability in initial EU markets, integrations with public referral systems where they exist, and multilingual delivery.</p>
-        <span class="st">PLANNED</span>
-      </div>
-    </div>
-
-    <div class="docs rv">
-      <div class="doc">
-        <span class="dk">WHITE PAPER</span>
-        <h4>What software should not pretend to be</h4>
-        <p>The VF position paper on mental-health AI: the case for routing-and-continuity over simulated therapy, and the regulatory line the product is built behind.</p>
-        <span class="tba">IN PREPARATION</span>
-      </div>
-      <div class="doc">
-        <span class="dk">REPOSITORY</span>
-        <h4>triage-continuity</h4>
-        <p>On-device record format and routing framework. The crisis-escalation logic will be publicly documented — that layer should never be a trade secret.</p>
-        <span class="tba">TBA</span>
+        <span class="status">PLANNED</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+<section id="faq" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="sysreqgrid">
-      <div class="sysreqhead">
-        <div class="k rv">SYSTEM REQUIREMENTS</div>
-        <h2 class="rv">What the person needs</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      <div class="q">
+        <h4>Is Triage & Continuity a therapist?</h4>
+        <p>No. It does three things: it checks in, it routes to human care, and it remembers, with the user owning every word of the record. It does not diagnose, does not treat, and does not pretend. The routing engine treats escalation to humans as the primary function, with crisis escalation hard-coded to human services.</p>
       </div>
-      <dl class="sysreqrows rv">
-        <div class="sysreqrow"><dt>Device</dt><dd>Phone or watch.</dd></div>
-        <div class="sysreqrow"><dt>Model</dt><dd>Local screening, EU-hosted continuity record.</dd></div>
-        <div class="sysreqrow"><dt>Practitioners</dt><dd>Optional link — you invite them, revocable.</dd></div>
-        <div class="sysreqrow"><dt>Crisis path</dt><dd>Always free, always on, no login required.</dd></div>
-      </dl>
+      <div class="q">
+        <h4>Where does my data go?</h4>
+        <p>It stays on your device. Check-ins are processed on-device and the continuity record is a longitudinal journal encrypted on your phone. You read it, export it, delete it. There is no server-side behavioural profile, by architecture, and the record is never sold or mined. A professional receives a summary only when you say so.</p>
+      </div>
+      <div class="q">
+        <h4>Who is it for?</h4>
+        <p>The person who has already asked for help and been handed a waiting time. It also serves families and supporters, employers who want to offer staff an honest private tool that cannot report anyone’s inner life to them, practitioners who receive a consented arrival summary, and regions where the nearest practitioner is a ferry away.</p>
+      </div>
+      <div class="q">
+        <h4>How does the handover to a professional work?</h4>
+        <p>On consent only. If you choose, the handover surface generates a structured summary of the journey so far, in clinical-friendly form, for the professional you reach. The practitioner gets an arrival summary in minutes instead of a cold start, and you never retell the story from zero.</p>
+      </div>
+      <div class="q">
+        <h4>When does it ship?</h4>
+        <p>Triage & Continuity is in build, with clinical review baked into the roadmap. The check-in core comes first: on-device check-ins, the continuity record, crisis escalation paths wired and tested, and the routing directory live for pilot regions. Practitioner handover developed with working clinicians follows, then general availability in initial EU markets.</p>
+      </div>
     </div>
   </div>
 </section>
-
 
 <section id="pricing">
   <div class="wrap">
     <div class="k rv">PLANNED PRICING</div>
     <h2 class="rv">The crisis path is free.<br><span class="mute">It always will be.</span></h2>
-    <p class="lead rv">Check-ins and crisis routing are never paywalled. The paid layer is continuity: the record that follows you between practitioners.</p>
+    <p class="lead rv">VF never paywalls check-ins and crisis routing. The paid layer is continuity: the record that follows you between practitioners.</p>
     <div class="stage orbit-3">
       <span class="hoverhint">Hover the cards to see every tier</span>
 <div class="card t-slate p1">
@@ -685,64 +640,133 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   </div>
     </div>
     
-    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+    <p class="pnote rv">Planned launch pricing; VF confirms final figures at each release. The price you join at is the price you renew at: no first-year bait, no renewal games.</p>
   </div>
 </section>
 
+
+<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sysreqgrid">
+      <div class="sysreqhead">
+        <div class="k rv">SYSTEM REQUIREMENTS</div>
+        <h2 class="rv">What the person needs</h2>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
+      </div>
+      <dl class="sysreqrows rv">
+        <div class="sysreqrow"><dt>Device</dt><dd>Phone or watch.</dd></div>
+        <div class="sysreqrow"><dt>Model</dt><dd>Local screening, EU-hosted continuity record.</dd></div>
+        <div class="sysreqrow"><dt>Practitioners</dt><dd>Optional link: you invite them, revocable.</dd></div>
+        <div class="sysreqrow"><dt>Crisis path</dt><dd>Always free, always on, no login required.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<section id="related">
+  <div class="wrap">
+    <div class="k rv">RELATED SYSTEMS</div>
+    <h2 class="rv">Built the same way.<br><span class="mute">Read next.</span></h2>
+    <div class="related rv">
+      <a href="/systems/private-care-watch">
+        <span class="rk">P·02 · ELDER CARE</span>
+        <h4>Private Care Watch</h4>
+        <p>Fall alerting and routine monitoring for ageing relatives, running on hardware in the home, never a cloud camera feed. On the VF build slate.</p>
+        <span class="go">Open →</span>
+      </a>
+      <a href="/systems/everyday-law-navigator">
+        <span class="rk">P·05 · LEGAL ACCESS</span>
+        <h4>Everyday-Law Navigator</h4>
+        <p>Plain-language legal information for tenancy, consumer, employment and everyday disputes: organised, sourced, honest about its limits. On the VF build slate.</p>
+        <span class="go">Open →</span>
+      </a>
+      <a href="/systems/different-minds-engine">
+        <span class="rk">P·10 · EDUCATION</span>
+        <h4>Different-Minds Engine</h4>
+        <p>Adaptive learning designed neurodivergent-first (dyslexia, ADHD, autism) with families and educators in the loop. On the VF build slate.</p>
+        <span class="go">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 
 <section class="cta-band">
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Software that knows<br><span class="mute">what it is not.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Triage & Continuity is in build, with clinical review baked into the roadmap. If you have lived the gap — or work in it — register interest. This one is built carefully.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Triage & Continuity is in build, with clinical review baked into the roadmap. If you have lived the gap, or work in it, register interest. We build this one with care.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Triage%20%26%20Continuity">info@vfempire.com</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="legal">
-    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
   </div>
 </div>
 
-<script>
-(() => {
-  const el = document.getElementById('consent');
-  if (localStorage.getItem('vf-consent')) { el.remove(); return; }
-  setTimeout(() => el.classList.add('show'), 1400);
-  const choose = v => { localStorage.setItem('vf-consent', v); el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
-  document.getElementById('cacc').onclick = () => choose('accepted');
-  document.getElementById('cdec').onclick = () => choose('declined');
-})();
-
-const io = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting && (e.intersectionRatio >= .18 || e.boundingClientRect.height > innerHeight * .6)){
-      e.target.classList.add('on');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:[0,.18]});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
-  [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
-});
-</script>
-<script src="/assets/scrollrail.js" defer></script>
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>
