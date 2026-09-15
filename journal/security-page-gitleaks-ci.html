@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The security page, with gitleaks in CI | VF Empire</title>
-<meta name="description" content="The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 8.">
+<meta name="description" content="The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 16.">
 <link rel="canonical" href="https://vfempire.com/journal/security-page-gitleaks-ci">
 <meta name="theme-color" content="#fbfbfd">
 <link rel="stylesheet" href="/house.css">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="VF Empire">
 <meta property="og:title" content="The security page, with gitleaks in CI">
-<meta property="og:description" content="The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 8.">
+<meta property="og:description" content="The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 16.">
 <meta property="og:url" content="https://vfempire.com/journal/security-page-gitleaks-ci">
 <meta property="article:published_time" content="2026-09-14T21:08:03+00:00">
 <meta property="article:author" content="https://vfempire.com/">
@@ -26,7 +26,7 @@
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The security page, with gitleaks in CI">
-<meta name="twitter:description" content="The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 8.">
+<meta name="twitter:description" content="The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 16.">
 <meta name="twitter:image" content="https://vfempire.com/assets/brand/og-default.png">
 <link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
@@ -59,7 +59,7 @@
       "@type": "Article",
       "@id": "https://vfempire.com/journal/security-page-gitleaks-ci#article",
       "headline": "The security page, with gitleaks in CI",
-      "description": "The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 8.",
+      "description": "The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 16.",
       "url": "https://vfempire.com/journal/security-page-gitleaks-ci",
       "mainEntityOfPage": {
         "@type": "WebPage",
@@ -132,7 +132,7 @@
       "@id": "https://vfempire.com/journal/security-page-gitleaks-ci",
       "url": "https://vfempire.com/journal/security-page-gitleaks-ci",
       "name": "The security page, with gitleaks in CI",
-      "description": "The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 8.",
+      "description": "The vfempire.com security page goes live: four public repositories scanned clean of secrets with gitleaks in pre-commit and CI, signed releases, Terms § 16.",
       "isPartOf": {
         "@id": "https://vfempire.com/#site"
       },
@@ -187,7 +187,7 @@
 <main class="article">
   <h1>The security page, with gitleaks in CI</h1>
   <div class="meta"><span class="tag">Build log</span><time datetime="2026-09-14T21:08:03+00:00">14 September 2026</time><span>VF Empire</span></div>
-<p>The <a href="/security">security page</a> went live on the evening of 14 September, wired into the nav, with a fix to the mirror script that copies source into <code>dist/</code>. It publishes the proof behind the products: signed releases with a 2-of-2 threshold across separated EU jurisdictions, reproducible builds from public source, a bug bounty from €500 to €25 000, a warrant canary refreshed every 30 days, and the Terms § 8 warranty enforceable in Malta.</p>
+<p>The <a href="/security">security page</a> went live on the evening of 14 September, wired into the nav, with a fix to the mirror script that copies source into <code>dist/</code>. It publishes the proof behind the products: signed releases with a 2-of-2 threshold across separated EU jurisdictions, reproducible builds from public source, a bug bounty from €500 to €25 000, a warrant canary refreshed every 30 days, and the Terms § 16 warranty enforceable in Malta.</p>
 <p>The centrepiece is the audit table. As of 2026-09-14 it shows four public repositories scanned, 64 commits inspected across complete git history, about 7 MB of code and history bytes, and zero secrets detected. The rows name the repositories, among them snapit-desktop (35 commits), vf-privacy-kit (4) and vfmail-desktop (6), each with a link to verify the result live. The scanner is gitleaks v8.24.2, with a ruleset of around 150 patterns covering cloud provider keys, Stripe keys, GitHub and GitLab tokens, private keys, OAuth and JWT secrets and database URLs.</p>
 <p>Four commits in the following half hour put the discipline into this repository itself. Gitleaks now runs at two gates: a pre-commit hook on the developer's machine, which refuses a commit that contains a secret, and a GitHub Actions workflow as the backstop, running on every push, every pull request and every Monday at 06:00 UTC against full history, with a finding blocking the merge. The workflow was then switched from the action wrapper to the gitleaks binary run directly, so it works the same on personal-account repositories, organisation-owned repositories and forks with no licence secret required. The README gained the security-scan badge, and the audit table gained house-styled CI pills.</p>
 <p>The same signing and transparency-log mechanisms the page describes are what the <a href="/services/signing-infrastructure">Signing Infrastructure</a> engagement builds for clients. The public repositories belong to <a href="/systems/snapit">SnapIT</a> and <a href="/systems/vf-mail">VF Mail</a> among others; the seven private ones, FileIT and Guardian Shield included, sit under the same gitleaks discipline until launch. The principles behind the page are on the <a href="/software">software page</a>.</p>
