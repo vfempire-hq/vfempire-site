@@ -257,7 +257,8 @@ if (IMAGES) {
     scan(path.join(DIST, 'assets'));
     let made = 0;
     for (const src of imgs) {
-      const base = src.replace(/\.(png|jpe?g)$/i, '');
+      // variants keep the source extension (p01.png.webp) so hand-made siblings like p01.webp are never overwritten
+      const base = src;
       const st = fs.statSync(src);
       for (const [ext, opts] of [['webp', { quality: 82 }], ['avif', { quality: 55, effort: 4 }]]) {
         const out = `${base}.${ext}`;
@@ -273,9 +274,8 @@ if (IMAGES) {
       let s = read(p);
       s = s.replace(/<img ([^>]*?)src="([^"]+\.(?:png|jpe?g))"([^>]*)>/g, (m, a, srcAttr, b) => {
         const abs = srcAttr.startsWith('/') ? srcAttr : srcAttr.startsWith('../') ? '/' + srcAttr.slice(3) : '/' + srcAttr;
-        const stem = abs.replace(/\.(png|jpe?g)$/i, '');
-        if (!fs.existsSync(path.join(DIST, `${stem}.webp`))) return m;
-        return `<picture><source type="image/avif" srcset="${stem}.avif"><source type="image/webp" srcset="${stem}.webp"><img ${a}src="${srcAttr}"${b}></picture>`;
+        if (!fs.existsSync(path.join(DIST, `${abs}.webp`))) return m;
+        return `<picture><source type="image/avif" srcset="${abs}.avif"><source type="image/webp" srcset="${abs}.webp"><img ${a}src="${srcAttr}"${b}></picture>`;
       });
       write(p, s);
     }
