@@ -7,10 +7,10 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vfempire.com/systems/self-filing-ledger</loc>
-    <lastmod>2026-09-11</lastmod>
+    <loc>https://vfempire.com/systems/fileit</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vfempire.com/systems/fuelit</loc>
@@ -50,12 +50,6 @@
   </url>
   <url>
     <loc>https://vfempire.com/systems/the-apprentice</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vfempire.com/systems/back-office-autopilot</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
