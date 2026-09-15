@@ -625,15 +625,15 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 
 <section id="status">
   <div class="wrap">
-    <div class="k rv">BUILD STATUS · 2026-09-15 · 122 TESTS GREEN · UK + MT LIVE</div>
-    <h2 class="rv">In build.<br><span class="mute">122 tests passing. UK + Malta both computing tax.</span></h2>
-    <p class="lead rv">FileIT is architecturally spec-complete + audit-reviewed, with real code shipping across the tax engine, both UK and Malta jurisdiction packs, and the HMRC MTD submission lane. Five engineering waves this session — Wave 1 (rule evaluator + UK rules + VAT100), Wave 2 (gateway + CI), Wave 3 (SA100 + ledger tests), Wave 4 (HMRC OAuth + submission), Wave 5 (Malta rule pack + multi-jurisdiction gateway dispatch) — 122 passing tests, two live jurisdictions computing real tax. Multi-month build remaining for full-jurisdiction coverage (DE + IE) + HMRC software recognition + real live production submissions — we still won't take a subscription payment until every filing lane is live + independently verifiable.</p>
+    <div class="k rv">BUILD STATUS · 2026-09-15 · 123 TESTS · E2E PIPELINE VERIFIED</div>
+    <h2 class="rv">In build.<br><span class="mute">End-to-end pipeline works: rules → compute → return → sign → submit.</span></h2>
+    <p class="lead rv">FileIT is architecturally spec-complete + audit-reviewed, with real code shipping across the tax engine, UK + Malta jurisdiction packs, HMRC MTD submission lane, and — <b>as of Wave 6</b> — a working end-to-end integration test that walks the full critical path from rule-pack load through mock-HMRC submission in a single Vitest run. Six engineering waves this session, 123 passing tests, two live jurisdictions, the HMRC MTD OAuth + submission lane real. The e2e test asserts HMRC receives the exact numbers the tax engine computed — zero drift between rule-pack output and wire-level submission. Multi-month build remaining for full-jurisdiction coverage (DE + IE) + HMRC software recognition + real live production submissions — we still won't take a subscription payment until every filing lane is live + independently verifiable.</p>
 
     <div class="outs rv" style="grid-template-columns:repeat(2,1fr);margin-top:52px">
       <div class="c">
         <div class="n">What ships today<span>.</span></div>
         <p>Full architecture spec (10 ADRs), threat + privacy models + DPIA, 4 jurisdiction compliance dossiers, 11-doc investor pack. <b>Working code + 122 passing tests</b>: safe-expression rule evaluator (recursive-descent, 9 builtins, no eval), <b>6 UK 2026-27 rules</b> against real HMRC rates, <b>2 Malta 2026 rules</b> against real CFR rates (VAT 18% + PIT single-status band 1), <b>VAT100 + SA100</b> HMRC MTD field mappers, gateway ledger + tax routes with multi-jurisdiction dispatch (UK + MT live, DE + IE stub) + Ed25519 client-sig + TOFU binding + cross-protocol-replay guard + origin-signed responses, <b>HMRC MTD adapter</b> with OAuth 2.0 token refresh + VAT100/SA100 submission clients (sandbox default, production-gated by env). CI + FSL-1.1-ALv2 source.</p>
-        <div class="sub">Verifiable at <b><a href="https://github.com/vfempire-hq/fileit" style="color:var(--core-deep)">github.com/vfempire-hq/fileit</a></b> · latest commit <b>358afae</b></div>
+        <div class="sub">Verifiable at <b><a href="https://github.com/vfempire-hq/fileit" style="color:var(--core-deep)">github.com/vfempire-hq/fileit</a></b> · latest commit <b>ee8742c</b> · <a href="https://github.com/vfempire-hq/fileit/blob/main/services/filing-service/src/end-to-end.test.ts" style="color:var(--core-deep)">e2e test ▸</a></div>
       </div>
       <div class="c">
         <div class="n">What still needs building<span>.</span></div>
