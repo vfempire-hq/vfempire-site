@@ -100,45 +100,14 @@
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
 /* mechanics: the stack */
-/* Scroll-linked mechanics reveal. Replaces the static two-column grid.
-   Sticky SVG diagram on the left with 5 concentric rings; each ring
-   highlights as its subsystem's copy passes the middle of the viewport
-   on the right. */
-.mech{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:56px;position:relative}
-.mechart{position:sticky;top:80px;height:min(700px,90vh);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px 0}
-.mechart svg{width:100%;max-width:520px;height:auto;display:block}
-.mechart .ring{fill:none;stroke:var(--line);stroke-width:1.5;transition:stroke .55s cubic-bezier(.2,.7,.2,1),stroke-width .55s cubic-bezier(.2,.7,.2,1),filter .55s cubic-bezier(.2,.7,.2,1)}
-.mechart .ring.active{stroke:var(--core);stroke-width:2.5;filter:drop-shadow(0 0 12px rgba(31,111,242,.4))}
-.mechart .core{fill:var(--ink);transition:fill .55s cubic-bezier(.2,.7,.2,1)}
-.mechart .core-glow{fill:var(--core);opacity:0;transition:opacity .8s cubic-bezier(.2,.7,.2,1);transform-origin:center;transform:scale(.5);animation:none}
-.mechart .core-glow.active{opacity:.18;transform:scale(1);animation:mechPulse 3.6s ease-in-out infinite}
-@keyframes mechPulse{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(1.08);opacity:.28}}
-.mechart .counter{margin-top:28px;text-align:center;font-family:'Instrument',serif;font-size:88px;line-height:1;color:var(--core);letter-spacing:-.04em;font-style:italic;font-weight:400;transition:opacity .35s}
-.mechart .counter .n{display:inline-block;min-width:1.2em;text-align:right}
-.mechart .counter .of{color:var(--faint);font-size:.55em;letter-spacing:.02em;font-style:italic}
-.mechart .counter-label{text-align:center;font-size:11px;letter-spacing:.28em;color:var(--dove);text-transform:uppercase;font-weight:600;margin-top:6px}
-
-.layers{display:flex;flex-direction:column;gap:0}
-.ly{min-height:70vh;display:flex;flex-direction:column;justify-content:center;padding:24px 4px;border-top:1px solid var(--line);opacity:.35;transition:opacity .55s cubic-bezier(.2,.7,.2,1)}
-.ly:last-child{border-bottom:1px solid var(--line)}
-.ly.active{opacity:1}
-.ly .lt{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
-.ly .lt i{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--core)}
-.ly h4{font-size:32px;font-weight:600;letter-spacing:-.025em;line-height:1.1}
-.ly p{font-size:15px;line-height:1.62;color:var(--dove)}
-
-@media(max-width:880px){
-  .mech{grid-template-columns:1fr;gap:20px}
-  .mechart{position:relative;top:auto;height:auto;padding:12px 0 24px}
-  .mechart svg{max-width:320px}
-  .mechart .counter{font-size:60px}
-  .ly{min-height:auto;padding:36px 4px;opacity:1}
-  .ly h4{font-size:22px}
-}
-@media(prefers-reduced-motion:reduce){
-  .mechart .ring,.mechart .core,.mechart .core-glow,.ly{transition:none}
-  .mechart .core-glow.active{animation:none}
-}
+.mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
+.mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
+.layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.ly{padding:24px 4px;border-bottom:1px solid var(--line)}
+.ly .lt{display:flex;align-items:baseline;gap:12px}
+.ly .lt i{font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.16em;color:var(--core)}
+.ly h4{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.ly p{font-size:13.5px;line-height:1.62;color:var(--dove);margin-top:7px}
 @media(max-width:880px){.mech{grid-template-columns:1fr}}
 
 /* roadmap */
@@ -571,52 +540,27 @@
     <p class="lead rv">R·01 ships five subsystems; everything else is backlogged. Each subsystem uses well-studied open primitives (ClamAV, YARA, WireGuard-Go, HIBP, OpenPhish, age, Argon2): no proprietary black boxes, no commercial threat-intel SDKs, no third-party analytics on any code path that touches user data. Every other VF product also depends on Guardian Shield for its own defence: the vault primitive that seals VF Wallet, VF Legacy, VF Home + VF Mail; the DNS filter that runs on every VF machine; the scanner that verifies our own signed binaries. <a href="/security" style="color:var(--core);font-weight:600">See the live security audit ▸</a> Like every VF system, it leaves the lab with the <a href="/engine" style="color:var(--core);font-weight:600">engine</a> fitted and the <a href="/harness" style="color:var(--core);font-weight:600">harness</a> tuned.</p>
 
     <div class="mech rv">
-      <!-- STICKY LEFT: 5-ring shield diagram + scroll counter -->
-      <div class="mechart" aria-hidden="true">
-        <svg viewBox="0 0 400 400" role="img" aria-label="Guardian Shield: five concentric rings representing the five subsystems">
-          <!-- Rings from outer to inner. data-layer maps to the subsystem number
-               so the JS can toggle .active in sync with the copy on the right. -->
-          <circle class="ring" data-layer="5" cx="200" cy="200" r="180"></circle>
-          <circle class="ring" data-layer="4" cx="200" cy="200" r="145"></circle>
-          <circle class="ring" data-layer="3" cx="200" cy="200" r="112"></circle>
-          <circle class="ring" data-layer="2" cx="200" cy="200" r="82"></circle>
-          <circle class="ring" data-layer="1" cx="200" cy="200" r="54"></circle>
-          <!-- Central shield glyph: expands + pulses when any ring is active -->
-          <circle class="core-glow" cx="200" cy="200" r="30"></circle>
-          <path class="core" d="M200 178 L215 184 L215 200 Q215 214 200 222 Q185 214 185 200 L185 184 Z"></path>
-        </svg>
-        <div class="counter">
-          <span class="n" data-mech-counter>01</span><span class="of"> / 05</span>
+      <div class="mechart"><picture><source type="image/avif" srcset="/assets/pipe/p18-mech.png.avif"><source type="image/webp" srcset="/assets/pipe/p18-mech.png.webp"><img alt="Five circles orbiting a glowing blue core: the five subsystems of Guardian Shield" src="../assets/pipe/p18-mech.png" width="2304" height="1792" loading="lazy" decoding="async"></picture></div>
+      <div class="layers">
+        <div class="ly">
+          <div class="lt"><i>SUBSYSTEM 1</i><h4>Password vault</h4></div>
+          <p>Argon2id-wrapped XChaCha20-Poly1305 vault. Autofill on iOS, Android and desktop browsers. Cross-device sync via sealed opaque blobs; we never see the plaintext. Recovery via existing-device confirmation, 24-word recovery code, or a 30-day grace-delay window. Master-password loss is unrecoverable by design.</p>
         </div>
-        <div class="counter-label" data-mech-label>The vault</div>
-      </div>
-
-      <!-- SCROLLING RIGHT: five subsystems, each tall enough to be its own scroll moment -->
-      <div class="layers" data-mech-layers>
-        <div class="ly" data-layer="1" data-label="The vault">
-          <div class="lt"><i>SUBSYSTEM 01</i></div>
-          <h4>Password vault<span style="display:block;color:var(--dove);font-weight:400;font-size:.62em;letter-spacing:-.01em;margin-top:8px">Argon2id-wrapped XChaCha20-Poly1305. Sealed at rest, sealed in transit.</span></h4>
-          <p>Autofill on iOS, Android and desktop browsers. Cross-device sync via sealed opaque blobs; we never see the plaintext. Recovery via existing-device confirmation, 24-word recovery code, or a 30-day grace-delay window. Master-password loss is unrecoverable by design.</p>
+        <div class="ly">
+          <div class="lt"><i>SUBSYSTEM 2</i><h4>Malware scanner</h4></div>
+          <p>ClamAV + YARA, both local, both sandboxed. Signatures updated via daily Ed25519-signed packs published through a public Merkle-tree transparency log. Files never leave the device. Detection floor set at 85% on the AV-TEST reference set; below that for 30 days and we pause new signups until fixed.</p>
         </div>
-        <div class="ly" data-layer="2" data-label="Malware scanner">
-          <div class="lt"><i>SUBSYSTEM 02</i></div>
-          <h4>Malware scanner<span style="display:block;color:var(--dove);font-weight:400;font-size:.62em;letter-spacing:-.01em;margin-top:8px">ClamAV and YARA, both local, both sandboxed.</span></h4>
-          <p>Signatures updated via daily Ed25519-signed packs published through a public Merkle-tree transparency log. Files never leave the device. Detection floor set at 85% on the AV-TEST reference set; below that for 30 days and we pause new signups until fixed.</p>
+        <div class="ly">
+          <div class="lt"><i>SUBSYSTEM 3</i><h4>WireGuard VPN</h4></div>
+          <p>wireguard-go client. Three VF-operated exits (Zurich, Reykjavik, Amsterdam) or bring-your-own Mullvad/IVPN config. Kill-switch enforced at the OS firewall. 24-hour iptables audit rotation, 30-minute conntrack timeout, annual third-party audit, warrant canary refreshed every 30 days.</p>
         </div>
-        <div class="ly" data-layer="3" data-label="WireGuard VPN">
-          <div class="lt"><i>SUBSYSTEM 03</i></div>
-          <h4>WireGuard VPN<span style="display:block;color:var(--dove);font-weight:400;font-size:.62em;letter-spacing:-.01em;margin-top:8px">Three VF-operated exits or bring your own Mullvad/IVPN config.</span></h4>
-          <p>wireguard-go client. Exits in Zurich, Reykjavik and Amsterdam. Kill-switch enforced at the OS firewall. 24-hour iptables audit rotation, 30-minute conntrack timeout, annual third-party audit, warrant canary refreshed every 30 days.</p>
+        <div class="ly">
+          <div class="lt"><i>SUBSYSTEM 4</i><h4>DNS + URL filter</h4></div>
+          <p>System-wide blocklist matching at the OS resolver: <em>NEDNSSettings</em> on iOS, <em>PrivateDnsSettings</em> on Android, <em>NEDNSProxyProvider</em> on macOS, <em>systemd-resolved</em> on Linux, DoH on Windows. Blocklist rebuilt daily from OpenPhish, AbuseCH URLhaus, Steven Black hosts, Quad9 policy replication.</p>
         </div>
-        <div class="ly" data-layer="4" data-label="DNS + URL filter">
-          <div class="lt"><i>SUBSYSTEM 04</i></div>
-          <h4>DNS and URL filter<span style="display:block;color:var(--dove);font-weight:400;font-size:.62em;letter-spacing:-.01em;margin-top:8px">System-wide blocklist matching at the OS resolver.</span></h4>
-          <p><em>NEDNSSettings</em> on iOS, <em>PrivateDnsSettings</em> on Android, <em>NEDNSProxyProvider</em> on macOS, <em>systemd-resolved</em> on Linux, DoH on Windows. Blocklist rebuilt daily from OpenPhish, AbuseCH URLhaus, Steven Black hosts, Quad9 policy replication.</p>
-        </div>
-        <div class="ly" data-layer="5" data-label="Breach watch">
-          <div class="lt"><i>SUBSYSTEM 05</i></div>
-          <h4>Breach watch<span style="display:block;color:var(--dove);font-weight:400;font-size:.62em;letter-spacing:-.01em;margin-top:8px">Zero-knowledge. HIBP sees us; never you.</span></h4>
-          <p>The client hashes your password locally; only the first 5 characters travel. Our relay strips IPs and batches lookups before hitting Have I Been Pwned. Neither party can identify who is checking what.</p>
+        <div class="ly">
+          <div class="lt"><i>SUBSYSTEM 5</i><h4>Breach watch (zero-knowledge)</h4></div>
+          <p>The client hashes your password locally; only the first 5 characters travel. Our relay strips IPs and batches lookups before hitting Have I Been Pwned. HIBP sees us; never you. Neither party can identify who is checking what.</p>
         </div>
       </div>
     </div>
@@ -885,7 +829,6 @@
 
 
 <script src="/assets/house.js" defer></script>
-<script src="/assets/page/systems-guardian-shield.js" defer></script>
 
 </body>
 </html>
