@@ -4,21 +4,35 @@
 
 Key facts: founded 2019; based in Għajnsielem, Gozo, Malta; network companies Noirda GmbH (Germany) and Guardian Network (UK); contact info@vfempire.com. All products are local-first, EU-sovereign, ship with no third-party AI on user-data paths, and carry the Permanence Guarantee (refund plus source release if a product is discontinued; see Terms § 8).
 
+## The method (pillar pages)
+
+- [Helmsman Engine](https://vfempire.com/engine): VF Empire's orchestration engine; routes work across open models, gates every output against evidence, self-heals failures.
+- [Harness Stack](https://vfempire.com/harness): what an AI harness is in VF's sense: process supervision, self-heal loops, project memory, evidence discipline.
+- [Command Dashboards](https://vfempire.com/dashboards): fleet, lane, cost and outcome control surfaces for every VF system.
+- [Glossary](https://vfempire.com/glossary): twenty defined terms (sovereign AI, harness, gate, reproducible build, transparency log, CRA, DPIA, SBOM, ARF and more).
+
 ## Company
 
 - [Homepage](https://vfempire.com/): the engine room (Helmsman engine, harness stack, command dashboards), research lanes, divisions, the build slate, the AI Training Centre, FAQ.
 - [Software you own](https://vfempire.com/software): the five failures of modern software and the five VF principles that answer them.
 - [Security posture](https://vfempire.com/security): public repositories scanned clean of secrets, signed releases, reproducible builds, bug bounty, Terms § 8 warranty.
 - [Contact](https://vfempire.com/contact/): every desk, who reads it, and reply times.
+- [About](https://vfempire.com/about): founding (2019), registration (Malta C 94160), the network companies, the people.
+- [Permanence Guarantee](https://vfempire.com/permanence-guarantee): what happens to every VF product if it is ever discontinued.
+- [AI Training Centre](https://vfempire.com/training-centre): open-model fitting, harness engineering, dashboard design and utilisation labs; first intake forming.
+- [Journal](https://vfempire.com/journal/): the dated build log, with [RSS](https://vfempire.com/journal/feed.xml) and [JSON Feed](https://vfempire.com/journal/feed.json).
+- [Press](https://vfempire.com/press) and [Careers](https://vfempire.com/careers).
 
 ## Services (fixed fee, EU)
 
+- [All services](https://vfempire.com/services/): the three engagements compared side by side.
 - [CRA Readiness Audit](https://vfempire.com/services/cra-readiness-audit): 2 weeks, €12-18k, gap analysis and remediation roadmap against Cyber Resilience Act Annex I and II.
 - [Threat Model + DPIA Drafting](https://vfempire.com/services/threat-model-dpia): 3-4 weeks, €18-30k, regulator-ready threat model and data protection impact assessment.
 - [Signing Infrastructure + SBOM Blueprint](https://vfempire.com/services/signing-infrastructure): 4-6 weeks, €25-40k, signed updates, transparency log, SBOM pipeline, reproducibility CI.
 
 ## Products and systems on the build slate
 
+- [All 23 systems](https://vfempire.com/systems/): the filterable product index.
 - [FileIT](https://vfempire.com/systems/fileit): the self-filing ledger, direct to HMRC MTD, ELSTER, CFR and ROS.
 - [FuelIT](https://vfempire.com/systems/fuelit): the cheapest litre on your route across nine EU countries, with sovereign navigation.
 - [NAV·IT](https://vfempire.com/systems/nav-it): self-hosted turn-by-turn navigator on open map data; ships inside FuelIT and MapIT.
@@ -43,6 +57,10 @@ Key facts: founded 2019; based in Għajnsielem, Gozo, Malta; network companies N
 - [Claims Advocate](https://vfempire.com/systems/claims-advocate): AI on the policyholder's side.
 - [Offline-First Response](https://vfempire.com/systems/offline-first-response): emergency coordination that survives the blackout.
 
+## Comparisons
+
+- [VF Mail vs Proton Mail](https://vfempire.com/compare/vf-mail-vs-proton-mail), [Guardian Shield vs Bitwarden](https://vfempire.com/compare/guardian-shield-vs-bitwarden), [NAV·IT vs Google Maps](https://vfempire.com/compare/nav-it-vs-google-maps): architecture, key custody, business model and jurisdiction, side by side.
+
 ## Legal
 
-- [Terms of Service](https://vfempire.com/legal/terms), [Privacy Policy](https://vfempire.com/legal/privacy), [Cookie Policy](https://vfempire.com/legal/cookies), [security.txt](https://vfempire.com/.well-known/security.txt).
+- [Terms of Service](https://vfempire.com/legal/terms), [Privacy Policy](https://vfempire.com/legal/privacy), [Cookie Policy](https://vfempire.com/legal/cookies), [Security policy](https://vfempire.com/legal/security-policy), [security.txt](https://vfempire.com/.well-known/security.txt).

@@ -10,7 +10,7 @@ Idempotent. Run from the repo root with page paths as arguments.
 import re, sys, json, html, pathlib
 
 ORG = "https://vfempire.com/#org"
-DEFAULT_IMG = "https://vfempire.com/assets/hero-core.png"
+DEFAULT_IMG = "https://vfempire.com/assets/brand/og-default.png"
 SERVICE_OFFERS = {
     'cra-readiness-audit': (12000, 18000, 'P2W', 'CRA Readiness Audit'),
     'threat-model-dpia': (18000, 30000, 'P4W', 'Threat Model + DPIA Drafting'),
@@ -77,8 +77,8 @@ def process(path: pathlib.Path):
     want(r'property="og:url"', f'<meta property="og:url" content="{canonical}">')
     want(r'property="og:image"', f'<meta property="og:image" content="{og_img}">')
     if og_img == DEFAULT_IMG:
-        want(r'property="og:image:width"', '<meta property="og:image:width" content="1344">')
-        want(r'property="og:image:height"', '<meta property="og:image:height" content="768">')
+        want(r'property="og:image:width"', '<meta property="og:image:width" content="1200">')
+        want(r'property="og:image:height"', '<meta property="og:image:height" content="630">')
     want(r'property="og:locale"', '<meta property="og:locale" content="en_GB">')
     want(r'name="twitter:card"', '<meta name="twitter:card" content="summary_large_image">')
     want(r'name="twitter:title"', f'<meta name="twitter:title" content="{qt}">')

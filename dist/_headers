@@ -9,12 +9,12 @@
 #   - Clickjacking + MIME-sniffing + referrer-leak protection.
 #   - Full HTTPS lock-in for the domain + all subs.
 #
-# The CSP allows 'unsafe-inline' for <style> and <script> because the site
-# ships hand-authored inline blocks (no user input reaches them). Everything
-# else is 'self' only — no external origins period.
+# The CSP allows 'unsafe-inline' for <style> only: pages carry their own
+# layout CSS. Scripts are files under /assets (the build extracts any inline
+# script). Everything else is 'self' only: no external origins, period.
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; frame-ancestors 'none'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; frame-ancestors 'none'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY

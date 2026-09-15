@@ -27,12 +27,19 @@ Every claim above is verifiable by inspecting `dist/`.
 vfempire-site/
 ├── index.html              # Homepage (mirrored to dist/index.html on deploy)
 ├── house.css               # Shared house stylesheet: tokens, type scale, nav, buttons, footer, consent
-├── systems/                # Product pages, 21 as of this commit
+├── build.mjs               # The one build step (see Build)
+├── CLAUDE.md               # Standing rules for every change (voice, visual system, SEO checklist)
+├── engine.html, harness.html, dashboards.html   # Pillar pages for the house method
+├── about.html, press.html, careers.html, training-centre.html, permanence-guarantee.html, glossary.html
+├── journal/                # The build log, one page per entry, RSS + JSON feeds
+├── compare/                # Product comparison pages
+├── services/               # Services index + the three fixed-fee engagements
+├── systems/                # Product index + 23 product pages
 │   ├── _build.mjs          # Generator for the templated product pages (node systems/_build.mjs)
 │   └── content-*.mjs       # Content packs the generator reads; edit these, not the generated HTML
 ├── legal/                  # Terms, privacy, cookies
 ├── contact/                # Contact page
-├── assets/                 # Images, fonts, scripts
+├── assets/                 # Renders, scripts, brand kit (assets/brand, see docs/BRAND.md)
 ├── fonts/                  # Self-hosted webfonts
 ├── llms.txt                # Plain-text site map for language-model agents (AEO)
 ├── sitemap.xml
@@ -45,6 +52,27 @@ vfempire-site/
 │   └── (mirror of source structure)
 └── docs/                   # Internal documentation
 ```
+
+## Build
+
+One build step produces everything Cloudflare serves:
+
+```
+npm ci                      # sharp (image variants), fontkit + wawoff2 (brand kit)
+node build.mjs              # generated product pages, shared partials on every page,
+                            # sitemap.xml from git dates, dist/ with a hashed stylesheet
+                            # and AVIF/WebP variants of every image
+node build.mjs --no-images  # the same without the image pipeline (seconds)
+python3 scripts/verify.py   # copy voice, JSON-LD, tags, SEO fields, house rules
+python3 scripts/linkcheck.py
+```
+
+`node build.mjs --check` (CI) fails if the build would change a committed file, so
+source, partials, sitemap and `dist/` can never drift. Product copy for the templated
+pages lives in `systems/content-*.mjs`; the brand kit is regenerated with
+`node scripts/brand-kit.mjs` (see `docs/BRAND.md`); the asset inventory with
+`node scripts/assets-inventory.mjs` (see `docs/ASSETS.md`). `CLAUDE.md` holds the
+standing rules for every change, `docs/SITE-REVIEW-2026-09.md` the plan.
 
 ## Local dev
 

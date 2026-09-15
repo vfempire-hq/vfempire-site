@@ -97,3 +97,48 @@ The rules the pass applied are in `THE-OS/prompt-skills/stop-slop`. For this sit
 | 3 | Journal with RSS, glossary, first three compare pages | Fresh content and answer-engine coverage |
 | 4 | Image pipeline, one build step, CI checks, hashed CSS, CSP tightening | Performance and maintainability |
 | 5 | Training centre page with schema, forms via Worker, German versions | Conversion and second market |
+
+## 9. Progress log
+
+Tick an item here when it lands, with the date and the commit. Items not yet ticked are open and stay in the order above.
+
+### 2026-09-15 (approved by Vincent Falzon; implemented on branch `claude/bold-volta-vebmyt`)
+
+- [x] Section 2.1 `/systems/` index with sector and status filters, ItemList schema.
+- [x] Section 2.2 `/services/` index with the comparison table; Services added to the subpage nav.
+- [x] Section 2.3 `/engine`, `/harness`, `/dashboards` pillar pages with quotable definitions, diagrams, FAQ and speakable markup.
+- [x] Section 2.4 `/training-centre` with the four lanes; dates and fees stated as "by email to registered interest".
+- [x] Section 2.5 `/about`. Section 2.6 `/permanence-guarantee`. Section 2.10 `/press` and `/careers`.
+- [x] Section 2.7 `/journal/` build log, 14 entries from the commit history, RSS and JSON feeds linked from every entry.
+- [x] Section 2.8 `/glossary`, 20 terms, DefinedTermSet schema.
+- [x] Section 2.9 three `/compare/` pages (VF Mail, Guardian Shield, NAV·IT), competitor facts attributed and neutral.
+- [x] Section 2.11 broken references: `/legal/security-policy` and `/careers` exist; `security.txt` resolves. Open: `vfempire.com/security/pgp` and `bounty.vfempire.com` on the security page still point at surfaces that do not exist.
+- [x] Section 2.12 placeholders: every "TBA" and "IN PREPARATION" card removed; the template no longer renders the papers-and-code block.
+- [x] Section 3.1 titles 60 characters or fewer and descriptions 120 to 160 on every public page (content packs for the generated ones; `scripts/verify.py` enforces it).
+- [x] Section 3.2 FAQ block and FAQPage schema on every product, service, pillar and company page (`faq` arrays in the content packs, rendered by the template).
+- [x] Section 3.3 related-systems block and pillar links on every product page; full four-column footer on every page; subpage nav with a Systems flyout.
+- [x] Section 3.4 product-named alt text, explicit dimensions, lazy loading; AVIF and WebP variants and `<picture>` wrappers written by the build into `dist/`.
+- [x] Section 3.5 SoftwareApplication schema carries `url` and `image`. Open: `softwareVersion`, `releaseNotes` and a real `offers` node for SnapIT.
+- [ ] Section 3.6 entity corroboration (LinkedIn, Crunchbase, Wikidata): external accounts, Vincent to create; add each to `sameAs` on the homepage when it exists.
+- [~] Section 3.7 IndexNow key file and `scripts/indexnow.mjs` are in place (run after each deploy). Open: Search Console and Bing Webmaster Tools verification (DNS record, Vincent).
+- [x] Section 3.8 speakable definitions on the pillar and glossary pages.
+- [ ] Section 3.9 German versions with hreflang: not started (needs translation).
+- [x] Section 4.1 to 4.9 contrast tokens, full-bleed hero band, pricing card at phone width, signature flow figure, kicker rhythm, container-level reveals, full footer everywhere, one `.status` chip set, icons without tinted squares.
+- [x] Section 5 layout: homepage slate shows 12 tiles with "See all 23 systems"; product pages run hero, why, who, how, mechanics, roadmap, FAQ, pricing, requirements, related, CTA; services deliverables sit above the timeline (already the case); subpage nav has the Systems flyout.
+- [x] Section 6.1 `build.mjs`: generator, shared partials on every page, sitemap from git dates, dist mirror, hashed stylesheet, image pipeline, `--check` parity gate.
+- [x] Section 6.2 CI: `.github/workflows/site-checks.yml` (verify, build parity, link check, Lighthouse with budgets).
+- [x] Section 6.3 hashed stylesheet under `/assets/` (immutable). Open: Early Hints header.
+- [x] Section 6.4 image pipeline (sharp, AVIF + WebP, `<picture>` in dist).
+- [x] Section 6.5 unused fonts removed from `dist/fonts/` by the build.
+- [x] Section 6.6 CSP `script-src 'self'`: every inline script and handler moved to `/assets`.
+- [~] Section 6.7 contact-form Worker written under `workers/contact-form/` with README; not deployed, pages keep `mailto:` until VF Mail exposes the intake.
+- [ ] Section 6.8 Cloudflare zone analytics and Search Console: account actions, Vincent.
+- [x] Section 6.9 sitemap `lastmod` from git. Section 6.10 RSS and JSON feeds.
+- [x] Brand kit (`assets/brand/`, `docs/BRAND.md`, `scripts/brand-kit.mjs`) and the asset pack (`docs/ASSETS.md`, `scripts/assets-inventory.mjs`); favicon set, manifest and default social image wired into every page.
+- [x] `CLAUDE.md` standing instructions for every future session.
+
+### Known inconsistencies to resolve on the source pages (content decisions, not made here)
+
+- Several pages cite the Permanence Guarantee as "Terms § 8", but `legal/terms.html` section 8 is "Third-party content and links". The guarantee page says "in the Terms of Service" until the Terms carry the clause.
+- `systems/guardian-shield.html` says the source is public at github.com/vfempire-hq/guardian-shield; `security.html` lists Guardian Shield among the private repositories.
+- The FileIT page carries both 122 and 123 as the current test count.

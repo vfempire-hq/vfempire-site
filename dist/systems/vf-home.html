@@ -4,26 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VF Home: The smart-home hub that outlives us | VF Empire</title>
-<meta name="description" content="P·24 on the VF build slate: a local-first smart-home hub coordinating Matter/Zigbee/Z-Wave devices + up to 4 ONVIF cameras with sealed remote access. CRA-compliant + Right-to-Repair-aligned + Permanence Guarantee baked into Terms § 8.">
+<meta name="description" content="Local-first smart-home hub from VF Empire, Malta: Matter, Zigbee and Z-Wave on hardware you own, four ONVIF cameras with local NVR, CRA-compliant.">
 <link rel="canonical" href="https://vfempire.com/systems/vf-home">
 <meta name="theme-color" content="#fbfbfd">
-<link rel="stylesheet" href="/house.css">
+<link rel="stylesheet" href="/assets/house.76140f4c53.css">
 <script src="/assets/scrollrail.js" defer></script>
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="VF Home: the smart-home hub that outlives us">
-<meta property="og:description" content="Local-first hub. Matter + Zigbee + Z-Wave. Up to 4 ONVIF cameras with local NVR. Sealed remote access. CRA-compliant. Cannot become a paperweight if VF disappears.">
+<meta property="og:title" content="VF Home: The smart-home hub that outlives us">
+<meta property="og:description" content="Local-first smart-home hub from VF Empire, Malta: Matter, Zigbee and Z-Wave on hardware you own, four ONVIF cameras with local NVR, CRA-compliant.">
 <meta property="og:url" content="https://vfempire.com/systems/vf-home">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p24.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta property="og:locale" content="en_GB">
-<meta name="twitter:title" content="VF Home: the smart-home hub that outlives us">
-<meta name="twitter:description" content="Local-first hub. Matter + Zigbee + Z-Wave. Up to 4 ONVIF cameras with local NVR. Sealed remote access. CRA-compliant. Cannot become a paperweight if VF disappears.">
+<meta name="twitter:title" content="VF Home: The smart-home hub that outlives us">
+<meta name="twitter:description" content="Local-first smart-home hub from VF Empire, Malta: Matter, Zigbee and Z-Wave on hardware you own, four ONVIF cameras with local NVR, CRA-compliant.">
 <meta name="twitter:image" content="https://vfempire.com/assets/pipe/p24.png">
 <link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -72,8 +71,8 @@
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;display:flex;gap:16px;align-items:flex-start}
 .au.first{grid-column:1/-1;background:linear-gradient(140deg,#eff5ff,#fff);border-color:#c7dcff}
-.au .ic{width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center}
-.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au .ic{width:22px;height:22px;flex:0 0 22px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .au h4{font-size:17px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
 .au p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 .au .co{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
@@ -131,6 +130,72 @@
   .sysreqgrid{grid-template-columns:1fr}
 }
 </style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- seo-pass -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://vfempire.com/systems/vf-home#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which hardware does VF Home run on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "R·01 is bring-your-own hardware from the supported matrix: Raspberry Pi 4/5, Intel NUC 11/12/13, Odroid H3/H4 or a generic x86_64 mini-PC with at least 4 GB RAM and 64 GB storage. Three USB dongles cost around €75 in total. R·02 adds the CE-marked HomeSafe One appliance at about €349 one-off, and R·03 the HomeSafe Router."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which smart-home protocols does VF Home support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Matter/Thread, Zigbee and Z-Wave through three USB coordinators (Nordic nRF52840, ConBee III or Sonoff ZBDongle-E, Zooz 800 series or Aeotec Z-Stick 7). An internal adapter wraps each protocol into one unified device model, so you see one device list. R·02 adds a HomeKit-compatible mode and DALI and KNX bridges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does my camera footage go to the cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. VF Home runs a local NVR for up to 4 ONVIF-compliant IP cameras (Profile S and T) with H.265 encoding and AES-256-GCM encryption at rest, keys derived from the admin PIN. Retention is 7, 30 or 90 days per camera plus motion-triggered clips for up to 180 days, on local disk only, never uploaded to VF. Ring, Nest, Wyze and Arlo are not supported."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does VF Home need an internet connection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The hub works standalone on your LAN. Sealed remote access through the VF backend is an opt-in convenience: mobile clients establish end-to-end sealed sessions with the hub, and the relay routes encrypted bytes without decrypting them. If the VF relay is unavailable, local control is unaffected. On-device voice control via local Whisper.cpp arrives in R·02."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if VF Empire discontinues VF Home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Permanence Guarantee, an enforceable Terms § 8 clause, releases the source within 90 days of discontinuation, keeps the last firmware verifiable forever in the transparency log, publishes hardware schematics for the R·02 appliance and ships a Home Assistant migration tool. The hub keeps running on your LAN regardless, because the cloud was optional from the start."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does VF Home launch, and at what price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The R·01 launch target is 2027 Q2-Q3 in Malta, pending seed close, CRA registration with Malta CSIRT, hardware-matrix testing, IDPC Malta pre-consultation and insurance underwriting. VF Home ships CRA-compliant from day one, with 24-hour vulnerability reporting, an SBOM per release and 5-year minimum security support. The service is priced at €6.99 a month."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -141,10 +206,35 @@
       VF EMPIRE
     </a>
     <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·24 VF Home</b></span>
-    <div class="nl"><a href="/#pipeline">Systems</a><a href="/software">Software</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Register interest</a>
   </div>
 </nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
 
 <header class="phero">
   <div>
@@ -164,7 +254,7 @@
     </div>
   </div>
   <div class="pheroart">
-    <img src="../assets/pipe/p24.png" alt="VF Home: matte-white smooth-cornered ceramic cube on a white plinth, with a single cyan horizontal light-seam mid-height">
+    <picture><source type="image/avif" srcset="/assets/pipe/p24.avif"><source type="image/webp" srcset="/assets/pipe/p24.webp"><img alt="VF Home: matte-white smooth-cornered ceramic cube on a white plinth, with a single cyan horizontal light-seam mid-height" src="../assets/pipe/p24.png" width="1024" height="1344" fetchpriority="high"></picture>
   </div>
 </header>
 
@@ -263,11 +353,11 @@
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Four layers,<br><span class="mute">on the hardware you already own.</span></h2>
-    <p class="lead rv">R·01 ships as a Rust hub-core with FFI bindings to Swift + Kotlin, a Fastify backend that never sees plaintext, and three USB coordinator dongles (~€75 total user hardware). One new sub-primitive added to `vf-privacy-kit`: `household-quorum` for 2-of-N threshold approval on firmware updates, member removal, and panic-wipe.</p>
+    <p class="lead rv">R·01 ships as a Rust hub-core with FFI bindings to Swift + Kotlin, a Fastify backend that never sees plaintext, and three USB coordinator dongles (~€75 total user hardware). One new sub-primitive added to `vf-privacy-kit`: `household-quorum` for 2-of-N threshold approval on firmware updates, member removal, and panic-wipe. Like every VF system, it leaves the lab with the <a href="/engine" style="color:var(--core);font-weight:600">engine</a> fitted and the <a href="/harness" style="color:var(--core);font-weight:600">harness</a> tuned.</p>
 
     <div class="mech rv">
       <div class="mechart">
-        <img src="../assets/pipe/p24-mech.png" alt="Exploded diagram of the four layers of VF Home: coordinators, NVR, household, kernel">
+        <picture><source type="image/avif" srcset="/assets/pipe/p24-mech.avif"><source type="image/webp" srcset="/assets/pipe/p24-mech.webp"><img alt="Exploded diagram of the four layers of VF Home: coordinators, NVR, household, kernel" src="../assets/pipe/p24-mech.png" width="1024" height="1344" loading="lazy" decoding="async"></picture>
       </div>
       <div class="layers">
         <div class="ly">
@@ -287,6 +377,12 @@
           <p>Persistent WebSocket to VF backend via sealed transport. Mobile clients establish end-to-end sealed sessions with the hub; VF relay routes encrypted bytes without decrypting. Failure of VF relay does not affect local control.</p>
         </div>
       </div>
+    </div>
+
+    <div class="related rv">
+      <a href="/systems/guardian-shield"><span class="rk">P·18 · SECURITY</span><h4>Guardian Shield</h4><p>Vault, malware scanner, WireGuard VPN, DNS filter and breach watch on hardware you own.</p><span class="go">Open →</span></a>
+      <a href="/systems/grid-home-optimiser"><span class="rk">P·08 · ENERGY</span><h4>Grid &amp; Home Optimiser</h4><p>Local agents balancing solar, storage and consumption on hardware the owner controls.</p><span class="go">Open →</span></a>
+      <a href="/systems/private-care-watch"><span class="rk">P·02 · ELDER CARE</span><h4>Private Care Watch</h4><p>Fall-risk, routine-drift and wellbeing monitoring on hardware in the home.</p><span class="go">Open →</span></a>
     </div>
   </div>
 </section>
@@ -368,6 +464,21 @@
   </div>
 </section>
 
+<section class="alt">
+  <div class="wrap">
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      <div class="q"><h4>Which hardware does VF Home run on?</h4><p>R·01 is bring-your-own hardware from the supported matrix: Raspberry Pi 4/5, Intel NUC 11/12/13, Odroid H3/H4 or a generic x86_64 mini-PC with at least 4 GB RAM and 64 GB storage. Three USB dongles cost around €75 in total. R·02 adds the CE-marked HomeSafe One appliance at about €349 one-off, and R·03 the HomeSafe Router.</p></div>
+      <div class="q"><h4>Which smart-home protocols does VF Home support?</h4><p>Matter/Thread, Zigbee and Z-Wave through three USB coordinators (Nordic nRF52840, ConBee III or Sonoff ZBDongle-E, Zooz 800 series or Aeotec Z-Stick 7). An internal adapter wraps each protocol into one unified device model, so you see one device list. R·02 adds a HomeKit-compatible mode and DALI and KNX bridges.</p></div>
+      <div class="q"><h4>Does my camera footage go to the cloud?</h4><p>No. VF Home runs a local NVR for up to 4 ONVIF-compliant IP cameras (Profile S and T) with H.265 encoding and AES-256-GCM encryption at rest, keys derived from the admin PIN. Retention is 7, 30 or 90 days per camera plus motion-triggered clips for up to 180 days, on local disk only, never uploaded to VF. Ring, Nest, Wyze and Arlo are not supported.</p></div>
+      <div class="q"><h4>Does VF Home need an internet connection?</h4><p>The hub works standalone on your LAN. Sealed remote access through the VF backend is an opt-in convenience: mobile clients establish end-to-end sealed sessions with the hub, and the relay routes encrypted bytes without decrypting them. If the VF relay is unavailable, local control is unaffected. On-device voice control via local Whisper.cpp arrives in R·02.</p></div>
+      <div class="q"><h4>What happens if VF Empire discontinues VF Home?</h4><p>The Permanence Guarantee, an enforceable Terms § 8 clause, releases the source within 90 days of discontinuation, keeps the last firmware verifiable forever in the transparency log, publishes hardware schematics for the R·02 appliance and ships a Home Assistant migration tool. The hub keeps running on your LAN regardless, because the cloud was optional from the start.</p></div>
+      <div class="q"><h4>When does VF Home launch, and at what price?</h4><p>The R·01 launch target is 2027 Q2-Q3 in Malta, pending seed close, CRA registration with Malta CSIRT, hardware-matrix testing, IDPC Malta pre-consultation and insurance underwriting. VF Home ships CRA-compliant from day one, with 24-hour vulnerability reporting, an SBOM per release and 5-year minimum security support. The service is priced at €6.99 a month.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="foot">
   <div class="wrap">
     <div class="k rv">REGISTER INTEREST</div>
@@ -381,19 +492,60 @@
   </div>
 </section>
 
-<footer>
-  <div class="legal">
-    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
   </div>
 </footer>
 
-<script>
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
-</script>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
@@ -404,18 +556,8 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
   </div>
 </div>
 
-<script>
-(() => {
-  const el = document.getElementById('consent');
-  if (!el) return;
-  let seen = null; try { seen = localStorage.getItem('vf-consent'); } catch (e) {}
-  if (seen) { el.remove(); return; }
-  setTimeout(() => el.classList.add('show'), 1400);
-  const choose = v => { try { localStorage.setItem('vf-consent', v); } catch (e) {} el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
-  document.getElementById('cacc').onclick = () => choose('accepted');
-  document.getElementById('cdec').onclick = () => choose('declined');
-})();
-</script>
+
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>

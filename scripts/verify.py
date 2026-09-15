@@ -32,6 +32,8 @@ for f in files:
     for w in SLOP:
         if re.search(r'\b' + re.escape(w) + r'\b', text): errs.append('slop: ' + w)
     if re.search(r'<img(?![^>]*\balt=)[^>]*>', s): errs.append('img without alt')
+    if re.search(r'<script>', s): errs.append('inline script (the build moves it to assets/page)')
+    if re.search(r'\son(?:click|load|error|mouseover|submit|change|input)="', s): errs.append('inline event handler')
     if errs: bad += 1; print(f'{f}: ' + '; '.join(errs))
 print(f'{len(files)} pages checked, {bad} with issues')
 sys.exit(1 if bad else 0)

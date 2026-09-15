@@ -25,7 +25,6 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta property="og:locale" content="en_GB">
 <link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,7 +35,7 @@
       "name": "VF Empire",
       "legalName": "VF Empire Corp Ltd",
       "url": "https://vfempire.com/",
-      "logo": "https://vfempire.com/assets/hero-core.png",
+      "logo": "https://vfempire.com/assets/brand/vf-mark-1024.png",
       "email": "info@vfempire.com",
       "sameAs": ["https://github.com/vfempire-hq", "https://si-lock.com", "https://noirda.solutions", "https://gn-productions.com"],
       "contactPoint": [
@@ -82,17 +81,6 @@
 </script>
 <style>
 
-/* dropdown flyouts */
-.fly{position:fixed;top:52px;left:0;right:0;z-index:99;background:rgba(251,251,253,.92);backdrop-filter:blur(30px) saturate(1.8);-webkit-backdrop-filter:blur(30px) saturate(1.8);border-bottom:1px solid rgba(0,0,0,.06);overflow:hidden;max-height:0;opacity:0;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s}
-.fly.open{max-height:420px;opacity:1}
-.fly .in{width:min(1080px,92vw);margin:0 auto;padding:44px 0 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px 44px}
-.fly .col{display:flex;flex-direction:column;gap:2px}
-.fly .col b{font-size:11px;letter-spacing:.12em;color:var(--faint);font-weight:600;margin-bottom:10px}
-.fly .col a{font-size:16px;font-weight:600;letter-spacing:-.02em;padding:5px 0;color:var(--ink);transition:color .18s}
-.fly .col a:hover{color:var(--core)}
-.fly .col a small{display:block;font-size:11.5px;font-weight:400;color:var(--dove);letter-spacing:0;margin-top:1px}
-#dim{position:fixed;inset:0;z-index:90;background:rgba(29,29,31,.24);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .35s}
-#dim.on{opacity:1;pointer-events:auto}
 
 /* ---------- HERO ---------- */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:120px 6vw 40px;background:
@@ -187,16 +175,17 @@
 /* build slate: systems under construction */
 .pipe{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
 .pp{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:372px;transition:transform .3s,box-shadow .3s,border-color .3s}
-.pp>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 72%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.pp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 72%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .pp .fade{position:absolute;inset:0;background:linear-gradient(180deg,#fff 0%,#fff 30%,rgba(255,255,255,.88) 46%,rgba(255,255,255,0) 80%)}
 .pp:hover{transform:translateY(-3px);box-shadow:0 22px 48px -24px rgba(40,55,90,.3);border-color:rgba(31,111,242,.35)}
-.pp:hover>img{transform:scale(1.05)}
+.pp:hover img{transform:scale(1.05)}
 .pp .tx{position:relative;padding:22px 22px 0}
 .pp .sec{font-size:9.5px;letter-spacing:.24em;font-weight:600;color:var(--core);margin-bottom:9px}
 .pp h5{font-size:15.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
 .pp p{font-size:12.5px;line-height:1.55;color:var(--dove)}
 .pp .pn{position:absolute;top:16px;right:18px;font-size:10px;font-weight:600;color:var(--faint);letter-spacing:.1em;z-index:1}
 .pp .chip{position:absolute;left:16px;bottom:15px;font-size:9px;font-weight:600;letter-spacing:.2em;color:#2b3a55;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:6px 13px;border-radius:99px}
+.pp.more{display:none}
 .pp .chip.live{color:#fff;background:linear-gradient(180deg,#2b7a4b 0%,#1f5a37 100%);border-color:rgba(255,255,255,.85)}
 @media(max-width:880px){.pipe{grid-template-columns:1fr}.pp{min-height:340px}}
 
@@ -268,9 +257,20 @@
   .pc.wide{grid-template-columns:1fr;padding:36px 36px 0}
   .bento{grid-template-columns:1fr 1fr}
   .sl{grid-template-columns:1fr}
-  .fly .in{grid-template-columns:1fr 1fr}
 }
+
+/* rotate hint (assets/rotate-hint.js) */
+#rothint{position:fixed;inset:0;z-index:300;display:grid;place-items:center;opacity:0;transition:opacity .7s ease;background:radial-gradient(70% 55% at 50% 46%,rgba(251,251,253,.97),rgba(245,245,247,.9))}
+#rothint.show{opacity:1}
+#rothint .rh{display:grid;justify-items:center;gap:.4rem;pointer-events:none}
+#rothint canvas{width:min(70vw,320px);height:min(70vw,320px)}
+#rothint .rt{font-family:'Hanken',sans-serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;font-weight:700;color:#1f6ff2;text-align:center}
+#rothint .rt b{display:block;margin-top:.55rem;font-weight:500;letter-spacing:.22em;font-size:10px;color:#6e6e73}
 </style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <!-- seo-pass -->
 <script type="application/ld+json">
 {
@@ -449,25 +449,26 @@
 
 <div class="fly" id="m-sys"><div class="in">
   <div class="col"><b>ENGINES</b>
-    <a href="#engine">Helmsman Engine<small>Frontier open models, steered</small></a>
-    <a href="#engine">Harness Stack<small>The frame around the model</small></a>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
   </div>
   <div class="col"><b>SURFACES</b>
-    <a href="#engine">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
     <a href="#silock">S◉LOCK OS<small>The private AI operating system</small></a>
   </div>
   <div class="col"><b>SYSTEMS</b>
-    <a href="#rd">Workflow Systems<small>Work that routes itself</small></a>
-    <a href="#rd">Automated Systems<small>Supervised autonomy</small></a>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI, defined</small></a>
   </div>
   <div class="col"><b>PROGRAMS</b>
-    <a href="#training">AI Training Centre<small>Opening: first cohorts</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
     <a href="#commission">Commissions<small>Complete systems, to order</small></a>
   </div>
 </div></div>
 
 <div class="fly" id="m-svc"><div class="in">
   <div class="col"><b>CRA + GDPR</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements compared</small></a>
     <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k fixed fee</small></a>
     <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k fixed fee</small></a>
   </div>
@@ -496,7 +497,7 @@
   </div>
   <div class="col"><b>PUBLISHED</b>
     <a href="#silock">Case: S◉LOCK<small>An OS out of the lab</small></a>
-    <a href="#training">Curriculum<small>What the centre teaches</small></a>
+    <a href="/training-centre">Curriculum<small>What the centre teaches</small></a>
   </div>
   <div class="col"><b>FRONTIERS</b>
     <a href="#divisions">Education Systems<small>Adaptive teaching engines</small></a>
@@ -508,15 +509,17 @@
 
 <div class="fly" id="m-co"><div class="in">
   <div class="col"><b>VF EMPIRE</b>
-    <a href="#about">About<small>The systems house, Malta</small></a>
-    <a href="#commission">Contact<small>info@vfempire.com</small></a>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/contact/">Contact<small>Every desk, every reply time</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
   </div>
   <div class="col"><b>NETWORK</b>
     <a href="https://noirda.solutions">Noirda GmbH<small>Property &amp; hospitality, Germany</small></a>
     <a href="https://gn-productions.com">Guardian Network<small>Animation &amp; media, UK</small></a>
   </div>
   <div class="col"><b>LEGAL &amp; TRUST</b>
-    <a href="#about">Imprint<small>VF Empire Corp Ltd · C 94160</small></a>
+    <a href="/press">Press<small>Boilerplate, facts, contact</small></a>
+    <a href="/careers">Careers<small>How VF hires</small></a>
     <a href="/security">Security posture<small>Public audit trail, gitleaks-clean</small></a>
   </div>
 </div></div>
@@ -532,7 +535,7 @@
     <a class="bt gho" href="#engine">See the engine room</a>
   </div>
   <div class="corewrap" id="corewrap">
-    <img id="heroimg" src="assets/hero-core.png" alt="" onload="document.getElementById('corewrap').classList.add('hasimg')" onerror="this.remove()">
+    <img id="heroimg" src="assets/hero-core.png" alt="">
     <div class="orb"></div>
     <div class="ring"><i></i><i></i></div>
     <div class="shadow"></div>
@@ -680,33 +683,37 @@
 <section id="pipeline" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="k rv">UNDER CONSTRUCTION</div>
-    <h2 class="rv">Twenty-two systems<br><span class="mute">on the floor.</span></h2>
+    <h2 class="rv">Twenty-three systems<br><span class="mute">on the floor.</span></h2>
     <p class="lead rv">The VF slate. <a href="/systems/vf-mail"><b>VF Mail</b></a> is already in the world, serving the first @vfempire.com inboxes on our own metal. The rest are moving down the floor behind it, in build or spec-complete, each one leaving the lab the VF way: engine fitted, harness tuned, dashboard live, running on hardware the owner controls.</p>
 
     <div class="pipe rv">
-      <a class="pp" href="/systems/field-intelligence"><img src="assets/pipe/p01.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·01</span><div class="tx"><div class="sec">AGRICULTURE</div><h5>Field Intelligence</h5><p>Agronomist-grade crop health, irrigation and yield AI, priced for family farms.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/private-care-watch"><img src="assets/pipe/p02.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·02</span><div class="tx"><div class="sec">ELDER CARE</div><h5>Private Care Watch</h5><p>Fall-risk, routine-drift and wellbeing monitoring on hardware in the home. No cloud cameras pointed at grandparents.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/the-apprentice"><img src="assets/pipe/p03.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·03</span><div class="tx"><div class="sec">SKILLED TRADES</div><h5>The Apprentice</h5><p>Diagnostic and code-compliance copilot for electricians, plumbers and mechanics. Office work got automated; the trades deserve the same.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/fileit"><img src="assets/pipe/p04.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·04</span><div class="tx"><div class="sec">ACCOUNTING</div><h5>FileIT</h5><p>The self-filing ledger. Ingest → classify → reconcile → file, direct to HMRC MTD, ELSTER, CFR, ROS. Malta, UK, Germany, Ireland at R·01. Human + AI, on infrastructure you own.</p></div><span class="chip">SPEC COMPLETE</span></a>
-      <a class="pp" href="/systems/everyday-law-navigator"><img src="assets/pipe/p05.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·05</span><div class="tx"><div class="sec">LEGAL ACCESS</div><h5>Everyday-Law Navigator</h5><p>Rights, contracts, tenancy and disputes for people who can't bill hours. Legal AI serves law firms; this serves everyone else.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/triage-continuity"><img src="assets/pipe/p06.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·06</span><div class="tx"><div class="sec">HEALTH</div><h5>Triage &amp; Continuity</h5><p>On-device mental-health screening that routes to humans and remembers the journey.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/site-truth-engine"><img src="assets/pipe/p07.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·07</span><div class="tx"><div class="sec">CONSTRUCTION</div><h5>Site Truth Engine</h5><p>Progress verified against plans, safety watch, materials flow, all read from the cameras already on site.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/grid-home-optimiser"><img src="assets/pipe/p08.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·08</span><div class="tx"><div class="sec">ENERGY</div><h5>Grid &amp; Home Optimiser</h5><p>Local agents balancing solar, storage and consumption, plus predictive maintenance for hard-working grids.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/self-training-qc-vision"><img src="assets/pipe/p09.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·09</span><div class="tx"><div class="sec">MANUFACTURING</div><h5>Self-Training QC Vision</h5><p>Defect detection a floor manager can teach in an afternoon. No ML engineers, no six-month integration.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/different-minds-engine"><img src="assets/pipe/p10.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·10</span><div class="tx"><div class="sec">EDUCATION</div><h5>Different-Minds Engine</h5><p>Adaptive learning built first for dyslexic, ADHD and autistic students, the learners mainstream edtech treats as edge cases.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/low-resource-language-ai"><img src="assets/pipe/p11.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·11</span><div class="tx"><div class="sec">LANGUAGE</div><h5>Low-Resource Language AI</h5><p>Translation, teaching and preservation for the languages big tech ignores. Maltese included; this one is personal.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/citizen-services-desk"><img src="assets/pipe/p12.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·12</span><div class="tx"><div class="sec">CIVIC</div><h5>Citizen Services Desk</h5><p>Permits, forms and procurement handled in local language, run by municipalities on their own metal.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/claims-advocate"><img src="assets/pipe/p13.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·13</span><div class="tx"><div class="sec">INSURANCE</div><h5>Claims Advocate</h5><p>Insurers run AI on claims. The individual gets nothing. Claims Advocate levels the table with evidence, precedent and persistence.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/offline-first-response"><img src="assets/pipe/p14.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·14</span><div class="tx"><div class="sec">EMERGENCY</div><h5>Offline-First Response</h5><p>Coordination systems that keep working when the network doesn't, because disasters take infrastructure down first.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/vf-mail"><img src="assets/pipe/p16.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·16</span><div class="tx"><div class="sec">EMAIL</div><h5>VF Mail</h5><p>A whole mail system of our own (server, shield and address) on metal we hold. The first @vfempire.com inboxes already run on our own node, and your inbox belongs to you.</p></div><span class="chip live">IN BETA</span></a>
-      <a class="pp" href="/systems/fuelit"><img src="assets/pipe/p17.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·17</span><div class="tx"><div class="sec">MOBILITY</div><h5>FuelIT</h5><p>Nine EU countries. Official government price feeds ranked against your route, tank and real range. Ships with NAV·IT, our own sovereign turn-by-turn, so the destination you tap never touches Google or Apple.</p></div><span class="chip">SPEC COMPLETE</span></a>
-      <a class="pp" href="/systems/guardian-shield"><img src="assets/pipe/p18.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·18</span><div class="tx"><div class="sec">SECURITY</div><h5>Guardian Shield</h5><p>Five subsystems (vault, malware scanner, WireGuard VPN, DNS filter, breach watch) on infrastructure you own. Reproducible builds, public transparency log, two-of-two signing across EU jurisdictions. Check the trace.</p></div><span class="chip">SPEC COMPLETE</span></a>
-      <a class="pp" href="/systems/mapit"><img src="assets/pipe/p19.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·19</span><div class="tx"><div class="sec">COMMERCE</div><h5>MapIT</h5><p>Write your list once. MapIT prices the whole basket at every store in your zone and answers where it costs least, split trips and driving counted.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="https://snapit.vfempire.com"><img src="assets/pipe/p20.webp" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·20</span><div class="tx"><div class="sec">MEDIA</div><h5>SnapIT</h5><p>Every drive you own (phone, laptop, PC, NAS) scanned into one library of photos and videos on your own storage. Local-first, Ed25519-signed licence, one-off perpetual pricing from €59.</p></div><span class="chip live">R·02a · LIVE</span></a>
-      <a class="pp" href="/systems/nav-it"><img src="assets/pipe/p21.png" alt="" loading="lazy"><div class="fade"></div><span class="pn">P·21</span><div class="tx"><div class="sec">SOVEREIGN INFRASTRUCTURE</div><h5>NAV·IT</h5><p>A self-hosted turn-by-turn navigator built on open map data. Every route your phone traces stays inside our infrastructure, never sent to Google, Apple or Mapbox. Ships inside FuelIT and MapIT.</p></div><span class="chip">IN BUILD</span></a>
-      <a class="pp" href="/systems/vf-wallet"><img src="assets/pipe/p22.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="fade"></div><span class="pn">P·22</span><div class="tx"><div class="sec">IDENTITY</div><h5>VF Wallet</h5><p>The EU digital identity wallet built for people: full ARF conformance, user-inspectable audit log, zero-knowledge age proofs via the EU AVA. Malta launch with cross-border acceptance in DE, FR, IE, IT day one.</p></div><span class="chip">SPEC COMPLETE</span></a>
-      <a class="pp" href="/systems/vf-legacy"><img src="assets/pipe/p23.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="fade"></div><span class="pn">P·23</span><div class="tx"><div class="sec">DIGITAL ESTATE</div><h5>VF Legacy</h5><p>Everything you leave behind, closed by you. Sealed vault of "if I die" instructions, multi-signal trigger with 30-day grace, per-jurisdiction executor packets aligned with the ELI Model Rules on Digital Succession, and pre-drafted requests to 30 EU consumer platforms.</p></div><span class="chip">SPEC COMPLETE</span></a>
-      <a class="pp" href="/systems/vf-home"><img src="assets/pipe/p24.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="fade"></div><span class="pn">P·24</span><div class="tx"><div class="sec">SMART HOME</div><h5>VF Home</h5><p>The smart-home hub that outlives us. Matter + Zigbee + Z-Wave on hardware you already own, up to four ONVIF cameras with local NVR, sealed remote access, and the Permanence Guarantee: if we discontinue, we refund and publish the source.</p></div><span class="chip">SPEC COMPLETE</span></a>
+      <a class="pp" href="/systems/field-intelligence"><img src="assets/pipe/p01.webp" alt="Field Intelligence, Agriculture" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·01</span><div class="tx"><div class="sec">AGRICULTURE</div><h5>Field Intelligence</h5><p>Agronomist-grade crop health, irrigation and yield AI, priced for family farms.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/private-care-watch"><img src="assets/pipe/p02.webp" alt="Private Care Watch, Elder Care" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·02</span><div class="tx"><div class="sec">ELDER CARE</div><h5>Private Care Watch</h5><p>Fall-risk, routine-drift and wellbeing monitoring on hardware in the home. No cloud cameras pointed at grandparents.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/the-apprentice"><img src="assets/pipe/p03.webp" alt="The Apprentice, Skilled Trades" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·03</span><div class="tx"><div class="sec">SKILLED TRADES</div><h5>The Apprentice</h5><p>Diagnostic and code-compliance copilot for electricians, plumbers and mechanics. Office work got automated; the trades deserve the same.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/fileit"><img src="assets/pipe/p04.webp" alt="FileIT, Accounting" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·04</span><div class="tx"><div class="sec">ACCOUNTING</div><h5>FileIT</h5><p>The self-filing ledger. Ingest → classify → reconcile → file, direct to HMRC MTD, ELSTER, CFR, ROS. Malta, UK, Germany, Ireland at R·01. Human + AI, on infrastructure you own.</p></div><span class="status">SPEC COMPLETE</span></a>
+      <a class="pp" href="/systems/everyday-law-navigator"><img src="assets/pipe/p05.webp" alt="Everyday-Law Navigator, Legal Access" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·05</span><div class="tx"><div class="sec">LEGAL ACCESS</div><h5>Everyday-Law Navigator</h5><p>Rights, contracts, tenancy and disputes for people who can't bill hours. Legal AI serves law firms; this serves everyone else.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/triage-continuity"><img src="assets/pipe/p06.webp" alt="Triage &amp; Continuity, Health" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·06</span><div class="tx"><div class="sec">HEALTH</div><h5>Triage &amp; Continuity</h5><p>On-device mental-health screening that routes to humans and remembers the journey.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/site-truth-engine"><img src="assets/pipe/p07.webp" alt="Site Truth Engine, Construction" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·07</span><div class="tx"><div class="sec">CONSTRUCTION</div><h5>Site Truth Engine</h5><p>Progress verified against plans, safety watch, materials flow, all read from the cameras already on site.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/grid-home-optimiser"><img src="assets/pipe/p08.webp" alt="Grid &amp; Home Optimiser, Energy" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·08</span><div class="tx"><div class="sec">ENERGY</div><h5>Grid &amp; Home Optimiser</h5><p>Local agents balancing solar, storage and consumption, plus predictive maintenance for hard-working grids.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/self-training-qc-vision"><img src="assets/pipe/p09.webp" alt="Self-Training QC Vision, Manufacturing" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·09</span><div class="tx"><div class="sec">MANUFACTURING</div><h5>Self-Training QC Vision</h5><p>Defect detection a floor manager can teach in an afternoon. No ML engineers, no six-month integration.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/different-minds-engine"><img src="assets/pipe/p10.webp" alt="Different-Minds Engine, Education" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·10</span><div class="tx"><div class="sec">EDUCATION</div><h5>Different-Minds Engine</h5><p>Adaptive learning built first for dyslexic, ADHD and autistic students, the learners mainstream edtech treats as edge cases.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/low-resource-language-ai"><img src="assets/pipe/p11.webp" alt="Low-Resource Language AI, Language" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·11</span><div class="tx"><div class="sec">LANGUAGE</div><h5>Low-Resource Language AI</h5><p>Translation, teaching and preservation for the languages big tech ignores. Maltese included; this one is personal.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp" href="/systems/citizen-services-desk"><img src="assets/pipe/p12.webp" alt="Citizen Services Desk, Civic" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·12</span><div class="tx"><div class="sec">CIVIC</div><h5>Citizen Services Desk</h5><p>Permits, forms and procurement handled in local language, run by municipalities on their own metal.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp more" href="/systems/claims-advocate"><img src="assets/pipe/p13.webp" alt="Claims Advocate, Insurance" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·13</span><div class="tx"><div class="sec">INSURANCE</div><h5>Claims Advocate</h5><p>Insurers run AI on claims. The individual gets nothing. Claims Advocate levels the table with evidence, precedent and persistence.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp more" href="/systems/offline-first-response"><img src="assets/pipe/p14.webp" alt="Offline-First Response, Emergency" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·14</span><div class="tx"><div class="sec">EMERGENCY</div><h5>Offline-First Response</h5><p>Coordination systems that keep working when the network doesn't, because disasters take infrastructure down first.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp more" href="/systems/vf-mail"><img src="assets/pipe/p16.webp" alt="VF Mail, Email" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·16</span><div class="tx"><div class="sec">EMAIL</div><h5>VF Mail</h5><p>A whole mail system of our own (server, shield and address) on metal we hold. The first @vfempire.com inboxes already run on our own node, and your inbox belongs to you.</p></div><span class="status live">IN BETA</span></a>
+      <a class="pp more" href="/systems/fuelit"><img src="assets/pipe/p17.webp" alt="FuelIT, Mobility" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·17</span><div class="tx"><div class="sec">MOBILITY</div><h5>FuelIT</h5><p>Nine EU countries. Official government price feeds ranked against your route, tank and real range. Ships with NAV·IT, our own sovereign turn-by-turn, so the destination you tap never touches Google or Apple.</p></div><span class="status">SPEC COMPLETE</span></a>
+      <a class="pp more" href="/systems/guardian-shield"><img src="assets/pipe/p18.webp" alt="Guardian Shield, Security" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·18</span><div class="tx"><div class="sec">SECURITY</div><h5>Guardian Shield</h5><p>Five subsystems (vault, malware scanner, WireGuard VPN, DNS filter, breach watch) on infrastructure you own. Reproducible builds, public transparency log, two-of-two signing across EU jurisdictions. Check the trace.</p></div><span class="status">SPEC COMPLETE</span></a>
+      <a class="pp more" href="/systems/mapit"><img src="assets/pipe/p19.webp" alt="MapIT, Commerce" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·19</span><div class="tx"><div class="sec">COMMERCE</div><h5>MapIT</h5><p>Write your list once. MapIT prices the whole basket at every store in your zone and answers where it costs least, split trips and driving counted.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp more" href="https://snapit.vfempire.com"><img src="assets/pipe/p20.webp" alt="SnapIT, Media" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·20</span><div class="tx"><div class="sec">MEDIA</div><h5>SnapIT</h5><p>Every drive you own (phone, laptop, PC, NAS) scanned into one library of photos and videos on your own storage. Local-first, Ed25519-signed licence, one-off perpetual pricing from €59.</p></div><span class="status live">R·02a · LIVE</span></a>
+      <a class="pp more" href="/systems/nav-it"><img src="assets/pipe/p21.png" alt="NAV·IT, Sovereign Infrastructure" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·21</span><div class="tx"><div class="sec">SOVEREIGN INFRASTRUCTURE</div><h5>NAV·IT</h5><p>A self-hosted turn-by-turn navigator built on open map data. Every route your phone traces stays inside our infrastructure, never sent to Google, Apple or Mapbox. Ships inside FuelIT and MapIT.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp more" href="/systems/vf-wallet"><img src="assets/pipe/p22.webp" alt="VF Wallet, Identity" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·22</span><div class="tx"><div class="sec">IDENTITY</div><h5>VF Wallet</h5><p>The EU digital identity wallet built for people: full ARF conformance, user-inspectable audit log, zero-knowledge age proofs via the EU AVA. Malta launch with cross-border acceptance in DE, FR, IE, IT day one.</p></div><span class="status">SPEC COMPLETE</span></a>
+      <a class="pp more" href="/systems/vf-legacy"><img src="assets/pipe/p23.webp" alt="VF Legacy, Digital Estate" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·23</span><div class="tx"><div class="sec">DIGITAL ESTATE</div><h5>VF Legacy</h5><p>Everything you leave behind, closed by you. Sealed vault of "if I die" instructions, multi-signal trigger with 30-day grace, per-jurisdiction executor packets aligned with the ELI Model Rules on Digital Succession, and pre-drafted requests to 30 EU consumer platforms.</p></div><span class="status">SPEC COMPLETE</span></a>
+      <a class="pp more" href="/systems/vf-home"><img src="assets/pipe/p24.webp" alt="VF Home, Smart Home" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·24</span><div class="tx"><div class="sec">SMART HOME</div><h5>VF Home</h5><p>The smart-home hub that outlives us. Matter + Zigbee + Z-Wave on hardware you already own, up to four ONVIF cameras with local NVR, sealed remote access, and the Permanence Guarantee: if we discontinue, we refund and publish the source.</p></div><span class="status">SPEC COMPLETE</span></a>
+    </div>
+    <div class="rv" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:40px">
+      <a class="bt pri" href="/systems/">See all 23 systems</a>
+      <a class="bt gho" href="/journal/">Follow the build log</a>
     </div>
   </div>
 </section>
@@ -850,36 +857,44 @@
       </div>
       <div>
         <h6>SYSTEMS</h6>
-        <a href="#engine">Helmsman Engine</a>
-        <a href="#engine">Harness Stack</a>
-        <a href="#engine">Command Dashboards</a>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
         <a href="https://si-lock.com">S◉LOCK OS</a>
       </div>
       <div>
-        <h6>PROGRAMS</h6>
-        <a href="#training">AI Training Centre</a>
-        <a href="#rd">Research &amp; Development</a>
-        <a href="#divisions">Frontier Divisions</a>
-        <a href="#pipeline">The Lab Pipeline</a>
-        <a href="#integrate">Integrate With Us</a>
-        <a href="#commission">Commissions</a>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
       </div>
       <div>
-        <h6>NETWORK</h6>
-        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
-        <a href="https://gn-productions.com">Guardian Network · UK</a>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
       </div>
       <div>
         <h6>CONTACT</h6>
         <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
         <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
         <a href="mailto:support@vfempire.com">support@vfempire.com</a>
-        <a href="/contact/" style="opacity:.75">All addresses →</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
       </div>
     </div>
     <div class="legal">
-      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-      <span><a href="/legal/terms" style="color:inherit;text-decoration:none">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy" style="color:inherit;text-decoration:none">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies" style="color:inherit;text-decoration:none">Cookies</a> &nbsp;·&nbsp; Incorporated 2019</span>
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
     </div>
   </div>
 </footer>
@@ -893,200 +908,11 @@
   </div>
 </div>
 
-<script>
-// consent
-(() => {
-  const el = document.getElementById('consent');
-  if (localStorage.getItem('vf-consent')) { el.remove(); return; }
-  setTimeout(() => el.classList.add('show'), 1400);
-  const choose = v => { localStorage.setItem('vf-consent', v); el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
-  document.getElementById('cacc').onclick = () => choose('accepted');
-  document.getElementById('cdec').onclick = () => choose('declined');
-})();
+<script src="/assets/home.js" defer></script>
 
-// flyout menus
-const dim = document.getElementById('dim');
-let openId = null, closeT = null;
-function openMenu(id){
-  clearTimeout(closeT);
-  if(openId && openId!==id) document.getElementById(openId).classList.remove('open');
-  document.getElementById(id).classList.add('open');
-  dim.classList.add('on');
-  openId = id;
-}
-function closeAll(){
-  closeT = setTimeout(()=>{
-    if(openId) document.getElementById(openId).classList.remove('open');
-    dim.classList.remove('on');
-    openId = null;
-  }, 180);
-}
-document.querySelectorAll('.nl button').forEach(b=>{
-  b.addEventListener('mouseenter',()=>openMenu(b.dataset.m));
-  b.addEventListener('click',()=>openMenu(b.dataset.m));
-});
-document.querySelectorAll('.fly').forEach(f=>{
-  f.addEventListener('mouseenter',()=>clearTimeout(closeT));
-  f.addEventListener('mouseleave',closeAll);
-});
-document.querySelector('.nav').addEventListener('mouseleave',closeAll);
-dim.addEventListener('mouseenter',closeAll);
-dim.addEventListener('click',closeAll);
-addEventListener('keydown',e=>{ if(e.key==='Escape') closeAll(); });
-document.querySelectorAll('.fly a').forEach(a=>a.addEventListener('click',closeAll));
+<script src="/assets/rotate-hint.js" defer></script>
 
-// reveals
-const io = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    // tall elements can never reach the .18 ratio on small screens: reveal them on entry
-    if(e.isIntersecting && (e.intersectionRatio >= .18 || e.boundingClientRect.height > innerHeight * .6)){
-      e.target.classList.add('on');
-      e.target.querySelectorAll('.tr i').forEach(i=>{ i.style.width = i.dataset.w; });
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:[0,.18]});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-// stagger siblings
-document.querySelectorAll('.bento,.prods,.claims').forEach(g=>{
-  [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
-});
-
-// ratings coverflow
-(()=>{
-const DATA=[
- {q:'"The dashboards alone changed how we run the floor. Every model, every job, <em class="i">one screen.</em>"',ini:'SL',n:'Systems lead',w:'Logistics group · Malta',s:'COMMAND DASHBOARDS'},
- {q:'"They handed us a machine. Our data has <em class="i">never left the building</em> since."',ini:'CT',n:'CTO',w:'Medical imaging practice · Germany',s:'LOCAL-FIRST SYSTEM'},
- {q:'"Helmsman routed around a model failure at 3am and nobody noticed until the <em class="i">morning report.</em> That sold me."',ini:'OD',n:'Operations director',w:'Fintech · United Kingdom',s:'HELMSMAN ENGINE'},
- {q:'"Commissioning felt like ordering a building. Spec, build, <em class="i">handover, done.</em>"',ini:'MP',n:'Managing partner',w:'Advisory firm · Malta',s:'COMMISSIONED BUILD'},
- {q:'"The model swapped twice since launch. The harness <em class="i">never blinked.</em>"',ini:'PO',n:'Platform owner',w:'Logistics · Germany',s:'HARNESS CORE'},
-];
-const STAR='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.5l6.3-.7z"/></svg>';
-const stage=document.getElementById('rtStage'),dots=document.getElementById('rtDots');
-DATA.forEach(d=>{
-  stage.insertAdjacentHTML('beforeend',`<div class="rt-card"><span class="rt-stars">${STAR.repeat(5)}</span><q>${d.q}</q><div class="rt-who"><span class="rt-av">${d.ini}</span><div><b>${d.n}</b><span>${d.w}</span></div></div><div class="rt-sys">${d.s}</div></div>`);
-  dots.insertAdjacentHTML('beforeend','<i></i>');
-});
-const cards=[...stage.children],ds=[...dots.children],n=DATA.length;let a=0;
-function lay(){
-  cards.forEach((c,i)=>{
-    let d=i-a; if(d>n/2)d-=n; if(d<-n/2)d+=n;
-    const abs=Math.abs(d);
-    c.style.transform=`translateX(${d*310}px) translateZ(${-abs*190}px) rotateY(${d*-24}deg)`;
-    c.style.opacity=abs>2?0:1-abs*.18;
-    c.style.zIndex=10-abs;
-    c.style.pointerEvents=abs>2?'none':'auto';
-    c.classList.toggle('live',d===0);
-  });
-  ds.forEach((el,i)=>el.classList.toggle('on',i===a));
-}
-lay();
-const go=d=>{a=(a+d+n)%n;lay();};
-cards.forEach((c,i)=>c.onclick=()=>{if(i!==a){a=i;lay();hold()}});
-ds.forEach((el,i)=>el.onclick=()=>{a=i;lay();hold()});
-let t=setInterval(()=>go(1),4000);
-function hold(){clearInterval(t);t=setInterval(()=>go(1),4000)}
-stage.addEventListener('pointerenter',()=>clearInterval(t));
-stage.addEventListener('pointerleave',()=>hold());
-})();
-</script>
-
-<style>
-#rothint{position:fixed;inset:0;z-index:300;display:grid;place-items:center;opacity:0;transition:opacity .7s ease;background:radial-gradient(70% 55% at 50% 46%,rgba(251,251,253,.97),rgba(245,245,247,.9))}
-#rothint.show{opacity:1}
-#rothint .rh{display:grid;justify-items:center;gap:.4rem;pointer-events:none}
-#rothint canvas{width:min(70vw,320px);height:min(70vw,320px)}
-#rothint .rt{font-family:'Hanken',sans-serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;font-weight:700;color:#1f6ff2;text-align:center}
-#rothint .rt b{display:block;margin-top:.55rem;font-weight:500;letter-spacing:.22em;font-size:10px;color:#6e6e73}
-</style>
-<script>
-(function(){
-  try{
-    if (sessionStorage.getItem('vf_rot')) return;
-    var mm = window.matchMedia('(orientation: portrait)');
-    var touch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-    if (!mm.matches || !touch || Math.min(screen.width, screen.height) > 820) return;
-    sessionStorage.setItem('vf_rot', '1');
-    var el = document.createElement('div');
-    el.id = 'rothint';
-    el.setAttribute('role', 'status');
-    el.innerHTML = '<div class="rh"><canvas aria-hidden="true"></canvas><div class="rt">Rotate<b>landscape for the full experience</b></div></div>';
-    document.body.appendChild(el);
-    var cv = el.querySelector('canvas');
-    var g = cv.getContext('2d');
-    var S = Math.min(window.innerWidth * 0.7, 320);
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    cv.width = Math.round(S * dpr); cv.height = Math.round(S * dpr);
-    g.scale(dpr, dpr);
-    var C = S / 2, N = 380, P = [], TAU = Math.PI * 2;
-    var PW = S * 0.36, PH = S * 0.66, EXP = 0.32;
-    function sgn(v){ return v < 0 ? -1 : 1; }
-    for (var i = 0; i < N; i++){
-      var t = (i / N) * TAU;
-      var co = Math.cos(t), si = Math.sin(t);
-      P.push({ hx: (PW / 2) * sgn(co) * Math.pow(Math.abs(co), EXP),
-        hy: (PH / 2) * sgn(si) * Math.pow(Math.abs(si), EXP),
-        x: (Math.random() - 0.5) * S * 1.5, y: (Math.random() - 0.5) * S * 1.5,
-        vx: 0, vy: 0, ph: Math.random() * TAU, sp: 2.2 + Math.random() * 2.6,
-        r: 0.8 + Math.random() * 0.9, ice: Math.random() < 0.14 });
-    }
-    var ang = 0, av = 0, t0 = 0, gone = false;
-    var RMH = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function targetAt(ms){
-      if (ms < 1150) return 0;
-      if (ms < 2850) return Math.PI / 2;
-      if (ms < 4350) return 0;
-      return Math.PI / 2;
-    }
-    function hide(){
-      if (gone) return; gone = true;
-      el.classList.remove('show');
-      setTimeout(function(){ el.remove(); }, 750);
-    }
-    function frame(now){
-      if (gone) return;
-      if (!t0) t0 = now;
-      var ms = now - t0;
-      av = (av + (targetAt(ms) - ang) * 0.045) * 0.86;
-      ang += av;
-      var ca = Math.cos(ang), sa = Math.sin(ang);
-      g.clearRect(0, 0, S, S);
-      for (var i = 0; i < P.length; i++){
-        var p = P[i];
-        var tx = C + p.hx * ca - p.hy * sa;
-        var ty = C + p.hx * sa + p.hy * ca;
-        p.vx = (p.vx + (tx - p.x) * 0.09) * 0.8;
-        p.vy = (p.vy + (ty - p.y) * 0.09) * 0.8;
-        p.x += p.vx; p.y += p.vy;
-        var a = 0.28 + 0.62 * (0.5 + 0.5 * Math.sin(now * 0.001 * p.sp + p.ph));
-        g.fillStyle = p.ice ? 'rgba(29,29,31,' + (a * 0.85).toFixed(3) + ')' : 'rgba(31,111,242,' + a.toFixed(3) + ')';
-        g.beginPath();
-        g.arc(p.x, p.y, p.r, 0, TAU);
-        g.fill();
-      }
-      if (ms > 6400) { hide(); return; }
-      requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add('show'); }); });
-    if (RMH){
-      var ca2 = Math.cos(Math.PI / 2), sa2 = Math.sin(Math.PI / 2);
-      for (var k = 0; k < P.length; k++){
-        var q = P[k];
-        g.fillStyle = q.ice ? 'rgba(29,29,31,0.7)' : 'rgba(31,111,242,0.8)';
-        g.beginPath();
-        g.arc(C + q.hx * ca2 - q.hy * sa2, C + q.hx * sa2 + q.hy * ca2, q.r, 0, TAU);
-        g.fill();
-      }
-      setTimeout(hide, 3800);
-    } else {
-      requestAnimationFrame(frame);
-    }
-    if (mm.addEventListener) mm.addEventListener('change', function(e){ if (!e.matches) hide(); });
-    el.addEventListener('click', hide);
-  }catch(e){}
-})();
-</script>
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>

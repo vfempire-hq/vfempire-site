@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helmsman Engine: AI orchestration you own | VF Empire</title>
+<meta name="description" content="Helmsman is VF Empire's AI orchestration engine: it routes work across open models, gates every output against evidence and self-heals failures. Malta, EU.">
+<link rel="canonical" href="https://vfempire.com/engine">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/assets/house.76140f4c53.css">
+<script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VF Empire">
+<meta property="og:title" content="Helmsman Engine: AI orchestration you own">
+<meta property="og:description" content="The orchestration engine inside every VF system: routes work across open models, gates every output against evidence, self-heals failures. On hardware you own.">
+<meta property="og:url" content="https://vfempire.com/engine">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:image" content="https://vfempire.com/assets/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Helmsman Engine: AI orchestration you own">
+<meta name="twitter:description" content="The orchestration engine inside every VF system: routes work across open models, gates every output against evidence, self-heals failures. On hardware you own.">
+<meta name="twitter:image" content="https://vfempire.com/assets/brand/og-default.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/engine",
+      "url": "https://vfempire.com/engine",
+      "name": "Helmsman Engine",
+      "description": "Helmsman is VF Empire's AI orchestration engine: it routes work across open models, gates every output against evidence and self-heals failures. Malta, EU.",
+      "isPartOf": {"@id": "https://vfempire.com/#site"},
+      "about": {"@id": "https://vfempire.com/#org"},
+      "inLanguage": "en-GB",
+      "primaryImageOfPage": "https://vfempire.com/assets/engine.png",
+      "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["#definition"]},
+      "mainEntity": {"@type": "Brand", "name": "Helmsman Engine", "url": "https://vfempire.com/engine", "description": "VF Empire's orchestration engine for open AI models: routing, evidence gates and self-heal loops, running local-first on hardware the owner controls."}
+    }
+  ]
+}
+</script>
+<style>
+/* Page-specific layout only. Shared things live in /house.css: .nav .brand .crumb .nl .cta,
+   section .wrap .k h2 .lead .rv, .bt .mchip, .phero (centred hero), .band, .outs .c,
+   .faq .q, .foot, footer .legal, .consent. Do not redeclare them here. */
+.fig{margin-top:56px;border:1px solid var(--line);border-radius:20px;background:#fff;padding:28px 28px 20px}
+.fig svg{display:block;width:100%;height:auto}
+.fig figcaption{font-size:12px;line-height:1.6;color:var(--dove);margin-top:16px;max-width:640px}
+.prose{max-width:640px;margin-top:28px}
+.prose p{font-size:15px;line-height:1.7;color:var(--dove)}
+.prose p+p{margin-top:14px}
+.prose a,.lead a,.outs .c p a,.q p a{color:var(--core)}
+.prose a:hover,.lead a:hover{text-decoration:underline}
+.prose strong{color:var(--ink);font-weight:600}
+.layers{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+.layers .l{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px}
+.layers .l i{display:block;font-style:normal;font-size:10px;letter-spacing:.26em;color:var(--core);font-weight:600;margin-bottom:10px}
+.layers .l h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
+.layers .l p{font-size:13.5px;line-height:1.62;color:var(--dove)}
+.layers .l p a{color:var(--core)}
+@media(max-width:880px){.layers{grid-template-columns:1fr}.fig{padding:18px 16px 14px}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- seo-pass -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "VF Empire",
+          "item": "https://vfempire.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Helmsman Engine"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vfempire.com/engine#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Helmsman engine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Helmsman is VF Empire's orchestration engine. It routes each job to an open model with the right tools and context budget, gates the output against evidence (screenshots, checks, signed responses) and self-heals when a model, a tool or a check fails. It runs the VF floor in Malta on one owned machine and ships inside every commissioned system."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI models does Helmsman run?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open models, on hardware the owner controls. Helmsman steers frontier-class open models on owned metal and treats the model as cargo: any open model, today's or next year's, drops into the harness and inherits the whole system. VF does not tie the engine to one model, because the model is the part that changes and the router, gates and self-heal loops are the parts that stay."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Helmsman need the cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. VF builds every system local-first: models, data and controls run on machines the owner holds. Cloud capacity is an option when a client wants it, never a requirement, and never the place your data has to live. No third-party AI provider sits on a path that touches user data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does \"gated against evidence\" mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every process lane ends in a gate that checks the output against proof: a screenshot of the result, a passing test, a signed response, a registry acknowledgment. Nothing ships on a model's word alone. A failed check stops the job and sends it back through the self-heal loop, and the command dashboard shows the operator what the gate refused and why."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when a model fails at 3am?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The self-heal loop handles it without a person present. Helmsman retries the step, routes around the failed model or tool, and records what it learned in an improve-queue for the next run. The recovery appears on the dashboard, and if the lane drifts beyond its tolerance the dashboard pages a person. Humans sit only at the gates that matter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I commission Helmsman on its own?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Helmsman ships inside every commissioned system. VF builds complete systems to order: engine, harness, dashboards and training, on hardware you own. Write to info@vfempire.com with the problem and VF scopes the machine around it, builds it to tolerance and hands it over with documentation and training. See the build slate for what that has produced so far."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+      VF EMPIRE
+    </a>
+    <span class="crumb"><a href="/">VF Empire</a> &nbsp;/&nbsp; <b>Helmsman Engine</b></span>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
+    <a class="cta" href="/#commission">Commission a system</a>
+  </div>
+</nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
+
+<header class="phero">
+  <div class="eb">VF EMPIRE · THE ENGINE ROOM · MALTA, EU</div>
+  <h1>Helmsman Engine<span>Open models, <em class="i">steered.</em></span></h1>
+  <p class="sub" id="definition">Helmsman is VF Empire's orchestration engine: it routes work across open models, gates every output against evidence and self-heals failures. It runs the VF floor in Malta and ships inside every commissioned system, so the model can change while the machine around it stays.</p>
+  <div class="meta">
+    <span class="mchip hot">Flagship engine</span>
+    <span class="mchip">Any open model</span>
+    <span class="mchip">Local-first</span>
+    <span class="mchip">Ships in every system</span>
+  </div>
+  <div class="acts">
+    <a class="bt pri" href="/#commission">Commission a system</a>
+    <a class="bt gho" href="/harness">See the harness</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="k rv">HOW IT WORKS</div>
+    <h2 class="rv">Route, gate, heal.<br><span class="mute">Three jobs, one engine.</span></h2>
+    <p class="lead rv">Helmsman installs, tunes and pilots large open models on owned metal, and curates them like instruments. Every piece of work that enters a VF system passes the same three stages, whether the system is <a href="/systems/fileit">FileIT</a> filing a return or a robotics lane moving a machine.</p>
+
+    <figure class="fig rv">
+      <svg viewBox="0 0 720 270" role="img" aria-labelledby="fig-engine">
+        <title id="fig-engine">Helmsman routes work to an open model, gates the output against evidence, loops back through self-heal when a check fails, and reports every stage to the command dashboard</title>
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="var(--dove)"/></marker></defs>
+        <g fill="none" stroke="var(--line)" stroke-width="1.5">
+          <rect x="20" y="110" width="110" height="56" rx="14" fill="var(--silver)"/>
+          <rect x="180" y="110" width="120" height="56" rx="14" fill="#fff"/>
+          <rect x="350" y="110" width="120" height="56" rx="14" fill="#fff"/>
+          <rect x="520" y="110" width="180" height="56" rx="14" fill="var(--silver)"/>
+          <rect x="180" y="22" width="120" height="44" rx="12" fill="#fff" stroke-dasharray="4 4"/>
+          <rect x="20" y="214" width="680" height="40" rx="12" fill="var(--silver)"/>
+        </g>
+        <g stroke="var(--dove)" stroke-width="1.5" fill="none" marker-end="url(#ar)">
+          <path d="M130 138H176"/><path d="M300 138H346"/><path d="M470 138H516"/>
+          <path d="M240 66V106"/>
+          <path d="M410 166C410 204 240 204 240 170"/>
+        </g>
+        <g stroke="var(--line)" stroke-dasharray="3 4"><path d="M240 166V214"/><path d="M430 166V214"/><path d="M610 166V214"/></g>
+        <g font-size="13" font-weight="600" fill="var(--ink)" text-anchor="middle">
+          <text x="75" y="143">Work in</text><text x="240" y="143">Route</text><text x="410" y="143">Gate</text><text x="610" y="143">Verified work</text>
+          <text x="240" y="49" font-size="11" fill="var(--dove)">any open model</text>
+          <text x="325" y="199" font-size="11" fill="var(--core)">self-heal: retry, reroute, learn</text>
+          <text x="360" y="239" font-size="11" fill="var(--dove)">Command dashboard: every stage visible, drift pages the operator</text>
+        </g>
+      </svg>
+      <figcaption>The Helmsman loop. Work enters, the router picks a model and a tool budget, the gate checks the output against evidence, and a failed check sends the job back through the self-heal loop.</figcaption>
+    </figure>
+
+    <div class="outs rv">
+      <div class="c"><div class="n">Route<span>.</span></div><p>Helmsman picks the model, the tools and the context budget for each job, and batches work so one model does more per day. Routing is where <a href="/#rd">utilisation</a> is won.</p></div>
+      <div class="c"><div class="n">Gate<span>.</span></div><p>Every lane ends in a gate: screenshots, checks, evidence. Nothing ships on a model's word alone, and a failed check stops the job where it stands.</p></div>
+      <div class="c"><div class="n">Heal<span>.</span></div><p>When a model fails, a tool times out or a check is refused, the engine routes around it, retries and records what it learned. Recovery runs without a person present.</p></div>
+    </div>
+
+    <div class="prose rv">
+      <p>On the VF floor Helmsman supervises more than 200 specialised agents across engineering, audit, memory, security and creative lanes, on more than 60 custom process lanes, all on one owned machine. The <a href="/harness">harness stack</a> gives each lane its supervision, memory and evidence discipline. The <a href="/dashboards">command dashboards</a> show the operator what the engine is doing, lane by lane, and page a person when anything drifts. The <a href="/glossary">glossary</a> defines each term.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="k rv">WHAT HELMSMAN IS NOT</div>
+    <h2 class="rv">Four things<br><span class="mute">the engine leaves out.</span></h2>
+    <p class="lead rv">Four things Helmsman does not contain, so a buyer knows what arrives on the day of handover.</p>
+    <div class="layers rv">
+      <div class="l"><i>01</i><h4>No model of its own</h4><p>Helmsman ships without a model inside it. Any open model, today's or next year's, drops into the harness and inherits orchestration, memory, evaluation, recovery and control surfaces. Swap the model, keep the machine.</p></div>
+      <div class="l"><i>02</i><h4>No third-party AI on user-data paths</h4><p>VF systems run local models or VF's own EU GPU inference. OpenAI, Anthropic, Google and Cohere never sit on a path that touches user data, a rule every VF product inherits from the <a href="/software">software thesis</a>.</p></div>
+      <div class="l"><i>03</i><h4>No cloud requirement</h4><p>Helmsman runs local-first on hardware the owner holds. Cloud capacity is an option when a client wants it, never a requirement, and never the place your data has to live.</p></div>
+      <div class="l"><i>04</i><h4>No kit to assemble</h4><p>A commissioned system arrives complete: engine fitted, harness tuned, dashboards live, with documentation and training. VF built it to tolerance and stands behind it under the <a href="/security">security posture</a> every product ships against.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="k rv">INSIDE EVERY COMMISSIONED SYSTEM</div>
+    <h2 class="rv">One engine,<br><span class="mute">every system on the slate.</span></h2>
+    <p class="lead rv">Every system on the <a href="/systems/">build slate</a> leaves the lab the VF way: engine fitted, harness tuned, dashboard live, running on hardware the owner controls. The engine shows up in the mechanics of each product.</p>
+    <div class="prose rv">
+      <p><strong>FileIT.</strong> In <a href="/systems/fileit">the self-filing ledger</a> a deterministic core does the arithmetic and open models do the judgement work, classifying transactions and mapping the trial balance onto each jurisdiction's statutory format, inside a harness with a gate in front of anything that leaves the building. No figure files unless it reconciles to the ledger, and no return leaves without passing evaluation. A failed check stops the filing.</p>
+      <p><strong>NAV·IT.</strong> In <a href="/systems/nav-it">the sovereign navigator</a> the evidence discipline runs all the way to the auditor. The origin box Ed25519-signs every routing response, the client refuses a tampered one, and a published verification checklist lets an outsider run the same seven checks VF runs.</p>
+      <p><strong>Guardian Shield.</strong> In <a href="/systems/guardian-shield">the security suite</a> the gate sits on an outcome. The malware scanner carries a detection floor of 85% on the AV-TEST reference set; below that for 30 days and VF pauses new signups until it is fixed. The number is the gate.</p>
+      <p><strong>How a commission runs.</strong> Write to info@vfempire.com with the problem. VF scopes the machine, builds it to tolerance and hands it over with dashboards, documentation and training. The <a href="/training-centre">AI Training Centre</a> teaches the same engine on the same floor, and the <a href="/services/signing-infrastructure">signing infrastructure</a> VF deploys for clients (two-operator signing, transparency log, reproducible builds) applies to every binary the engine ships in.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      <div class="q">
+        <h4>What is the Helmsman engine?</h4>
+        <p>Helmsman is VF Empire's orchestration engine. It routes each job to an open model with the right tools and context budget, gates the output against evidence (screenshots, checks, signed responses) and self-heals when a model, a tool or a check fails. It runs the VF floor in Malta on one owned machine and ships inside every commissioned system.</p>
+      </div>
+      <div class="q">
+        <h4>Which AI models does Helmsman run?</h4>
+        <p>Open models, on hardware the owner controls. Helmsman steers frontier-class open models on owned metal and treats the model as cargo: any open model, today's or next year's, drops into the harness and inherits the whole system. VF does not tie the engine to one model, because the model is the part that changes and the router, gates and self-heal loops are the parts that stay.</p>
+      </div>
+      <div class="q">
+        <h4>Does Helmsman need the cloud?</h4>
+        <p>No. VF builds every system local-first: models, data and controls run on machines the owner holds. Cloud capacity is an option when a client wants it, never a requirement, and never the place your data has to live. No third-party AI provider sits on a path that touches user data.</p>
+      </div>
+      <div class="q">
+        <h4>What does "gated against evidence" mean?</h4>
+        <p>Every process lane ends in a gate that checks the output against proof: a screenshot of the result, a passing test, a signed response, a registry acknowledgment. Nothing ships on a model's word alone. A failed check stops the job and sends it back through the self-heal loop, and the <a href="/dashboards">command dashboard</a> shows the operator what the gate refused and why.</p>
+      </div>
+      <div class="q">
+        <h4>What happens when a model fails at 3am?</h4>
+        <p>The self-heal loop handles it without a person present. Helmsman retries the step, routes around the failed model or tool, and records what it learned in an improve-queue for the next run. The recovery appears on the dashboard, and if the lane drifts beyond its tolerance the dashboard pages a person. Humans sit only at the gates that matter.</p>
+      </div>
+      <div class="q">
+        <h4>Can I commission Helmsman on its own?</h4>
+        <p>Helmsman ships inside every commissioned system. VF builds complete systems to order: engine, harness, dashboards and training, on hardware you own. Write to info@vfempire.com with the problem and VF scopes the machine around it, builds it to tolerance and hands it over with documentation and training. See the <a href="/systems/">build slate</a> for what that has produced so far.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="foot">
+  <div class="wrap">
+    <div class="k rv">NEXT STEP</div>
+    <h2 class="rv">Put an engine<br><span class="mute">on your own metal.</span></h2>
+    <p class="lead rv">Write with the problem. VF scopes the machine, builds it to tolerance and hands it over with dashboards, documentation and training.</p>
+    <div class="acts">
+      <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Helmsman%20Engine">Write to info@vfempire.com</a>
+      <a class="bt gho rv" href="/contact/">Every desk</a>
+    </div>
+  </div>
+</section>
+
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
+  <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="dec" id="cdec">Decline</button>
+    <button class="acc" id="cacc">Accept</button>
+  </div>
+</div>
+
+<script src="/assets/house.js" defer></script>
+
+</body>
+</html>

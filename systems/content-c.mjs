@@ -1,4 +1,4 @@
-// VF systems pages — content pack C: P·11–P·14 + P·16.
+// VF systems pages: content pack C: P·11–P·14 + P·16.
 // Grounded on research pack C (2026-09-11). Honesty law applies: no invented stats, guardrails obeyed.
 
 export default [
@@ -9,8 +9,8 @@ export default [
   name: 'Low-Resource Language AI',
   pn: 'P·11',
   sector: 'LANGUAGE',
-  titleTag: 'AI for the Languages Big Tech Skips',
-  metaDesc: 'Low-Resource Language AI by VF Empire: translation, teaching and preservation for underserved languages. Maltese included; this one is personal. In build in Malta, EU.',
+  titleTag: 'AI for small languages',
+  metaDesc: 'Low-Resource Language AI by VF Empire: translation, learning and preservation tools for underserved languages, Maltese first. In build in Malta, EU.',
   ogTitle: 'Seven thousand languages. AI speaks a few hundred.',
   ogDesc: 'Translation, learning and preservation infrastructure for the languages underserved by big-tech platforms, starting with Maltese. On the VF build slate.',
   appCategory: 'UtilitiesApplication',
@@ -70,6 +70,14 @@ export default [
   repo: { h: 'low-resource-language-ai', p: 'Corpus tooling, training recipes and evaluation sets. The method layer will be open; that is the entire point of building a template.' },
   ctaH: 'Every language deserves<br><span class="mute">a digital future.</span>',
   ctaLead: 'Low-Resource Language AI is in build, Maltese first. Speakers, teachers, linguists, contributors: register interest. Corpus partners shape this from the ground up.',
+  faq: [
+    { q: 'Which languages does it cover?', a: 'Maltese first. VF Empire is a Maltese company and the national language sits in the lowest support band of European language technology. Everything is documented as a repeatable method, so the template is proven next on a second underserved language with a partner community, and communities can bring their own.' },
+    { q: 'What tools will it offer?', a: 'Maltese to English and Maltese to EU-language translation evaluated by native speakers, writing assistance that drafts and corrects, speech in and out, and a learning experience built from the corpus outward for students, the diaspora and new residents. Institutions working under official bilingualism get tooling that carries the load in both languages.' },
+    { q: 'How does the corpus get built?', a: 'On existing resources (the Korpus Malti tradition, public text, licensed archives) plus community contribution pipelines for text and speech, with clear licensing and credit. The model core uses data-efficient training: multilingual transfer, fine-tuning on curated Maltese data and evaluation sets built with native speakers, standing on prior local work such as BERTu.' },
+    { q: 'Can I contribute?', a: 'Yes. Speakers, teachers, linguists and contributors are invited to register interest, and corpus partners shape the programme from the ground up. Contributed text and speech is properly licensed and credited, growing the shared foundation that future Maltese tools will stand on. The method layer will be open.' },
+    { q: 'When does it ship?', a: 'Low-Resource Language AI is in build. The Maltese foundation comes first: corpus assembly and licensing, first translation and writing models, and native-speaker evaluation panels. The daily tools phase brings public translation and writing assistance, the learning experience and speech. The second language and institutional offerings for bilingual workflows follow.' },
+  ],
+  related: ['citizen-services-desk', 'different-minds-engine'],
 },
 
 // ─── P·12 CITIZEN SERVICES DESK ──────────────────────────────────────
@@ -78,8 +86,8 @@ export default [
   name: 'Citizen Services Desk',
   pn: 'P·12',
   sector: 'CIVIC',
-  titleTag: 'Municipal AI on the Municipality’s Own Metal',
-  metaDesc: 'Citizen Services Desk by VF Empire: permits, forms and citizen queries handled in local language, run by municipalities on infrastructure they control. In build in Malta, EU.',
+  titleTag: 'Sovereign municipal AI',
+  metaDesc: 'Citizen Services Desk by VF Empire: municipal AI for permits, forms and citizen queries, run on infrastructure the council controls. In build in Malta, EU.',
   ogTitle: 'public services, on public infrastructure',
   ogDesc: 'A citizen-services AI desk municipalities run on their own metal: local language, local control, European by architecture. On the VF build slate.',
   appCategory: 'BusinessApplication',
@@ -139,6 +147,15 @@ export default [
   repo: { h: 'citizen-services-desk', p: 'Deployment framework and knowledge-base tooling. Public-sector code deserves public scrutiny; VF will open core components as the build matures.' },
   ctaH: 'The town hall deserves<br><span class="mute">the best software in the state.</span>',
   ctaLead: 'Citizen Services Desk is in build. Municipal officers, clerks and regional CIOs: register interest. Pilot councils define the product.',
+  faq: [
+    { q: 'Where does citizen data go?', a: 'It stays under the municipality’s control. The Desk runs on-premise or on qualified EU-sovereign hosting, with open standards for records and full audit logs, inspectable by the administration that runs it. Every byte is processed on infrastructure the administration answers for, which delivers the guarantee no foreign cloud could give under oath.' },
+    { q: 'Which languages does it support?', a: 'The community’s real languages. The service engine is multilingual per municipality, so councils serving residents in several languages (Malta’s official bilingualism, border regions, migrant communities) get service parity across all of them. Additional language packs arrive in the service span phase of the roadmap.' },
+    { q: 'What does the Desk do for citizens?', a: 'Answers about permits, deadlines, documents and procedures in plain local language, around the clock, sourced from the municipality’s own rules. Guided intake checks documents and requirements before submission so requests arrive complete. The path to a human clerk is always one step away.' },
+    { q: 'Does it replace clerks?', a: 'No. It absorbs the routine query load and delivers requests pre-structured with complete documents, so staff time goes back to cases that need judgement. Clerks supervise the desk through structured queues, drafted responses for approval and workload views. Confidence thresholds hand uncertain cases to humans; the desk never acts beyond its delegation.' },
+    { q: 'Which councils is it built for?', a: 'A local council of a few thousand to a hundred thousand residents: big enough to drown in queries, too small for a digital department. It deploys like municipal equipment, loaded with the council’s own bylaws, fee schedules, procedures and forms, operated by existing staff. Regional governments get a pattern to roll across many municipalities.' },
+    { q: 'When does it ship?', a: 'Citizen Services Desk is in build. The first council phase is a pilot deployment with a working municipality: knowledge-base ingestion, citizen Q&A and guided intake in production, clerk workflows proven. Permit-processing depth, language packs and records integration follow, then general availability with procurement-ready documentation. Pilot councils define the product.' },
+  ],
+  related: ['everyday-law-navigator', 'low-resource-language-ai', 'offline-first-response'],
 },
 
 // ─── P·13 CLAIMS ADVOCATE ────────────────────────────────────────────
@@ -147,8 +164,8 @@ export default [
   name: 'Claims Advocate',
   pn: 'P·13',
   sector: 'INSURANCE',
-  titleTag: 'AI on the Policyholder’s Side',
-  metaDesc: 'Claims Advocate by VF Empire: evidence, precedent and persistence for insurance claimants. Insurers run AI on every claim; this levels the table. In build in Malta, EU.',
+  titleTag: 'AI on the policyholder’s side',
+  metaDesc: 'Claims Advocate by VF Empire: policy decoding, evidence files and appeal drafting for insurance claimants, ombudsman routes mapped. In build in Malta, EU.',
   ogTitle: 'the insurer brought AI to your claim. Now so do you.',
   ogDesc: 'Evidence assembly, policy analysis and appeal support for insurance claimants: the policyholder’s side of the table, equipped at last. On the VF build slate.',
   appCategory: 'BusinessApplication',
@@ -208,6 +225,14 @@ export default [
   repo: { h: 'claims-advocate', p: 'Document pipeline and case-file format. VF will maintain the escalation-route directory in the open; free remedies should be findable by anyone.' },
   ctaH: 'You paid the premiums.<br><span class="mute">Claim like it.</span>',
   ctaLead: 'Claims Advocate is in build. If you hold a denial letter, or fold before appealing, register interest. Real cases shape the pilot.',
+  faq: [
+    { q: 'Is Claims Advocate legal advice?', a: 'No. It provides information and document support: decoding, organising and drafting for your review. A jurisdiction-aware boundary layer keeps the tool on the right side of legal-services and claims-management rules in each market, and it tells you plainly when a matter needs an ombudsman, a regulated advisor or a lawyer.' },
+    { q: 'What does it do with my denial letter?', a: 'It decodes the denial against your actual policy wording: cover, exclusions, defined terms and deadlines explained in plain language, each explanation anchored to the clause it came from. It then assesses what an appeal needs, assembles your evidence into a chronological, gap-checked case file and drafts appeal letters for your approval.' },
+    { q: 'Which claims does it cover?', a: 'Household and property claims first: water, storm, fire, burglary. Motor, travel and health claim support follow, then small-business claims such as business interruption and commercial property. Health and disability claimants get structured support with routing to professionals and advice services where matters exceed a tool.' },
+    { q: 'Does it know the ombudsman route?', a: 'Yes. The Advocate tracks deadlines and queues the next step along each jurisdiction’s free routes: internal complaint, ombudsman, regulator. Routing to ombudsman schemes, regulated claims professionals and lawyers is built in as a feature, and VF will maintain the escalation-route directory in the open.' },
+    { q: 'When does it ship?', a: 'Claims Advocate is in build. The property core comes first: policy decoding, case-file assembly and appeal drafting proven on real denials in the pilot jurisdictions. Motor, travel and health lines follow with deadline automation and ombudsman-format exports, then general availability across initial EU markets and the UK. Real cases shape the pilot.' },
+  ],
+  related: ['everyday-law-navigator', 'fileit'],
 },
 
 // ─── P·14 OFFLINE-FIRST RESPONSE ─────────────────────────────────────
@@ -216,10 +241,10 @@ export default [
   name: 'Offline-First Response',
   pn: 'P·14',
   sector: 'EMERGENCY',
-  titleTag: 'Coordination That Survives the Blackout',
-  metaDesc: 'Offline-First Response by VF Empire: emergency coordination systems that keep working when networks don’t. Built for the disasters that take infrastructure down first. In build in Malta, EU.',
+  titleTag: 'Coordination, zero bars',
+  metaDesc: 'Offline-First Response by VF Empire: emergency coordination on local nodes and device meshes that keeps working when the towers go dark. In build in Malta, EU.',
   ogTitle: 'Disasters take the network down first',
-  ogDesc: 'Emergency coordination built offline-first (local mesh, local state, sync when possible) for the hours when the grid and the towers are gone. On the VF build slate.',
+  ogDesc: 'Emergency coordination built offline-first (local mesh, local state, sync when possible) for the hours when the towers are gone. On the VF build slate.',
   appCategory: 'UtilitiesApplication',
   os: 'iOS, Android, Field units',
   ldDesc: 'Offline-First Response is an emergency-coordination system in development by VF Empire Corp Ltd: situation tracking, tasking and messaging designed to operate on local networks and device meshes when wide-area connectivity fails, syncing opportunistically when links return.',
@@ -277,6 +302,14 @@ export default [
   repo: { h: 'offline-first-response', p: 'Sync fabric and node software. Resilience infrastructure earns trust by being inspectable, so the core protocols will be open.' },
   ctaH: 'The next one is coming.<br><span class="mute">Coordinate anyway.</span>',
   ctaLead: 'Offline-First Response is in build. Civil-protection officers, brigade leads and resilience planners: register interest. Exercise partners shape the system.',
+  faq: [
+    { q: 'Does it work with no network at all?', a: 'Yes. The design baseline is total wide-area failure. Responder phones run the full app offline (capture, tasking, messaging), a battery-backed local node at the coordination point serves the map and data, and devices mesh phone-to-phone or store and forward. Connectivity, when present, makes it better rather than making it possible.' },
+    { q: 'What happens when the network comes back?', a: 'State reconciles outward automatically. The sync fabric uses a conflict-free data model built for partition and merge: every node holds usable truth, and any restored link (one bar, one satellite terminal, one restored mast) reconciles state without human deduplication. Nothing waits for connectivity; everything uses it.' },
+    { q: 'Who is it built for?', a: 'The municipal crisis team first: the mayor’s crisis cell, the volunteer fire brigade, the parish flood group. They coordinate the first and worst hours with phones that stopped working. Civil-protection agencies, volunteer organisations, critical facilities such as hospitals and utilities, and communities at known risk, Malta included, follow.' },
+    { q: 'Does it need special hardware?', a: 'The field layer runs on responder phones. The local node is a battery-backed unit at the coordination point providing a local Wi-Fi island, state authority and map server, and it needs nothing upstream. Bridges to digital radio, amateur radio and satellite terminals are transport of opportunity, never a dependency.' },
+    { q: 'When does it ship?', a: 'Offline-First Response is in build. The local node phase covers node hardware and software, the field app with store-and-forward, and the crisis-room picture proven in exercises with a real civil-protection unit. Hardened device-to-device transports and radio and satellite bridges follow, then deployment and training programmes for municipalities and volunteer organisations.' },
+  ],
+  related: ['citizen-services-desk', 'nav-it'],
 },
 
 // ─── P·16 VF MAIL ────────────────────────────────────────────────────
@@ -285,17 +318,17 @@ export default [
   name: 'VF Mail',
   pn: 'P·16',
   sector: 'EMAIL',
-  titleTag: 'A Whole Mail System of Our Own',
-  metaDesc: 'VF Mail by VF Empire: server, shield and address on metal we hold. The first @vfempire.com inboxes already run on our own node. Your inbox stops being an ad company’s product. In build in Malta, EU.',
+  titleTag: 'Owned mail system, EU jurisdiction',
+  metaDesc: 'VF Mail by VF Empire: a complete email system (server, deliverability shield, address) on metal we hold in EU jurisdiction, carrying our own company mail today.',
   ogTitle: 'Your inbox is someone’s product. Take it back.',
-  ogDesc: 'A complete mail system (server, deliverability shield, address) running on owned infrastructure. First light already: our own company mail runs on it. On the VF build slate.',
+  ogDesc: 'A complete mail system (server, deliverability shield, address) on owned infrastructure. Our own company mail already runs on it. On the VF build slate.',
   appCategory: 'CommunicationApplication',
   os: 'Web, iOS, Android, IMAP/SMTP',
   ldDesc: 'VF Mail is an email system in development by VF Empire Corp Ltd: a complete mail stack (server, security shield and addresses) operated on company-held infrastructure, currently carrying VF Empire’s own corporate mail as its first deployment.',
   img: 'p16',
   tagline: 'Server. Shield. Address.<br><em class="i">All of it yours.</em>',
   sub: 'Email became a duopoly renting you an address inside an advertising ecosystem. VF Mail is the other path: a complete mail system (server, deliverability shield and address) on metal we hold. The first release is downloadable now, free while in Early Access, before the paid launch on November 1.',
-  chips: ['FIRST LIGHT — LIVE ON OUR NODE', 'OWN METAL', 'EU JURISDICTION'],
+  chips: ['FIRST LIGHT: LIVE ON OUR NODE', 'OWN METAL', 'EU JURISDICTION'],
   heroAlt: 'Minimal 3D render of an envelope monolith with a blue wax seal (VF Mail by VF Empire)',
   whyH: 'Two companies read<br><span class="mute">the world’s morning mail.</span>',
   whyLead: 'The most personal document stream in your life (contracts, medical letters, password resets, love and grief) flows through infrastructure owned by a handful of firms whose business model is knowing you. Leaving is technically possible and practically punished.',
@@ -346,6 +379,14 @@ export default [
   repo: { h: 'vf-mail', p: 'Deployment configurations and shield tooling around the open-source mail core. We document what we harden; the independent-mail ecosystem wins together.' },
   ctaH: 'Your mail. Your metal.<br><span class="mute">Our watch.</span>',
   ctaLead: 'VF Mail has first light: our own company mail runs on it now. If you want your inbox back when the doors open, register interest. Early pilots migrate first.',
+  faq: [
+    { q: 'Is VF Mail available now?', a: 'The first release is downloadable now, free while in Early Access, before the paid launch on November 1. VF Mail already carries VF Empire’s corporate mail: the first @vfempire.com inboxes run on our own node, on our own metal. Early pilots migrate first when the doors open to individuals and companies.' },
+    { q: 'What does it cost?', a: 'Free while in Early Access. The paid launch follows on November 1. The provider’s business model is the service fee, with no ads, no tracking pixels of our own and no profile built from your correspondence. Register interest to be among the early pilots who migrate first.' },
+    { q: 'Where is my mail hosted?', a: 'On infrastructure VF holds, in EU jurisdiction: a modern, memory-safe mail server stack (the Stalwart generation of software) on clean-reputation metal with full standards compliance: SPF, DKIM, DMARC, MTA-STS, DANE. You can leave at any time: full export, standard protocols, no hostage data. The door opens from the inside.' },
+    { q: 'Will my mail land in spam?', a: 'Deliverability is run as a managed operations discipline: warmed IPs, strict authentication, feedback loops, blocklist vigilance and provider-relations work, continuously. Owned mail usually fails at this layer, which is why VF Mail ships as an operated system. It is an operation we run, with no claim of a magic fix.' },
+    { q: 'Can I use my own mail client?', a: 'Yes. VF Mail offers clean web and mobile clients plus full IMAP and SMTP for any client you prefer. The interface follows the house style: quiet, fast, and structurally incapable of advertising to you. Small companies get custom domains, team inboxes and a provider whose business model is the service fee.' },
+  ],
+  related: ['guardian-shield', 'vf-wallet', 'vf-home'],
 },
 
 ];

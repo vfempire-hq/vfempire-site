@@ -1,4 +1,4 @@
-// VF systems pages — content pack B: P·06–P·10.
+// VF systems pages: content pack B: P·06–P·10.
 // Grounded on research pack B (2026-09-11). Honesty law applies: no invented stats, guardrails obeyed.
 
 export default [
@@ -9,8 +9,8 @@ export default [
   name: 'Triage & Continuity',
   pn: 'P·06',
   sector: 'HEALTH',
-  titleTag: 'Wellbeing Check-In That Routes to Humans',
-  metaDesc: 'Triage & Continuity by VF Empire: on-device wellbeing check-ins that route people to human care and remember the journey. It is not a therapist and does not pretend to be one. In build in Malta, EU.',
+  titleTag: 'Wellbeing bridge to care',
+  metaDesc: 'Triage & Continuity by VF Empire: on-device wellbeing check-ins that route people to human care and carry the journey record with them. In build in Malta, EU.',
   ogTitle: 'The bridge to human care, and only the bridge',
   ogDesc: 'Wellbeing check-ins on your own device, routing to human care, carrying your story so you never repeat it from zero. On the VF build slate.',
   appCategory: 'HealthApplication',
@@ -70,6 +70,14 @@ export default [
   repo: { h: 'triage-continuity', p: 'On-device record format and routing framework. VF will document the crisis-escalation logic publicly; that layer should never be a trade secret.' },
   ctaH: 'Software that knows<br><span class="mute">what it is not.</span>',
   ctaLead: 'Triage & Continuity is in build, with clinical review baked into the roadmap. If you have lived the gap, or work in it, register interest. We build this one with care.',
+  faq: [
+    { q: 'Is Triage & Continuity a therapist?', a: 'No. It does three things: it checks in, it routes to human care, and it remembers, with the user owning every word of the record. It does not diagnose, does not treat, and does not pretend. The routing engine treats escalation to humans as the primary function, with crisis escalation hard-coded to human services.' },
+    { q: 'Where does my data go?', a: 'It stays on your device. Check-ins are processed on-device and the continuity record is a longitudinal journal encrypted on your phone. You read it, export it, delete it. There is no server-side behavioural profile, by architecture, and the record is never sold or mined. A professional receives a summary only when you say so.' },
+    { q: 'Who is it for?', a: 'The person who has already asked for help and been handed a waiting time. It also serves families and supporters, employers who want to offer staff an honest private tool that cannot report anyone’s inner life to them, practitioners who receive a consented arrival summary, and regions where the nearest practitioner is a ferry away.' },
+    { q: 'How does the handover to a professional work?', a: 'On consent only. If you choose, the handover surface generates a structured summary of the journey so far, in clinical-friendly form, for the professional you reach. The practitioner gets an arrival summary in minutes instead of a cold start, and you never retell the story from zero.' },
+    { q: 'When does it ship?', a: 'Triage & Continuity is in build, with clinical review baked into the roadmap. The check-in core comes first: on-device check-ins, the continuity record, crisis escalation paths wired and tested, and the routing directory live for pilot regions. Practitioner handover developed with working clinicians follows, then general availability in initial EU markets.' },
+  ],
+  related: ['private-care-watch', 'everyday-law-navigator', 'different-minds-engine'],
 },
 
 // ─── P·07 SITE TRUTH ENGINE ──────────────────────────────────────────
@@ -78,8 +86,8 @@ export default [
   name: 'Site Truth Engine',
   pn: 'P·07',
   sector: 'CONSTRUCTION',
-  titleTag: 'Progress Truth From Cameras Already On Site',
-  metaDesc: 'Site Truth Engine by VF Empire: construction progress verified against plans, risk-condition flagging and materials flow, read from the cameras already on site. In build in Malta, EU.',
+  titleTag: 'Progress proof from site CCTV',
+  metaDesc: 'Site Truth Engine by VF Empire: construction progress verified against plans, risk conditions flagged, using cameras already on site. In build in Malta, EU.',
   ogTitle: 'The site already films itself. Nobody was watching.',
   ogDesc: 'Progress verification, risk-condition flagging and materials tracking from existing site cameras, with no new hardware estate. On the VF build slate.',
   appCategory: 'BusinessApplication',
@@ -139,6 +147,14 @@ export default [
   repo: { h: 'site-truth-engine', p: 'Intake adapters and ledger format. VF will open the camera-normalisation layer; any site intelligence tool should be able to read any camera.' },
   ctaH: 'Stop arguing about<br><span class="mute">what happened. Know.</span>',
   ctaLead: 'Site Truth Engine is in build. If you run sites on cameras that go unwatched, register interest; pilot sites get the truth layer first.',
+  faq: [
+    { q: 'Do I need new cameras?', a: 'No. The intake layer connects to the cameras a site already runs (fixed CCTV, time-lapse units, periodic capture) and normalises whatever is there. New hardware is an option, never the ticket price. There is no BIM prerequisite and no six-month integration: point the engine at existing cameras, load the plans, and the record starts.' },
+    { q: 'What does Site Truth Engine record?', a: 'Progress verified against the programme, so observed percent-complete replaces claimed percent-complete. Risk conditions such as blocked routes, missing edge protection and unsafe storage, queued for a safety officer. Deliveries and materials flow. Everything lands in an append-only, timestamped site diary with each entry dated, sourced and exportable as evidence.' },
+    { q: 'Does it monitor workers?', a: 'It watches the work and the site, and never rates the workers. The vision core is trained on structural elements, plant, materials and conditions; faces are irrelevant to it and it treats them accordingly. Flagged conditions go to qualified human review. Humans confirm; the engine never acts alone.' },
+    { q: 'Who is it built for?', a: 'The small and mid-size contractor running three to ten sites on cameras they already bought, the operator the enterprise players priced out first. Site and project managers get a morning brief, developers and owners get independent progress truth, safety officers get a flag queue, and quantity surveyors and insurers get continuous visual evidence.' },
+    { q: 'When does it ship?', a: 'Site Truth Engine is in build. The first phase runs live pilots on working sites: camera intake, progress detection against plans, the daily brief and site diary proven with real contractors. Risk-condition flagging with safety-officer review loops and multi-site views follow, then general availability with QS and insurance export formats. Pilot sites get the truth layer first.' },
+  ],
+  related: ['self-training-qc-vision', 'the-apprentice', 'vf-home'],
 },
 
 // ─── P·08 GRID & HOME OPTIMISER ──────────────────────────────────────
@@ -147,8 +163,8 @@ export default [
   name: 'Grid & Home Optimiser',
   pn: 'P·08',
   sector: 'ENERGY',
-  titleTag: 'Local Energy Intelligence for Solar Homes',
-  metaDesc: 'Grid & Home Optimiser by VF Empire: local agents balancing solar, storage and consumption in the home, grid-aware by design. Runs on your hardware, with no vendor cloud. In build in Malta, EU.',
+  titleTag: 'Local solar energy brain',
+  metaDesc: 'Grid & Home Optimiser by VF Empire: home energy management balancing solar, battery and loads on a local hub, vendor-neutral. In build in Malta, EU.',
   ogTitle: 'Your roof makes power. Your house wastes it.',
   ogDesc: 'A local energy brain balancing solar, battery and consumption against real prices and real weather, owned by the household. On the VF build slate.',
   appCategory: 'UtilitiesApplication',
@@ -208,6 +224,14 @@ export default [
   repo: { h: 'grid-home-optimiser', p: 'Connector framework and scheduling core. Device connectors will be open; no household should be locked out because of its inverter brand.' },
   ctaH: 'You bought the power plant.<br><span class="mute">Hire the operator.</span>',
   ctaLead: 'Grid & Home Optimiser is in build. If your roof generates and your apps don’t talk, register interest; pilot homes define the connector priority list.',
+  faq: [
+    { q: 'Which equipment does it work with?', a: 'Inverters, batteries, wallboxes, heat pumps and meters over open protocols wherever they exist, through vendor-neutral connectors. Mixed-vendor homes are the design case, and device connectors will be open so no household is locked out because of its inverter brand. Pilot homes define the connector priority list.' },
+    { q: 'Does it run in the cloud?', a: 'No. The intelligence runs on a hub in the house, with vendor-neutral connectors to whatever equipment is installed, and the household owns every byte of its own energy life. One app replaces the five vendor silo apps with a single owned view of live flows, the plan and the receipts of what the coordination achieved.' },
+    { q: 'What does the Optimiser do?', a: 'It watches forecasted sun, tariff windows and household patterns and schedules the controllable loads locally and continuously. It pushes self-consumption toward what the hardware can deliver, moves shiftable loads (water, heat, EV, battery) into cheap and sunny windows, and smooths the home’s own peaks. Comfort and user overrides are hard constraints.' },
+    { q: 'Will it turn my heating down to save money?', a: 'No. Comfort and user overrides are hard constraints in the scheduling engine, and savings never come out of warm showers. Heating is the biggest load in the house and the most shiftable, so the Optimiser schedules heat against forecast and price with comfort held fixed.' },
+    { q: 'When does it ship?', a: 'Grid & Home Optimiser is in build. The first homes phase puts hub software on pilot households: connectors for common EU equipment, solar and load forecasting, and first closed-loop scheduling of battery and major loads. Dynamic-tariff integration, heat-pump scheduling, EV charging and balcony-plant mode follow, then general availability with installer partnerships.' },
+  ],
+  related: ['vf-home', 'private-care-watch', 'field-intelligence'],
 },
 
 // ─── P·09 SELF-TRAINING QC VISION ────────────────────────────────────
@@ -216,8 +240,8 @@ export default [
   name: 'Self-Training QC Vision',
   pn: 'P·09',
   sector: 'MANUFACTURING',
-  titleTag: 'Defect Detection a Floor Manager Can Teach',
-  metaDesc: 'Self-Training QC Vision by VF Empire: visual defect detection a floor manager teaches in an afternoon. No ML engineers, no six-month integration. In build in Malta, EU.',
+  titleTag: 'Staff-taught defect AI',
+  metaDesc: 'Self-Training QC Vision by VF Empire: camera-based defect detection for SME factories, taught by your own quality lead in an afternoon. In build in Malta, EU.',
   ogTitle: 'Quality control that learns from the person who knows',
   ogDesc: 'Camera-based defect detection taught by your own quality people in an afternoon: assistive, human-confirmed, priced for SME factories. On the VF build slate.',
   appCategory: 'BusinessApplication',
@@ -277,6 +301,14 @@ export default [
   repo: { h: 'qc-vision', p: 'Edge runtime and teaching-loop tooling. VF will open camera and line-integration adapters for the integrator ecosystem.' },
   ctaH: 'Your quality lead already knows.<br><span class="mute">Let them teach the machine.</span>',
   ctaLead: 'Self-Training QC Vision is in build. If your factory ships on reputation and inspects on tired eyes, register interest; VF chooses pilot lines from this list.',
+  faq: [
+    { q: 'Do I need an ML engineer?', a: 'No. The person who knows what a defect looks like becomes the teacher: your quality lead labels examples on a screen, corrects the system’s calls and watches it converge on their eye. Few-shot techniques mean useful detection from dozens of examples, so a new part, defect class or variant is taught in a session.' },
+    { q: 'Does it reject parts on its own?', a: 'No. The system is assistive by design: it flags, a human disposes. Every unit is inspected at production speed and suspects are queued for human decision before they reach a box, a truck or a customer. Every confirmation is also training data, so the detector sharpens as a side effect of the line running.' },
+    { q: 'Where do the product images go?', a: 'They stay in the building. Detection models run on an on-site edge unit at line speed, on-premise by default, so the factory’s parts, defects and volumes remain the factory’s business. Flagged units are archived with image and disposition as a searchable defect record, exportable for audits and customer quality agreements.' },
+    { q: 'Which factories is it for?', a: 'The SME production line: one to five lines, no data scientist, living on reputation with a handful of key buyers. Quality leads, plant managers, contract manufacturers who need documented inspection as a sales asset, and high-mix producers with short runs and frequent changeovers, where teaching a new variant must take minutes.' },
+    { q: 'When does it ship?', a: 'Self-Training QC Vision is in build. The first line phase runs pilot deployments on real SME lines: capture setup, edge detection and the teaching loop proven with working quality leads on their actual defect classes. High-mix workflows and multi-site views follow, then general availability with equipment-style pricing and MES and ERP connectors. VF chooses pilot lines from the interest list.' },
+  ],
+  related: ['site-truth-engine', 'the-apprentice'],
 },
 
 // ─── P·10 DIFFERENT-MINDS ENGINE ─────────────────────────────────────
@@ -285,8 +317,8 @@ export default [
   name: 'Different-Minds Engine',
   pn: 'P·10',
   sector: 'EDUCATION',
-  titleTag: 'Learning Built for Neurodivergent Students First',
-  metaDesc: 'Different-Minds Engine by VF Empire: adaptive learning designed first for dyslexic, ADHD and autistic students, the learners mainstream edtech treats as edge cases. In build in Malta, EU.',
+  titleTag: 'Neurodivergent learning',
+  metaDesc: 'Different-Minds Engine by VF Empire: adaptive learning designed first for dyslexic, ADHD and autistic students, families in the loop. In build in Malta, EU.',
   ogTitle: 'built for the minds the mainstream calls edge cases',
   ogDesc: 'Adaptive learning designed neurodivergent-first (dyslexia, ADHD, autism) with families and educators in the loop. On the VF build slate.',
   appCategory: 'EducationalApplication',
@@ -346,6 +378,14 @@ export default [
   repo: { h: 'different-minds-engine', p: 'Adaptation framework and content-rendering pipeline. VF will publish the learner-profile schema for specialist and academic scrutiny.' },
   ctaH: 'Different minds were never<br><span class="mute">the edge case. Build like it.</span>',
   ctaLead: 'Different-Minds Engine is in build, specialists in the loop from day one. If you parent, teach or support one of these minds, register interest. Pilot families shape the product.',
+  faq: [
+    { q: 'Which learners is it designed for?', a: 'Dyslexic, ADHD and autistic students first: the bright child drowning in text, the racing mind that cannot hold a worksheet, the deep-focus learner the timetable interrupts. The Engine adjusts presentation, pacing and structure to the mind in front of it, and is better for the rest of the class because of it.' },
+    { q: 'Does it diagnose or screen?', a: 'No. The Engine is a learning tool with a hard boundary: it adapts and teaches. The learner profile models how a student learns (modality, pacing, load tolerance, interests) from observed interaction and educator input. It is a learning profile, never a diagnostic instrument, and it changes the daily experience of the material.' },
+    { q: 'How is my child’s data protected?', a: 'The guardian layer is children’s-privacy architecture: data minimisation, parental control, no advertising, no profiling beyond the learning purpose, and EU hosting. That is the floor. VF designs to the strictest reading of EU rules because the users are children, and families choose which adults see progress.' },
+    { q: 'Can teachers and therapists use it?', a: 'Yes. Teachers and SENCOs get per-learner insight and ready-adapted materials with no new platform to administer. Learning therapists get a between-sessions instrument tuned to their programme, with progress visible across the week they do not see. Schools and authorities get neurodivergent-first provision that is deployable now.' },
+    { q: 'When does it ship?', a: 'Different-Minds Engine is in build, with specialists in the loop from day one. The reading core comes first: literacy for dyslexic learners, co-designed with specialist educators and piloted with families. ADHD-first pacing, autistic-first structure and sensory controls, numeracy and educator dashboards follow, then general availability with multilingual delivery, Maltese included.' },
+  ],
+  related: ['low-resource-language-ai', 'triage-continuity'],
 },
 
 ];

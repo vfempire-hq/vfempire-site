@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Private Care Watch: In-Home Elder Monitoring, Private by Architecture | VF Empire</title>
-<meta name="description" content="Private Care Watch by VF Empire: fall detection, routine-drift and wellbeing monitoring on hardware inside the home. No cloud cameras pointed at grandparents. In build in Malta, EU.">
+<title>Private Care Watch: Elder monitoring, no cloud | VF Empire</title>
+<meta name="description" content="Private Care Watch by VF Empire: in-home elder monitoring with fall alerts and routine-drift signals, processed on a hub the family owns. In build in Malta, EU.">
 <link rel="canonical" href="https://vfempire.com/systems/private-care-watch">
 <meta name="theme-color" content="#fbfbfd">
 <link rel="stylesheet" href="/house.css">
@@ -23,7 +23,6 @@
 <meta name="twitter:description" content="Fall alerting and routine monitoring for ageing relatives, running on hardware in the home, never a cloud camera feed. On the VF build slate.">
 <meta name="twitter:image" content="https://vfempire.com/assets/pipe/p02.png">
 <link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,13 +33,15 @@
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": "Home hub, iOS, Android",
       "creator": {"@id": "https://vfempire.com/#org"},
+      "url": "https://vfempire.com/systems/private-care-watch",
+      "image": "https://vfempire.com/assets/pipe/p02.png",
       "description": "Private Care Watch is an elder-care monitoring system in development by VF Empire Corp Ltd: fall alerting, routine-drift and wellbeing monitoring processed on hardware inside the home, with family notifications and no cloud video."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
+        {"@type": "ListItem", "position": 2, "name": "Systems", "item": "https://vfempire.com/systems/"},
         {"@type": "ListItem", "position": 3, "name": "Private Care Watch"}
       ]
     }
@@ -48,9 +49,10 @@
 }
 </script>
 <style>
-.phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
+.phero{padding:130px 6vw 60px;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
-  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%);border-bottom:1px solid var(--line)}
+.phero .in{min-height:calc(92vh - 190px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;width:min(1150px,100%);margin:0 auto}
 .phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .eb b{color:var(--core)}
 .phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;opacity:0;animation:up 1s .2s cubic-bezier(.2,.7,.2,1) forwards}
@@ -59,7 +61,7 @@
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
+.pheroart img{display:block;width:min(430px,84vw);height:auto;margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
 
 /* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
@@ -67,27 +69,26 @@
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
 .fl:hover{background:#fff;padding-left:22px}
 .fl:hover::before{transform:scaleY(1)}
-.fl .num{font-size:13px;font-weight:600;color:var(--faint);letter-spacing:.1em;padding-top:3px}
+.fl .num{font-size:13px;font-weight:600;color:var(--dove);letter-spacing:.1em;padding-top:3px}
 .fl:hover .num{color:var(--core)}
 .fl h4{font-size:19px;font-weight:600;letter-spacing:-.025em}
 .fl p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 @media(max-width:880px){.fl{grid-template-columns:44px 1fr;gap:8px 16px}.fl p{grid-column:2}}
 
 /* image band */
-.band{margin-top:70px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#fff;position:relative}
-.band img{display:block;width:100%;mix-blend-mode:multiply}
+.band{margin:80px calc(50% - 50vw) 0;width:100vw;position:relative;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band img{display:block;width:100%;max-height:72vh;object-fit:cover;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
 /* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
-.au .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,#eef4ff,#dbe8ff);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.au .ic svg{stroke:var(--core);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.au .ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .au h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
 .au p{font-size:13.5px;line-height:1.62;color:var(--dove)}
 .au.first{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:linear-gradient(160deg,#0e2a63,var(--core-deep) 55%,var(--core));border-color:transparent}
-.au.first .ic{background:rgba(255,255,255,.14)}
 .au.first .ic svg{stroke:#fff}
 .au.first h4{color:#fff}
 .au.first p{color:rgba(255,255,255,.75);max-width:640px}
@@ -104,6 +105,9 @@
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
 /* mechanics: the stack */
+.pillars{margin-top:12px;font-size:14.5px}
+.pillars a{color:var(--core-deep);border-bottom:1px solid var(--line)}
+.pillars a:hover{color:var(--core);border-color:var(--core)}
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -117,28 +121,18 @@
 /* roadmap */
 .road{margin-top:56px;border-top:1px solid var(--line)}
 .rd{display:grid;grid-template-columns:80px 1.1fr 1.6fr auto;align-items:center;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line)}
-.rd .num{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.14em}
+.rd .num{font-size:12px;font-weight:600;color:var(--dove);letter-spacing:.14em}
 .rd h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .rd p{font-size:13.5px;line-height:1.55;color:var(--dove)}
-.rd .st{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#2b3a55;background:var(--mist);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap}
-.rd .st.hot{color:#fff;background:var(--core);border-color:var(--core)}
-@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .st{grid-column:2;justify-self:start}}
-
-/* papers & code */
-.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
-.doc{background:#fff;border:1px dashed var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;gap:8px}
-.doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--faint)}
-.doc h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
-.doc p{font-size:13.5px;line-height:1.6;color:var(--dove)}
-.doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
-@media(max-width:880px){.docs{grid-template-columns:1fr}}
+@media(max-width:880px){.rd{grid-template-columns:54px 1fr;gap:8px 16px}.rd p{grid-column:2}.rd .status{grid-column:2;justify-self:start}}
 
 
 /* ═══════════ pricing (revolver) ═══════════ */
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
 #pricing .wrap{width:min(1080px,100%);margin:0 auto;text-align:center}
 #pricing .stage{width:min(560px,100%);position:relative;margin:80px auto 60px;aspect-ratio:1.7/1;transform-style:preserve-3d}
-#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
+@media(max-width:600px){#pricing .stage{aspect-ratio:1.15/1;margin-top:60px}#pricing .card{padding:16px 16px 14px}#pricing .stats{grid-template-columns:1fr 1fr;gap:10px}#pricing .pricerow .pr{font-size:36px}#pricing .tiles{flex-wrap:wrap}}
+#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--dove);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
 #pricing .hoverhint::before,#pricing .hoverhint::after{content:'';width:32px;height:1px;background:var(--faint);opacity:.5}
 #pricing .stage:hover .hoverhint{opacity:.35}
 
@@ -280,7 +274,7 @@
   100%     {left:0;    opacity:1}
 }
 
-.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--dove);text-align:center}
 
 /* ═══════════ system requirements ═══════════ */
 #sysreq{padding:110px 6vw}
@@ -312,11 +306,16 @@
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
 
 @media(max-width:880px){
-  .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
+  .phero{padding-top:110px}
+  .phero .in{grid-template-columns:1fr;min-height:0;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
 }
 </style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 
@@ -326,13 +325,39 @@
       <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
       VF EMPIRE
     </a>
-    <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·02 Private Care Watch</b></span>
-    <div class="nl"><a href="/#pipeline">Systems</a><a href="/software">Software</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
+    <span class="crumb"><a href="/systems/">Systems</a> &nbsp;/&nbsp; <b>P·02 Private Care Watch</b></span>
+    <div class="nl"><button data-m="m-sys" type="button">Systems</button><a href="/software">Software</a><a href="/services/">Services</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
   </div>
 </nav>
+<div class="fly" id="m-sys"><div class="in">
+  <div class="col"><b>THE METHOD</b>
+    <a href="/engine">Helmsman Engine<small>Frontier open models, steered</small></a>
+    <a href="/harness">Harness Stack<small>The frame around the model</small></a>
+    <a href="/dashboards">Command Dashboards<small>Fleet, process &amp; cost control</small></a>
+  </div>
+  <div class="col"><b>SYSTEMS</b>
+    <a href="/systems/">All 23 systems<small>The build slate, filterable</small></a>
+    <a href="/systems/fileit">FileIT<small>The self-filing ledger</small></a>
+    <a href="/systems/nav-it">NAV·IT<small>A navigator that never sells your route</small></a>
+    <a href="https://snapit.vfempire.com">SnapIT<small>Live · from €59, one-off</small></a>
+  </div>
+  <div class="col"><b>SERVICES</b>
+    <a href="/services/">All services<small>Three fixed-fee engagements</small></a>
+    <a href="/services/cra-readiness-audit">CRA Readiness Audit<small>2 weeks · €12-18k</small></a>
+    <a href="/services/threat-model-dpia">Threat Model + DPIA<small>3-4 weeks · €18-30k</small></a>
+  </div>
+  <div class="col"><b>COMPANY</b>
+    <a href="/about">About<small>The systems house, Malta</small></a>
+    <a href="/training-centre">AI Training Centre<small>First intake forming</small></a>
+    <a href="/journal/">Journal<small>The build log, dated</small></a>
+    <a href="/glossary">Glossary<small>Harness, gate, sovereign AI</small></a>
+  </div>
+</div></div>
+<div id="dim"></div>
 
 <header class="phero">
+<div class="in">
   <div>
     <div class="eb"><b>P·02</b> &nbsp;·&nbsp; ELDER CARE &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>Private Care Watch<span>Care that watches over,<br><em class="i">without watching.</em></span></h1>
@@ -348,7 +373,8 @@
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p02.webp" alt="Minimal 3D render of an armchair with a small guardian orb beside it (Private Care Watch by VF Empire)"></div>
+  <div class="pheroart"><img src="../assets/pipe/p02.webp" alt="Minimal 3D render of an armchair with a small guardian orb beside it (Private Care Watch by VF Empire)" width="896" height="1152" fetchpriority="high"></div>
+</div>
 </header>
 
 <section id="why">
@@ -380,22 +406,21 @@
       </div>
     </div>
 
-    <div class="band rv">
-      <img src="../assets/pipe/p02-flow.png" alt="Abstract render of a home outline with a single blue pulse held inside its walls: data that never leaves" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
-      <span class="cap">WHO: ≈684,000 FALL DEATHS WORLDWIDE EVERY YEAR</span>
-    </div>
+    <figure class="band rv">
+      <img src="../assets/pipe/p02-flow.png" alt="Abstract render of a home outline with a single blue pulse held inside its walls: data that never leaves" width="2304" height="1792" loading="lazy" decoding="async">
+      <figcaption class="cap">WHO: ≈684,000 FALL DEATHS WORLDWIDE EVERY YEAR</figcaption>
+    </figure>
   </div>
 </section>
 
 <section id="who" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="k rv">WHO IT SERVES</div>
     <h2 class="rv">For the family<br><span class="mute">an hour or a continent away.</span></h2>
 
     <div class="aud rv">
       <div class="au first">
         <div>
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
         </div>
         <div>
           <h4>The long-distance family</h4>
@@ -404,22 +429,22 @@
         </div>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 9v11h14V9"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 9v11h14V9"/></svg></div>
         <h4>Ageing at home</h4>
         <p>The older adult who wants independence without isolation. The system is theirs, in their house, on their terms: presence-aware, with consent built into the architecture.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
         <h4>Adult children</h4>
         <p>A calm daily signal instead of anxious phone checks. Alerts arrive when something needs attention; silence means all is well.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
         <h4>Live-in and visiting carers</h4>
         <p>Carers see the pattern between visits (what the nights looked like, whether routines held), so care hours go where the drift is.</p>
       </div>
       <div class="au">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2M11 21v-3h2v3"/></svg></div>
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2M11 21v-3h2v3"/></svg></div>
         <h4>Small care residences</h4>
         <p>Family-scale homes that want resident safety without installing a surveillance estate. Same architecture, more rooms, same rule: processing stays on site.</p>
       </div>
@@ -446,9 +471,10 @@
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">The hub is the product.<br><span class="mute">The cloud is not invited.</span></h2>
     <p class="lead rv">VF builds the system so the most sensitive data there is, footage of your parents in their own home, never becomes network traffic. Everything that watches, thinks locally.</p>
+    <p class="lead rv pillars">Every VF system runs on the <a href="/harness">harness stack</a>, is steered by the <a href="/engine">Helmsman engine</a> and is watched from a <a href="/dashboards">command dashboard</a>.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p02-mech.png" alt="Layered render of sensor signals resolving inside a single home unit with one blue status light" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
+      <div class="mechart"><img src="../assets/pipe/p02-mech.png" alt="Layered render of sensor signals resolving inside a single home unit with one blue status light"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>The sensing layer</h4></div>
@@ -473,7 +499,6 @@
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="k rv">BUILD TRAJECTORY</div>
     <h2 class="rv">From one living room<br><span class="mute">to any family that needs it.</span></h2>
 
     <div class="road rv">
@@ -481,57 +506,56 @@
         <span class="num">R·01</span>
         <h4>The first household</h4>
         <p>Hub hardware selection, fall and presence detection running local, family alerting proven end-to-end in real homes.</p>
-        <span class="st hot">IN BUILD</span>
+        <span class="status hot">IN BUILD</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
         <h4>The pattern season</h4>
         <p>Routine-drift modelling over months of baseline data, carer views, and the consent framework hardened with real families using it.</p>
-        <span class="st">NEXT</span>
+        <span class="status">NEXT</span>
       </div>
       <div class="rd">
         <span class="num">R·03</span>
         <h4>The care circle</h4>
         <p>General availability, multi-room and small-residence configurations, and integrations with local emergency contacts and care providers.</p>
-        <span class="st">PLANNED</span>
-      </div>
-    </div>
-
-    <div class="docs rv">
-      <div class="doc">
-        <span class="dk">WHITE PAPER</span>
-        <h4>The no-cloud care thesis</h4>
-        <p>The VF position paper on elder monitoring: why in-home processing is the only defensible architecture for this data class, and what alerting can and cannot promise.</p>
-        <span class="tba">IN PREPARATION</span>
-      </div>
-      <div class="doc">
-        <span class="dk">REPOSITORY</span>
-        <h4>private-care-watch</h4>
-        <p>Hub firmware and detection pipeline. VF will build privacy-critical components for auditability, so families can verify nothing leaves the house.</p>
-        <span class="tba">TBA</span>
+        <span class="status">PLANNED</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+<section id="faq" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="sysreqgrid">
-      <div class="sysreqhead">
-        <div class="k rv">SYSTEM REQUIREMENTS</div>
-        <h2 class="rv">What the home needs</h2>
-        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
+    <div class="k rv">QUESTIONS</div>
+    <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
+    <div class="faq rv">
+      <div class="q">
+        <h4>Where does my parents’ data go?</h4>
+        <p>It stays in the house. All detection runs on a home hub the family owns: fall inference, presence tracking and routine modelling happen there, and the device processes raw sensor data and discards it. No video leaves the home, so by design there is no cloud feed to breach, subpoena or resell. Family apps receive status and events only.</p>
       </div>
-      <dl class="sysreqrows rv">
-        <div class="sysreqrow"><dt>Sensor hub</dt><dd>One VF hub, plugged into any power outlet.</dd></div>
-        <div class="sysreqrow"><dt>Camera</dt><dd>None; motion + radar only.</dd></div>
-        <div class="sysreqrow"><dt>Internet</dt><dd>Home broadband, ~1 Mbps sustained.</dd></div>
-        <div class="sysreqrow"><dt>Data residency</dt><dd>EU metal. Your data never leaves the region.</dd></div>
-      </dl>
+      <div class="q">
+        <h4>Does it use cameras?</h4>
+        <p>Radar, motion and door sensors come first. Optional cameras are used only where the household chooses them, and sensor selection favours modalities that never produce identifiable imagery at all. Whatever the sensing mix, processing stays on the hub in the home, and the family surface carries alerts and daily summaries, never a live feed.</p>
+      </div>
+      <div class="q">
+        <h4>What does Private Care Watch alert me to?</h4>
+        <p>Falls and no-movement events, with alerting designed to collapse the time between an incident and someone knowing. It also builds routine baselines per household (sleep, movement, kitchen activity) so the family sees the pattern bend early enough to act gently. Alerts are judged against this household’s normal, which keeps false alarms low. Silence means all is well.</p>
+      </div>
+      <div class="q">
+        <h4>Does it diagnose or prevent falls?</h4>
+        <p>No. Private Care Watch is a monitoring and alerting system: it tells families what happened and what is drifting. It does not diagnose and it does not promise prevention. That honesty is the product. The older adult consents to what is shared, and each family member sees only what that consent allows.</p>
+      </div>
+      <div class="q">
+        <h4>Who is it for?</h4>
+        <p>The long-distance family: parents at home, children abroad, and a daily answer to whether everything is normal today. It also serves live-in and visiting carers, who see the pattern between visits, and small care residences that want resident safety without a surveillance estate, on the same rule that processing stays on site.</p>
+      </div>
+      <div class="q">
+        <h4>When will it be available?</h4>
+        <p>Private Care Watch is in build. The first phase covers hub hardware selection, local fall and presence detection and family alerting proven end-to-end in real homes. Routine-drift modelling, carer views and the consent framework follow, then general availability with multi-room and small-residence configurations. Register interest; pilot households shape what this becomes.</p>
+      </div>
     </div>
   </div>
 </section>
-
 
 <section id="pricing">
   <div class="wrap">
@@ -625,6 +649,52 @@
 </section>
 
 
+<section id="sysreq" style="background:var(--paper);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sysreqgrid">
+      <div class="sysreqhead">
+        <div class="k rv">SYSTEM REQUIREMENTS</div>
+        <h2 class="rv">What the home needs</h2>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
+      </div>
+      <dl class="sysreqrows rv">
+        <div class="sysreqrow"><dt>Sensor hub</dt><dd>One VF hub, plugged into any power outlet.</dd></div>
+        <div class="sysreqrow"><dt>Camera</dt><dd>None; motion + radar only.</dd></div>
+        <div class="sysreqrow"><dt>Internet</dt><dd>Home broadband, ~1 Mbps sustained.</dd></div>
+        <div class="sysreqrow"><dt>Data residency</dt><dd>EU metal. Your data never leaves the region.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<section id="related">
+  <div class="wrap">
+    <div class="k rv">RELATED SYSTEMS</div>
+    <h2 class="rv">Built the same way.<br><span class="mute">Read next.</span></h2>
+    <div class="related rv">
+      <a href="/systems/triage-continuity">
+        <span class="rk">P·06 · HEALTH</span>
+        <h4>Triage & Continuity</h4>
+        <p>Wellbeing check-ins on your own device, routing to human care, carrying your story so you never repeat it from zero. On the VF build slate.</p>
+        <span class="go">Open →</span>
+      </a>
+      <a href="/systems/vf-home">
+        <span class="rk">P·24 · SMART HOME</span>
+        <h4>VF Home</h4>
+        <p>Matter, Zigbee and Z-Wave on hardware you own, with local NVR and the Permanence Guarantee.</p>
+        <span class="go">Open →</span>
+      </a>
+      <a href="/systems/grid-home-optimiser">
+        <span class="rk">P·08 · ENERGY</span>
+        <h4>Grid & Home Optimiser</h4>
+        <p>A local energy brain balancing solar, battery and consumption against real prices and real weather, owned by the household. On the VF build slate.</p>
+        <span class="go">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <section class="cta-band">
   <div class="wrap">
@@ -637,10 +707,57 @@
   </div>
 </section>
 
-<footer>
-  <div class="legal">
-    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
+<footer class="full">
+  <div class="fin">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+          VF EMPIRE
+        </div>
+        <p class="blurb">The systems house for open intelligence. Engines, harnesses and dashboards, designed in Malta and run on hardware you own.</p>
+      </div>
+      <div>
+        <h6>SYSTEMS</h6>
+        <a href="/systems/">All 23 systems</a>
+        <a href="/engine">Helmsman Engine</a>
+        <a href="/harness">Harness Stack</a>
+        <a href="/dashboards">Command Dashboards</a>
+        <a href="https://si-lock.com">S◉LOCK OS</a>
+      </div>
+      <div>
+        <h6>SERVICES</h6>
+        <a href="/services/">All services</a>
+        <a href="/services/cra-readiness-audit">CRA Readiness Audit</a>
+        <a href="/services/threat-model-dpia">Threat Model + DPIA</a>
+        <a href="/services/signing-infrastructure">Signing + SBOM Blueprint</a>
+        <a href="/permanence-guarantee">Permanence Guarantee</a>
+      </div>
+      <div>
+        <h6>COMPANY</h6>
+        <a href="/about">About</a>
+        <a href="/software">Software thesis</a>
+        <a href="/security">Security posture</a>
+        <a href="/training-centre">AI Training Centre</a>
+        <a href="/journal/">Journal</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/press">Press</a>
+        <a href="/careers">Careers</a>
+      </div>
+      <div>
+        <h6>CONTACT</h6>
+        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
+        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
+        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
+        <a href="/contact/">All addresses →</a>
+        <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
+        <a href="https://gn-productions.com">Guardian Network · UK</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
+    </div>
   </div>
 </footer>
 
@@ -653,30 +770,7 @@
   </div>
 </div>
 
-<script>
-(() => {
-  const el = document.getElementById('consent');
-  if (localStorage.getItem('vf-consent')) { el.remove(); return; }
-  setTimeout(() => el.classList.add('show'), 1400);
-  const choose = v => { localStorage.setItem('vf-consent', v); el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
-  document.getElementById('cacc').onclick = () => choose('accepted');
-  document.getElementById('cdec').onclick = () => choose('declined');
-})();
-
-const io = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting && (e.intersectionRatio >= .18 || e.boundingClientRect.height > innerHeight * .6)){
-      e.target.classList.add('on');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:[0,.18]});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
-  [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
-});
-</script>
+<script src="/assets/house.js" defer></script>
 
 </body>
 </html>

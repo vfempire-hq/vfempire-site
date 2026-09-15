@@ -1,0 +1,10 @@
+{
+  // Cloudflare Worker: receives the register-interest and discovery-call forms on vfempire.com
+  // and forwards them to VF Mail. Deploy: cd workers/contact-form && npx wrangler deploy
+  // Secrets: npx wrangler secret put MAIL_ENDPOINT ; npx wrangler secret put MAIL_TOKEN
+  "name": "vfempire-contact-form",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-01",
+  "routes": [{ "pattern": "vfempire.com/api/contact", "zone_name": "vfempire.com" }],
+  "vars": { "ALLOWED_ORIGIN": "https://vfempire.com", "TO": "hello@vfempire.com" }
+}

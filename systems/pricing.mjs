@@ -12,7 +12,8 @@ export const pricingCss = `
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
 #pricing .wrap{width:min(1080px,100%);margin:0 auto;text-align:center}
 #pricing .stage{width:min(560px,100%);position:relative;margin:80px auto 60px;aspect-ratio:1.7/1;transform-style:preserve-3d}
-#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
+@media(max-width:600px){#pricing .stage{aspect-ratio:1.15/1;margin-top:60px}#pricing .card{padding:16px 16px 14px}#pricing .stats{grid-template-columns:1fr 1fr;gap:10px}#pricing .pricerow .pr{font-size:36px}#pricing .tiles{flex-wrap:wrap}}
+#pricing .hoverhint{position:absolute;bottom:calc(100% + 24px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--dove);text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;opacity:.7;transition:opacity .3s}
 #pricing .hoverhint::before,#pricing .hoverhint::after{content:'';width:32px;height:1px;background:var(--faint);opacity:.5}
 #pricing .stage:hover .hoverhint{opacity:.35}
 
@@ -154,7 +155,7 @@ export const pricingCss = `
   100%     {left:0;    opacity:1}
 }
 
-.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--faint);text-align:center}
+.pnote{margin-top:26px;font-size:12px;line-height:1.6;color:var(--dove);text-align:center}
 
 /* ═══════════ system requirements ═══════════ */
 #sysreq{padding:110px 6vw}
