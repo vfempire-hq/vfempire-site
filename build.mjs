@@ -270,18 +270,20 @@ if (IMAGES) {
         made++;
       }
     }
-    for (const p of distPages) {
-      let s = read(p);
-      s = s.replace(/<img ([^>]*?)src="([^"]+\.(?:png|jpe?g))"([^>]*)>/g, (m, a, srcAttr, b) => {
-        const abs = srcAttr.startsWith('/') ? srcAttr : srcAttr.startsWith('../') ? '/' + srcAttr.slice(3) : '/' + srcAttr;
-        if (!fs.existsSync(path.join(DIST, `${abs}.webp`))) return m;
-        return `<picture><source type="image/avif" srcset="${abs}.avif"><source type="image/webp" srcset="${abs}.webp"><img ${a}src="${srcAttr}"${b}></picture>`;
-      });
-      write(p, s);
-    }
     console.log(`images: ${imgs.length} sources, ${made} variants written`);
   }
 }
+
+// <picture> wrappers wherever a variant exists in dist (written by a previous full build or this one)
+for (const p of distPages) {
+    let s = read(p);
+    s = s.replace(/<img ([^>]*?)src="([^"]+\.(?:png|jpe?g))"([^>]*)>/g, (m, a, srcAttr, b) => {
+      const abs = srcAttr.startsWith('/') ? srcAttr : srcAttr.startsWith('../') ? '/' + srcAttr.slice(3) : '/' + srcAttr;
+      if (!fs.existsSync(path.join(DIST, `${abs}.webp`))) return m;
+      return `<picture><source type="image/avif" srcset="${abs}.avif"><source type="image/webp" srcset="${abs}.webp"><img ${a}src="${srcAttr}"${b}></picture>`;
+    });
+    write(p, s);
+  }
 
 // ------------------------------------------------------------------ 6. check mode
 if (CHECK) {
