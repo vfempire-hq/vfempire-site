@@ -3,16 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Triage & Continuity — Wellbeing Check-In That Routes to Humans | VF Empire</title>
-<meta name="description" content="Triage & Continuity by VF Empire — on-device wellbeing check-ins that route people to human care and remember the journey. Not another chatbot pretending to be a therapist. In build in Malta, EU.">
+<title>Triage & Continuity: Wellbeing Check-In That Routes to Humans | VF Empire</title>
+<meta name="description" content="Triage & Continuity by VF Empire: on-device wellbeing check-ins that route people to human care and remember the journey. It is not a therapist and does not pretend to be one. In build in Malta, EU.">
 <link rel="canonical" href="https://vfempire.com/systems/triage-continuity">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Triage & Continuity — Not a therapist. The bridge to one.">
+<meta property="og:title" content="Triage & Continuity: The bridge to human care, and only the bridge">
 <meta property="og:description" content="Wellbeing check-ins on your own device, routing to human care, carrying your story so you never repeat it from zero. On the VF build slate.">
 <meta property="og:url" content="https://vfempire.com/systems/triage-continuity">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p06.png">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Triage & Continuity: The bridge to human care, and only the bridge">
+<meta name="twitter:description" content="Wellbeing check-ins on your own device, routing to human care, carrying your story so you never repeat it from zero. On the VF build slate.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p06.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -38,61 +47,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-/* house dot-rail scrollbar — native bar hidden, jade dot rendered by scrollrail.js */
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
 .phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -102,14 +56,11 @@ h2 .mute{color:var(--faint)}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
@@ -126,7 +77,7 @@ h2 .mute{color:var(--faint)}
 .band img{display:block;width:100%;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
@@ -143,7 +94,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -151,7 +102,7 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -296,7 +247,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -358,29 +309,11 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
   .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
 </head>
@@ -400,8 +333,8 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 <header class="phero">
   <div>
     <div class="eb"><b>P·06</b> &nbsp;·&nbsp; HEALTH &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
-    <h1>Triage & Continuity<span>The bridge to human care,<br><em class="i">not the replacement for it.</em></span></h1>
-    <p class="sub">The mental-health system loses people twice: once in the months of waiting, and once in the retelling — every new professional, the same story from zero. Triage & Continuity is a check-in and routing system that keeps you moving toward human care, and carries your journey with you.</p>
+    <h1>Triage & Continuity<span>The bridge to human care,<br><em class="i">and only the bridge.</em></span></h1>
+    <p class="sub">The mental-health system loses people twice: once in the months of waiting, and once in the retelling, the same story from zero to each new professional. Triage & Continuity is a check-in and routing system that keeps you moving toward human care, and carries your journey with you.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD</span>
       <span class="mchip">ON-DEVICE FIRST</span>
@@ -413,30 +346,30 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p06.webp" alt="Minimal 3D render of two stepping stones joined by a blue thread — Triage & Continuity by VF Empire"></div>
+  <div class="pheroart"><img src="../assets/pipe/p06.webp" alt="Minimal 3D render of two stepping stones joined by a blue thread (Triage & Continuity by VF Empire)"></div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">The waiting room is months long.<br><span class="mute">And nobody holds your file.</span></h2>
-    <p class="lead rv">Between the moment someone seeks help and the moment they sit across from a professional lies a gap the system was never built to manage — and a generation of AI chatbots rushed into it with promises they could not keep.</p>
+    <p class="lead rv">Between the moment someone seeks help and the moment they sit across from a professional lies a gap the system was never built to manage, and a generation of AI chatbots rushed into it with promises they could not keep.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>The wait is the wound</h4>
-        <p>In Germany, analyses prepared for the Bundestag document typical waits of three to six months for a therapy place. Demand for support keeps climbing across Europe — the front door of the system is where people are lost.</p>
+        <p>In Germany, analyses prepared for the Bundestag document typical waits of three to six months for a therapy place. Demand for support keeps climbing across Europe; the front door of the system is where people get lost.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
         <h4>The story resets every time</h4>
-        <p>GP to counsellor to therapist to crisis line — each handover starts from zero, and the retelling itself is a documented burden. Continuity of the journey is the unowned problem in mental-health care.</p>
+        <p>GP to counsellor to therapist to crisis line: each handover starts from zero, and the retelling itself is a documented burden. Continuity of the journey is the unowned problem in mental-health care.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>The chatbot era overpromised</h4>
-        <p>AI “therapist” apps have ended in shutdowns, FTC action over data sharing, and litigation over harms to vulnerable users. The lesson is not that software has no role — it is that pretending software is a clinician is the wrong role.</p>
+        <p>AI “therapist” apps have ended in shutdowns, FTC action over data sharing, and litigation over harms to vulnerable users. Software has a role; pretending it is a clinician is the wrong one.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
@@ -446,7 +379,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
     </div>
 
     <div class="band rv">
-      <img src="../assets/pipe/p06-flow.png" alt="Abstract render of a path of stones crossing toward a lit doorway — the route to human care" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
+      <img src="../assets/pipe/p06-flow.png" alt="Abstract render of a path of stones crossing toward a lit doorway: the route to human care" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
       <span class="cap">GERMANY: 3–6 MONTH TYPICAL WAITS FOR A THERAPY PLACE</span>
     </div>
   </div>
@@ -464,14 +397,14 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div>
           <h4>The person waiting for care</h4>
-          <p>The system’s first user is the person who has already asked for help and been handed a waiting time. Structured check-ins hold the thread, the record grows instead of resetting, and if things worsen, routing escalates — to humans, every time.</p>
+          <p>The system’s first user is the person who has already asked for help and been handed a waiting time. Structured check-ins hold the thread, the record grows instead of resetting, and if things worsen, routing escalates to humans, every time.</p>
           <div class="co"><span>ALREADY SEEKING HELP</span><span>MONTHS FROM A PLACE</span><span>JOURNEY HELD</span><span>HUMAN ESCALATION</span></div>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
         <h4>Families & supporters</h4>
-        <p>The people carrying someone through the wait get guidance on what to watch for and where the real doors are — without ever seeing more than the person chooses to share.</p>
+        <p>The people carrying someone through the wait get guidance on what to watch for and where the real doors are, without seeing more than the person chooses to share.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
@@ -481,12 +414,12 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
         <h4>Practitioners, on consent</h4>
-        <p>When the user chooses, a professional receives an arrival summary instead of a cold start — the journey so far, in minutes, not the first three sessions.</p>
+        <p>If the user chooses, a professional receives an arrival summary instead of a cold start: the journey so far, in minutes.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
         <h4>Underserved regions</h4>
-        <p>Places where the nearest practitioner is a ferry or a hundred kilometres away. Routing knows the real map of available care, including remote options.</p>
+        <p>Places where the nearest practitioner is a ferry or a hundred kilometres away. The routing directory holds the real map of available care, including remote options.</p>
       </div>
     </div>
   </div>
@@ -496,12 +429,12 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">Held, routed,<br><span class="mute">and never asked to start over.</span></h2>
-    <p class="lead rv">Triage & Continuity does three honest things: it checks in, it routes to human care, and it remembers — with the user owning every word of the record. It does not diagnose, does not treat, and does not pretend.</p>
+    <p class="lead rv">Triage & Continuity does three honest things: it checks in, it routes to human care, and it remembers, with the user owning every word of the record. It does not diagnose, does not treat, and does not pretend.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">A thread that holds<span>.</span></div><p>Structured check-ins across the waiting months — a felt trajectory made visible, so neither the person nor their eventual practitioner starts blind.</p></div>
-      <div class="c"><div class="n">The right door, faster<span>.</span></div><p>Routing built on the actual care landscape — GPs, therapists, community services, crisis lines — matched to need, location and urgency, with escalation paths that go straight to humans.</p></div>
-      <div class="c"><div class="n">Your story, portable<span>.</span></div><p>The journey record belongs to the user, on their device — shared with a chosen professional in one consented handover, never sold, never mined.</p></div>
+      <div class="c"><div class="n">A thread that holds<span>.</span></div><p>Structured check-ins across the waiting months: a felt trajectory made visible, so neither the person nor their eventual practitioner starts blind.</p></div>
+      <div class="c"><div class="n">The right door, faster<span>.</span></div><p>Routing built on the real care landscape (GPs, therapists, community services, crisis lines), matched to need, location and urgency, with escalation paths that go straight to humans.</p></div>
+      <div class="c"><div class="n">Your story, portable<span>.</span></div><p>The journey record belongs to the user, on their device, shared with a chosen professional in one consented handover, never sold, never mined.</p></div>
     </div>
   </div>
 </section>
@@ -510,18 +443,18 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">On the device.<br><span class="mute">Off the market.</span></h2>
-    <p class="lead rv">Data about a person’s inner life is the most sensitive class there is. The architecture answers accordingly: processing on the user’s own device, a record only the user holds, and routing logic that treats escalation to humans as the primary function — not a liability footnote.</p>
+    <p class="lead rv">Data about a person’s inner life is the most sensitive class there is. The architecture answers accordingly: processing on the user’s own device, a record only the user holds, and routing logic that treats escalation to humans as the primary function.</p>
 
     <div class="mech rv">
       <div class="mechart"><img src="../assets/pipe/p06-mech.png" alt="Layered render of a private device core with one blue continuity thread rising from it" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>The check-in layer</h4></div>
-          <p>Brief structured conversations and validated-questionnaire-style self-reports, processed on-device. Designed for consistency over the long haul, not engagement metrics.</p>
+          <p>Brief structured conversations and validated-questionnaire-style self-reports, processed on-device. Designed for consistency over the long haul, with no engagement metrics.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>The continuity record</h4></div>
-          <p>A longitudinal journal of check-ins, encrypted on the user’s device. The user reads it, exports it, deletes it. There is no server-side behavioural profile — by architecture.</p>
+          <p>A longitudinal journal of check-ins, encrypted on the user’s device. The user reads it, exports it, deletes it. There is no server-side behavioural profile, by architecture.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>The routing engine</h4></div>
@@ -529,7 +462,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>The handover surface</h4></div>
-          <p>Consented, structured summaries for the professional the user reaches — the journey so far, in clinical-friendly form, generated only when the user says so.</p>
+          <p>Consented, structured summaries for the professional the user reaches: the journey so far, in clinical-friendly form, generated only when the user says so.</p>
         </div>
       </div>
     </div>
@@ -539,7 +472,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 <section id="roadmap">
   <div class="wrap">
     <div class="k rv">BUILD TRAJECTORY</div>
-    <h2 class="rv">Built with clinicians,<br><span class="mute">not instead of them.</span></h2>
+    <h2 class="rv">Built with clinicians,<br><span class="mute">every claim reviewed.</span></h2>
 
     <div class="road rv">
       <div class="rd">
@@ -566,13 +499,13 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="doc">
         <span class="dk">WHITE PAPER</span>
         <h4>What software should not pretend to be</h4>
-        <p>The VF position paper on mental-health AI: the case for routing-and-continuity over simulated therapy, and the regulatory line the product is built behind.</p>
+        <p>The VF position paper on mental-health AI: the case for routing-and-continuity over simulated therapy, and the regulatory line VF builds the product behind.</p>
         <span class="tba">IN PREPARATION</span>
       </div>
       <div class="doc">
         <span class="dk">REPOSITORY</span>
         <h4>triage-continuity</h4>
-        <p>On-device record format and routing framework. The crisis-escalation logic will be publicly documented — that layer should never be a trade secret.</p>
+        <p>On-device record format and routing framework. VF will document the crisis-escalation logic publicly; that layer should never be a trade secret.</p>
         <span class="tba">TBA</span>
       </div>
     </div>
@@ -585,12 +518,12 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What the person needs</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Device</dt><dd>Phone or watch.</dd></div>
         <div class="sysreqrow"><dt>Model</dt><dd>Local screening, EU-hosted continuity record.</dd></div>
-        <div class="sysreqrow"><dt>Practitioners</dt><dd>Optional link — you invite them, revocable.</dd></div>
+        <div class="sysreqrow"><dt>Practitioners</dt><dd>Optional link: you invite them, revocable.</dd></div>
         <div class="sysreqrow"><dt>Crisis path</dt><dd>Always free, always on, no login required.</dd></div>
       </dl>
     </div>
@@ -602,7 +535,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">PLANNED PRICING</div>
     <h2 class="rv">The crisis path is free.<br><span class="mute">It always will be.</span></h2>
-    <p class="lead rv">Check-ins and crisis routing are never paywalled. The paid layer is continuity: the record that follows you between practitioners.</p>
+    <p class="lead rv">VF never paywalls check-ins and crisis routing. The paid layer is continuity: the record that follows you between practitioners.</p>
     <div class="stage orbit-3">
       <span class="hoverhint">Hover the cards to see every tier</span>
 <div class="card t-slate p1">
@@ -685,7 +618,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   </div>
     </div>
     
-    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+    <p class="pnote rv">Planned launch pricing; VF confirms final figures at each release. The price you join at is the price you renew at: no first-year bait, no renewal games.</p>
   </div>
 </section>
 
@@ -695,7 +628,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Software that knows<br><span class="mute">what it is not.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Triage & Continuity is in build, with clinical review baked into the roadmap. If you have lived the gap — or work in it — register interest. This one is built carefully.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Triage & Continuity is in build, with clinical review baked into the roadmap. If you have lived the gap, or work in it, register interest. We build this one with care.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Triage%20%26%20Continuity">info@vfempire.com</a>
     </div>
@@ -705,13 +638,13 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 <footer>
   <div class="legal">
     <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
@@ -742,7 +675,6 @@ document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
   [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
 });
 </script>
-<script src="/assets/scrollrail.js" defer></script>
 
 </body>
 </html>

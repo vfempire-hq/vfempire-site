@@ -3,58 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Threat Model + DPIA Drafting — VF Empire</title>
+<title>Threat Model + DPIA Drafting | VF Empire</title>
 <meta name="description" content="Regulator-ready STRIDE threat model + GDPR Art. 35 DPIA drafted in the shape of what VF Empire publishes for its own products. 3-4 weeks, €18-30k fixed fee.">
 <link rel="canonical" href="https://vfempire.com/services/threat-model-dpia">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Threat Model + DPIA Drafting — €18-30k, 3-4 weeks">
+<meta property="og:title" content="Threat Model + DPIA Drafting: €18-30k, 3-4 weeks">
 <meta property="og:description" content="STRIDE threat model + GDPR Art. 35 DPIA drafted to the standard VF Empire publishes for its own products. Regulator-ready. Stakeholder workshops included.">
 <meta property="og:url" content="https://vfempire.com/services/threat-model-dpia">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:image" content="https://vfempire.com/assets/hero-core.png">
+<meta property="og:image:width" content="1344">
+<meta property="og:image:height" content="768">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Threat Model + DPIA Drafting: €18-30k, 3-4 weeks">
+<meta name="twitter:description" content="STRIDE threat model + GDPR Art. 35 DPIA drafted to the standard VF Empire publishes for its own products. Regulator-ready. Stakeholder workshops included.">
+<meta name="twitter:image" content="https://vfempire.com/assets/hero-core.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-:root{
-  --paper:#fbfbfd; --silver:#f5f5f7; --mist:#eceff3;
-  --ink:#1d1d1f; --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
-  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.35);
-  --warn:#c93221;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.crumb{font-size:12px;color:var(--faint);letter-spacing:.02em}
-.crumb a{color:var(--dove)}
-.crumb a:hover{color:var(--core)}
-.crumb b{color:var(--ink);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-
 .phero{min-height:82vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 6vw 60px;background:
   radial-gradient(1000px 500px at 50% -10%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -65,8 +36,6 @@ h2 .mute{color:var(--faint)}
 .phero h1 span em{color:var(--core-deep)}
 .phero p.sub{max-width:600px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:26px auto 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;justify-content:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 
 .fails{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
@@ -129,18 +98,149 @@ h2 .mute{color:var(--faint)}
 .foot h2{margin:0 auto;max-width:22ch}
 .foot .lead{margin:20px auto 32px}
 .foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.foot .fine{font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:60px}
-.foot .fine a{color:var(--dove);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
-.foot .fine a:hover{color:var(--core)}
 
 @media (max-width:900px){
   .fails,.aud,.outs,.deliv{grid-template-columns:1fr}
   .pricing{grid-template-columns:1fr}
   .sysreqgrid{grid-template-columns:1fr}
   .tstep{grid-template-columns:1fr}
-  section{padding:80px 6vw}
 }
 </style>
+<!-- seo-pass -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "VF Empire",
+          "item": "https://vfempire.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://vfempire.com/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Threat Model + DPIA Drafting"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/services/threat-model-dpia",
+      "url": "https://vfempire.com/services/threat-model-dpia",
+      "name": "Threat Model + DPIA Drafting",
+      "description": "Regulator-ready STRIDE threat model + GDPR Art. 35 DPIA drafted in the shape of what VF Empire publishes for its own products. 3-4 weeks, €18-30k fixed fee.",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#site"
+      },
+      "about": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "inLanguage": "en-GB",
+      "primaryImageOfPage": "https://vfempire.com/assets/hero-core.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vfempire.com/services/threat-model-dpia#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Isn't this what our lawyer / GDPR consultant should do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Legal counsel + GDPR consultants are typically strong on legal analysis and weaker on technical threat modelling: most cannot enumerate adversary tiers with technical accuracy or defend the \"no third-party AI on user-data paths\" claim as a product boundary. Our engagement fills that gap with documents that are technically defensible + legally reviewed. Your counsel should still review the final deliverable against your specific circumstances."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if we already have a threat model / DPIA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We'll gap-analyse it against what a regulator would expect + tell you whether it needs a full rewrite or a targeted update. Some existing documents need 20% work; some need a 100% rewrite. We quote before starting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you produce these in languages other than English?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Primary drafting in English. German + French + Italian + Maltese available as separate translation engagement (~€2-4k per document per language). Malta IDPC accepts English DPIAs; other supervisory authorities may prefer their national language for formal filings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you publish the deliverable / can it be commercially confidential?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The deliverable is yours. Confidential by default: we publish nothing unless you ask. Some clients ask us to help them publish the threat model as a trust signal (as VF Empire does for its own products); that is a follow-on advisory conversation outside the default engagement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this deliverable be filed with a supervisory authority?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We draft the DPIA in Art. 35 structure so you can file it directly. If formal Art. 36 consultation is warranted (Extended tier includes preparation packet), we can help you manage the engagement, quoted separately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between this and Service 01 (CRA Readiness Audit)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Service 01 audits your product against CRA obligations and produces a gap analysis + remediation roadmap. This service (Service 02) produces the threat model + DPIA documents you'll need for CRA + GDPR compliance. Many clients start with Service 01 to understand what they need, then engage Service 02 to produce it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "NDA + payment terms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standard mutual NDA within 24 hours of request. Invoice in EUR by VF Empire Corp Ltd (Malta) or Noirda GmbH (Germany), 50% at kick-off, 50% at delivery, SEPA transfer."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vfempire.com/services/threat-model-dpia#service",
+      "name": "Threat Model + DPIA Drafting",
+      "url": "https://vfempire.com/services/threat-model-dpia",
+      "description": "Regulator-ready STRIDE threat model + GDPR Art. 35 DPIA drafted in the shape of what VF Empire publishes for its own products. 3-4 weeks, €18-30k fixed fee.",
+      "serviceType": "Cyber Resilience Act compliance consulting",
+      "provider": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "European Union"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://vfempire.com/services/threat-model-dpia",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "EUR",
+          "minPrice": 18000,
+          "maxPrice": 30000,
+          "description": "Fixed fee, typical engagement 4W weeks"
+        }
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -158,7 +258,7 @@ h2 .mute{color:var(--faint)}
 <header class="phero">
   <div class="eb"><b>SERVICE · 02</b> &nbsp;·&nbsp; STRIDE THREAT MODEL &nbsp;·&nbsp; GDPR ART. 35 DPIA</div>
   <h1>Threat Model + DPIA<span>Regulator-ready documentation, <em class="i">drafted like our own.</em></span></h1>
-  <p class="sub">Two documents that the CRA and GDPR both expect but that most product teams cannot produce to a regulator's standard: a STRIDE threat model with named adversary tiers + defended threats, and a GDPR Article 35 Data Protection Impact Assessment with severity-and-likelihood-rated risks + mitigations. Drafted to the shape VF Empire publishes for its own products — because that's the shape a regulator wants to see.</p>
+  <p class="sub">Two documents that the CRA and GDPR both expect but that most product teams cannot produce to a regulator's standard: a STRIDE threat model with named adversary tiers + defended threats, and a GDPR Article 35 Data Protection Impact Assessment with severity-and-likelihood-rated risks + mitigations. Drafted to the shape VF Empire publishes for its own products, because that is the shape a regulator wants to see.</p>
   <div class="meta">
     <span class="mchip hot">€18-30K FIXED FEE</span>
     <span class="mchip">3-4 WEEKS</span>
@@ -176,28 +276,28 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">WHY IT EXISTS</div>
     <h2 class="rv">Two documents,<br><span class="mute">both under-produced across the industry.</span></h2>
-    <p class="lead rv">Threat modelling and Data Protection Impact Assessment are both legally significant, both routinely produced badly, and both expected to be regulator-ready when needed. Most product teams either skip them, produce them at a token level, or produce them once at launch and never update — and then scramble when a supervisory authority asks.</p>
+    <p class="lead rv">Threat modelling and Data Protection Impact Assessment are both legally significant, both routinely produced badly, and both expected to be regulator-ready when needed. Most product teams either skip them, produce them at a token level, or produce them once at launch and never update, then scramble when a supervisory authority asks.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>Threat models nobody reads</h4>
-        <p>Most threat-model documents are one-off compliance artefacts written to check a box, unread by anyone after week two. The threats aren't ranked. The mitigations aren't cited. The residual risk is not stated. A regulator asking "what did you do about supply-chain compromise?" gets a blank answer.</p>
+        <p>Most threat-model documents are one-off compliance artefacts written to check a box, unread by anyone after week two. They leave the threats unranked, the mitigations uncited, and the residual risk unstated. A regulator asking "what did you do about supply-chain compromise?" gets a blank answer.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
         <h4>DPIAs that pretend the answer is always "low"</h4>
-        <p>The temptation to rate every risk "low likelihood, low severity" so no Art. 36 consultation is triggered. Regulators can tell. IDPC, BfDI, CNIL, DPC, Garante have all rejected DPIAs that fail to name real threats honestly.</p>
+        <p>Teams are tempted to rate every risk "low likelihood, low severity" so that no Art. 36 consultation is triggered. Regulators can tell. IDPC, BfDI, CNIL, DPC, Garante have all rejected DPIAs that fail to name real threats.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>Special-category data quietly ignored</h4>
-        <p>Camera footage may capture health information (visible medical device). Payments may reveal religious affiliation (halal food purchases). Location data may reveal political attendance (protest movements). Art. 9 special-category rules apply — and most DPIAs skip the analysis entirely.</p>
+        <p>Camera footage may capture health information (visible medical device). Payments may reveal religious affiliation (halal food purchases). Location data may reveal political attendance (protest movements). Art. 9 special-category rules apply, and most DPIAs skip the analysis.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>No named adversary tiers</h4>
-        <p>Threat models that talk about "attackers" abstractly are useless. Real threat models name the adversary — nation-state (Tier 1), hostile insider (Tier 2), sub-processor compromise (Tier 5) — with capability + motivation + what you protect against + what you don't. Regulators + auditors want that specificity.</p>
+        <p>Threat models that talk about "attackers" in the abstract are useless. Real threat models name the adversary (nation-state as Tier 1, hostile insider as Tier 2, sub-processor compromise as Tier 5) with capability + motivation + what you protect against + what you don't. Regulators + auditors want that specificity.</p>
       </div>
     </div>
   </div>
@@ -213,21 +313,21 @@ h2 .mute{color:var(--faint)}
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l9 4v5c0 5-3.5 8.5-9 10-5.5-1.5-9-5-9-10V7z"/><path d="M9 11.5l2 2 4-4.5"/></svg></div>
         <div>
           <h4>Any product processing personal data at scale</h4>
-          <p>Consumer software (mail, notes, health, finance, identity), connected hardware (smart home, wearables, IoT), platforms (marketplaces, communities), all data-processing SMEs. GDPR Art. 35 requires a DPIA "prior to the processing" for high-risk operations — much broader than most teams assume.</p>
+          <p>Consumer software (mail, notes, health, finance, identity), connected hardware (smart home, wearables, IoT), platforms (marketplaces, communities), all data-processing SMEs. GDPR Art. 35 requires a DPIA "prior to the processing" for high-risk operations, a much broader scope than most teams assume.</p>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12l3 3 5-6"/></svg></div>
         <div>
           <h4>CRA "product with digital elements" manufacturers</h4>
-          <p>Same scope as Service 01 (CRA Readiness Audit) — the threat model is a CRA Annex I essential-requirement input, and firms increasingly find themselves needing both artefacts to satisfy both regulations.</p>
+          <p>Same scope as Service 01 (CRA Readiness Audit). The threat model is a CRA Annex I essential-requirement input, and firms need both artefacts to satisfy both regulations.</p>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 8v8m-4-4h8"/><circle cx="12" cy="12" r="9"/></svg></div>
         <div>
           <h4>Firms handling special-category data (Art. 9)</h4>
-          <p>Health, biometric, political-adjacent, religious-affiliation-adjacent, sexuality-adjacent processing. Formal Art. 36 consultation with the supervisory authority is materially more likely — and the DPIA is the primary document the authority reads.</p>
+          <p>Health, biometric, political-adjacent, religious-affiliation-adjacent, sexuality-adjacent processing. Formal Art. 36 consultation with the supervisory authority is materially more likely, and the DPIA is the primary document the authority reads.</p>
         </div>
       </div>
       <div class="au">
@@ -257,32 +357,32 @@ h2 .mute{color:var(--faint)}
       <div class="dv">
         <div class="dk">01 · THREAT MODEL</div>
         <h4>STRIDE with 6-8 named adversary tiers</h4>
-        <p>Full STRIDE decomposition (Spoofing / Tampering / Repudiation / Information Disclosure / Denial of Service / Elevation of Privilege) with 6-8 adversary tiers (nation-state, hostile insider, hostile executor, physical thief, sub-processor compromise, signing-key compromise, etc.) — capability + motivation + defended-against + explicitly-not-defended-against, per tier.</p>
+        <p>Full STRIDE decomposition (Spoofing / Tampering / Repudiation / Information Disclosure / Denial of Service / Elevation of Privilege) with 6-8 adversary tiers (nation-state, hostile insider, hostile executor, physical thief, sub-processor compromise, signing-key compromise, etc.), each with capability + motivation + defended-against + explicitly-not-defended-against.</p>
       </div>
       <div class="dv">
         <div class="dk">01 · THREAT MODEL</div>
         <h4>Primary threats ranked by residual risk</h4>
-        <p>8-12 primary threats named + STRIDE-classified + vector-analysed + current-defence-inventoried + residual-risk-rated (VERY LOW / LOW / MEDIUM / HIGH / CATASTROPHIC). Each threat traceable to your specific product architecture, not abstract.</p>
+        <p>8-12 primary threats named + STRIDE-classified + vector-analysed + current-defence-inventoried + residual-risk-rated (VERY LOW / LOW / MEDIUM / HIGH / CATASTROPHIC). Each threat traceable to your specific product architecture.</p>
       </div>
       <div class="dv">
         <div class="dk">01 · THREAT MODEL</div>
         <h4>Threat-driven test scenarios</h4>
-        <p>10-15 concrete test scenarios that map to the primary threats — the QA + audit test cases that verify the defences actually work. Directly usable in your CI + third-party-audit plans.</p>
+        <p>10-15 concrete test scenarios that map to the primary threats: the QA + audit test cases that verify the defences work. Ready for your CI + third-party-audit plans.</p>
       </div>
       <div class="dv">
         <div class="dk">02 · DPIA</div>
-        <h4>GDPR Art. 35 DPIA — full structure</h4>
+        <h4>GDPR Art. 35 DPIA: full structure</h4>
         <p>Nature/scope/context/purposes description; legal basis analysis (Art. 6 + Art. 9 where applicable); necessity + proportionality assessment; retention analysis with specific durations + legal basis for each; DPO involvement + supervisory-authority consultation planning.</p>
       </div>
       <div class="dv">
         <div class="dk">02 · DPIA</div>
-        <h4>Risks + mitigations rated honestly</h4>
-        <p>10-15 identified risks with severity (L/M/H) + likelihood (L/M/H) + mitigations + residual-risk assessment. No pretending everything is "low." Regulators trust honest DPIAs; they reject the ones that flatten everything to "low likelihood."</p>
+        <h4>Risks + mitigations rated without softening</h4>
+        <p>10-15 identified risks with severity (L/M/H) + likelihood (L/M/H) + mitigations + residual-risk assessment. We do not pretend everything is "low." Regulators trust honest DPIAs and reject the ones that flatten every risk to "low likelihood."</p>
       </div>
       <div class="dv">
         <div class="dk">02 · DPIA</div>
         <h4>Art. 36 consultation determination</h4>
-        <p>Explicit reasoning on whether formal Art. 36 supervisory-authority consultation is warranted — including our recommendation on which supervisory authority to engage (Malta IDPC as home authority, or the primary authority in your one-stop-shop jurisdiction).</p>
+        <p>Explicit reasoning on whether formal Art. 36 supervisory-authority consultation is warranted, including our recommendation on which supervisory authority to engage (Malta IDPC as home authority, or the primary authority in your one-stop-shop jurisdiction).</p>
       </div>
       <div class="dv">
         <div class="dk">BOTH</div>
@@ -292,7 +392,7 @@ h2 .mute{color:var(--faint)}
       <div class="dv">
         <div class="dk">BOTH</div>
         <h4>Malta advocate legal review included</h4>
-        <p>Both documents reviewed by VF Empire's retained Malta advocate before delivery. Not legal advice on your specific circumstances — but the documents you receive have been legally reviewed for structural + argumentative adequacy under Malta + EU jurisdiction. Included in fee.</p>
+        <p>VF Empire's retained Malta advocate reviews both documents before delivery for structural + argumentative adequacy under Malta + EU jurisdiction. This is not legal advice on your specific circumstances. Included in fee.</p>
       </div>
     </div>
   </div>
@@ -308,42 +408,42 @@ h2 .mute{color:var(--faint)}
         <span class="day">WEEK 0</span>
         <div>
           <h4>Kick-off + scope</h4>
-          <p>90-minute kick-off with your engineering + legal + product leads. Product scope confirmed, data-flow mapped, in-scope processing operations enumerated, sub-processor inventory received. Existing threat model / DPIA (if any) received. Signed NDA if needed.</p>
+          <p>90-minute kick-off with your engineering + legal + product leads. We confirm product scope, map data flow, enumerate in-scope processing operations, and receive your sub-processor inventory + existing threat model / DPIA (if any). We sign an NDA if needed.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 1</span>
         <div>
           <h4>Discovery + threat-model draft</h4>
-          <p>Adversary tiering + STRIDE decomposition + primary-threat identification + defence inventory. First draft of threat model completed. Weekly written status Fridays.</p>
+          <p>Adversary tiering + STRIDE decomposition + primary-threat identification + defence inventory. We complete the first draft of the threat model. Weekly written status Fridays.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">END OF WEEK 1</span>
         <div>
-          <h4>Workshop #1 — threat model alignment</h4>
-          <p>90-minute video workshop reviewing adversary tiers + primary threats + residual-risk ratings. Your team catches domain-specific threats we missed; we push back on ratings we think are too optimistic. Alignment reached before DPIA drafting starts.</p>
+          <h4>Workshop #1: threat model alignment</h4>
+          <p>90-minute video workshop reviewing adversary tiers + primary threats + residual-risk ratings. Your team catches domain-specific threats we missed; we push back on ratings we think are too optimistic. We reach alignment before DPIA drafting starts.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 2</span>
         <div>
           <h4>DPIA draft + risk assessment</h4>
-          <p>Full DPIA structure drafted using threat model as input. Art. 6 + Art. 9 legal basis analysis. Retention + sub-processor + international-transfer analysis. Risks rated with severity + likelihood + mitigations + residual.</p>
+          <p>We draft the full DPIA structure using the threat model as input. Art. 6 + Art. 9 legal basis analysis. Retention + sub-processor + international-transfer analysis. We rate risks with severity + likelihood + mitigations + residual.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 3</span>
         <div>
           <h4>Malta advocate legal review + workshop #2</h4>
-          <p>Both documents reviewed by our retained Malta advocate for structural + argumentative adequacy. Workshop #2 with your team: final review, open-issue resolution, Art. 36 consultation recommendation.</p>
+          <p>Our retained Malta advocate reviews both documents for structural + argumentative adequacy. Workshop #2 with your team: final review, open-issue resolution, Art. 36 consultation recommendation.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 4</span>
         <div>
           <h4>Final delivery + 6-week Q&A window</h4>
-          <p>Final threat model + DPIA delivered as PDF + editable markdown. Documents are yours to use, adapt, publish, or file with supervisory authorities as needed. 6-week written-Q&A window post-delivery, included in fee.</p>
+          <p>We deliver the final threat model + DPIA as PDF + editable markdown. Documents are yours to use, adapt, publish, or file with supervisory authorities as needed. 6-week written-Q&A window post-delivery, included in fee.</p>
         </div>
       </div>
     </div>
@@ -386,7 +486,7 @@ h2 .mute{color:var(--faint)}
     </div>
 
     <div class="rv" style="margin-top:36px;padding:22px 24px;background:var(--silver);border-radius:14px;font-size:13.5px;line-height:1.6;color:var(--dove)">
-      <b style="color:var(--ink)">Not included:</b> formal Art. 36 consultation representation (the DPIA is prepared; if formal consultation is needed we quote separately for engagement management), ongoing DPO retainer, DPA drafting for new sub-processors, breach-response services. All available as separate engagements.
+      <b style="color:var(--ink)">Not included:</b> formal Art. 36 consultation representation (we prepare the DPIA; if formal consultation is needed we quote separately for engagement management), ongoing DPO retainer, DPA drafting for new sub-processors, breach-response services. All available as separate engagements.
     </div>
   </div>
 </section>
@@ -395,20 +495,20 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">WHY VF EMPIRE</div>
     <h2 class="rv">Seven published threat models + DPIAs<br><span class="mute">for our own products, public + verifiable.</span></h2>
-    <p class="lead rv">Every VF Empire product ships with a published threat model + DPIA. Not marketing artefacts — real documents drafted the way a supervisory authority reads them. The template + structure + defensive posture we hand you is drawn from real, deployed, publicly-visible work.</p>
+    <p class="lead rv">Every VF Empire product ships with a published threat model + DPIA: real documents drafted the way a supervisory authority reads them. The template + structure + defensive posture we hand you comes from real, deployed, public work.</p>
 
     <div class="outs rv">
       <div class="c">
         <div class="n">VF Home <span>threat model</span><span>.</span></div>
-        <p>STRIDE with 8 adversary tiers, 9 primary threats, 12 test scenarios — <a href="https://github.com/vfempire-hq/vf-home/blob/main/docs/security/threat-model.md" style="color:var(--core-deep);font-weight:600">on GitHub</a>.</p>
+        <p>STRIDE with 8 adversary tiers, 9 primary threats, 12 test scenarios, published <a href="https://github.com/vfempire-hq/vf-home/blob/main/docs/security/threat-model.md" style="color:var(--core-deep);font-weight:600">on GitHub</a>.</p>
       </div>
       <div class="c">
         <div class="n">VF Wallet <span>DPIA</span><span>.</span></div>
-        <p>Full Art. 35 with 10 identified risks + Art. 36 consultation recommendation — <a href="https://github.com/vfempire-hq/vf-wallet/blob/main/docs/legal/dpia-vf-wallet.md" style="color:var(--core-deep);font-weight:600">on GitHub</a>.</p>
+        <p>Full Art. 35 with 10 identified risks + Art. 36 consultation recommendation, published <a href="https://github.com/vfempire-hq/vf-wallet/blob/main/docs/legal/dpia-vf-wallet.md" style="color:var(--core-deep);font-weight:600">on GitHub</a>.</p>
       </div>
       <div class="c">
         <div class="n">VF Legacy <span>Life Archive DPIA</span><span>.</span></div>
-        <p>Special-category-data-heavy DPIA covering the dossier surface + wrongful-trigger combined risk — <a href="https://github.com/vfempire-hq/vf-legacy/blob/main/docs/legal/dpia-vf-legacy.md" style="color:var(--core-deep);font-weight:600">on GitHub</a>.</p>
+        <p>Special-category-data-heavy DPIA covering the dossier surface + wrongful-trigger combined risk, published <a href="https://github.com/vfempire-hq/vf-legacy/blob/main/docs/legal/dpia-vf-legacy.md" style="color:var(--core-deep);font-weight:600">on GitHub</a>.</p>
       </div>
     </div>
   </div>
@@ -422,11 +522,11 @@ h2 .mute{color:var(--faint)}
     <div class="faq rv">
       <div class="q">
         <h4>Isn't this what our lawyer / GDPR consultant should do?</h4>
-        <p>Legal counsel + GDPR consultants are typically strong on the legal-analysis dimension and weaker on the technical-threat-modelling dimension — most cannot enumerate adversary tiers with technical accuracy or defend the "no third-party AI on user-data paths" claim as an actual product boundary. Our engagement fills exactly that gap: we produce documents that are technically defensible + legally reviewed. Your counsel should still review the final deliverable against your specific circumstances.</p>
+        <p>Legal counsel + GDPR consultants are typically strong on legal analysis and weaker on technical threat modelling: most cannot enumerate adversary tiers with technical accuracy or defend the "no third-party AI on user-data paths" claim as a product boundary. Our engagement fills that gap with documents that are technically defensible + legally reviewed. Your counsel should still review the final deliverable against your specific circumstances.</p>
       </div>
       <div class="q">
         <h4>What if we already have a threat model / DPIA?</h4>
-        <p>We'll gap-analyse it against what a regulator would expect + tell you honestly whether it needs a full rewrite or a targeted update. Some existing documents need 20% work; some need 100% rewrite. We quote transparently before starting.</p>
+        <p>We'll gap-analyse it against what a regulator would expect + tell you whether it needs a full rewrite or a targeted update. Some existing documents need 20% work; some need a 100% rewrite. We quote before starting.</p>
       </div>
       <div class="q">
         <h4>Do you produce these in languages other than English?</h4>
@@ -434,15 +534,15 @@ h2 .mute{color:var(--faint)}
       </div>
       <div class="q">
         <h4>Will you publish the deliverable / can it be commercially confidential?</h4>
-        <p>The deliverable is yours. Confidentiality mode default — nothing published unless you ask. Some clients ask us to help them publish the threat model as a trust signal (as VF Empire does for its own products); that's a follow-on advisory conversation, not part of the default engagement.</p>
+        <p>The deliverable is yours. Confidential by default: we publish nothing unless you ask. Some clients ask us to help them publish the threat model as a trust signal (as VF Empire does for its own products); that is a follow-on advisory conversation outside the default engagement.</p>
       </div>
       <div class="q">
         <h4>Can this deliverable be filed with a supervisory authority?</h4>
-        <p>Yes. The DPIA is drafted in Art. 35 structure and can be filed directly. If formal Art. 36 consultation is warranted (Extended tier includes preparation packet), we can help you manage the engagement — quoted separately.</p>
+        <p>Yes. We draft the DPIA in Art. 35 structure so you can file it directly. If formal Art. 36 consultation is warranted (Extended tier includes preparation packet), we can help you manage the engagement, quoted separately.</p>
       </div>
       <div class="q">
         <h4>What's the difference between this and Service 01 (CRA Readiness Audit)?</h4>
-        <p>Service 01 audits your product against CRA obligations and produces a gap analysis + remediation roadmap. This service (Service 02) produces the actual threat model + DPIA documents you'll need for CRA + GDPR compliance. Many clients start with Service 01 to understand what they need, then engage Service 02 to produce it.</p>
+        <p>Service 01 audits your product against CRA obligations and produces a gap analysis + remediation roadmap. This service (Service 02) produces the threat model + DPIA documents you'll need for CRA + GDPR compliance. Many clients start with Service 01 to understand what they need, then engage Service 02 to produce it.</p>
       </div>
       <div class="q">
         <h4>NDA + payment terms?</h4>
@@ -466,7 +566,7 @@ h2 .mute{color:var(--faint)}
         <div class="sysreqrow"><dt>Team</dt><dd>1 VF Empire senior engineer + retained Malta advocate + retained DP auditor (Extended only)</dd></div>
         <div class="sysreqrow"><dt>Deliverables</dt><dd>Threat model + DPIA · PDF + editable markdown · 2-3 stakeholder workshops · 6-8 week Q&A window</dd></div>
         <div class="sysreqrow"><dt>Language</dt><dd>English primary · translations quoted separately</dd></div>
-        <div class="sysreqrow"><dt>Legal review</dt><dd>Malta advocate structural review included in fee — not legal advice on your specific circumstances</dd></div>
+        <div class="sysreqrow"><dt>Legal review</dt><dd>Malta advocate structural review included in fee; not legal advice on your specific circumstances</dd></div>
         <div class="sysreqrow"><dt>Publication</dt><dd>Deliverable is yours · confidential by default · publication-support advisory available on request</dd></div>
         <div class="sysreqrow"><dt>Payment terms</dt><dd>50% kick-off · 50% delivery · SEPA · via VF Empire Malta or Noirda GmbH DE</dd></div>
         <div class="sysreqrow"><dt>NDA</dt><dd>Standard mutual signed within 24 hours or your template turned around 2 business days</dd></div>
@@ -479,29 +579,49 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">BOOK A CALL</div>
     <h2 class="rv">30 minutes.<br><span class="mute">You leave the call knowing whether we're the right fit.</span></h2>
-    <p class="lead rv">Discovery call is free. No sales script. We ask about your product + your processing operations; you ask us anything about the engagement.</p>
+    <p class="lead rv">The discovery call is free and there is no sales script. We ask about your product + your processing operations; you ask us anything about the engagement.</p>
 
     <div class="acts">
       <a class="bt pri" href="mailto:services@vfempire.com?subject=Threat%20Model%20DPIA%20-%20discovery%20call">Write to services@vfempire.com</a>
       <a class="bt gho" href="/software">Read the software thesis</a>
     </div>
-
-    <div class="fine">
-      VF Empire Corp Ltd · Malta C 94160 · VAT MT 2686-9431 · Virgo Louretana, Triq L-Mġarr, Għajnsielem, Gozo GSM1020, MT
-      &nbsp;·&nbsp; <a href="/">Home</a>
-      &nbsp;·&nbsp; <a href="/software">Software</a>
-      &nbsp;·&nbsp; <a href="/services/cra-readiness-audit">Services · CRA Audit</a>
-      &nbsp;·&nbsp; <a href="/services/signing-infrastructure">Services · Signing</a>
-      &nbsp;·&nbsp; <a href="mailto:info@vfempire.com">Contact</a>
-    </div>
   </div>
 </section>
+
+<footer>
+  <div class="legal">
+    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
+  </div>
+</footer>
 
 <script>
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
+  <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="dec" id="cdec">Decline</button>
+    <button class="acc" id="cacc">Accept</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const el = document.getElementById('consent');
+  if (!el) return;
+  let seen = null; try { seen = localStorage.getItem('vf-consent'); } catch (e) {}
+  if (seen) { el.remove(); return; }
+  setTimeout(() => el.classList.add('show'), 1400);
+  const choose = v => { try { localStorage.setItem('vf-consent', v); } catch (e) {} el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
+  document.getElementById('cacc').onclick = () => choose('accepted');
+  document.getElementById('cdec').onclick = () => choose('declined');
+})();
 </script>
 
 </body>

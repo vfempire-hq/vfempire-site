@@ -3,16 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Private Care Watch — In-Home Elder Monitoring, Private by Architecture | VF Empire</title>
-<meta name="description" content="Private Care Watch by VF Empire — fall detection, routine-drift and wellbeing monitoring on hardware inside the home. No cloud cameras pointed at grandparents. In build in Malta, EU.">
+<title>Private Care Watch: In-Home Elder Monitoring, Private by Architecture | VF Empire</title>
+<meta name="description" content="Private Care Watch by VF Empire: fall detection, routine-drift and wellbeing monitoring on hardware inside the home. No cloud cameras pointed at grandparents. In build in Malta, EU.">
 <link rel="canonical" href="https://vfempire.com/systems/private-care-watch">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Private Care Watch — Watch over them. Not surveillance of them.">
-<meta property="og:description" content="Fall alerting and routine monitoring for ageing relatives, running on hardware in the home — never a cloud camera feed. On the VF build slate.">
+<meta property="og:title" content="Private Care Watch: Care that watches over, without watching.">
+<meta property="og:description" content="Fall alerting and routine monitoring for ageing relatives, running on hardware in the home, never a cloud camera feed. On the VF build slate.">
 <meta property="og:url" content="https://vfempire.com/systems/private-care-watch">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p02.png">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Private Care Watch: Care that watches over, without watching.">
+<meta name="twitter:description" content="Fall alerting and routine monitoring for ageing relatives, running on hardware in the home, never a cloud camera feed. On the VF build slate.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p02.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -38,61 +47,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-/* house dot-rail scrollbar — native bar hidden, jade dot rendered by scrollrail.js */
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
 .phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -102,14 +56,11 @@ h2 .mute{color:var(--faint)}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
@@ -126,7 +77,7 @@ h2 .mute{color:var(--faint)}
 .band img{display:block;width:100%;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
@@ -143,7 +94,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -151,7 +102,7 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -296,7 +247,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -358,29 +309,11 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
   .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
 </head>
@@ -401,7 +334,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div>
     <div class="eb"><b>P·02</b> &nbsp;·&nbsp; ELDER CARE &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>Private Care Watch<span>Care that watches over,<br><em class="i">without watching.</em></span></h1>
-    <p class="sub">Every family with ageing parents knows the fear: the fall nobody heard, the quiet decline nobody measured. The market answer is cloud cameras in the living room. Private Care Watch is the other answer — monitoring and alerting on hardware the family owns, with nothing streamed anywhere.</p>
+    <p class="sub">Families with ageing parents know the fear: the fall nobody heard, the quiet decline nobody measured. The market answer is cloud cameras in the living room. Private Care Watch is the other answer: monitoring and alerting on hardware the family owns, with nothing streamed anywhere.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD</span>
       <span class="mchip">ON-PREMISE PROCESSING</span>
@@ -413,14 +346,14 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p02.webp" alt="Minimal 3D render of an armchair with a small guardian orb beside it — Private Care Watch by VF Empire"></div>
+  <div class="pheroart"><img src="../assets/pipe/p02.webp" alt="Minimal 3D render of an armchair with a small guardian orb beside it (Private Care Watch by VF Empire)"></div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">The fall is a fact of ageing.<br><span class="mute">The cloud camera is not.</span></h2>
-    <p class="lead rv">Falls are one of the largest hidden emergencies in the world, and the wish to age at home is nearly universal. The technology offered to bridge those two facts mostly asks families to point internet-connected cameras at their parents. That trade should never have been the default.</p>
+    <p class="lead rv">Falls are one of the largest hidden emergencies in the world, and the wish to age at home is nearly universal. The technology offered to bridge those two facts mostly asks families to point internet-connected cameras at their parents. That trade should not be the default.</p>
 
     <div class="fails rv">
       <div class="fl">
@@ -431,22 +364,22 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="fl">
         <span class="num">F·02</span>
         <h4>Everyone wants to stay home</h4>
-        <p>Surveys consistently find about three-quarters of older adults want to age in their own homes. Families want that too — what they lack is a trustworthy way to know that today was a normal day.</p>
+        <p>Surveys find about three-quarters of older adults want to age in their own homes. Families want that too; they lack a trustworthy way to know that today was a normal day.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>Cloud cameras have already failed</h4>
-        <p>The 2021 Verkada breach exposed live feeds from around 150,000 cameras, including inside care facilities. A camera feed that leaves the house is a camera feed that can leak. With grandparents, that risk class should be off the table entirely.</p>
+        <p>The 2021 Verkada breach exposed live feeds from around 150,000 cameras, including inside care facilities. A camera feed that leaves the house is a camera feed that can leak. With grandparents, that risk class should be off the table.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>Decline is quiet before it is loud</h4>
-        <p>Before the emergency there is the drift — meals skipped, nights disturbed, movement slowing. Point sensors and panic buttons miss it; a system watching routine patterns can surface it while it is still a conversation, not a crisis.</p>
+        <p>Before the emergency there is the drift: meals skipped, nights disturbed, movement slowing. Point sensors and panic buttons miss it; a system watching routine patterns can surface it while it is still a conversation.</p>
       </div>
     </div>
 
     <div class="band rv">
-      <img src="../assets/pipe/p02-flow.png" alt="Abstract render of a home outline with a single blue pulse held inside its walls — data that never leaves" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
+      <img src="../assets/pipe/p02-flow.png" alt="Abstract render of a home outline with a single blue pulse held inside its walls: data that never leaves" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
       <span class="cap">WHO: ≈684,000 FALL DEATHS WORLDWIDE EVERY YEAR</span>
     </div>
   </div>
@@ -464,24 +397,24 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div>
           <h4>The long-distance family</h4>
-          <p>Millions of Europeans live a flight away from ageing parents — Malta knows this pattern intimately. Private Care Watch is designed for exactly that household: parents at home, children abroad, and a daily answer to the only question that matters — is everything normal today?</p>
+          <p>Millions of Europeans live a flight away from ageing parents; Malta knows this pattern well. VF designs Private Care Watch for that household: parents at home, children abroad, and a daily answer to the question that matters most, is everything normal today?</p>
           <div class="co"><span>PARENTS AT HOME</span><span>CHILDREN ABROAD</span><span>DAILY REASSURANCE</span><span>ALERTS THAT MATTER</span></div>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 9v11h14V9"/></svg></div>
         <h4>Ageing at home</h4>
-        <p>The older adult who wants independence without isolation. The system is theirs, in their house, on their terms — presence-aware, not camera-first, with consent built into the architecture.</p>
+        <p>The older adult who wants independence without isolation. The system is theirs, in their house, on their terms: presence-aware, with consent built into the architecture.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.7c2.7.2 4.9 2 5.6 5.3"/></svg></div>
         <h4>Adult children</h4>
-        <p>A calm daily signal instead of anxious phone checks. Alerts arrive when something needs attention; silence genuinely means all is well.</p>
+        <p>A calm daily signal instead of anxious phone checks. Alerts arrive when something needs attention; silence means all is well.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.3-3 .8-6.5 4-6.5 2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.2 0 5.3 3.5 4 6.5-2 4.5-9 9-9 9z"/></svg></div>
         <h4>Live-in and visiting carers</h4>
-        <p>Carers see the pattern between visits — what the nights looked like, whether routines held — so care hours go where the drift actually is.</p>
+        <p>Carers see the pattern between visits (what the nights looked like, whether routines held), so care hours go where the drift is.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2M11 21v-3h2v3"/></svg></div>
@@ -496,12 +429,12 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">Alerting when it matters.<br><span class="mute">Silence when it doesn’t.</span></h2>
-    <p class="lead rv">Private Care Watch is a monitoring and alerting system — it tells families what happened and what is drifting. It does not diagnose, and it does not promise prevention. That honesty is the product.</p>
+    <p class="lead rv">Private Care Watch is a monitoring and alerting system: it tells families what happened and what is drifting. It does not diagnose, and it does not promise prevention. That honesty is the product.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">Minutes, not hours<span>.</span></div><p>Fall and no-movement alerting designed to collapse the time between an incident and someone knowing — the single variable families can actually change.</p></div>
-      <div class="c"><div class="n">The drift made visible<span>.</span></div><p>Routine baselines per household: sleep, movement, kitchen activity. When the pattern bends, the family sees it early enough to act gently.</p></div>
-      <div class="c"><div class="n">Privacy as architecture<span>.</span></div><p>All processing on the home hub. No video leaves the house — by design there is no cloud feed to breach, subpoena or resell.</p></div>
+      <div class="c"><div class="n">Found in minutes<span>.</span></div><p>Fall and no-movement alerting designed to collapse the time between an incident and someone knowing, the single variable families can change.</p></div>
+      <div class="c"><div class="n">The drift made visible<span>.</span></div><p>Routine baselines per household: sleep, movement, kitchen activity. The family sees the pattern bend early enough to act gently.</p></div>
+      <div class="c"><div class="n">Privacy as architecture<span>.</span></div><p>All processing on the home hub. No video leaves the house; by design there is no cloud feed to breach, subpoena or resell.</p></div>
     </div>
   </div>
 </section>
@@ -510,7 +443,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">The hub is the product.<br><span class="mute">The cloud is not invited.</span></h2>
-    <p class="lead rv">The system is built so the most sensitive data that exists — footage of your parents in their own home — never becomes network traffic. Everything that watches, thinks locally.</p>
+    <p class="lead rv">VF builds the system so the most sensitive data there is, footage of your parents in their own home, never becomes network traffic. Everything that watches, thinks locally.</p>
 
     <div class="mech rv">
       <div class="mechart"><img src="../assets/pipe/p02-mech.png" alt="Layered render of sensor signals resolving inside a single home unit with one blue status light" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
@@ -521,7 +454,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>The home hub</h4></div>
-          <p>A local unit running all detection models on-premise. Fall inference, presence tracking and routine modelling happen here — raw sensor data is processed and discarded on the device.</p>
+          <p>A local unit running all detection models on-premise. Fall inference, presence tracking and routine modelling happen here; the device processes raw sensor data and discards it.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>The pattern engine</h4></div>
@@ -529,7 +462,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>The family surface</h4></div>
-          <p>Phone apps carrying alerts and daily summaries — status and events, never a live feed. Every family member sees exactly what the older adult consented to share.</p>
+          <p>Phone apps carrying alerts and daily summaries: status and events, never a live feed. Each family member sees only what the older adult consented to share.</p>
         </div>
       </div>
     </div>
@@ -545,7 +478,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="rd">
         <span class="num">R·01</span>
         <h4>The first household</h4>
-        <p>Hub hardware selection, fall and presence detection running fully local, family alerting proven end-to-end in real homes.</p>
+        <p>Hub hardware selection, fall and presence detection running local, family alerting proven end-to-end in real homes.</p>
         <span class="st hot">IN BUILD</span>
       </div>
       <div class="rd">
@@ -566,13 +499,13 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="doc">
         <span class="dk">WHITE PAPER</span>
         <h4>The no-cloud care thesis</h4>
-        <p>The VF position paper on elder monitoring: why in-home processing is the only defensible architecture for this data class, and what alerting can honestly promise.</p>
+        <p>The VF position paper on elder monitoring: why in-home processing is the only defensible architecture for this data class, and what alerting can and cannot promise.</p>
         <span class="tba">IN PREPARATION</span>
       </div>
       <div class="doc">
         <span class="dk">REPOSITORY</span>
         <h4>private-care-watch</h4>
-        <p>Hub firmware and detection pipeline. Privacy-critical components will be built for auditability — families should be able to verify nothing leaves the house.</p>
+        <p>Hub firmware and detection pipeline. VF will build privacy-critical components for auditability, so families can verify nothing leaves the house.</p>
         <span class="tba">TBA</span>
       </div>
     </div>
@@ -585,11 +518,11 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What the home needs</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Sensor hub</dt><dd>One VF hub, plugged into any power outlet.</dd></div>
-        <div class="sysreqrow"><dt>Camera</dt><dd>None — motion + radar only.</dd></div>
+        <div class="sysreqrow"><dt>Camera</dt><dd>None; motion + radar only.</dd></div>
         <div class="sysreqrow"><dt>Internet</dt><dd>Home broadband, ~1 Mbps sustained.</dd></div>
         <div class="sysreqrow"><dt>Data residency</dt><dd>EU metal. Your data never leaves the region.</dd></div>
       </dl>
@@ -602,7 +535,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">PLANNED PRICING</div>
     <h2 class="rv">The hub near cost.<br><span class="mute">The watching is the product.</span></h2>
-    <p class="lead rv">One price covers fall alerting, routine drift and the family app together — nothing essential sold back as an add-on.</p>
+    <p class="lead rv">One price covers fall alerting, routine drift and the family app together, with nothing essential sold back as an add-on.</p>
     <div class="stage orbit-3">
       <span class="hoverhint">Hover the cards to see every tier</span>
 <div class="card t-slate p1">
@@ -685,7 +618,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   </div>
     </div>
     
-    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+    <p class="pnote rv">Planned launch pricing; VF confirms final figures at each release. The price you join at is the price you renew at: no first-year bait, no renewal games.</p>
   </div>
 </section>
 
@@ -695,7 +628,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Their dignity.<br><span class="mute">Your peace of mind. No trade.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Private Care Watch is in build. If your family is living the long-distance question, register interest — pilot households shape what this becomes.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Private Care Watch is in build. If your family is living the long-distance question, register interest; pilot households shape what this becomes.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Private%20Care%20Watch">info@vfempire.com</a>
     </div>
@@ -705,13 +638,13 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 <footer>
   <div class="legal">
     <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
@@ -742,7 +675,6 @@ document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
   [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
 });
 </script>
-<script src="/assets/scrollrail.js" defer></script>
 
 </body>
 </html>

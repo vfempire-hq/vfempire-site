@@ -1,0 +1,48 @@
+# VF Empire
+
+> VF Empire Corp Ltd (Malta, EU, registered C 94160) is a systems engineering house. It designs the engines, harnesses and command dashboards that make open-source AI models work as complete systems on hardware the owner controls, builds its own line of local-first, privacy-first software products, runs an AI Training Centre, and offers fixed-fee Cyber Resilience Act (CRA) and GDPR consulting.
+
+Key facts: founded 2019; based in Għajnsielem, Gozo, Malta; network companies Noirda GmbH (Germany) and Guardian Network (UK); contact info@vfempire.com. All products are local-first, EU-sovereign, ship with no third-party AI on user-data paths, and carry the Permanence Guarantee (refund plus source release if a product is discontinued; see Terms § 8).
+
+## Company
+
+- [Homepage](https://vfempire.com/): the engine room (Helmsman engine, harness stack, command dashboards), research lanes, divisions, the build slate, the AI Training Centre, FAQ.
+- [Software you own](https://vfempire.com/software): the five failures of modern software and the five VF principles that answer them.
+- [Security posture](https://vfempire.com/security): public repositories scanned clean of secrets, signed releases, reproducible builds, bug bounty, Terms § 8 warranty.
+- [Contact](https://vfempire.com/contact/): every desk, who reads it, and reply times.
+
+## Services (fixed fee, EU)
+
+- [CRA Readiness Audit](https://vfempire.com/services/cra-readiness-audit): 2 weeks, €12-18k, gap analysis and remediation roadmap against Cyber Resilience Act Annex I and II.
+- [Threat Model + DPIA Drafting](https://vfempire.com/services/threat-model-dpia): 3-4 weeks, €18-30k, regulator-ready threat model and data protection impact assessment.
+- [Signing Infrastructure + SBOM Blueprint](https://vfempire.com/services/signing-infrastructure): 4-6 weeks, €25-40k, signed updates, transparency log, SBOM pipeline, reproducibility CI.
+
+## Products and systems on the build slate
+
+- [FileIT](https://vfempire.com/systems/fileit): the self-filing ledger, direct to HMRC MTD, ELSTER, CFR and ROS.
+- [FuelIT](https://vfempire.com/systems/fuelit): the cheapest litre on your route across nine EU countries, with sovereign navigation.
+- [NAV·IT](https://vfempire.com/systems/nav-it): self-hosted turn-by-turn navigator on open map data; ships inside FuelIT and MapIT.
+- [MapIT](https://vfempire.com/systems/mapit): prices a whole shopping list at every store in your zone.
+- [SnapIT](https://vfempire.com/systems/snapit): every drive scanned into one private photo and video library; live, one-off pricing from €59.
+- [Guardian Shield](https://vfempire.com/systems/guardian-shield): vault, malware scanner, WireGuard VPN, DNS filter and breach watch on infrastructure you own.
+- [VF Mail](https://vfempire.com/systems/vf-mail): a complete mail system of our own, in beta.
+- [VF Wallet](https://vfempire.com/systems/vf-wallet): EU digital identity wallet built for people, ARF-conformant.
+- [VF Legacy](https://vfempire.com/systems/vf-legacy): digital estate and succession, sealed instructions and executor packets.
+- [VF Home](https://vfempire.com/systems/vf-home): smart-home hub with Matter, Zigbee, Z-Wave and local NVR.
+- [Field Intelligence](https://vfempire.com/systems/field-intelligence): crop AI for family farms.
+- [Private Care Watch](https://vfempire.com/systems/private-care-watch): in-home elder monitoring, private by architecture.
+- [The Apprentice](https://vfempire.com/systems/the-apprentice): diagnostic copilot for the trades.
+- [Everyday-Law Navigator](https://vfempire.com/systems/everyday-law-navigator): legal information for everyone else.
+- [Triage & Continuity](https://vfempire.com/systems/triage-continuity): wellbeing check-in that routes to humans.
+- [Site Truth Engine](https://vfempire.com/systems/site-truth-engine): construction progress verified from cameras already on site.
+- [Grid & Home Optimiser](https://vfempire.com/systems/grid-home-optimiser): local energy intelligence for solar homes.
+- [Self-Training QC Vision](https://vfempire.com/systems/self-training-qc-vision): defect detection a floor manager can teach.
+- [Different-Minds Engine](https://vfempire.com/systems/different-minds-engine): adaptive learning built for neurodivergent students first.
+- [Low-Resource Language AI](https://vfempire.com/systems/low-resource-language-ai): translation, teaching and preservation for the languages big tech skips, Maltese first.
+- [Citizen Services Desk](https://vfempire.com/systems/citizen-services-desk): municipal AI on the municipality's own metal.
+- [Claims Advocate](https://vfempire.com/systems/claims-advocate): AI on the policyholder's side.
+- [Offline-First Response](https://vfempire.com/systems/offline-first-response): emergency coordination that survives the blackout.
+
+## Legal
+
+- [Terms of Service](https://vfempire.com/legal/terms), [Privacy Policy](https://vfempire.com/legal/privacy), [Cookie Policy](https://vfempire.com/legal/cookies), [security.txt](https://vfempire.com/.well-known/security.txt).

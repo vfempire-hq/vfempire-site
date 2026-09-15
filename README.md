@@ -10,12 +10,13 @@ Static HTML, hand-crafted, served by **Cloudflare Workers Assets** from `dist/`.
 
 - **Zero third-party scripts.** No Google Analytics, no Facebook Pixel, no Hotjar, no LogRocket, no Segment, no ad-tech.
 - **Zero third-party fonts.** Hanken + Instrument Italic are self-hosted at `/fonts/`.
+- **One stylesheet.** `/house.css` carries the tokens, type scale, nav, buttons, footer and consent notice for every page; page-specific layout stays inline per page.
 - **Zero third-party image hosts.** All assets served from `vfempire.com`.
 - **Zero cookies.** Site sets no cookies. First-party consent banner (`vf-consent`) stores accept/decline as `localStorage` only.
 - **Strict CSP.** `default-src 'self'; connect-src 'self'; frame-ancestors 'none';` etc. — see `dist/_headers`.
 - **HSTS with preload.** 63072000s max-age, includeSubDomains, preload.
 - **Cross-origin isolation.** COOP + COEP + CORP set to same-origin.
-- **Bot policy.** Aggressive scrapers + AI-training crawlers (GPTBot, ClaudeBot, CCBot, anthropic-ai, Google-Extended) explicitly disallowed in `robots.txt`.
+- **Bot policy.** Search engines and answer engines (Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, Claude-SearchBot, Applebot) are explicitly welcome in `robots.txt`; only `/dev/` and the error pages are disallowed. `/llms.txt` gives language-model agents a plain-text map of the site.
 - **security.txt.** RFC 9116 disclosure endpoint at `.well-known/security.txt`.
 
 Every claim above is verifiable by inspecting `dist/`.
@@ -25,11 +26,15 @@ Every claim above is verifiable by inspecting `dist/`.
 ```
 vfempire-site/
 ├── index.html              # Homepage (mirrored to dist/index.html on deploy)
+├── house.css               # Shared house stylesheet: tokens, type scale, nav, buttons, footer, consent
 ├── systems/                # Product pages, 21 as of this commit
+│   ├── _build.mjs          # Generator for the templated product pages (node systems/_build.mjs)
+│   └── content-*.mjs       # Content packs the generator reads; edit these, not the generated HTML
 ├── legal/                  # Terms, privacy, cookies
 ├── contact/                # Contact page
 ├── assets/                 # Images, fonts, scripts
 ├── fonts/                  # Self-hosted webfonts
+├── llms.txt                # Plain-text site map for language-model agents (AEO)
 ├── sitemap.xml
 ├── sitemap-full.xml
 ├── wrangler.jsonc          # Cloudflare Workers Assets config

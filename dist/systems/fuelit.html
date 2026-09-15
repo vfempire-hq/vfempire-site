@@ -3,16 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FuelIT — The cheapest litre on your actual route | VF Empire</title>
-<meta name="description" content="P·17 on the VF build slate: a fuel-price navigator that solves the whole equation — official government price feeds, your car's real range, and the detour maths every driver does badly. Pairs with your car's GPS navigator — pick a route, see every station along it with live prices.">
+<title>FuelIT: The cheapest litre on your actual route | VF Empire</title>
+<meta name="description" content="P·17 on the VF build slate. A fuel-price navigator that solves the whole equation: official government price feeds, your car's real range, and the detour maths drivers do badly. It pairs with your car's GPS navigator. Pick a route and see every station along it with live prices.">
 <link rel="canonical" href="https://vfempire.com/systems/fuelit">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="FuelIT — the cheapest litre on your actual route">
-<meta property="og:description" content="Live pump prices from official feeds, ranked against your route, your tank and your car's real range — the detour maths done right.">
+<meta property="og:title" content="FuelIT: the cheapest litre on your actual route">
+<meta property="og:description" content="Live pump prices from official feeds, ranked against your route, your tank and your car's real range. The detour maths, done right.">
 <meta property="og:url" content="https://vfempire.com/systems/fuelit">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p17.png">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FuelIT: the cheapest litre on your actual route">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p17.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="twitter:description" content="Live pump prices from official feeds, ranked against your route, your tank and your car's real range. The detour maths, done right.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -24,7 +33,7 @@
       "applicationCategory": "TravelApplication",
       "operatingSystem": "Mobile, privacy-first",
       "creator": {"@id": "https://vfempire.com/#org"},
-      "description": "A fuel-price navigator that ranks stations by the true cost of the stop — official government price feeds, the driver's real vehicle range, and the detour fuel burned versus cents saved. In build at VF Empire."
+      "description": "A fuel-price navigator that ranks stations by the true cost of the stop: official government price feeds, the driver's real vehicle range, and the detour fuel burned versus cents saved. In build at VF Empire."
     },
     {
       "@type": "BreadcrumbList",
@@ -38,54 +47,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
 .phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -95,14 +56,11 @@ h2 .mute{color:var(--faint)}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
@@ -119,7 +77,7 @@ h2 .mute{color:var(--faint)}
 .band img{display:block;width:100%;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
@@ -136,7 +94,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -144,7 +102,7 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -174,12 +132,9 @@ h2 .mute{color:var(--faint)}
 .doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
 @media(max-width:880px){.docs{grid-template-columns:1fr}}
 
-
 }
 
-
 }
-
 
 /* ═══════════ pricing (revolver) ═══════════ */
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
@@ -295,7 +250,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -357,39 +312,13 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
   .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
-<style id="house-scrollbar">
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-</style>
-<script src="/assets/scrollrail.js" defer></script>
 </head>
 <body>
 
@@ -408,7 +337,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div>
     <div class="eb"><b>P·17</b> &nbsp;·&nbsp; MOBILITY &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>FuelIT<span>The cheapest litre, on your <em class="i">actual route.</em></span></h1>
-    <p class="sub">Every fuel app can point at a cheap station. None of them do the real arithmetic — the litres a detour burns against the cents it saves, what your tank can actually reach, what a fill truly costs your car. FuelIT solves the whole equation, then hands the wheel to the navigator you already trust.</p>
+    <p class="sub">Any fuel app can point at a cheap station. None we know of does the real arithmetic: the litres a detour burns against the cents it saves, what your tank can reach, what a fill costs your car. FuelIT solves the whole equation, then hands the wheel to the navigator you already trust.</p>
     <div class="meta">
       <span class="mchip hot">SPEC-COMPLETE · R·01</span>
       <span class="mchip">9 EU COUNTRIES</span>
@@ -421,41 +350,41 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p17.png" alt="FuelIT — a minimal white petrol pump with a glowing blue droplet of light beside the nozzle"></div>
+  <div class="pheroart"><img src="../assets/pipe/p17.png" alt="FuelIT: a minimal white petrol pump with a glowing blue droplet of light beside the nozzle"></div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">Fuel apps show you prices.<br><span class="mute">Nobody does the maths.</span></h2>
-    <p class="lead rv">Pump prices are one of the last honest arbitrage games left for ordinary people — the same litre can differ by twenty cents across one town in one day. The tools built for it all stop at a coloured map pin. Four failures, one gap.</p>
+    <p class="lead rv">Pump prices are one of the last honest arbitrage games left for ordinary people: the same litre can differ by twenty cents across one town in one day. The tools built for it stop at a coloured map pin.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>Cheap is not cheapest</h4>
-        <p>The lowest price on the map can be the most expensive stop on your trip: twelve kilometres of detour can burn more fuel than the discount saves. The full equation — detour litres burned versus cents saved, per candidate station — is the entire point, and no mainstream app we know of computes it.</p>
+        <p>The lowest price on the map can be the most expensive stop on your trip: twelve kilometres of detour can burn more fuel than the discount saves. The full equation (detour litres burned versus cents saved, per candidate station) is the entire point, and no mainstream app we know of computes it.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
         <h4>Crowdsourced and stale</h4>
-        <p>Most fuel apps run on driver-reported prices — hours old, sometimes wildly wrong. Meanwhile, official feeds exist: German stations are required by law to report every price change within five minutes, France publishes every station's price on a ten-minute cycle, Spain and Austria run open government APIs. The good data is public. The apps mostly aren't built on it.</p>
+        <p>Most fuel apps run on driver-reported prices, hours old and sometimes wildly wrong. Official feeds exist: German law requires stations to report every price change within five minutes, France publishes every station's price on a ten-minute cycle, Spain and Austria run open government APIs. The good data is public. The apps mostly aren't built on it.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>You are the product</h4>
-        <p>The dominant fuel apps are ad businesses, and some have been reported to collect and sell driver location data to third parties. A consumer-protection test in Germany rated multiple fuel-price apps critical on data protection. An app that knows every route you drive should not be in the data business — full stop.</p>
+        <p>The dominant fuel apps are ad businesses, and some have been reported to collect and sell driver location data to third parties. A consumer-protection test in Germany rated multiple fuel-price apps critical on data protection. An app that knows every route you drive should not be in the data business.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>Your car is a stranger</h4>
-        <p>Price-per-litre is half a number. The EU already requires stations to display fuel cost per 100&nbsp;km — because that's the real figure. But no app knows your tank size, your consumption or how much fuel you're carrying right now, so none can say what's reachable, or what this fill actually costs <em>your</em> car.</p>
+        <p>Price-per-litre is half a number. The EU already requires stations to display fuel cost per 100&nbsp;km, because that is the real figure. No app knows your tank size, your consumption or how much fuel you're carrying right now, so none can say what's reachable, or what this fill costs <em>your</em> car.</p>
       </div>
     </div>
 
     <div class="band rv">
       <img src="../assets/pipe/p17-flow.png" alt="A white ribbon road with a glowing blue route line leading to a fuel stop marker">
-      <span class="cap">ONE STATION'S PRICE SWINGS ~10 CENTS IN A SINGLE DAY — THE WINDOW IS REAL</span>
+      <span class="cap">ONE STATION'S PRICE SWINGS ~10 CENTS IN A SINGLE DAY. THE WINDOW IS REAL</span>
     </div>
   </div>
 </section>
@@ -472,29 +401,29 @@ html{scrollbar-width:none;-ms-overflow-style:none}
         </div>
         <div>
           <h4>Our own tanks first</h4>
-          <p>The VF network drives in two very different fuel markets. At home in Malta, pump prices are state-stabilised — one flat price nationwide, no game to play. On the network's German roads it's the opposite: the same litre swings by around ten cents a day at a single station. So FuelIT proves itself the VF way — on our own fills, on real German price cycles, before any customer touches it. If it can't beat our own fuel bill, it doesn't ship.</p>
+          <p>The VF network drives in two very different fuel markets. At home in Malta, pump prices are state-stabilised: one flat price nationwide, no game to play. On the network's German roads the same litre swings by around ten cents a day at a single station. FuelIT proves itself the VF way, on our own fills and real German price cycles, before any customer touches it. If it can't beat our own fuel bill, it doesn't ship.</p>
           <div class="co"><span>NOIRDA GMBH · DE</span><span>VF EMPIRE CORP · MT</span><span>OFFICIAL FEEDS ONLY</span></div>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
         <h4>Commuters</h4>
-        <p>The same roads every day, and a documented cheap window most evenings. FuelIT learns your loop, watches the cycle and tells you when today's fill is worth it — and when to wait until tomorrow.</p>
+        <p>You drive the same roads every day, and there is a documented cheap window most evenings. FuelIT learns your loop, watches the cycle and tells you when today's fill is worth it and when to wait until tomorrow.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 12h13M12 5l7 7-7 7"/></svg></div>
         <h4>Long-haul &amp; holiday drivers</h4>
-        <p>Cross-border trips where the price logic changes at every frontier. One route, several national feeds, one answer: where to stop, in which country, before the motorway prices get you.</p>
+        <p>On cross-border trips the price logic changes at the border. FuelIT reads several national feeds along one route and gives one answer: where to stop, in which country, before the motorway prices get you.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 17h2m14 0h2M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm10 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM3 12l1.5-5h9L16 12m-13 0h18v5"/></svg></div>
         <h4>Vans, trades &amp; small fleets</h4>
-        <p>Fuel sits in every small firm's top costs, and nobody has time to shop for it. Per-vehicle profiles and route-aware stops turn the fuel line on the P&amp;L into something that manages itself.</p>
+        <p>Fuel sits among a small firm's top costs, and no one has time to shop for it. Per-vehicle profiles and route-aware stops handle the fuel line on the P&amp;L for you.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M13 3L5 13h5l-1 8 8-10h-5l1-8z"/></svg></div>
         <h4>Every powertrain, eventually</h4>
-        <p>Charging prices are a wilder market than petrol ever was — tariff jungles, roaming cards, per-minute traps. The same route mathematics applies. Combustion first, current next.</p>
+        <p>Charging prices are a wilder market than petrol ever was: tariff jungles, roaming cards, per-minute traps. The same route mathematics applies. FuelIT covers combustion first and charging next.</p>
       </div>
     </div>
   </div>
@@ -504,12 +433,12 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">From map pins<br><span class="mute">to a decided stop.</span></h2>
-    <p class="lead rv">The measure of a fuel app isn't how many stations it shows — it's whether the stop it picks was truly the cheapest one for your car, your route, your tank. FuelIT is judged on the euros left in your account.</p>
+    <p class="lead rv">The measure of a fuel app is whether the stop it picks was the cheapest one for your car, your route and your tank. We judge FuelIT on the euros left in your account.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">The whole equation<span>.</span></div><p>Detour distance, fuel burned to get there, litres you'll actually take, price you'll actually pay — solved per candidate station, ranked by true cost of the stop. Not nearest. Not cheapest-on-paper. Cheapest, full stop.</p></div>
-      <div class="c"><div class="n">Official numbers<span>.</span></div><p>Built on government price feeds — legally five-minute-fresh in Germany, ten-minute cycles in France, open ministry APIs in Spain and Austria. No crowd guesses, no hours-old pins.</p></div>
-      <div class="c"><div class="n">Your routes stay yours<span>.</span></div><p>An app that sees every drive you make must never be a data business. Routes and location are processed to answer your question — and sold to absolutely no one. That is architecture, not a settings toggle.</p></div>
+      <div class="c"><div class="n">The whole equation<span>.</span></div><p>FuelIT solves detour distance, fuel burned to get there, litres you'll take and price you'll pay for each candidate station, then ranks them by the true cost of the stop.</p></div>
+      <div class="c"><div class="n">Official numbers<span>.</span></div><p>Built on government price feeds: five-minute-fresh by law in Germany, ten-minute cycles in France, open ministry APIs in Spain and Austria. No crowd guesses, no hours-old pins.</p></div>
+      <div class="c"><div class="n">Your routes stay yours<span>.</span></div><p>An app that sees every drive you make must never be a data business. FuelIT processes routes and location to answer your question and sells them to no one. The architecture enforces this; there is no settings toggle.</p></div>
     </div>
   </div>
 </section>
@@ -518,26 +447,26 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Four layers,<br><span class="mute">one decision.</span></h2>
-    <p class="lead rv">Built the VF way: deterministic mathematics doing the ranking, official data underneath, and a clean handoff at the end — FuelIT decides the stop, your favourite navigator drives you there.</p>
+    <p class="lead rv">Built the VF way: deterministic mathematics doing the ranking, official data underneath, and a clean handoff at the end. FuelIT decides the stop; your favourite navigator drives you there.</p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p17-mech.png" alt="A white car on a track passing three fuel station pillars, one glowing blue — the chosen stop"></div>
+      <div class="mechart"><img src="../assets/pipe/p17-mech.png" alt="A white car on a track passing three fuel station pillars, one glowing blue as the chosen stop"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>Feed engine</h4></div>
-          <p>One live price lattice normalised from official national sources — Germany's transparency unit feed, France's open-data flux, Spain's ministry API, Austria's regulator service, Italy's price observatory. Countries are adapters; the lattice is one.</p>
+          <p>One live price lattice normalised from official national sources: Germany's transparency unit feed, France's open-data flux, Spain's ministry API, Austria's regulator service, Italy's price observatory. Each country is an adapter; the lattice is one.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>The vehicle twin</h4></div>
-          <p>Your car registered once, its full data pulled — tank size, real consumption, fuel type. From there: live range from the fuel you're carrying, true €/100&nbsp;km per station, and a hard gate on which stops are even reachable.</p>
+          <p>You register your car once and FuelIT pulls its full data: tank size, real consumption, fuel type. From there it computes live range from the fuel you're carrying, true €/100&nbsp;km per station, and a hard gate on which stops are reachable at all.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>Route mathematics</h4></div>
-          <p>Every candidate station on and near your route is scored on the full detour equation — extra kilometres, litres burned, litres taken, cents saved — plus the documented intraday price cycle: sometimes the best answer is "wait two hours."</p>
+          <p>FuelIT scores each candidate station on and near your route on the full detour equation (extra kilometres, litres burned, litres taken, cents saved) plus the documented intraday price cycle. Sometimes the best answer is "wait two hours."</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>The car link</h4></div>
-          <p>FuelIT is designed to pair with the GPS navigator in your car. Select your route and every petrol station along it appears in sequence with its live price — the chosen stop then deep-links into Google Maps, Waze or your in-dash navigation. FuelIT does the deciding, your navigator does the driving.</p>
+          <p>We designed FuelIT to pair with the GPS navigator in your car. Select your route and every petrol station along it appears in sequence with its live price; the chosen stop then deep-links into Google Maps, Waze or your in-dash navigation. FuelIT does the deciding, your navigator does the driving.</p>
         </div>
       </div>
     </div>
@@ -553,19 +482,19 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       <div class="rd">
         <span class="num">R·01</span>
         <h4>Nine EU countries, three clients, one sovereign navigator</h4>
-        <p>Germany, France, Spain, Italy, Austria, UK, Portugal, Malta, Luxembourg — every official price feed integrated. iOS, Android, web PWA. Own turn-by-turn via NAV·IT: your route never touches Google or Apple maps. CarPlay + Android Auto entitlements filed. 691-file reference implementation on GitHub.</p>
+        <p>Germany, France, Spain, Italy, Austria, UK, Portugal, Malta, Luxembourg, with each country's official price feed integrated. iOS, Android, web PWA. Own turn-by-turn via NAV·IT: your route never touches Google or Apple maps. CarPlay + Android Auto entitlements filed. 691-file reference implementation on GitHub.</p>
         <span class="st hot">SPEC COMPLETE</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
         <h4>Founding-tier launch + Plus subscription</h4>
-        <p>Public launch after ~5 months of build. €2.99/month Plus tier via Stripe. Founding subscribers keep their launch price. Saved routes + price-drop alerts + fleet accounts + real Google/Apple/Waze handoff — pick your navigator.</p>
+        <p>Public launch after ~5 months of build. €2.99/month Plus tier via Stripe. Founding subscribers keep their launch price. Saved routes + price-drop alerts + fleet accounts + real Google/Apple/Waze handoff, so you pick your navigator.</p>
         <span class="st">NEXT</span>
       </div>
       <div class="rd">
         <span class="num">R·03</span>
         <h4>EV charging + probe-data traffic + Netherlands + Belgium</h4>
-        <p>The same detour equation pointed at charging tariffs (ChargePlace + NAP data). NAV·IT gets an opt-in, k≥50-anonymised traffic layer — real-time routing without broadcasting your location. Two more country adapters.</p>
+        <p>The same detour equation pointed at charging tariffs (ChargePlace + NAP data). NAV·IT gets an opt-in, k≥50-anonymised traffic layer: real-time routing without broadcasting your location. Two more country adapters.</p>
         <span class="st">PLANNED</span>
       </div>
     </div>
@@ -573,32 +502,32 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     <div class="docs rv">
       <div class="doc">
         <span class="dk">ENGINEERING SPEC</span>
-        <h4>NAV·IT — the sovereign navigator that ships inside FuelIT</h4>
+        <h4>NAV·IT: the sovereign navigator that ships inside FuelIT</h4>
         <p>OpenStreetMap + Valhalla + Photon + MapLibre. Three modes (full-offline / hybrid / online). Every route Ed25519-signed by origin. Verifiable by packet trace.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/blob/main/docs/architecture/sovereign-navigator-spec.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">THREAT MODEL</span>
-        <h4>NAV·IT — STRIDE with residual risks named</h4>
+        <h4>NAV·IT: STRIDE with residual risks named</h4>
         <p>Nation-state passive observer, hostile server operator, compromised CDN. Every attack surface enumerated. Bug bounty from €500 to €25 000 for anyone who breaks a claim.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/blob/main/docs/security/nav-threat-model.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">PRIVACY MODEL</span>
         <h4>GDPR position, in plain language</h4>
-        <p>What we retain (nothing joinable to you). What third parties see (nothing — no Google, Apple, or Mapbox in the chain). What we do differently, and how you verify it.</p>
+        <p>It covers what we retain (nothing joinable to you), what third parties see (nothing: no Google, Apple, or Mapbox in the chain), what we do differently, and how you verify it.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/blob/main/docs/legal/nav-privacy-model.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">INVESTOR PACK</span>
-        <h4>Full DD pack — 11 documents</h4>
-        <p>Executive summary, product, TAM, traction, technology + IP, team, financials, risks, the ask, data-room process, portfolio context. Nothing confidential — everything sensitive is under NDA in the data room.</p>
+        <h4>Full DD pack, 11 documents</h4>
+        <p>Executive summary, product, TAM, traction, technology + IP, team, financials, risks, the ask, data-room process, portfolio context. Nothing confidential; the sensitive material sits under NDA in the data room.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/tree/main/docs/investor">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">BUILD COST ESTIMATE</span>
         <h4>Realistic engineering cost, three team-shape paths</h4>
-        <p>Solo (€75-100k, 8 months) · small team (€140-180k, 5 months — recommended) · fast team (€210-280k, 4 months). MVP floor at ~€40-60k solo, Germany-only, no NAV·IT.</p>
+        <p>Solo (€75-100k, 8 months) · small team (€140-180k, 5 months, recommended) · fast team (€210-280k, 4 months). MVP floor at ~€40-60k solo, Germany-only, no NAV·IT.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/fuelit/blob/main/docs/build-cost-estimate.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
@@ -620,12 +549,12 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What the driver needs</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Device</dt><dd>iPhone or Android phone.</dd></div>
-        <div class="sysreqrow"><dt>Vehicle</dt><dd>Any — pump prices are universal; range math is optional.</dd></div>
-        <div class="sysreqrow"><dt>Pairing</dt><dd>Plays alongside your car's GPS — no replacement.</dd></div>
+        <div class="sysreqrow"><dt>Vehicle</dt><dd>Any. Pump prices are universal; range math is optional.</dd></div>
+        <div class="sysreqrow"><dt>Pairing</dt><dd>Plays alongside your car's GPS; it replaces nothing.</dd></div>
         <div class="sysreqrow"><dt>CarPlay + Android Auto</dt><dd>Both, with the Plus tier.</dd></div>
       </dl>
     </div>
@@ -637,7 +566,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">PLANNED PRICING</div>
     <h2 class="rv">Free where it counts.<br><span class="mute">€9.99 a year where it thinks.</span></h2>
-    <p class="lead rv">Fuel prices are public data — charging for them would be a toll on what is already yours. Plus prices the thinking: range math, handoffs, alerts.</p>
+    <p class="lead rv">Fuel prices are public data; charging for them would be a toll on what is already yours. Plus prices the thinking: range math, handoffs, alerts.</p>
     <div class="stage orbit-2">
       <span class="hoverhint">Hover the cards to see every tier</span>
 <div class="card t-slate p1">
@@ -694,7 +623,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   </div>
     </div>
     
-    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+    <p class="pnote rv">Planned launch pricing; VF confirms final figures at each release. The price you join at is the price you renew at: no first-year bait, no renewal games.</p>
   </div>
 </section>
 
@@ -703,7 +632,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Stop paying<span class="mute"> the lazy price.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Register interest and we'll write when FuelIT opens beyond our own tanks — or commission the system your field is missing.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Register interest and we'll write when FuelIT opens beyond our own tanks, or commission the system your field is missing.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=FuelIT">info@vfempire.com</a>
     </div>
@@ -713,13 +642,13 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 <footer>
   <div class="legal">
     <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>

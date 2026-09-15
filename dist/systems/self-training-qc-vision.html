@@ -3,16 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Self-Training QC Vision — Defect Detection a Floor Manager Can Teach | VF Empire</title>
-<meta name="description" content="Self-Training QC Vision by VF Empire — visual defect detection a floor manager teaches in an afternoon. No ML engineers, no six-month integration. In build in Malta, EU.">
+<title>Self-Training QC Vision: Defect Detection a Floor Manager Can Teach | VF Empire</title>
+<meta name="description" content="Self-Training QC Vision by VF Empire: visual defect detection a floor manager teaches in an afternoon. No ML engineers, no six-month integration. In build in Malta, EU.">
 <link rel="canonical" href="https://vfempire.com/systems/self-training-qc-vision">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Self-Training QC Vision — Quality control that learns from the person who knows">
-<meta property="og:description" content="Camera-based defect detection taught by your own quality people in an afternoon — assistive, human-confirmed, priced for SME factories. On the VF build slate.">
+<meta property="og:title" content="Self-Training QC Vision: Quality control that learns from the person who knows">
+<meta property="og:description" content="Camera-based defect detection taught by your own quality people in an afternoon: assistive, human-confirmed, priced for SME factories. On the VF build slate.">
 <meta property="og:url" content="https://vfempire.com/systems/self-training-qc-vision">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p09.png">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Self-Training QC Vision: Quality control that learns from the person who knows">
+<meta name="twitter:description" content="Camera-based defect detection taught by your own quality people in an afternoon: assistive, human-confirmed, priced for SME factories. On the VF build slate.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p09.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -38,61 +47,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-/* house dot-rail scrollbar — native bar hidden, jade dot rendered by scrollrail.js */
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
 .phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -102,14 +56,11 @@ h2 .mute{color:var(--faint)}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
@@ -126,7 +77,7 @@ h2 .mute{color:var(--faint)}
 .band img{display:block;width:100%;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
@@ -143,7 +94,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -151,7 +102,7 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -296,7 +247,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -358,29 +309,11 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
   .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
 </head>
@@ -401,7 +334,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div>
     <div class="eb"><b>P·09</b> &nbsp;·&nbsp; MANUFACTURING &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>Self-Training QC Vision<span>Your best inspector’s eye,<br><em class="i">on every part, every shift.</em></span></h1>
-    <p class="sub">Machine vision for quality control exists — behind ML consultants, integration projects and enterprise pricing. Self-Training QC Vision moves the teaching to the person who actually knows what a defect looks like: your quality lead, showing the system examples, an afternoon at a time.</p>
+    <p class="sub">Machine vision for quality control exists, behind ML consultants, integration projects and enterprise pricing. Self-Training QC Vision moves the teaching to the person who knows what a defect looks like: your quality lead, showing the system examples, an afternoon at a time.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD</span>
       <span class="mchip">TAUGHT BY YOUR PEOPLE</span>
@@ -413,20 +346,20 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <a class="bt gho" href="/#pipeline">Back to the slate</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p09.webp" alt="Minimal 3D render of conveyor cubes with one blue-scanned unit — Self-Training QC Vision by VF Empire"></div>
+  <div class="pheroart"><img src="../assets/pipe/p09.webp" alt="Minimal 3D render of conveyor cubes with one blue-scanned unit (Self-Training QC Vision by VF Empire)"></div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">The cost of bad quality is enormous.<br><span class="mute">The tools to catch it went enterprise.</span></h2>
-    <p class="lead rv">Quality escapes are one of manufacturing’s largest quiet costs, and small factories carry them with the fewest defences — because the AI inspection industry was built around customers with ML teams.</p>
+    <p class="lead rv">Quality escapes are one of manufacturing’s largest quiet costs, and small factories carry them with the fewest defences, because the AI inspection industry built its products around customers with ML teams.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>Quality costs real margin</h4>
-        <p>Industry estimates associated with ASQ place the cost of poor quality at 15–20% of sales for many manufacturers — scrap, rework, returns and the customers who quietly never come back.</p>
+        <p>Industry estimates associated with ASQ place the cost of poor quality at 15–20% of sales for many manufacturers: scrap, rework, returns and the customers who never come back.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
@@ -436,18 +369,18 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="fl">
         <span class="num">F·03</span>
         <h4>Projects, not products</h4>
-        <p>Conventional vision systems arrive as integration projects: consultants, custom training, months of tuning per part variant. By some industry estimates most AI projects never reach production at all — a risk small firms cannot underwrite.</p>
+        <p>Conventional vision systems arrive as integration projects: consultants, custom training, months of tuning per part variant. By some industry estimates most AI projects never reach production, a risk small firms cannot underwrite.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>The knowledge is already in the room</h4>
-        <p>Every factory has the person who can spot the bad part at a glance. That expertise currently leaves with retirement and shift changes. It should be teachable to a camera — by that person, directly.</p>
+        <p>Most factories have someone who can spot the bad part at a glance. That expertise leaves with retirement and shift changes. That person should be able to teach it to a camera, directly.</p>
       </div>
     </div>
 
     <div class="band rv">
-      <img src="../assets/pipe/p09-flow.png" alt="Abstract render of parts streaming through a blue inspection gate — the line watched piece by piece" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
-      <span class="cap">EUROSTAT: ≈30% OF LARGE EU FIRMS USE AI — ≈7% OF SMALL ONES</span>
+      <img src="../assets/pipe/p09-flow.png" alt="Abstract render of parts streaming through a blue inspection gate: the line watched piece by piece" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-flow.png','.webp')">
+      <span class="cap">EUROSTAT: ≈30% OF LARGE EU FIRMS USE AI, AGAINST ≈7% OF SMALL ONES</span>
     </div>
   </div>
 </section>
@@ -464,7 +397,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div>
           <h4>The SME production line</h4>
-          <p>The design customer runs one to five lines, employs no data scientist, and lives or dies on reputation with a handful of key buyers. The system must earn its place with that operation: taught in an afternoon, useful in a week, priced like equipment — not like a consulting engagement.</p>
+          <p>The design customer runs one to five lines, employs no data scientist, and lives or dies on reputation with a handful of key buyers. The system must earn its place with that operation: taught in an afternoon, useful in a week, priced like equipment.</p>
           <div class="co"><span>NO ML TEAM</span><span>1–5 LINES</span><span>REPUTATION-CRITICAL</span><span>EQUIPMENT-PRICED</span></div>
         </div>
       </div>
@@ -476,17 +409,17 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2M11 21v-3h2v3"/></svg></div>
         <h4>Plant managers</h4>
-        <p>Defect trends per line, shift and variant — the quality picture as a live dashboard instead of a monthly complaint-driven surprise.</p>
+        <p>Defect trends per line, shift and variant: the quality picture as a live dashboard instead of a monthly complaint-driven surprise.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
         <h4>Contract manufacturers</h4>
-        <p>Documented inspection on every unit as a sales asset — proof of process for the buyers who audit before they order.</p>
+        <p>Documented inspection on every unit as a sales asset, proof of process for the buyers who audit before they order.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></div>
         <h4>High-mix producers</h4>
-        <p>Short runs and frequent changeovers, where classic vision tuning never pays off — teaching a new variant must take minutes, not a consulting visit.</p>
+        <p>Short runs and frequent changeovers, where classic vision tuning does not pay off. Teaching a new variant must take minutes.</p>
       </div>
     </div>
   </div>
@@ -496,11 +429,11 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">Show it examples.<br><span class="mute">Confirm its calls. That’s the method.</span></h2>
-    <p class="lead rv">The system is assistive by design: it flags, a human disposes. Every confirmation is also training data, so the detector sharpens as a side effect of the line simply running.</p>
+    <p class="lead rv">The system is assistive by design: it flags, a human disposes. Every confirmation is also training data, so the detector sharpens as a side effect of the line running.</p>
 
     <div class="outs rv">
       <div class="c"><div class="n">Escapes caught at the line<span>.</span></div><p>Every unit inspected at production speed, suspects flagged for human decision before they reach a box, a truck, or a customer.</p></div>
-      <div class="c"><div class="n">Teaching, not integrating<span>.</span></div><p>New part, new defect class, new variant — taught by example from the floor, in-session. The six-month vision project collapses into an afternoon.</p></div>
+      <div class="c"><div class="n">Taught by example<span>.</span></div><p>New part, new defect class, new variant: taught by example from the floor, in-session. The six-month vision project collapses into an afternoon.</p></div>
       <div class="c"><div class="n">Quality memory built<span>.</span></div><p>Every flagged unit archived with image and disposition: the factory’s defect history becomes searchable evidence for audits, claims and process fixes.</p></div>
     </div>
   </div>
@@ -510,14 +443,14 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Edge box at the line.<br><span class="mute">Learning loop on the floor.</span></h2>
-    <p class="lead rv">Cameras over the line, an edge unit beside it, a teaching screen in the quality office — and a training loop that lives entirely inside the factory. Product images never need to leave the building.</p>
+    <p class="lead rv">Cameras over the line, an edge unit beside it, a teaching screen in the quality office, and a training loop that lives inside the factory. Product images never need to leave the building.</p>
 
     <div class="mech rv">
       <div class="mechart"><img src="../assets/pipe/p09-mech.png" alt="Layered render of an edge unit scanning a stream of parts under one blue beam" onerror="this.src='../assets/pipe/'+this.src.split('/').pop().replace('-mech.png','.webp')"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>The capture layer</h4></div>
-          <p>Industrial cameras positioned over the line, triggered per unit or continuously — commodity hardware where possible, matched to line speed and part size.</p>
+          <p>Industrial cameras positioned over the line, triggered per unit or continuously: commodity hardware where possible, matched to line speed and part size.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>The edge core</h4></div>
@@ -529,7 +462,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>The quality surface</h4></div>
-          <p>The flag queue for dispositions, trend dashboards per line and variant, and the archived defect record — exportable for audits and customer quality agreements.</p>
+          <p>The flag queue for dispositions, trend dashboards per line and variant, and the archived defect record, exportable for audits and customer quality agreements.</p>
         </div>
       </div>
     </div>
@@ -572,7 +505,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="doc">
         <span class="dk">REPOSITORY</span>
         <h4>qc-vision</h4>
-        <p>Edge runtime and teaching-loop tooling. Camera and line-integration adapters will be opened for the integrator ecosystem.</p>
+        <p>Edge runtime and teaching-loop tooling. VF will open camera and line-integration adapters for the integrator ecosystem.</p>
         <span class="tba">TBA</span>
       </div>
     </div>
@@ -585,13 +518,13 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What the line needs</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Edge unit</dt><dd>One VF industrial box, DIN-rail mount, fanless.</dd></div>
         <div class="sysreqrow"><dt>Cameras</dt><dd>2–4 GigE machine-vision cameras per line, spec'd for you.</dd></div>
         <div class="sysreqrow"><dt>Network</dt><dd>Isolated line VLAN; nothing leaves without your say.</dd></div>
-        <div class="sysreqrow"><dt>Training</dt><dd>You show it good vs bad — no ML engineer required.</dd></div>
+        <div class="sysreqrow"><dt>Training</dt><dd>You show it good vs bad; no ML engineer required.</dd></div>
       </dl>
     </div>
   </div>
@@ -601,8 +534,8 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 <section id="pricing">
   <div class="wrap">
     <div class="k rv">PLANNED PRICING</div>
-    <h2 class="rv">Equipment money.<br><span class="mute">Not board-meeting money.</span></h2>
-    <p class="lead rv">Machine-vision QC today means tens of thousands with integrators in the building. This is priced like a piece of line equipment an owner can sign off alone — first year lands under €8,000.</p>
+    <h2 class="rv">Equipment money.<br><span class="mute">An owner can sign it off alone.</span></h2>
+    <p class="lead rv">Machine-vision QC today means tens of thousands with integrators in the building. VF prices this like a piece of line equipment an owner can sign off alone; the first year lands under €8,000.</p>
     <div class="stage orbit-2">
       <span class="hoverhint">Hover the cards to see every tier</span>
 <div class="card t-slate p1">
@@ -659,7 +592,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   </div>
     </div>
     
-    <p class="pnote rv">Planned launch pricing — final figures are confirmed at each release. What you join at is what you renew at: no first-year bait, no renewal games.</p>
+    <p class="pnote rv">Planned launch pricing; VF confirms final figures at each release. The price you join at is the price you renew at: no first-year bait, no renewal games.</p>
   </div>
 </section>
 
@@ -669,7 +602,7 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Your quality lead already knows.<br><span class="mute">Let them teach the machine.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Self-Training QC Vision is in build. If your factory ships on reputation and inspects on tired eyes, register interest — pilot lines are chosen from this list.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Self-Training QC Vision is in build. If your factory ships on reputation and inspects on tired eyes, register interest; VF chooses pilot lines from this list.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Self-Training%20QC%20Vision">info@vfempire.com</a>
     </div>
@@ -679,13 +612,13 @@ footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line
 <footer>
   <div class="legal">
     <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
@@ -716,7 +649,6 @@ document.querySelectorAll('.aud,.outs,.docs').forEach(g=>{
   [...g.children].forEach((c,i)=>c.style.transitionDelay = (i*90)+'ms');
 });
 </script>
-<script src="/assets/scrollrail.js" defer></script>
 
 </body>
 </html>

@@ -18,6 +18,10 @@ for f in index.html 401.html 404.html software.html security.html; do
   [ -f "$f" ] && cp -v "$f" "dist/$f"
 done
 
+# Shared house stylesheet
+cp -v house.css dist/house.css
+cp -v llms.txt  dist/llms.txt
+
 # Sitemap
 cp -v sitemap.xml     dist/sitemap.xml
 cp -v sitemap.xml     sitemap-full.xml || true

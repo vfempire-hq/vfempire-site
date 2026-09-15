@@ -1,0 +1,138 @@
+/* ============================================================
+   vfempire.com — house stylesheet
+   One file, linked from every page. Holds the tokens, the type
+   scale, the nav, the buttons, the chips, the footer and the
+   consent notice. Page-specific layout stays inline per page.
+   Served at /house.css (cache: revalidate on every load, see
+   dist/_headers). Fonts are self-hosted at /fonts/.
+   ============================================================ */
+
+@font-face{font-family:'Hanken';src:url('/fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Instrument';src:url('/fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
+
+:root{
+  --paper:#fbfbfd;
+  --silver:#f5f5f7;
+  --mist:#eceff3;
+  --ink:#1d1d1f;
+  --dove:#6e6e73;
+  --faint:#a1a1a6;
+  --line:#e4e6ea;
+  --core:#1f6ff2;
+  --core-deep:#0b47b8;
+  --glow:rgba(37,110,245,.35);
+  --warn:#c93221;
+  --warn-bg:#fef2f0;
+  --ok:#0b7a3e;
+  --amber:#c76b1d;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* ---------- reset + base ---------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hanken',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+em.i{font-family:'Instrument',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0}
+::selection{background:var(--core);color:#fff}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--core);outline-offset:3px;border-radius:6px}
+img{max-width:100%}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
+.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px;min-width:0}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px;color:var(--ink);white-space:nowrap}
+.brand svg{display:block;flex-shrink:0}
+.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.nav .crumb a{color:var(--dove);transition:color .2s}
+.nav .crumb a:hover{color:var(--core)}
+.nav .crumb b{color:var(--ink);font-weight:600}
+.nav .cta{margin-left:auto;flex-shrink:0;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s;white-space:nowrap}
+.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
+@media(max-width:640px){.nav .crumb{display:none}}
+
+/* ---------- sections + type ---------- */
+section{padding:108px 6vw}
+.wrap{width:min(1080px,100%);margin:0 auto}
+.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
+h2{font-size:clamp(32px,4.6vw,56px);font-weight:600;letter-spacing:-.045em;line-height:1.04}
+h2 .mute{color:var(--faint)}
+.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.on{opacity:1;transform:none}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* ---------- buttons + chips ---------- */
+.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
+.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
+.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
+.bt.gho{color:var(--core)}
+.bt.gho:hover{background:rgba(31,111,242,.07)}
+.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px;text-transform:uppercase}
+.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
+
+/* ---------- article (legal pages) ---------- */
+.article{max-width:720px;margin:0 auto;padding:130px 24px 120px}
+.article h1{font-size:clamp(34px,5vw,52px);font-weight:600;letter-spacing:-.045em;line-height:1.04;margin-bottom:14px}
+.article .meta{font-size:13px;color:var(--faint);margin-bottom:52px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.article h2{font-size:21px;font-weight:600;letter-spacing:-.025em;line-height:1.2;margin:52px 0 14px}
+.article h3{font-size:16px;font-weight:600;letter-spacing:-.015em;margin:28px 0 10px}
+.article p,.article li{font-size:15px;line-height:1.75;color:#3a3a3e}
+.article p+p{margin-top:12px}
+.article ul{padding-left:22px;margin:12px 0}
+.article li{margin-bottom:8px}
+.article strong{color:var(--ink)}
+.article a{color:var(--core)}
+.article a:hover{text-decoration:underline}
+.article .card{background:var(--silver);border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin:16px 0}
+.article .tablewrap{overflow-x:auto;margin:16px 0}
+.article table{width:100%;min-width:560px;border-collapse:collapse;font-size:13.5px}
+.article th,.article td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+.article th{font-size:11px;letter-spacing:.12em;color:var(--faint);font-weight:600}
+.article td{color:#3a3a3e}
+.article button.bt{border:0;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;background:var(--core);color:#fff;margin-top:8px}
+.article button.bt:hover{background:var(--core-deep)}
+
+/* ---------- footer ---------- */
+footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
+.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
+.legal a{color:inherit;transition:color .2s}
+.legal a:hover{color:var(--ink)}
+footer.full{padding:80px 6vw 56px}
+.fin{width:min(1080px,100%);margin:0 auto}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:36px;padding-bottom:52px;border-bottom:1px solid var(--line)}
+.fgrid h6{font-size:11px;letter-spacing:.18em;color:var(--faint);font-weight:600;margin-bottom:16px}
+.fgrid a{display:block;font-size:13px;color:#3a3a3c;padding:4px 0;transition:color .2s}
+.fgrid a:hover{color:var(--core)}
+.fgrid .blurb{font-size:13px;color:var(--dove);line-height:1.65;max-width:280px;margin-top:14px}
+footer.full .legal{padding-top:26px}
+@media(max-width:900px){.fgrid{grid-template-columns:1fr 1fr}}
+
+/* ---------- consent notice ---------- */
+.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
+.consent.show{transform:translateX(-50%) translateY(0)}
+.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.consent h5 svg{flex-shrink:0}
+.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
+.consent p a{color:var(--core);text-decoration:none}
+.consent p a:hover{text-decoration:underline}
+.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
+.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
+.consent .acc{background:var(--core);color:#fff;border:0}
+.consent .acc:hover{background:var(--core-deep)}
+.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.consent .dec:hover{border-color:var(--dove)}
+@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
+
+/* ---------- scroll rail (assets/scrollrail.js) ---------- */
+html{scrollbar-width:none;-ms-overflow-style:none}
+::-webkit-scrollbar{width:0;height:0;display:none}
+#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
+#slkrail.drag{cursor:grabbing}
+@media(pointer:coarse){#slkrail{display:none!important}}
+
+/* ---------- motion preference ---------- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}

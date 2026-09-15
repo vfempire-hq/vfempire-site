@@ -3,205 +3,414 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — VF Empire</title>
-<meta name="description" content="Reach the right desk at VF Empire. Every address explained: who reads it, how quickly we reply, and how to talk to us securely through VF Mail.">
+<title>Contact | VF Empire</title>
+<meta name="description" content="Reach the right desk at VF Empire. Every address explained: who reads it, how fast we reply, and how to talk to us securely through VF Mail.">
 <link rel="canonical" href="https://vfempire.com/contact/">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Contact — VF Empire">
+<meta property="og:title" content="Contact VF Empire">
 <meta property="og:description" content="Reach the right desk. Every address explained.">
 <meta property="og:url" content="https://vfempire.com/contact/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:image" content="https://vfempire.com/assets/hero-core.png">
+<meta property="og:image:width" content="1344">
+<meta property="og:image:height" content="768">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact VF Empire">
+<meta name="twitter:description" content="Reach the right desk. Every address explained.">
+<meta name="twitter:image" content="https://vfempire.com/assets/hero-core.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <style>
-@font-face{font-family:'Hanken';src:url('/fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('/fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-:root{
-  --paper:#fbfbfd; --silver:#f5f5f7; --ink:#1d1d1f; --dove:#6e6e73; --faint:#8e8e93;
-  --line:rgba(0,0,0,.09); --core:#1f6ff2; --core-deep:#0b47b8; --pill:#eef2ff;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--core);color:#fff}
+.phero{min-height:62vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 6vw 40px;background:
+  radial-gradient(1000px 500px at 50% -10%, #ffffff 0%, transparent 70%),
+  linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
+.phero .eb{font-size:11px;letter-spacing:.42em;color:var(--dove);font-weight:600;margin-bottom:24px;opacity:0;animation:up .9s .05s var(--ease) forwards}
+.phero h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;max-width:16ch;opacity:0;animation:up 1s .2s var(--ease) forwards}
+.phero p.sub{max-width:600px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:26px auto 0;opacity:0;animation:up 1s .38s var(--ease) forwards}
+.phero .meta{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:28px;opacity:0;animation:up 1s .5s var(--ease) forwards}
 
-nav.top{position:sticky;top:0;z-index:20;padding:22px 6vw;display:flex;align-items:center;gap:28px;background:rgba(251,251,253,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-nav.top .brand{font-weight:750;letter-spacing:.02em;font-size:15.5px;display:flex;align-items:center;gap:8px}
-nav.top .brand svg{width:20px;height:20px}
-nav.top .brand em{font-family:'Instrument',serif;font-style:italic;font-weight:400}
-nav.top .home{margin-left:auto;font-size:12.5px;color:#3a3a3c;padding:7px 14px;border-radius:99px;background:var(--silver);transition:background .2s}
-nav.top .home:hover{background:#e8e8ec}
+.desks{padding-top:40px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.card:hover{transform:translateY(-3px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
+.card .em{font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--core-deep)}
+.card .em a:hover{color:var(--core)}
+.card .role{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:4px 0 14px}
+.card .desc{font-size:14px;color:var(--dove);line-height:1.6}
+.card .desc strong{color:var(--ink)}
+.card .who{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--dove)}
+.card .who .sla{color:var(--core-deep);font-weight:600}
+.card .who .human{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.card.priority{background:linear-gradient(140deg,#eff5ff,#fff);border-color:#c7dcff}
 
-.hero{padding:110px 6vw 60px;max-width:1180px;margin:0 auto}
-.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--core);font-weight:650;margin-bottom:22px}
-h1{font-size:clamp(38px,5.5vw,64px);font-weight:700;letter-spacing:-.02em;line-height:1.05;max-width:820px}
-h1 em{font-family:'Instrument',serif;font-style:italic;font-weight:400}
-.lede{font-size:19px;color:var(--dove);max-width:640px;margin-top:22px;line-height:1.55}
-
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
-.badge{font-size:11.5px;letter-spacing:.06em;font-weight:600;text-transform:uppercase;padding:6px 12px;border-radius:99px;background:var(--pill);color:var(--core-deep)}
-.badge.human{background:#fff3e0;color:#9c4c00}
-.badge.ack{background:#e6f7ec;color:#0a6d3a}
-
-.grid{padding:30px 6vw 100px;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media (max-width:820px){.grid{grid-template-columns:1fr}}
-
-.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
-.card:hover{transform:translateY(-2px);box-shadow:0 24px 60px -32px rgba(29,29,31,.20)}
-.card .em{font-size:20px;font-weight:650;letter-spacing:-.01em;color:var(--core-deep)}
-.card .role{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:2px 0 14px}
-.card .desc{font-size:14.5px;color:#3a3a3c;line-height:1.55}
-.card .foot{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--dove);flex-wrap:wrap}
-.card .foot .sla{color:var(--core-deep);font-weight:650}
-.card.priority{border-color:rgba(31,111,242,.35);background:linear-gradient(180deg,#fff,#f7faff)}
-.card.human-only::after{content:'';position:absolute;top:0;right:0;bottom:0;width:3px;background:#f4b800}
-
-.pitch{background:var(--silver);padding:80px 6vw;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.pitch-in{max-width:920px;margin:0 auto;text-align:center}
-.pitch h2{font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:-.015em;line-height:1.15}
-.pitch h2 em{font-family:'Instrument',serif;font-style:italic;font-weight:400}
-.pitch p{font-size:16.5px;color:var(--dove);margin-top:18px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.55}
-.pitch .row{margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.pitch .cta{background:var(--ink);color:#fff;padding:13px 28px;border-radius:99px;font-size:14px;font-weight:600;transition:background .25s}
-.pitch .cta:hover{background:#000}
-.pitch .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.pitch .cta.ghost:hover{background:#fff}
-
-.legal{padding:44px 6vw;font-size:12px;color:var(--faint);text-align:center}
+.foot{background:var(--silver);text-align:center;border-top:1px solid var(--line)}
+.foot h2{margin:0 auto;max-width:22ch}
+.foot .lead{margin:20px auto 32px}
+.foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
 </style>
+<!-- seo-pass -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "VF Empire",
+          "item": "https://vfempire.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact"
+        }
+      ]
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "https://vfempire.com/contact/",
+      "url": "https://vfempire.com/contact/",
+      "name": "Contact",
+      "description": "Reach the right desk at VF Empire. Every address explained: who reads it, how fast we reply, and how to talk to us securely through VF Mail.",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#site"
+      },
+      "about": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "inLanguage": "en-GB",
+      "primaryImageOfPage": "https://vfempire.com/assets/hero-core.png"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://vfempire.com/#org",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "email": "hello@vfempire.com",
+          "contactType": "Front door",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "info@vfempire.com",
+          "contactType": "General enquiries",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "sales@vfempire.com",
+          "contactType": "Buying VF systems",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "support@vfempire.com",
+          "contactType": "Product help",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "business@vfempire.com",
+          "contactType": "Partnerships & deals",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "marketing@vfempire.com",
+          "contactType": "Brand & campaigns",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "press@vfempire.com",
+          "contactType": "Media & journalists",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "careers@vfempire.com",
+          "contactType": "Jobs & apprenticeships",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "billing@vfempire.com",
+          "contactType": "Invoices & receipts",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "legal@vfempire.com",
+          "contactType": "Legal, compliance, DMCA, GDPR",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "security@vfempire.com",
+          "contactType": "Vulnerability disclosure",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "abuse@vfempire.com",
+          "contactType": "Service abuse reports",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "postmaster@vfempire.com",
+          "contactType": "Mail operations",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ],
+          "areaServed": "EU"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<nav class="top">
-  <a class="brand" href="/">
-    <svg viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
-    VF <em>Empire</em>
-  </a>
-  <a class="home" href="/">← Home</a>
+<nav class="nav">
+  <div class="in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 4l5.2 16h2.2L4.4 4H3zm7 0l5.2 16h2.2L11.4 4H10zm10.6 0h-6.2l.7 2.1h5.5V4zm-4.2 6.6l.7 2.1h3.5v-2.1h-4.2z" fill="#1d1d1f"/></svg>
+      VF EMPIRE
+    </a>
+    <span class="crumb"><a href="/">VF Empire</a> &nbsp;/&nbsp; <b>Contact</b></span>
+    <a class="cta" href="/#commission">Commission a system</a>
+  </div>
 </nav>
 
-<section class="hero">
-  <div class="eyebrow">Contact</div>
-  <h1>Reach the right desk, <em>first time</em>.</h1>
-  <p class="lede">Every address below is read every day. Most are answered end-to-end by our sovereign AI on hardware we own; anything sensitive lands on a human's desk. We tell you which is which, and how long it will take.</p>
-  <div class="badges">
-    <span class="badge ack">Auto-ACK in &lt; 5 seconds on every address</span>
-    <span class="badge">AI-handled tier-1</span>
-    <span class="badge human">Human-only for legal & security</span>
+<header class="phero">
+  <div class="eb">VF EMPIRE · CONTACT</div>
+  <h1>Reach the right desk, <em class="i">first time</em>.</h1>
+  <p class="sub">A person or our own AI reads every address below every day. Our sovereign AI answers most of them end to end on hardware we own. Anything sensitive lands on a human's desk. Each card tells you which is which, and how long the reply takes.</p>
+  <div class="meta">
+    <span class="mchip hot">Auto-ack in under 5 seconds</span>
+    <span class="mchip">AI-handled tier 1</span>
+    <span class="mchip">Human-only for legal &amp; security</span>
+  </div>
+</header>
+
+<section class="desks">
+  <div class="wrap grid">
+
+    <div class="card priority">
+      <div class="em"><a href="mailto:hello@vfempire.com">hello@vfempire.com</a></div>
+      <div class="role">Front door</div>
+      <p class="desc">Not sure where to write? Send to hello. Our concierge AI reads the note and routes it, or answers it end to end when that is faster.</p>
+      <div class="who">AI-handled · <span class="sla">reply within the hour</span></div>
+    </div>
+
+    <div class="card priority">
+      <div class="em"><a href="mailto:info@vfempire.com">info@vfempire.com</a></div>
+      <div class="role">General enquiries</div>
+      <p class="desc">Questions about the company, the roadmap, the training centre, and partnerships in the abstract. Anything that has no specific desk yet.</p>
+      <div class="who">AI-handled · <span class="sla">reply within the hour</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:sales@vfempire.com">sales@vfempire.com</a></div>
+      <div class="role">Buying VF systems</div>
+      <p class="desc">Pricing, licensing, quotes, white-label. Individual through enterprise. AI handles the discovery pass, then routes deals to Vincent for a call.</p>
+      <div class="who">AI-handled · <span class="sla">reply within the hour</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:support@vfempire.com">support@vfempire.com</a></div>
+      <div class="role">Product help</div>
+      <p class="desc">Something not working the way it should? Send the problem, we send the fix. Includes install questions, config, upgrades and bugs.</p>
+      <div class="who">AI tier 1 · <span class="sla">reply within the hour</span> · an engineer takes over if two turns don't resolve it</div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:business@vfempire.com">business@vfempire.com</a></div>
+      <div class="role">Partnerships &amp; deals</div>
+      <p class="desc">Reseller programmes, integration deals, procurement, commissions above €50k. AI qualifies, Vincent closes.</p>
+      <div class="who">AI-qualified · <span class="sla">reply within 1 business day</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:marketing@vfempire.com">marketing@vfempire.com</a></div>
+      <div class="role">Brand &amp; campaigns</div>
+      <p class="desc">Co-marketing, sponsorships, brand asks, joint content. AI screens; the team handles anything real.</p>
+      <div class="who">AI-screened · <span class="sla">reply within 1 business day</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:press@vfempire.com">press@vfempire.com</a></div>
+      <div class="role">Media &amp; journalists</div>
+      <p class="desc">Interviews, quotes, press kit. AI sends the kit and bio at once; interview requests reach Vincent the same day.</p>
+      <div class="who">AI kit + human reply · <span class="sla">reply within 1 business day</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:careers@vfempire.com">careers@vfempire.com</a></div>
+      <div class="role">Jobs &amp; apprenticeships</div>
+      <p class="desc">Applications for the Training Centre and the operating floor. AI does the first-pass triage; we review the shortlist weekly.</p>
+      <div class="who">AI-triaged · <span class="sla">reply within 3 business days</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:billing@vfempire.com">billing@vfempire.com</a></div>
+      <div class="role">Invoices &amp; receipts</div>
+      <p class="desc">Copies of invoices, VAT queries, subscription changes. Opens with the paid tier on 1 November 2026.</p>
+      <div class="who">AI-handled · <span class="sla">reply within the hour once live</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:legal@vfempire.com">legal@vfempire.com</a></div>
+      <div class="role">Legal, compliance, DMCA, GDPR</div>
+      <p class="desc">Data subject requests, contract review, takedown notices, regulator correspondence. <strong>No AI ever writes here.</strong> The only automated message is the acknowledgment; a human writes the rest.</p>
+      <div class="who"><span class="human">Human only</span> <span class="sla">acknowledgment in under 5 seconds, substantive reply within 3 business days</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:security@vfempire.com">security@vfempire.com</a></div>
+      <div class="role">Vulnerability disclosure</div>
+      <p class="desc">Report a vulnerability, coordinate disclosure, PGP-encrypted reports welcome. <strong>Human only.</strong> The AI acknowledges receipt and includes our public key.</p>
+      <div class="who"><span class="human">Human only</span> <span class="sla">acknowledgment in under 5 seconds, engineer reply within 1 business day</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:abuse@vfempire.com">abuse@vfempire.com</a></div>
+      <div class="role">Service abuse reports</div>
+      <p class="desc">Report abuse of VF services: spam relays, malicious accounts, impersonation. Our ops team investigates.</p>
+      <div class="who">Human-reviewed · <span class="sla">acknowledgment immediate, action within 1 business day</span></div>
+    </div>
+
+    <div class="card">
+      <div class="em"><a href="mailto:postmaster@vfempire.com">postmaster@vfempire.com</a></div>
+      <div class="role">Mail operations</div>
+      <p class="desc">Deliverability queries, server-to-server questions, the RFC-standard postmaster channel.</p>
+      <div class="who">Mail ops · <span class="sla">reply within 1 business day</span></div>
+    </div>
+
   </div>
 </section>
 
-<section class="grid">
-
-  <div class="card priority">
-    <div class="em"><a href="mailto:hello@vfempire.com">hello@vfempire.com</a></div>
-    <div class="role">Front door</div>
-    <p class="desc">Not sure where to write? Send to hello. Our concierge AI reads the note and routes it — or answers it end-to-end if that's faster.</p>
-    <div class="foot">AI-handled · <span class="sla">reply within the hour</span></div>
-  </div>
-
-  <div class="card priority">
-    <div class="em"><a href="mailto:info@vfempire.com">info@vfempire.com</a></div>
-    <div class="role">General enquiries</div>
-    <p class="desc">Questions about the company, the roadmap, the training centre, partnerships in the abstract. Anything that isn't yet a specific desk.</p>
-    <div class="foot">AI-handled · <span class="sla">reply within the hour</span></div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:sales@vfempire.com">sales@vfempire.com</a></div>
-    <div class="role">Buying VF systems</div>
-    <p class="desc">Pricing, licensing, quotes, white-label. Individual through enterprise. AI handles the discovery pass, then routes deals to Vincent for a call.</p>
-    <div class="foot">AI-handled · <span class="sla">reply within the hour</span></div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:support@vfempire.com">support@vfempire.com</a></div>
-    <div class="role">Product help</div>
-    <p class="desc">Something not working the way it should? Send the problem, we send the fix. Includes install questions, config, upgrades, bugs.</p>
-    <div class="foot">AI tier-1 · <span class="sla">reply within the hour</span> · escalation to engineer if unresolved after two turns</div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:business@vfempire.com">business@vfempire.com</a></div>
-    <div class="role">Partnerships & deals</div>
-    <p class="desc">Reseller programmes, integration deals, procurement, commissions above €50k. Qualified by AI, closed by Vincent.</p>
-    <div class="foot">AI-qualified · <span class="sla">reply within 1 business day</span></div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:marketing@vfempire.com">marketing@vfempire.com</a></div>
-    <div class="role">Brand & campaigns</div>
-    <p class="desc">Co-marketing, sponsorships, brand asks, joint content. AI screens; team handles anything real.</p>
-    <div class="foot">AI-screened · <span class="sla">reply within 1 business day</span></div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:press@vfempire.com">press@vfempire.com</a></div>
-    <div class="role">Media & journalists</div>
-    <p class="desc">Interviews, quotes, press kit. AI sends kit and bio automatically; interview requests come to Vincent same day.</p>
-    <div class="foot">AI-kit + human reply · <span class="sla">reply within 1 business day</span></div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:careers@vfempire.com">careers@vfempire.com</a></div>
-    <div class="role">Jobs & apprenticeships</div>
-    <p class="desc">Applications for the Training Centre and the operating floor. AI does first-pass triage; shortlist reviewed weekly.</p>
-    <div class="foot">AI-triaged · <span class="sla">reply within 3 business days</span></div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:billing@vfempire.com">billing@vfempire.com</a></div>
-    <div class="role">Invoices & receipts</div>
-    <p class="desc">Copies of invoices, VAT queries, subscription changes. Available when the paid tier goes live (Nov 1, 2026).</p>
-    <div class="foot">AI-handled · <span class="sla">reply within the hour once live</span></div>
-  </div>
-
-  <div class="card human-only">
-    <div class="em"><a href="mailto:legal@vfempire.com">legal@vfempire.com</a></div>
-    <div class="role">Legal, compliance, DMCA, GDPR</div>
-    <p class="desc">Data subject requests, contract review, takedown notices, regulator correspondence. <strong>No AI ever writes here.</strong> We only send an acknowledgment automatically; the rest is human.</p>
-    <div class="foot">Human-only · <span class="sla">acknowledgment in &lt; 5 seconds, substantive reply within 3 business days</span></div>
-  </div>
-
-  <div class="card human-only">
-    <div class="em"><a href="mailto:security@vfempire.com">security@vfempire.com</a></div>
-    <div class="role">Vulnerability disclosure</div>
-    <p class="desc">Report a vulnerability, coordinate disclosure, PGP-encrypted reports welcome. <strong>Human-only.</strong> The AI acknowledges receipt and includes our public key.</p>
-    <div class="foot">Human-only · <span class="sla">acknowledgment in &lt; 5 seconds, engineer reply within 1 business day</span></div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:abuse@vfempire.com">abuse@vfempire.com</a></div>
-    <div class="role">Service abuse reports</div>
-    <p class="desc">Report abuse of VF services — spam relays, malicious accounts, impersonation. Investigated by our ops team.</p>
-    <div class="foot">Human-reviewed · <span class="sla">acknowledgment immediate, action within 1 business day</span></div>
-  </div>
-
-  <div class="card">
-    <div class="em"><a href="mailto:postmaster@vfempire.com">postmaster@vfempire.com</a></div>
-    <div class="role">Mail operations</div>
-    <p class="desc">Deliverability queries, mail-server-to-mail-server questions, RFC-standard postmaster channel.</p>
-    <div class="foot">Mail-ops · <span class="sla">reply within 1 business day</span></div>
-  </div>
-
-</section>
-
-<section class="pitch">
-  <div class="pitch-in">
-    <h2>Talk to us the <em>way we talk to everyone</em>.</h2>
-    <p>Every reply we send is sealed end-to-end when the recipient uses VF Mail. Keys never leave your hardware. If you want the same guarantee going the other way — install VF Mail, free during Early Access, and message us encrypted.</p>
-    <div class="row">
-      <a class="cta" href="/systems/vf-mail.html">Download VF Mail — Early Access</a>
-      <a class="cta ghost" href="mailto:hello@vfempire.com">Just email hello@ for now</a>
+<section class="foot">
+  <div class="wrap">
+    <div class="k rv">SEALED BOTH WAYS</div>
+    <h2 class="rv">Talk to us the <em class="i">way we talk to everyone</em>.</h2>
+    <p class="lead rv">Every reply we send is sealed end to end when you use VF Mail. Keys never leave your hardware. For the same guarantee in the other direction, install VF Mail (free during Early Access) and message us encrypted.</p>
+    <div class="acts">
+      <a class="bt pri rv" href="/systems/vf-mail">Get VF Mail (Early Access)</a>
+      <a class="bt gho rv" href="mailto:hello@vfempire.com">Email hello@ for now</a>
     </div>
   </div>
 </section>
 
-<section class="legal">
-  © 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU<br>
-  <a href="/legal/terms" style="color:inherit">Terms</a> · <a href="/legal/privacy" style="color:inherit">Privacy</a> · <a href="/legal/cookies" style="color:inherit">Cookies</a>
-</section>
+<footer>
+  <div class="legal">
+    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
+  <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="dec" id="cdec">Decline</button>
+    <button class="acc" id="cacc">Accept</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const el = document.getElementById('consent');
+  if (!el) return;
+  let seen = null; try { seen = localStorage.getItem('vf-consent'); } catch (e) {}
+  if (seen) { el.remove(); return; }
+  setTimeout(() => el.classList.add('show'), 1400);
+  const choose = v => { try { localStorage.setItem('vf-consent', v); } catch (e) {} el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
+  document.getElementById('cacc').onclick = () => choose('accepted');
+  document.getElementById('cdec').onclick = () => choose('declined');
+})();
+</script>
 
 </body>
 </html>

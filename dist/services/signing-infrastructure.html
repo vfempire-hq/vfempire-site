@@ -3,58 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Signing Infrastructure + SBOM Blueprint — VF Empire</title>
+<title>Signing Infrastructure + SBOM Blueprint | VF Empire</title>
 <meta name="description" content="Four-to-six-week engagement to design + deploy CRA-compliant signed-update infrastructure: 2-of-N threshold signing, RFC 6962 transparency log, SBOM automation per release, reproducibility CI mirrors. Includes working reference implementation on your infrastructure.">
 <link rel="canonical" href="https://vfempire.com/services/signing-infrastructure">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Signing Infrastructure + SBOM Blueprint — €25-40k">
+<meta property="og:title" content="Signing Infrastructure + SBOM Blueprint: €25-40k">
 <meta property="og:description" content="Design + deploy CRA-compliant threshold-signing, transparency log, SBOM automation, reproducibility CI. Working reference implementation on your infrastructure.">
 <meta property="og:url" content="https://vfempire.com/services/signing-infrastructure">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:image" content="https://vfempire.com/assets/hero-core.png">
+<meta property="og:image:width" content="1344">
+<meta property="og:image:height" content="768">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Signing Infrastructure + SBOM Blueprint: €25-40k">
+<meta name="twitter:description" content="Design + deploy CRA-compliant threshold-signing, transparency log, SBOM automation, reproducibility CI. Working reference implementation on your infrastructure.">
+<meta name="twitter:image" content="https://vfempire.com/assets/hero-core.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-:root{
-  --paper:#fbfbfd; --silver:#f5f5f7; --mist:#eceff3;
-  --ink:#1d1d1f; --dove:#6e6e73; --faint:#a1a1a6; --line:#e4e6ea;
-  --core:#1f6ff2; --core-deep:#0b47b8; --glow:rgba(37,110,245,.35);
-  --warn:#c93221;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.crumb{font-size:12px;color:var(--faint);letter-spacing:.02em}
-.crumb a{color:var(--dove)}
-.crumb a:hover{color:var(--core)}
-.crumb b{color:var(--ink);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:640px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-
 .phero{min-height:82vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 6vw 60px;background:
   radial-gradient(1000px 500px at 50% -10%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -65,8 +36,6 @@ h2 .mute{color:var(--faint)}
 .phero h1 span em{color:var(--core-deep)}
 .phero p.sub{max-width:620px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:26px auto 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;justify-content:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 
 .fails{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
@@ -129,18 +98,149 @@ h2 .mute{color:var(--faint)}
 .foot h2{margin:0 auto;max-width:22ch}
 .foot .lead{margin:20px auto 32px}
 .foot .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.foot .fine{font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:60px}
-.foot .fine a{color:var(--dove);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
-.foot .fine a:hover{color:var(--core)}
 
 @media (max-width:900px){
   .fails,.aud,.outs,.deliv{grid-template-columns:1fr}
   .pricing{grid-template-columns:1fr}
   .sysreqgrid{grid-template-columns:1fr}
   .tstep{grid-template-columns:1fr}
-  section{padding:80px 6vw}
 }
 </style>
+<!-- seo-pass -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "VF Empire",
+          "item": "https://vfempire.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://vfempire.com/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Signing Infrastructure + SBOM Blueprint"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/services/signing-infrastructure",
+      "url": "https://vfempire.com/services/signing-infrastructure",
+      "name": "Signing Infrastructure + SBOM Blueprint",
+      "description": "Four-to-six-week engagement to design + deploy CRA-compliant signed-update infrastructure: 2-of-N threshold signing, RFC 6962 transparency log, SBOM automation per release, reproducibility CI mirrors. Includes working reference implementation on your infrastructure.",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#site"
+      },
+      "about": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "inLanguage": "en-GB",
+      "primaryImageOfPage": "https://vfempire.com/assets/hero-core.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vfempire.com/services/signing-infrastructure#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can't we use Sigstore / cosign / a hosted service instead?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sigstore is an excellent tool; we use it as a component in many deployments. The question is what trust root you sign against + how threshold approval works + who operates the transparency log. Sigstore's public infrastructure is US-hosted; for EU CRA compliance many firms prefer their own transparency log on EU infrastructure. We can layer Sigstore into your architecture or replace it with an EU-sovereign stack. Your choice, informed by your regulatory posture."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we need a second operator in a different jurisdiction?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CRA does not require it. We recommend it if your product ships to a broad user base. A single operator = single point of failure (compromise / coercion / accident). VF Empire uses 2-of-2 across MT + DE for exactly this reason. If you can't find a second operator, VF Empire can serve on retainer (~€1500/mo, separate engagement) once we understand your product."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does the ongoing infrastructure cost to operate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At typical release cadence (monthly minor + quarterly major): Yubikey hardware €120 one-off (2 keys), Hetzner + Cloudflare €200-500/mo for transparency-log + SBOM + reproducibility-mirror infrastructure, retained second operator €1500/mo optional. Total operational cost ≈ €2 000-3 000/mo at scale. Much less at lower cadence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Our CI is on GitHub Actions / GitLab / self-hosted. Will it work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes to all. Reproducibility CI mirrors are separate from your primary CI (that's the point): they run on their own infrastructure and compare output to your primary. Any modern CI platform integrates with SBOM generation + signing. We adapt to your stack."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if we can't source a second signing operator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You have three options: (1) use 2-of-2 with two of your own trusted operators in different physical locations (weaker than cross-jurisdiction but better than single-key), (2) VF Empire serves as second operator on retainer (independent + jurisdictionally-separate), (3) engage a third-party signing service (Chainguard, Sigstore-hosted, others). We recommend based on your product's risk profile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from what SLSA / SSDF / NIST 800-218 recommend?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aligned. SLSA / SSDF / NIST 800-218 describe *what* to do at the framework level; this engagement is the *implementation*: the deployment of threshold signing + transparency log + SBOM automation + reproducibility that satisfies those frameworks + CRA obligations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "NDA + payment terms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standard mutual NDA within 24 hours of request. Invoice in EUR by VF Empire Corp Ltd (Malta) or Noirda GmbH (Germany). Payment terms: 40% kick-off / 30% mid-engagement / 30% delivery. SEPA transfer."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vfempire.com/services/signing-infrastructure#service",
+      "name": "Signing Infrastructure + SBOM Blueprint",
+      "url": "https://vfempire.com/services/signing-infrastructure",
+      "description": "Four-to-six-week engagement to design + deploy CRA-compliant signed-update infrastructure: 2-of-N threshold signing, RFC 6962 transparency log, SBOM automation per release, reproducibility CI mirrors. Includes working reference implementation on your infrastructure.",
+      "serviceType": "Cyber Resilience Act compliance consulting",
+      "provider": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "European Union"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://vfempire.com/services/signing-infrastructure",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "EUR",
+          "minPrice": 25000,
+          "maxPrice": 40000,
+          "description": "Fixed fee, typical engagement 6W weeks"
+        }
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -158,7 +258,7 @@ h2 .mute{color:var(--faint)}
 <header class="phero">
   <div class="eb"><b>SERVICE · 03</b> &nbsp;·&nbsp; SIGNED UPDATES &nbsp;·&nbsp; SBOM AUTOMATION</div>
   <h1>Signing Infrastructure<span>2-of-N threshold, transparency log, <em class="i">reproducible builds.</em></span></h1>
-  <p class="sub">Cyber Resilience Act Annex I requires signed updates, an integrity mechanism, and a public vulnerability-handling process. Annex II adds SBOM per release + coordinated disclosure + 24-hour reporting. We design and deploy the infrastructure to satisfy all of it — 2-of-N threshold signing across separated jurisdictions, RFC 6962 Merkle-tree transparency log, SBOM automation per release in SPDX + CycloneDX, and third-party reproducibility CI mirrors — as a working reference implementation on your infrastructure.</p>
+  <p class="sub">Cyber Resilience Act Annex I requires signed updates, an integrity mechanism, and a public vulnerability-handling process. Annex II adds SBOM per release + coordinated disclosure + 24-hour reporting. We design and deploy the infrastructure to satisfy all of it as a working reference implementation on your infrastructure: 2-of-N threshold signing across separated jurisdictions, RFC 6962 Merkle-tree transparency log, SBOM automation per release in SPDX + CycloneDX, and third-party reproducibility CI mirrors.</p>
   <div class="meta">
     <span class="mchip hot">€25-40K FIXED FEE</span>
     <span class="mchip">4-6 WEEKS</span>
@@ -176,7 +276,7 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">WHY IT EXISTS</div>
     <h2 class="rv">Signed updates + SBOM<br><span class="mute">are where most CRA remediation plans stall.</span></h2>
-    <p class="lead rv">A gap analysis is easy. Building the actual infrastructure to close the gap — signed updates with 2-of-N threshold approval, a public Merkle-tree transparency log, SBOM automation per release, reproducibility CI mirrors that can be independently verified — is where most product teams stall. The primitives are well-known; the integration is 2-4 months of specialist work. We compress it into 4-6 weeks + hand you a working reference implementation.</p>
+    <p class="lead rv">A gap analysis is easy. Most product teams stall on building the infrastructure to close the gap: signed updates with 2-of-N threshold approval, a public Merkle-tree transparency log, SBOM automation per release, reproducibility CI mirrors that third parties can verify. The primitives are well-known; the integration is 2-4 months of specialist work. We compress it into 4-6 weeks + hand you a working reference implementation.</p>
 
     <div class="fails rv">
       <div class="fl">
@@ -192,12 +292,12 @@ h2 .mute{color:var(--faint)}
       <div class="fl">
         <span class="num">F·03</span>
         <h4>No transparency log means "trust us"</h4>
-        <p>Without a public append-only log of your signed releases, users have no way to verify that the binary they received matches what you actually signed + published. RFC 6962-style Merkle transparency logs are well-understood but require deployment discipline most product teams haven't invested in.</p>
+        <p>Without a public append-only log of your signed releases, users have no way to verify that the binary they received matches what you signed + published. RFC 6962-style Merkle transparency logs are well-understood but require deployment discipline most product teams haven't invested in.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>Non-reproducible builds mean the SBOM is a fiction</h4>
-        <p>If your build is not reproducible, the SBOM you publish reflects hopes rather than reality — an attacker who compromised your build pipeline could ship anything and the SBOM would still "match." Reproducibility CI mirrors on separated infrastructure catch this. Most teams have never set one up.</p>
+        <p>If your build is not reproducible, the SBOM you publish reflects hopes rather than reality: an attacker who compromised your build pipeline could ship anything and the SBOM would still "match." Reproducibility CI mirrors on separated infrastructure catch this. Most teams have not set one up.</p>
       </div>
     </div>
   </div>
@@ -213,21 +313,21 @@ h2 .mute{color:var(--faint)}
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V7l7-4z"/><path d="M9 12l2 2 4-5"/></svg></div>
         <div>
           <h4>CRA "product with digital elements" manufacturers</h4>
-          <p>Any firm placing a networked product on the EU market after September 11 2026. Signed updates + SBOM + coordinated disclosure are Annex I + Annex II obligations — not optional. This service builds the mechanism.</p>
+          <p>Any firm placing a networked product on the EU market after September 11 2026. Signed updates + SBOM + coordinated disclosure are Annex I + Annex II obligations. This service builds the mechanism.</p>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 3v18M16 3v18M3 12h18"/></svg></div>
         <div>
           <h4>Software vendors shipping updates to installed base</h4>
-          <p>Desktop applications, browser extensions, mobile apps with sideloadable variants, self-hosted server software, IoT firmware. Whenever "install this update" is a trust-critical operation for your users, threshold signing + transparency log + SBOM discipline are the right posture.</p>
+          <p>Desktop applications, browser extensions, mobile apps with sideloadable variants, self-hosted server software, IoT firmware. If "install this update" is a trust-critical operation for your users, threshold signing + transparency log + SBOM discipline are the right posture.</p>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><circle cx="7" cy="7" r="1" fill="currentColor"/><circle cx="7" cy="17" r="1" fill="currentColor"/></svg></div>
         <div>
           <h4>Firms with public trust as a differentiator</h4>
-          <p>Products that market "verifiable" / "no telemetry" / "no cloud dependency" — the trust claims mean less without infrastructure users can verify. Transparency log + reproducibility CI mirrors turn marketing claims into verifiable facts.</p>
+          <p>Products that market "verifiable" / "no telemetry" / "no cloud dependency". The trust claims mean less without infrastructure users can verify. Transparency log + reproducibility CI mirrors turn marketing claims into verifiable facts.</p>
         </div>
       </div>
       <div class="au">
@@ -241,7 +341,7 @@ h2 .mute{color:var(--faint)}
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 4v16"/></svg></div>
         <div>
           <h4>Open-source SaaS + hybrid deployment firms</h4>
-          <p>Firms that ship both a cloud service + a self-hostable variant need particularly strong supply-chain guarantees — customers rebuilding + running the self-hostable version must be able to verify the binary matches source. Reproducibility is critical.</p>
+          <p>Firms that ship both a cloud service + a self-hostable variant need strong supply-chain guarantees: customers rebuilding + running the self-hostable version must be able to verify the binary matches source.</p>
         </div>
       </div>
     </div>
@@ -257,17 +357,17 @@ h2 .mute{color:var(--faint)}
       <div class="dv">
         <div class="dk">01</div>
         <h4>Full architecture design document</h4>
-        <p>25-40-page architecture doc covering threshold-signing scheme (2-of-N Ed25519 across specified jurisdictions), transparency-log deployment (RFC 6962 Merkle tree), SBOM automation pipeline (SPDX + CycloneDX per release), reproducibility CI mirror design (2-3 independent build environments). Reviewed with your engineering + security leads.</p>
+        <p>25-40-page architecture doc covering threshold-signing scheme (2-of-N Ed25519 across specified jurisdictions), transparency-log deployment (RFC 6962 Merkle tree), SBOM automation pipeline (SPDX + CycloneDX per release), reproducibility CI mirror design (2-3 independent build environments). We review it with your engineering + security leads.</p>
       </div>
       <div class="dv">
         <div class="dk">02</div>
         <h4>2-of-N threshold signing setup</h4>
-        <p>Operator identity provisioning (Yubikey 5 NFC per operator, offline signing procedures), key ceremony documentation, cross-jurisdiction operator recommendations, signing-workflow SOPs, key-rotation runbook. Actual key generation ceremony conducted or facilitated depending on your preference.</p>
+        <p>Operator identity provisioning (Yubikey 5 NFC per operator, offline signing procedures), key ceremony documentation, cross-jurisdiction operator recommendations, signing-workflow SOPs, key-rotation runbook. We conduct or facilitate the key generation ceremony, depending on your preference.</p>
       </div>
       <div class="dv">
         <div class="dk">03</div>
         <h4>Transparency-log deployment</h4>
-        <p>RFC 6962-style Merkle-tree transparency log deployed on your infrastructure (Postgres + Cloudflare Worker mirror or equivalent). Signed root publication, inclusion-proof endpoints, public read APIs, monitoring + alerting. Working reference — not just architecture, but running code.</p>
+        <p>RFC 6962-style Merkle-tree transparency log deployed on your infrastructure (Postgres + Cloudflare Worker mirror or equivalent). Signed root publication, inclusion-proof endpoints, public read APIs, monitoring + alerting. Delivered as running code.</p>
       </div>
       <div class="dv">
         <div class="dk">04</div>
@@ -292,7 +392,7 @@ h2 .mute{color:var(--faint)}
       <div class="dv">
         <div class="dk">08</div>
         <h4>Weekly working sessions + knowledge transfer</h4>
-        <p>Weekly 90-minute working sessions with your team throughout the engagement. Concludes with a full knowledge-transfer session so your team owns the infrastructure post-delivery — not dependent on VF Empire to operate it.</p>
+        <p>Weekly 90-minute working sessions with your team throughout the engagement. Concludes with a full knowledge-transfer session so your team owns and operates the infrastructure post-delivery without VF Empire.</p>
       </div>
     </div>
   </div>
@@ -308,42 +408,42 @@ h2 .mute{color:var(--faint)}
         <span class="day">WEEK 0</span>
         <div>
           <h4>Kick-off + infrastructure discovery</h4>
-          <p>Kick-off with your engineering + security + release-management leads. Current release process mapped. Existing CI + signing + SBOM state inventoried. Threat model input (Service 02 output or your own). NDA signed if needed.</p>
+          <p>Kick-off with your engineering + security + release-management leads. We map your current release process and inventory existing CI + signing + SBOM state. Threat model input (Service 02 output or your own). We sign an NDA if needed.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 1</span>
         <div>
           <h4>Architecture design + operator selection</h4>
-          <p>Full architecture designed. Operator identity + jurisdiction recommendations discussed. Hardware procurement started (Yubikey 5 NFC, ~€60 each). Cross-jurisdiction operator engagements initiated (if using external contractor as second operator).</p>
+          <p>We design the full architecture and discuss operator identity + jurisdiction recommendations with you. Hardware procurement starts (Yubikey 5 NFC, ~€60 each). Cross-jurisdiction operator engagements start (if using an external contractor as second operator).</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 2</span>
         <div>
           <h4>Threshold-signing deployment</h4>
-          <p>Key-generation ceremonies with each operator (physical, offline, witnessed). Operator SOPs written. Signing-workflow prototype. Test releases signed end-to-end.</p>
+          <p>Key-generation ceremonies with each operator (physical, offline, witnessed). We write operator SOPs, prototype the signing workflow, and sign test releases end-to-end.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 3</span>
         <div>
           <h4>Transparency log + SBOM automation</h4>
-          <p>Transparency log deployed. Signed root publication working. SBOM generation integrated into CI. First test release signed + logged + SBOM published end-to-end.</p>
+          <p>We deploy the transparency log, get signed root publication working, and integrate SBOM generation into CI. We sign, log and publish the SBOM for a first test release end-to-end.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 4</span>
         <div>
           <h4>Reproducibility CI mirrors + hardening</h4>
-          <p>2-3 independent build environments deployed. First reproducibility check completed. Divergence-alerting configured. Standard tier engagement complete. Extended tier continues.</p>
+          <p>We deploy 2-3 independent build environments, complete the first reproducibility check, and configure divergence alerting. Standard tier engagement complete. Extended tier continues.</p>
         </div>
       </div>
       <div class="tstep">
         <span class="day">WEEK 5-6</span>
         <div>
           <h4>Runbooks + knowledge transfer (Extended tier)</h4>
-          <p>Full ops runbooks written + reviewed with your team. Emergency-signing procedures practiced. First quarterly key-rotation drill. Post-engagement 8-week Q&A window begins.</p>
+          <p>We write the full ops runbooks and review them with your team, practise emergency-signing procedures, and run the first quarterly key-rotation drill. Post-engagement 8-week Q&A window begins.</p>
         </div>
       </div>
     </div>
@@ -388,7 +488,7 @@ h2 .mute{color:var(--faint)}
     </div>
 
     <div class="rv" style="margin-top:36px;padding:22px 24px;background:var(--silver);border-radius:14px;font-size:13.5px;line-height:1.6;color:var(--dove)">
-      <b style="color:var(--ink)">Not included:</b> ongoing signing-operator retainer (VF Empire can serve as second operator for your product on retainer at ~€1500/mo — separate engagement), hardware costs (Yubikeys ~€60 each), bug-bounty payout pool (you fund), Notified Body engagement if required for Module H conformity.
+      <b style="color:var(--ink)">Not included:</b> ongoing signing-operator retainer (VF Empire can serve as second operator for your product on retainer at ~€1500/mo, a separate engagement), hardware costs (Yubikeys ~€60 each), bug-bounty payout pool (you fund), Notified Body engagement if required for Module H conformity.
     </div>
   </div>
 </section>
@@ -406,11 +506,11 @@ h2 .mute{color:var(--faint)}
       </div>
       <div class="c">
         <div class="n">2-of-2 signing<span>.</span></div>
-        <p>Every VF release signed by two operators in separated EU jurisdictions with a 15-minute inspection window between signature + publish. Documented in each product's key-rotation runbook.</p>
+        <p>Two operators in separated EU jurisdictions sign every VF release, with a 15-minute inspection window between signature + publish. Documented in each product's key-rotation runbook.</p>
       </div>
       <div class="c">
         <div class="n">Transparency log<span>.</span></div>
-        <p>RFC 6962-style Merkle-tree log per product. Every firmware release + rotation event publicly recorded. Independent auditors can verify inclusion proofs.</p>
+        <p>RFC 6962-style Merkle-tree log per product. Every firmware release + rotation event goes on the public log. Independent auditors can verify inclusion proofs.</p>
       </div>
     </div>
   </div>
@@ -424,19 +524,19 @@ h2 .mute{color:var(--faint)}
     <div class="faq rv">
       <div class="q">
         <h4>Can't we use Sigstore / cosign / a hosted service instead?</h4>
-        <p>Sigstore is an excellent tool — we use it as a component in many deployments. The question is what trust root you sign against + how threshold approval works + who operates the transparency log. Sigstore's public infrastructure is US-hosted; for EU CRA compliance many firms prefer their own transparency log on EU infrastructure. We can layer Sigstore into your architecture or replace it with a fully-EU-sovereign stack — your choice, informed by your regulatory posture.</p>
+        <p>Sigstore is an excellent tool; we use it as a component in many deployments. The question is what trust root you sign against + how threshold approval works + who operates the transparency log. Sigstore's public infrastructure is US-hosted; for EU CRA compliance many firms prefer their own transparency log on EU infrastructure. We can layer Sigstore into your architecture or replace it with an EU-sovereign stack. Your choice, informed by your regulatory posture.</p>
       </div>
       <div class="q">
         <h4>Do we need a second operator in a different jurisdiction?</h4>
-        <p>Not required by CRA. Strongly recommended if your product ships to a broad user base. A single operator = single point of failure (compromise / coercion / accident). VF Empire uses 2-of-2 across MT + DE for exactly this reason. If you can't find a second operator, VF Empire can serve on retainer (~€1500/mo, separate engagement) once we understand your product.</p>
+        <p>CRA does not require it. We recommend it if your product ships to a broad user base. A single operator = single point of failure (compromise / coercion / accident). VF Empire uses 2-of-2 across MT + DE for exactly this reason. If you can't find a second operator, VF Empire can serve on retainer (~€1500/mo, separate engagement) once we understand your product.</p>
       </div>
       <div class="q">
         <h4>How much does the ongoing infrastructure cost to operate?</h4>
         <p>At typical release cadence (monthly minor + quarterly major): Yubikey hardware €120 one-off (2 keys), Hetzner + Cloudflare €200-500/mo for transparency-log + SBOM + reproducibility-mirror infrastructure, retained second operator €1500/mo optional. Total operational cost ≈ €2 000-3 000/mo at scale. Much less at lower cadence.</p>
       </div>
       <div class="q">
-        <h4>Our CI is on GitHub Actions / GitLab / self-hosted — will it work?</h4>
-        <p>Yes to all. Reproducibility CI mirrors are separate from your primary CI (that's the point) — they run independently on their own infrastructure and compare output to your primary. Any modern CI platform integrates with SBOM generation + signing. We adapt to your stack.</p>
+        <h4>Our CI is on GitHub Actions / GitLab / self-hosted. Will it work?</h4>
+        <p>Yes to all. Reproducibility CI mirrors are separate from your primary CI (that's the point): they run on their own infrastructure and compare output to your primary. Any modern CI platform integrates with SBOM generation + signing. We adapt to your stack.</p>
       </div>
       <div class="q">
         <h4>What if we can't source a second signing operator?</h4>
@@ -444,7 +544,7 @@ h2 .mute{color:var(--faint)}
       </div>
       <div class="q">
         <h4>How is this different from what SLSA / SSDF / NIST 800-218 recommend?</h4>
-        <p>Substantially aligned. SLSA / SSDF / NIST 800-218 describe *what* to do at the framework level; this engagement is the *implementation* — the actual deployment of threshold signing + transparency log + SBOM automation + reproducibility that satisfies those frameworks + CRA obligations concretely.</p>
+        <p>Aligned. SLSA / SSDF / NIST 800-218 describe *what* to do at the framework level; this engagement is the *implementation*: the deployment of threshold signing + transparency log + SBOM automation + reproducibility that satisfies those frameworks + CRA obligations.</p>
       </div>
       <div class="q">
         <h4>NDA + payment terms?</h4>
@@ -481,29 +581,49 @@ h2 .mute{color:var(--faint)}
   <div class="wrap">
     <div class="k rv">BOOK A CALL</div>
     <h2 class="rv">30 minutes.<br><span class="mute">You leave the call knowing whether we're the right fit.</span></h2>
-    <p class="lead rv">Discovery call is free. No sales script. We ask about your release process + your supply-chain concerns; you ask us anything about the engagement.</p>
+    <p class="lead rv">The discovery call is free and there is no sales script. We ask about your release process + your supply-chain concerns; you ask us anything about the engagement.</p>
 
     <div class="acts">
       <a class="bt pri" href="mailto:services@vfempire.com?subject=Signing%20Infrastructure%20-%20discovery%20call">Write to services@vfempire.com</a>
       <a class="bt gho" href="/software">Read the software thesis</a>
     </div>
-
-    <div class="fine">
-      VF Empire Corp Ltd · Malta C 94160 · VAT MT 2686-9431 · Virgo Louretana, Triq L-Mġarr, Għajnsielem, Gozo GSM1020, MT
-      &nbsp;·&nbsp; <a href="/">Home</a>
-      &nbsp;·&nbsp; <a href="/software">Software</a>
-      &nbsp;·&nbsp; <a href="/services/cra-readiness-audit">Services · CRA Audit</a>
-      &nbsp;·&nbsp; <a href="/services/threat-model-dpia">Services · Threat Model</a>
-      &nbsp;·&nbsp; <a href="mailto:info@vfempire.com">Contact</a>
-    </div>
   </div>
 </section>
+
+<footer>
+  <div class="legal">
+    <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
+  </div>
+</footer>
 
 <script>
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
+  <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="dec" id="cdec">Decline</button>
+    <button class="acc" id="cacc">Accept</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const el = document.getElementById('consent');
+  if (!el) return;
+  let seen = null; try { seen = localStorage.getItem('vf-consent'); } catch (e) {}
+  if (seen) { el.remove(); return; }
+  setTimeout(() => el.classList.add('show'), 1400);
+  const choose = v => { try { localStorage.setItem('vf-consent', v); } catch (e) {} el.classList.remove('show'); setTimeout(() => el.remove(), 550); };
+  document.getElementById('cacc').onclick = () => choose('accepted');
+  document.getElementById('cdec').onclick = () => choose('declined');
+})();
 </script>
 
 </body>

@@ -3,16 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guardian Shield — Security you own, not rent | VF Empire</title>
-<meta name="description" content="P·18 on the VF build slate: a full-parity security suite — scan, firewall, network watch, breach and identity monitoring, vault — running local-first on hardware you own. Your protection should never be someone else's data business.">
+<title>Guardian Shield: Security you own, not rent | VF Empire</title>
+<meta name="description" content="P·18 on the VF build slate: a full-parity security suite (scan, firewall, network watch, breach and identity monitoring, vault) running local-first on hardware you own. Your protection should never be someone else's data business.">
 <link rel="canonical" href="https://vfempire.com/systems/guardian-shield">
 <meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="/house.css">
+<script src="/assets/scrollrail.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="Guardian Shield — security you own, not rent">
-<meta property="og:description" content="Everything the big suites do — malware scan, firewall, network watch, breach and identity monitoring, vault — on your own metal, answering only to you.">
+<meta property="og:title" content="Guardian Shield: security you own, not rent">
+<meta property="og:description" content="Everything the big suites do (malware scan, firewall, network watch, breach and identity monitoring, vault) on your own metal, answering only to you.">
 <meta property="og:url" content="https://vfempire.com/systems/guardian-shield">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p18.png">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Guardian Shield: security you own, not rent">
+<meta name="twitter:description" content="Everything the big suites do (malware scan, firewall, network watch, breach and identity monitoring, vault) on your own metal, answering only to you.">
+<meta name="twitter:image" content="https://vfempire.com/assets/pipe/p18.png">
+<link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -24,7 +33,7 @@
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Local-first, self-hosted",
       "creator": {"@id": "https://vfempire.com/#org"},
-      "description": "A full consumer and small-business security suite — malware and device scanning, firewall management, network intrusion and rogue-device watch, breach and identity monitoring, password vault — designed to run on hardware the owner controls. In build at VF Empire."
+      "description": "A full consumer and small-business security suite (malware and device scanning, firewall management, network intrusion and rogue-device watch, breach and identity monitoring, password vault) designed to run on hardware the owner controls. In build at VF Empire."
     },
     {
       "@type": "BreadcrumbList",
@@ -38,54 +47,6 @@
 }
 </script>
 <style>
-@font-face{font-family:'Hanken';src:url('../fonts/hanken.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument';src:url('../fonts/instrument-italic.woff2') format('woff2');font-style:italic;font-display:swap}
-
-:root{
-  --paper:#fbfbfd;
-  --silver:#f5f5f7;
-  --mist:#eceff3;
-  --ink:#1d1d1f;
-  --dove:#6e6e73;
-  --faint:#a1a1a6;
-  --line:#e4e6ea;
-  --core:#1f6ff2;
-  --core-deep:#0b47b8;
-  --glow:rgba(37,110,245,.35);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-em.i{font-family:'Instrument',serif;font-style:italic;font-weight:400;letter-spacing:0}
-::selection{background:var(--core);color:#fff}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(251,251,253,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.05)}
-.nav .in{width:min(1080px,92vw);display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.16em;font-size:12px}
-.brand svg{display:block}
-.nav .crumb{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.nav .crumb b{color:var(--dove);font-weight:600}
-.nav .cta{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s}
-.nav .cta:hover{background:var(--core);transform:translateY(-1px)}
-
-/* shared */
-section{padding:104px 6vw}
-.wrap{width:min(1080px,100%);margin:0 auto}
-.k{font-size:11px;letter-spacing:.4em;color:var(--core);font-weight:600;margin-bottom:18px}
-h2{font-size:clamp(30px,4.4vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.05}
-h2 .mute{color:var(--faint)}
-.lead{font-size:16.5px;line-height:1.65;color:var(--dove);max-width:620px;margin-top:20px}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
-.bt{display:inline-block;font-size:13.5px;font-weight:600;padding:13px 30px;border-radius:99px;transition:transform .25s,box-shadow .25s,background .25s}
-.bt.pri{background:var(--core);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
-.bt.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
-.bt.gho{color:var(--core)}
-.bt.gho:hover{background:rgba(31,111,242,.07)}
-
-/* hero */
 .phero{min-height:92vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 6vw 40px;width:min(1150px,100%);margin:0 auto;background:
   radial-gradient(900px 480px at 72% 30%, #ffffff 0%, transparent 70%),
   linear-gradient(180deg,#fdfdfe 0%, #f4f6f9 100%)}
@@ -95,14 +56,11 @@ h2 .mute{color:var(--faint)}
 .phero h1 span{display:block;color:var(--faint);font-size:.52em;letter-spacing:-.03em;margin-top:14px;font-weight:600}
 .phero p.sub{max-width:480px;font-size:16.5px;line-height:1.62;color:var(--dove);margin:24px 0 0;opacity:0;animation:up 1s .38s cubic-bezier(.2,.7,.2,1) forwards}
 .phero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:up 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mchip{font-size:10px;font-weight:600;letter-spacing:.18em;color:#2b3a55;background:rgba(255,255,255,.75);border:1px solid var(--line);padding:8px 15px;border-radius:99px}
-.mchip.hot{color:#fff;background:var(--core);border-color:var(--core)}
 .phero .acts{display:flex;gap:14px;align-items:center;margin-top:34px;opacity:0;animation:up 1s .62s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
-@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-/* why — the failures */
+/* why: the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
@@ -119,7 +77,7 @@ h2 .mute{color:var(--faint)}
 .band img{display:block;width:100%;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who — audience bento */
+/* who: audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
@@ -136,7 +94,7 @@ h2 .mute{color:var(--faint)}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how — outcomes strip */
+/* how: outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -144,7 +102,7 @@ h2 .mute{color:var(--faint)}
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics — the stack */
+/* mechanics: the stack */
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -174,12 +132,9 @@ h2 .mute{color:var(--faint)}
 .doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
 @media(max-width:880px){.docs{grid-template-columns:1fr}}
 
-
 }
 
-
 }
-
 
 /* ═══════════ pricing (revolver) ═══════════ */
 #pricing{background:var(--silver);border-top:1px solid var(--line);padding:110px 6vw 130px;perspective:1500px;perspective-origin:50% 50%}
@@ -295,7 +250,7 @@ h2 .mute{color:var(--faint)}
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit — 180° swap between front and back */
+/* 2-tier orbit: 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -357,39 +312,13 @@ h2 .mute{color:var(--faint)}
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
-footer{padding:46px 6vw;background:var(--silver);border-top:1px solid var(--line)}
-.legal{width:min(1080px,100%);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--faint)}
-.legal a{color:inherit}
-
-/* consent */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
-.consent.show{transform:translateX(-50%) translateY(0)}
-.consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.consent p{font-size:12.5px;line-height:1.55;color:var(--dove)}
-.consent p a{color:var(--core)}
-.consent .row{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
-.consent button{font:inherit;font-size:13px;font-weight:600;padding:9px 22px;border-radius:99px;cursor:pointer;transition:all .2s}
-.consent .acc{background:var(--core);color:#fff;border:0}
-.consent .acc:hover{background:var(--core-deep)}
-.consent .dec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.consent .dec:hover{border-color:var(--dove)}
-@media(max-width:600px){.consent{bottom:12px}.consent .row{justify-content:stretch}.consent button{flex:1}}
 
 @media(max-width:880px){
   .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
   .pheroart{order:-1}
   .pheroart img{width:min(300px,70vw)}
-  .nav .crumb{display:none}
 }
 </style>
-<style id="house-scrollbar">
-html{scrollbar-width:none;-ms-overflow-style:none}
-::-webkit-scrollbar{width:0;height:0;display:none}
-#slkrail{position:fixed;top:0;right:0;width:26px;height:100%;z-index:80;cursor:grab;touch-action:none;background:transparent}
-#slkrail.drag{cursor:grabbing}
-@media (pointer:coarse){#slkrail{display:none!important}}
-</style>
-<script src="/assets/scrollrail.js" defer></script>
 </head>
 <body>
 
@@ -408,7 +337,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div>
     <div class="eb"><b>P·18</b> &nbsp;·&nbsp; SECURITY &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>Guardian Shield<span>Security you own, <em class="i">not rent.</em></span></h1>
-    <p class="sub">Everything the big security suites do — password vault, malware scanning, VPN, DNS filter, breach watch — rebuilt on one principle the industry abandoned: your protection runs on your hardware, answers to you, and is never anyone else's data business. Every claim backed by reproducible builds, a public transparency log, and a €25 000 bug bounty for anyone who breaks a promise.</p>
+    <p class="sub">Everything the big security suites do (password vault, malware scanning, VPN, DNS filter, breach watch), rebuilt on one principle the industry abandoned: your protection runs on your hardware, answers to you, and is never anyone else's data business. Reproducible builds, a public transparency log and a €25 000 bug bounty for anyone who breaks a promise back every claim.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD · R·01 SPEC-COMPLETE</span>
       <span class="mchip">5 SUBSYSTEMS</span>
@@ -422,41 +351,41 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       <a class="bt gho" href="#status">Read the honest build status</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p18.png" alt="Guardian Shield — a minimal white shield with a glowing blue rim and a blue orb at its centre"></div>
+  <div class="pheroart"><img src="../assets/pipe/p18.png" alt="Guardian Shield: a minimal white shield with a glowing blue rim and a blue orb at its centre"></div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">The guards forgot<br><span class="mute">whose side they're on.</span></h2>
-    <p class="lead rv">Consumer security is a strange market: you hand total visibility of your digital life to a company, and trust that it guards you instead of monetising you. The record of the last few years says that trust was misplaced. Four failures, one gap.</p>
+    <p class="lead rv">Consumer security is a strange market: you hand total visibility of your digital life to a company, and trust that it guards you instead of monetising you. The record of the last few years says that trust was misplaced.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>The guard sold the house keys</h4>
-        <p>An antivirus vendor spent years collecting its users' browsing data and selling it to over a hundred third parties through a subsidiary — until the US FTC banned the practice and ordered a $16.5&nbsp;million payment, calling it bait-and-switch surveillance. The product sold as privacy protection was the surveillance.</p>
+        <p>An antivirus vendor spent years collecting its users' browsing data and selling it to over a hundred third parties through a subsidiary, until the US FTC banned the practice and ordered a $16.5&nbsp;million payment, calling it bait-and-switch surveillance. The product sold as privacy protection was the surveillance.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
         <h4>The subscription is the product</h4>
-        <p>Year one is cheap; the auto-renewal often costs more than double, buried in the small print. It took the UK competition authority to force the biggest suite vendors to refund customers trapped by auto-renewal. Security priced as a ratchet is not security — it's rent-seeking with a padlock icon.</p>
+        <p>Year one is cheap; the auto-renewal often costs more than double, buried in the small print. It took the UK competition authority to force the biggest suite vendors to refund customers trapped by auto-renewal. Security priced as a ratchet is rent-seeking with a padlock icon.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>Your safety is their telemetry</h4>
-        <p>A modern suite is a cloud agent with root on your machine — some upload suspicious files and browsing domains with no way to fully opt out. Governments have acted on exactly this fear: the US banned a major antivirus outright over what its telemetry could see. The concern is structural. It applies to every cloud suite.</p>
+        <p>A modern suite is a cloud agent with root on your machine; some upload suspicious files and browsing domains with no complete opt-out. Governments have acted on this fear: the US banned a major antivirus outright over what its telemetry could see. The exposure comes from the architecture, so any cloud suite carries it.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
         <h4>Protection stops at the laptop</h4>
-        <p>The household of 2026 is a network: router, phones, cameras, TVs, NAS, a dozen quiet devices with firmware nobody watches. Traditional suites guard one computer and leave the estate open. The rogue box on your Wi-Fi is not the PC's problem — until it is.</p>
+        <p>The household of 2026 is a network: router, phones, cameras, TVs, NAS, a dozen quiet devices with firmware no one watches. Traditional suites guard one computer and leave the estate open. They cannot see the rogue box on your Wi-Fi until it reaches the PC.</p>
       </div>
     </div>
 
     <div class="band rv">
       <img src="../assets/pipe/p18-flow.png" alt="A white protective dome sheltering a cluster of devices, a blue arc of light sweeping its surface">
-      <span class="cap">EVERY ALERT CARRIES EVIDENCE — AGENTS WATCH, THEY NEVER TOUCH</span>
+      <span class="cap">EVERY ALERT CARRIES EVIDENCE. AGENTS WATCH, THEY NEVER TOUCH</span>
     </div>
   </div>
 </section>
@@ -473,29 +402,29 @@ html{scrollbar-width:none;-ms-overflow-style:none}
         </div>
         <div>
           <h4>Our own estate first</h4>
-          <p>The Shield is the oldest brand in this house — it predates the company's current systems, first built to guard our earliest app. Now it returns as the full suite, and it earns its name the VF way: standing guard over our own servers, sites, vaults and machines across three countries before it watches anyone else's. If it can't defend our floor, it doesn't ship.</p>
+          <p>The Shield is the oldest brand in this house. It predates the company's current systems; we first built it to guard our earliest app. Now it returns as the full suite, and it earns its name the VF way: standing guard over our own servers, sites, vaults and machines across three countries before it watches anyone else's. If it can't defend our floor, it doesn't ship.</p>
           <div class="co"><span>SERVERS · SITES · VAULTS</span><span>MT · DE · UK</span><span>PROVEN INWARD FIRST</span></div>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 21v-2c0-2.8 2.2-5 5-5h2c2.8 0 5 2.2 5 5v2M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM17 8h4m-2-2v4"/></svg></div>
         <h4>Families</h4>
-        <p>One shield over every device in the house — the kids' phones, the TV, the router nobody has logged into since 2021. Guarded as one estate, explained in plain language, with no per-seat metering of your own family.</p>
+        <p>One shield over every device in the house: the kids' phones, the TV, the router no one has logged into since 2021. It guards them as one estate, explained in plain language, with no per-seat metering of your own family.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
         <h4>Small firms</h4>
-        <p>The businesses that can't hire a security team but hold real customer data. Full-suite protection sized and priced for a five-person office — not an enterprise console with the features sawn off.</p>
+        <p>The businesses that can't hire a security team but hold real customer data. Full-suite protection sized and priced for a five-person office.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 16v4m6-4v4M7 8h4"/></svg></div>
         <h4>Self-hosters &amp; home labs</h4>
-        <p>People who already run their own NAS, cameras and services — and know exactly why they don't want a cloud agent with root. Local-first is not a compromise here; it's the requirement.</p>
+        <p>People who already run their own NAS, cameras and services, and know why they don't want a cloud agent with root. For them, local-first is the requirement.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 21c-4-1.6-7-4.6-7-9V7l7-4 7 4v5c0 4.4-3 7.4-7 9z"/><path d="M9 11.5l2 2 4-4.5"/></svg></div>
         <h4>The already-burned</h4>
-        <p>Everyone who watched their antivirus become a data broker, their renewal double, or their vendor get banned — and concluded, correctly, that the model is the problem. This is the other model.</p>
+        <p>Anyone who watched their antivirus become a data broker, their renewal double, or their vendor get banned, and concluded that the model is the problem. Guardian Shield is the other model.</p>
       </div>
     </div>
   </div>
@@ -505,10 +434,10 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">From "trust us"<br><span class="mute">to "check the trace."</span></h2>
-    <p class="lead rv">Every incumbent asks you to trust them. Guardian Shield ships the evidence. Files never leave your device — verifiable by packet trace. Vault plaintext never on the wire — verifiable by canary-string trace. Every signature update Ed25519-signed by two operators in different EU jurisdictions and recorded in a public Merkle transparency log. Reproducible builds so anyone can byte-diff our binary against source. That's not marketing — it's ten reproducible checks you can run yourself.</p>
+    <p class="lead rv">The incumbents ask you to trust them. Guardian Shield ships the evidence. Files never leave your device, verifiable by packet trace. Vault plaintext is never on the wire, verifiable by canary-string trace. Two operators in different EU jurisdictions Ed25519-sign every signature update and record it in a public Merkle transparency log. Reproducible builds let anyone byte-diff our binary against source. These are ten reproducible checks you can run yourself.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">Files never leave the device<span>.</span></div><p>Local ClamAV + YARA scanning. Signatures come to you; your files never go the other way. Verifiable by <em>tshark</em> — Check 1 of the audit checklist.</p></div>
+      <div class="c"><div class="n">Files never leave the device<span>.</span></div><p>Local ClamAV + YARA scanning. Signatures come to you; your files never go the other way. Verifiable by <em>tshark</em>, Check 1 of the audit checklist.</p></div>
       <div class="c"><div class="n">Vault plaintext never on the wire<span>.</span></div><p>Argon2id + XChaCha20-Poly1305 client-side. The server sees encrypted opaque blobs. If we could read your passwords, we could hand them over. We can't. Check 2.</p></div>
       <div class="c"><div class="n">Every update signed twice, in public<span>.</span></div><p>Ed25519 threshold: two operators, different jurisdictions, physical Yubikey touch each. Then a 15-minute inspection window. Then a public Merkle-tree entry. Checks 3–5.</p></div>
     </div>
@@ -519,18 +448,18 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">THE MECHANICS</div>
     <h2 class="rv">Five subsystems,<br><span class="mute">one honest trust model.</span></h2>
-    <p class="lead rv">R·01 ships five subsystems. Everything else backlogged. Each subsystem uses well-studied open primitives (ClamAV, YARA, WireGuard-Go, HIBP, OpenPhish, age, Argon2) — no proprietary black boxes, no commercial threat-intel SDKs, no third-party analytics on any code path that touches user data. Guardian Shield is also what every other VF product depends on for its own defence — the vault primitive that seals VF Wallet, VF Legacy, VF Home + VF Mail; the DNS filter that runs on every VF machine; the scanner that verifies our own signed binaries. <a href="/security" style="color:var(--core);font-weight:600">See the live security audit ▸</a></p>
+    <p class="lead rv">R·01 ships five subsystems; everything else is backlogged. Each subsystem uses well-studied open primitives (ClamAV, YARA, WireGuard-Go, HIBP, OpenPhish, age, Argon2): no proprietary black boxes, no commercial threat-intel SDKs, no third-party analytics on any code path that touches user data. Every other VF product also depends on Guardian Shield for its own defence: the vault primitive that seals VF Wallet, VF Legacy, VF Home + VF Mail; the DNS filter that runs on every VF machine; the scanner that verifies our own signed binaries. <a href="/security" style="color:var(--core);font-weight:600">See the live security audit ▸</a></p>
 
     <div class="mech rv">
-      <div class="mechart"><img src="../assets/pipe/p18-mech.png" alt="Five circles orbiting a glowing blue core — the five subsystems of Guardian Shield"></div>
+      <div class="mechart"><img src="../assets/pipe/p18-mech.png" alt="Five circles orbiting a glowing blue core: the five subsystems of Guardian Shield"></div>
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>SUBSYSTEM 1</i><h4>Password vault</h4></div>
-          <p>Argon2id-wrapped XChaCha20-Poly1305 vault. Autofill on iOS, Android and desktop browsers. Cross-device sync via sealed opaque blobs — we never see the plaintext. Recovery via existing-device confirmation, 24-word recovery code, or a 30-day grace-delay window. Master-password loss is unrecoverable by design.</p>
+          <p>Argon2id-wrapped XChaCha20-Poly1305 vault. Autofill on iOS, Android and desktop browsers. Cross-device sync via sealed opaque blobs; we never see the plaintext. Recovery via existing-device confirmation, 24-word recovery code, or a 30-day grace-delay window. Master-password loss is unrecoverable by design.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>SUBSYSTEM 2</i><h4>Malware scanner</h4></div>
-          <p>ClamAV + YARA, both local, both sandboxed. Signatures updated via daily Ed25519-signed packs published through a public Merkle-tree transparency log. Files never leave the device. Detection floor set at 85% on the AV-TEST reference set — below that for 30 days and we pause new signups until fixed.</p>
+          <p>ClamAV + YARA, both local, both sandboxed. Signatures updated via daily Ed25519-signed packs published through a public Merkle-tree transparency log. Files never leave the device. Detection floor set at 85% on the AV-TEST reference set; below that for 30 days and we pause new signups until fixed.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>SUBSYSTEM 3</i><h4>WireGuard VPN</h4></div>
@@ -542,7 +471,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
         </div>
         <div class="ly">
           <div class="lt"><i>SUBSYSTEM 5</i><h4>Breach watch (zero-knowledge)</h4></div>
-          <p>Your password is hashed locally — only the first 5 characters travel. Our relay strips IPs and batches lookups before hitting Have I Been Pwned. HIBP sees us; never you. Neither party can identify who is checking what.</p>
+          <p>The client hashes your password locally; only the first 5 characters travel. Our relay strips IPs and batches lookups before hitting Have I Been Pwned. HIBP sees us; never you. Neither party can identify who is checking what.</p>
         </div>
       </div>
     </div>
@@ -558,13 +487,13 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       <div class="rd">
         <span class="num">R·01</span>
         <h4>Five subsystems, three platforms</h4>
-        <p>Password vault + malware scanner + WireGuard VPN + DNS filter + breach watch. Desktop (Windows + macOS + Linux via Tauri), iOS, Android (including GrapheneOS + /e/OS — zero Google Play Services dependency). English + German UI. 4–6 months of build once the shared kit ships.</p>
+        <p>Password vault + malware scanner + WireGuard VPN + DNS filter + breach watch. Desktop (Windows + macOS + Linux via Tauri), iOS, Android (including GrapheneOS + /e/OS, with zero Google Play Services dependency). English + German UI. 4–6 months of build once the shared kit ships.</p>
         <span class="st hot">SPEC COMPLETE</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
         <h4>Windows real-time + anti-tracker + more locales</h4>
-        <p>Signed Windows kernel driver for real-time on-access scanning. Anti-tracker browser extension. On-device parental controls (never report-back-to-parent dashboards — that's surveillance, not parenting). French, Spanish, Italian, Portuguese UI. Five to six VPN exit nodes.</p>
+        <p>Signed Windows kernel driver for real-time on-access scanning. Anti-tracker browser extension. On-device parental controls (never report-back-to-parent dashboards; those are surveillance). French, Spanish, Italian, Portuguese UI. Five to six VPN exit nodes.</p>
         <span class="st">NEXT</span>
       </div>
       <div class="rd">
@@ -578,14 +507,14 @@ html{scrollbar-width:none;-ms-overflow-style:none}
     <div class="docs rv">
       <div class="doc">
         <span class="dk">ENGINEERING SPEC</span>
-        <h4>Guardian Shield — the full build plan</h4>
+        <h4>Guardian Shield: the full build plan</h4>
         <p>System overview, five subsystems detailed, data-source licence audit, client architecture per platform, signature supply-chain problem named as the highest-severity threat.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/architecture/guardian-shield-spec.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">THREAT MODEL</span>
         <h4>STRIDE with residual risks named</h4>
-        <p>Six adversary tiers (A1 nation-state to A6 household). Uniquely-Guardian-Shield threats — upstream poisoning + signing key compromise — get their own defence-in-depth analysis.</p>
+        <p>Six adversary tiers (A1 nation-state to A6 household). Threats specific to Guardian Shield (upstream poisoning + signing key compromise) get their own defence-in-depth analysis.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/security/threat-model.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
@@ -596,7 +525,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       </div>
       <div class="doc">
         <span class="dk">INVESTOR PACK</span>
-        <h4>Full DD pack — 11 documents</h4>
+        <h4>Full DD pack, 11 documents</h4>
         <p>Executive summary, product, market + competitors, traction targets, technology + IP, team + hire plan, financials, risks, the ask (€1.5–3.5m seed), data-room process, portfolio context.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/tree/main/docs/investor">PUBLISHED · 2026-09-12 →</a></span>
       </div>
@@ -613,7 +542,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What you get on the shield</h2>
-        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Platforms</dt><dd>Windows 10+, macOS 12+, Linux (glibc), iOS 16+, Android 10+.</dd></div>
@@ -630,17 +559,17 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">BUILD STATUS · 2026-09-14</div>
     <h2 class="rv">In build.<br><span class="mute">Not yet on sale. Honest about it.</span></h2>
-    <p class="lead rv">Guardian Shield is architecturally spec-complete + audit-reviewed, but code implementation across the five subsystems is a 5-7 month build with the Path B team. We won't take a subscription payment until every subsystem is in the shippable column. That's the industry's original sin — collecting money for security software that hasn't been built yet. We won't repeat it.</p>
+    <p class="lead rv">Guardian Shield is architecturally spec-complete + audit-reviewed, but code implementation across the five subsystems is a 5-7 month build with the Path B team. We won't take a subscription payment until every subsystem is in the shippable column. Collecting money for security software that hasn't been built yet is the industry's original sin. We won't repeat it.</p>
 
     <div class="outs rv" style="grid-template-columns:repeat(2,1fr);margin-top:52px">
       <div class="c">
         <div class="n">What ships today<span>.</span></div>
-        <p>Full architecture spec (13 ADRs), threat model, privacy model + DPIA, 11-doc investor pack, 4 operational runbooks, cross-product integration contracts, Permanence Guarantee (ADR-0013). Verify-side crypto (Ed25519 signature verification, BLAKE3 fingerprinting, 2-of-2 threshold-signature checker). CI hardening — gitleaks-clean audit, banned-deps enforcement, reproducible-builds workflow. All source public.</p>
+        <p>Full architecture spec (13 ADRs), threat model, privacy model + DPIA, 11-doc investor pack, 4 operational runbooks, cross-product integration contracts, Permanence Guarantee (ADR-0013). Verify-side crypto (Ed25519 signature verification, BLAKE3 fingerprinting, 2-of-2 threshold-signature checker). CI hardening: gitleaks-clean audit, banned-deps enforcement, reproducible-builds workflow. All source public.</p>
         <div class="sub">Verifiable at <b><a href="https://github.com/vfempire-hq/guardian-shield" style="color:var(--core-deep)">github.com/vfempire-hq/guardian-shield</a></b></div>
       </div>
       <div class="c">
         <div class="n">What still needs building<span>.</span></div>
-        <p>The five subsystems' actual runtime code. The pack-distributor Worker. The transparency-log signing infrastructure. Postgres persistence for vault + signer-bindings. Real HIBP relay. Client UI wiring across desktop + iOS + Android. Production 2-of-2 signing hardware infrastructure. Third-party security audit. Full public-facing R·01 timeline: 5-7 months once the Path B team is engaged.</p>
+        <p>The five subsystems' runtime code. The pack-distributor Worker. The transparency-log signing infrastructure. Postgres persistence for vault + signer-bindings. Real HIBP relay. Client UI wiring across desktop + iOS + Android. Production 2-of-2 signing hardware infrastructure. Third-party security audit. Full public-facing R·01 timeline: 5-7 months once the Path B team is engaged.</p>
         <div class="sub">Full ledger at <b><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/BUILD-STATUS-2026-09-14.md" style="color:var(--core-deep)">docs/BUILD-STATUS-2026-09-14.md ▸</a></b></div>
       </div>
     </div>
@@ -652,7 +581,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">FOUNDING-TIER RESERVE</div>
     <h2 class="rv">Reserve your slot.<br><span class="mute">Pay nothing until it ships.</span></h2>
-    <p class="lead rv">The industry pattern is to charge a subscription for a promise. We're inverting that. Reserve a founding-tier slot with your email. No card entered, no charge to worry about. When R·01 ships + a paying customer can independently verify every claim on this page, we'll write and let you activate the subscription at your locked-in founding-tier rate. If we haven't shipped by <b style="color:var(--core-deep)">2027-09-14</b>, we release the reserve list — no obligation, no dark pattern.</p>
+    <p class="lead rv">The industry charges a subscription for a promise. We invert that. Reserve a founding-tier slot with your email: no card entered, no charge. Once R·01 ships + a paying customer can independently verify every claim on this page, we'll write and let you activate the subscription at your locked-in founding-tier rate. If we haven't shipped by <b style="color:var(--core-deep)">2027-09-14</b>, we release the reserve list: no obligation, no dark pattern.</p>
 
     <div class="docs rv" style="grid-template-columns:1fr 1fr;margin-top:56px">
       <div class="doc">
@@ -684,17 +613,17 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">THE PERMANENCE GUARANTEE</div>
     <h2 class="rv">If VF ever exits,<br><span class="mute">your shield stays yours.</span></h2>
-    <p class="lead rv">Norton was acquired into Gen Digital. Kaspersky got banned in 13 jurisdictions. Avast was fined $16.5M for selling browsing history. LastPass users watched their vaults get breached with no jurisdictional recourse. Every incumbent in this market has, at some point, either exited, been acquired away from its trust posture, or been documented harming its users. Guardian Shield's answer is a contractually-enforceable Permanence Guarantee — the differentiator against every past disappointment.</p>
+    <p class="lead rv">Norton was acquired into Gen Digital. Kaspersky got banned in 13 jurisdictions. Avast was fined $16.5M for selling browsing history. LastPass users watched their vaults get breached with no jurisdictional recourse. Each of those incumbents has, at some point, exited, been acquired away from its trust posture, or been documented harming its users. Guardian Shield's answer is a contractually-enforceable Permanence Guarantee.</p>
 
     <div class="outs rv" style="grid-template-columns:repeat(2,1fr);margin-top:52px">
       <div class="c">
         <div class="n">Source · released within 90 days<span>.</span></div>
-        <p>If VF Empire ever discontinues Guardian Shield, the full source code — Rust core, all three clients, all four backend services, CI + build toolchain — is released under a permissive open-source licence within 90 days. Escrowed in Malta + Ireland, insurance-funded execution.</p>
+        <p>If VF Empire ever discontinues Guardian Shield, VF releases the full source code (Rust core, all three clients, all four backend services, CI + build toolchain) under a permissive open-source licence within 90 days. Escrowed in Malta + Ireland, insurance-funded execution.</p>
         <div class="sub">Enforceable via <b>Terms § 8</b> in Malta courts</div>
       </div>
       <div class="c">
         <div class="n">Transparency log · verifiable forever<span>.</span></div>
-        <p>Every signed pack + firmware release entered in a public Merkle-tree log. Verification keys mirrored to Software Heritage + Wayback Machine. A signature Guardian Shield produced in 2029 will still verify in 2049 — even if VF no longer exists.</p>
+        <p>Every signed pack + firmware release entered in a public Merkle-tree log. Verification keys mirrored to Software Heritage + Wayback Machine. A signature Guardian Shield produced in 2029 will still verify in 2049, even if VF no longer exists.</p>
         <div class="sub">Public keys at <b>transparency.vfempire.com/keys</b></div>
       </div>
       <div class="c">
@@ -704,7 +633,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
       </div>
       <div class="c">
         <div class="n">Signed packs · 6-month runway<span>.</span></div>
-        <p>If Guardian Shield ends, the pack-distributor stays online for six months post-announcement — signed daily updates continue, giving every licence-holder time to migrate to another suite or take over pack production under the released source. Insurance-funded.</p>
+        <p>If Guardian Shield ends, the pack-distributor stays online for six months post-announcement; signed daily updates continue, giving every licence-holder time to migrate to another suite or take over pack production under the released source. Insurance-funded.</p>
         <div class="sub">Runway underwritten by <b>Lloyd's-syndicated policy</b></div>
       </div>
     </div>
@@ -720,7 +649,7 @@ html{scrollbar-width:none;-ms-overflow-style:none}
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Own your shield<span class="mute">, finally.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Reserve a founding-tier slot — no card, no charge until R·01 ships + you activate. Or write to commission a variant your organisation needs before public launch.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Reserve a founding-tier slot: no card, no charge until R·01 ships + you activate. Or write to commission a variant your organisation needs before public launch.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=Guardian%20Shield%20founding-tier%20reserve&body=I%27d%20like%20to%20reserve%20a%20founding-tier%20slot.%20Notify%20me%20when%20R%C2%B701%20ships.">Reserve founding-tier slot</a>
     </div>
@@ -730,13 +659,13 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 <footer>
   <div class="legal">
     <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU</span>
-    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/#pipeline">The build slate</a></span>
+    <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/security">Security</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
   </div>
 </footer>
 
 <div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
   <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
-  <p>This site uses <strong>no tracking, no analytics and no advertising cookies</strong> — only what is strictly necessary to serve it securely. We still ask, because that's how we build everything. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
   <div class="row">
     <button class="dec" id="cdec">Decline</button>
     <button class="acc" id="cacc">Accept</button>
