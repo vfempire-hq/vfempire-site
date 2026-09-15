@@ -9,6 +9,7 @@
 <meta name="theme-color" content="#fbfbfd">
 <link rel="stylesheet" href="/house.css">
 <script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
 <meta property="og:title" content="VF Empire | The systems house for open intelligence">
@@ -80,9 +81,6 @@
 }
 </script>
 <style>
-.nl{display:flex;gap:30px;margin-left:8px}
-.nl button,.nl a{all:unset;cursor:pointer;font-family:inherit;font-size:12.5px;color:#3a3a3c;letter-spacing:.01em;padding:6px 2px;transition:color .2s}
-.nl button:hover,.nl a:hover{color:var(--core)}
 
 /* dropdown flyouts */
 .fly{position:fixed;top:52px;left:0;right:0;z-index:99;background:rgba(251,251,253,.92);backdrop-filter:blur(30px) saturate(1.8);-webkit-backdrop-filter:blur(30px) saturate(1.8);border-bottom:1px solid rgba(0,0,0,.06);overflow:hidden;max-height:0;opacity:0;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s}
@@ -265,7 +263,6 @@
 @media(max-width:600px){.rt-card{width:300px;margin-left:-150px;min-height:360px}.rt-stage{height:440px}}
 
 @media(max-width:880px){
-  .nl{display:none}
   .claims{grid-template-columns:1fr}
   .prods{grid-template-columns:1fr}
   .pc.wide{grid-template-columns:1fr;padding:36px 36px 0}

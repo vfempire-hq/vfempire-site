@@ -49,6 +49,12 @@ img{max-width:100%}
 .nav .crumb b{color:var(--ink);font-weight:600}
 .nav .cta{margin-left:auto;flex-shrink:0;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--ink);padding:7px 16px;border-radius:99px;transition:background .25s,transform .25s;white-space:nowrap}
 .nav .cta:hover{background:var(--core);transform:translateY(-1px)}
+.nl{display:flex;gap:30px;margin-left:8px}
+.nl button,.nl a{all:unset;cursor:pointer;font-family:inherit;font-size:12.5px;color:#3a3a3c;letter-spacing:.01em;padding:6px 2px;transition:color .2s;white-space:nowrap}
+.nl button:hover,.nl a:hover{color:var(--core)}
+.nav .crumb+.nl{margin-left:auto;gap:22px}
+.nav .crumb+.nl+.cta{margin-left:0}
+@media(max-width:880px){.nl{display:none}}
 @media(max-width:640px){.nav .crumb{display:none}}
 
 /* ---------- sections + type ---------- */

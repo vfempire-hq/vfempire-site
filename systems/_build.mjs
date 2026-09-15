@@ -41,6 +41,7 @@ const page = c => `<!DOCTYPE html>
 <meta name="theme-color" content="#fbfbfd">
 <link rel="stylesheet" href="/house.css">
 <script src="/assets/scrollrail.js" defer></script>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
 <meta property="og:title" content="${c.name}: ${c.ogTitle}">
@@ -184,6 +185,7 @@ ${pricingCss}
       VF EMPIRE
     </a>
     <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>${c.pn} ${c.name}</b></span>
+    <div class="nl"><a href="/#pipeline">Systems</a><a href="/software">Software</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
   </div>
 </nav>
