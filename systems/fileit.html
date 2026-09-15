@@ -625,19 +625,19 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 
 <section id="status">
   <div class="wrap">
-    <div class="k rv">BUILD STATUS · 2026-09-15</div>
-    <h2 class="rv">In build.<br><span class="mute">Not yet on sale. Honest about it.</span></h2>
-    <p class="lead rv">FileIT is architecturally spec-complete + audit-reviewed, but the code implementing filings to HMRC MTD + ELSTER + CFR + ROS is a multi-month build with full jurisdictional legal review. We won't take a subscription payment until every filing lane is live + independently verifiable. The industry sold subscriptions for tax software that missed deadlines, filed wrong returns, or vanished with users' data — we won't repeat any of that.</p>
+    <div class="k rv">BUILD STATUS · 2026-09-15 · UPDATED WITH 73 TESTS GREEN</div>
+    <h2 class="rv">In build.<br><span class="mute">73 tests passing. Real code. Real HMRC 2026-27 rates.</span></h2>
+    <p class="lead rv">FileIT is architecturally spec-complete + audit-reviewed, and the tax-engine foundation is now running with real code + real test coverage against real HMRC rates. Wave 1 (rule evaluator + UK rules + VAT100 mapper) + Wave 2 (gateway ledger + tax routes + CI pipeline) shipped this session — 73 passing tests across the tax-engine core, UK jurisdictional pack, and Fastify HTTP gateway. Multi-month build remaining for the actual submission-to-authority lanes + full-jurisdiction coverage — we still won't take a subscription payment until every filing lane is live + independently verifiable.</p>
 
     <div class="outs rv" style="grid-template-columns:repeat(2,1fr);margin-top:52px">
       <div class="c">
         <div class="n">What ships today<span>.</span></div>
-        <p>Full architecture spec (10 ADRs), threat model, privacy model + DPIA, 11-doc investor pack, 3 operational runbooks, 4 jurisdiction compliance dossiers (Malta CFR / UK MTD / Germany ELSTER / Ireland ROS). Zod schema contracts across ledger + ingest + filing + tax + MCP. Rule-engine core primitives + UK rules pack skeleton. FSL-licensed public source; gitleaks-clean CI (pending activation).</p>
-        <div class="sub">Verifiable at <b><a href="https://github.com/vfempire-hq/fileit" style="color:var(--core-deep)">github.com/vfempire-hq/fileit</a></b></div>
+        <p>Full architecture spec (10 ADRs), threat + privacy models + DPIA, 4 jurisdiction compliance dossiers, 11-doc investor pack. <b>Working code + 73 passing tests</b>: safe-expression rule evaluator (recursive-descent parser, 9 builtins, no eval), 6 UK 2026-27 rules against real HMRC rates (Personal Allowance + basic/higher/additional bands + VAT standard rate + VAT registration threshold), VAT100 field mapper for HMRC MTD, gateway ledger + tax routes wired with Ed25519 client-signature verification + TOFU signer binding + origin-signed responses. CI: typecheck + tests + gitleaks on every push. FSL-1.1-ALv2 licensed public source.</p>
+        <div class="sub">Verifiable at <b><a href="https://github.com/vfempire-hq/fileit" style="color:var(--core-deep)">github.com/vfempire-hq/fileit</a></b> · latest commit <b>f2ced82</b></div>
       </div>
       <div class="c">
         <div class="n">What still needs building<span>.</span></div>
-        <p>Rule evaluator + 12 return types (VAT100, SA100, CT600, USt-VA, ESt, KSt, CFR-VAT, CFR-PIT, CFR-CIT, ROS-VAT3, Form11, Form12). Filing adapters to all four authorities. PSD2 ingest (TrueLayer/Yapily). Local-AI classifier. Reconciliation engine. Encrypted-at-rest ledger. Postgres persistence. ERiC Rust FFI wrapper. Test coverage. External audit. Full R·01 build estimate: 3-6 months once the team is engaged.</p>
+        <p>Remaining 11 return-type mappers (SA100, CT600, USt-VA, ESt, KSt, CFR-VAT, CFR-PIT, CFR-CIT, ROS-VAT3, Form11, Form12). Real HMRC MTD OAuth + submission client (we compose the payload; still need to send it). Malta / Germany / Ireland rule packs. PSD2 ingest (TrueLayer / Yapily). Local-AI classifier (llama.cpp). Reconciliation engine. Encrypted-at-rest Postgres persistence (currently in-memory). ERiC Rust FFI wrapper. External security audit. Full R·01 remaining estimate: 3-5 months once the team is engaged.</p>
         <div class="sub">Full ledger at <b><a href="https://github.com/vfempire-hq/fileit/blob/main/docs/BUILD-STATUS-2026-09-15.md" style="color:var(--core-deep)">docs/BUILD-STATUS-2026-09-15.md ▸</a></b></div>
       </div>
     </div>
