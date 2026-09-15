@@ -3,24 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FileIT: the self-filing ledger | VF Empire</title>
+<title>FileIT — the self-filing ledger | VF Empire</title>
 <meta name="description" content="FileIT: your complete end-to-end tax accountant. Ingest → classify → reconcile → file. Directly to HMRC MTD, ELSTER, CFR, ROS. Local-first, encrypted client-side, human + AI. In build at VF Empire.">
 <link rel="canonical" href="https://vfempire.com/systems/fileit">
 <meta name="theme-color" content="#fbfbfd">
 <link rel="stylesheet" href="/house.css">
 <script src="/assets/scrollrail.js" defer></script>
-<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VF Empire">
-<meta property="og:title" content="FileIT: the self-filing ledger">
-<meta property="og:description" content="Accounting that ends in a filed return. Statutory accounts + returns pushed straight to the registry + tax office. Malta, UK, Germany, Ireland at R·01.">
+<meta property="og:title" content="FileIT — the self-filing ledger">
+<meta property="og:description" content="Accounting that ends in a filed return, not a PDF. Statutory accounts + returns pushed straight to the registry + tax office. Malta, UK, Germany, Ireland at R·01.">
 <meta property="og:url" content="https://vfempire.com/systems/fileit">
 <meta property="og:image" content="https://vfempire.com/assets/pipe/p15.png">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FileIT: the self-filing ledger">
-<meta name="twitter:description" content="Accounting that ends in a filed return. Statutory accounts + returns pushed straight to the registry + tax office. Malta, UK, Germany, Ireland at R·01.">
+<meta name="twitter:title" content="FileIT — the self-filing ledger">
+<meta name="twitter:description" content="Accounting that ends in a filed return, not a PDF. Statutory accounts + returns pushed straight to the registry + tax office. Malta, UK, Germany, Ireland at R·01.">
 <meta name="twitter:image" content="https://vfempire.com/assets/pipe/p15.png">
 <link rel="preload" href="/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5f5f7'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%231d1d1f' text-anchor='middle'%3EVF%3C/text%3E%3C/svg%3E">
@@ -35,7 +34,7 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Local-first, self-hosted",
       "creator": {"@id": "https://vfempire.com/#org"},
-      "description": "FileIT: complete end-to-end tax accountant. Ingests bank + card + invoice + receipt + payroll data, classifies locally with inspectable AI, reconciles the ledger, prepares VAT + Income + Corporation Tax returns, files direct to HMRC MTD + ELSTER + CFR + ROS. Malta + UK + Germany + Ireland at R·01. Client-side encrypted; server never sees plaintext. In build at VF Empire."
+      "description": "FileIT — complete end-to-end tax accountant. Ingests bank + card + invoice + receipt + payroll data, classifies locally with inspectable AI, reconciles the ledger, prepares VAT + Income + Corporation Tax returns, files direct to HMRC MTD + ELSTER + CFR + ROS. Malta + UK + Germany + Ireland at R·01. Client-side encrypted; server never sees plaintext. In build at VF Empire."
     },
     {
       "@type": "BreadcrumbList",
@@ -62,7 +61,7 @@
 .pheroart{position:relative;opacity:0;animation:up 1.2s .5s cubic-bezier(.2,.7,.2,1) forwards}
 .pheroart img{display:block;width:min(430px,84vw);margin:0 auto;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%);mask-image:radial-gradient(ellipse 68% 72% at 50% 48%,#000 58%,transparent 88%)}
 
-/* why: the failures */
+/* why — the failures */
 .fails{margin-top:56px;border-top:1px solid var(--line)}
 .fl{display:grid;grid-template-columns:70px 1.1fr 1.6fr;align-items:start;gap:26px;padding:30px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding-left .3s}
 .fl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--core);transform:scaleY(0);transition:transform .3s}
@@ -79,7 +78,7 @@
 .band img{display:block;width:100%;mix-blend-mode:multiply}
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 
-/* who: audience bento */
+/* who — audience bento */
 .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 .au{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:transform .35s,box-shadow .35s}
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
@@ -96,7 +95,7 @@
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
 @media(max-width:880px){.aud{grid-template-columns:1fr}.au.first{grid-template-columns:1fr;gap:4px}}
 
-/* how: outcomes strip */
+/* how — outcomes strip */
 .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
 .outs .c{background:#fff;padding:34px 30px}
 .outs .c .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
@@ -104,7 +103,7 @@
 .outs .c p{font-size:13px;color:var(--dove);margin-top:10px;line-height:1.6}
 @media(max-width:880px){.outs{grid-template-columns:1fr}}
 
-/* mechanics: the stack */
+/* mechanics — the stack */
 .mech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
 .mechart img{display:block;width:100%;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 55%,transparent 92%)}
 .layers{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -252,7 +251,7 @@
   100%       {transform:translate3d(0,    0px, 110px); z-index:30}
 }
 
-/* 2-tier orbit: 180° swap between front and back */
+/* 2-tier orbit — 180° swap between front and back */
 @keyframes pxOrbit2{
   0%,38.5%   {transform:translate3d(0,    0px, 110px); z-index:30}
   40%        {transform:translate3d(0,  +55px,  95px); z-index:27}
@@ -331,7 +330,6 @@
       VF EMPIRE
     </a>
     <span class="crumb"><a href="/#pipeline">Under Construction</a> &nbsp;/&nbsp; <b>P·04 FileIT</b></span>
-    <div class="nl"><a href="/#pipeline">Systems</a><a href="/software">Software</a><a href="/security">Security</a><a href="/contact/">Contact</a></div>
     <a class="cta" href="mailto:info@vfempire.com">Commission a system</a>
   </div>
 </nav>
@@ -340,7 +338,7 @@
   <div>
     <div class="eb"><b>P·04</b> &nbsp;·&nbsp; ACCOUNTING &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>FileIT<span>The <em class="i">self-filing ledger.</em></span></h1>
-    <p class="sub">Accounting products stop at a PDF and a wish. FileIT keeps going: from the ledger, through statutory accounts, to a stamped, receipted submission at the registry and the tax office. Human + AI working together, on infrastructure you own, filed direct to HMRC MTD + ELSTER + CFR + ROS.</p>
+    <p class="sub">Every accounting product on the market stops at a PDF and a wish. FileIT keeps going — from the ledger, through statutory accounts, to a stamped submission at the registry and the tax office. Filed, receipted, done. Human + AI working together, on infrastructure you own, filed direct to HMRC MTD + ELSTER + CFR + ROS.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD · R·01 SPEC-COMPLETE</span>
       <span class="mchip">MT · UK · DE · IE</span>
@@ -350,34 +348,35 @@
       <span class="mchip">FSL LICENCE</span>
     </div>
     <div class="acts">
-      <a class="bt pri" href="#pricing">Reserve founding-tier slot</a>
+      <a class="bt pri" href="/preview/fileit/">Open workstation preview ▸</a>
+      <a class="bt gho" href="#pricing">Reserve founding-tier slot</a>
       <a class="bt gho" href="#status">Read the honest build status</a>
     </div>
   </div>
-  <div class="pheroart"><img src="../assets/pipe/p15.png" alt="FileIT: a seal stamp descending on a stack of statutory documents"></div>
+  <div class="pheroart"><img src="../assets/pipe/p15.png" alt="FileIT — a seal stamp descending on a stack of statutory documents"></div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">The last mile of accounting<br><span class="mute">was never built.</span></h2>
-    <p class="lead rv">Small companies do simple books and owe simple filings, yet the path from one to the other runs through subscriptions, portals and professional fees that cost more than the accounting itself. The four failures below add up to one gap.</p>
+    <p class="lead rv">Small companies do simple books and owe simple filings — yet the path from one to the other runs through subscriptions, portals and professional fees that cost more than the accounting itself. Four failures, one gap.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
         <h4>Software stops at the PDF</h4>
-        <p>Bookkeeping tools produce reports, exports and dashboards, then hand you back the obligation itself. They leave the statutory filing, the one thing the company legally owes, as an exercise for the reader.</p>
+        <p>Bookkeeping tools produce reports, exports and dashboards — then hand you back the actual obligation. The statutory filing, the one thing the company legally owes, is left as an exercise for the reader.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
         <h4>The free lanes are closing</h4>
-        <p>Governments are retiring self-filing services in favour of software-only submission. In the UK, both the registry's web filing for accounts and the tax authority's free company return service are on the way out. That pushes small companies into commercial software whether they want it or not.</p>
+        <p>Government self-filing services are being retired in favour of software-only submission — in the UK, both the registry's web filing for accounts and the tax authority's free company return service are on the way out. Every small company will be pushed into commercial software whether it wants it or not.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
         <h4>Priced for practices, not companies</h4>
-        <p>Vendors build filing software for accountancy firms processing hundreds of clients, and price it that way. A single company with twelve transactions a year gets the same seat licence as a practice, or nothing.</p>
+        <p>Filing software is built for accountancy firms processing hundreds of clients, and priced that way. A single company with twelve transactions a year is offered the same seat licence as a practice — or nothing.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
@@ -387,7 +386,7 @@
     </div>
 
     <div class="band rv">
-      <img src="../assets/pipe/p15-flow.png" alt="Documents passing through the filing gate: each sheet scanned before submission">
+      <img src="../assets/pipe/p15-flow.png" alt="Documents passing through the filing gate — each sheet scanned before submission">
       <span class="cap">EVERY RETURN PASSES THE GATE BEFORE IT LEAVES</span>
     </div>
   </div>
@@ -405,29 +404,29 @@
         </div>
         <div>
           <h4>Our own companies first</h4>
-          <p>The VF network runs three companies in three jurisdictions: Malta, Germany and the United Kingdom. Every one of their books, accounts and returns goes through this system before any customer's does. If it can't file for us, it doesn't ship. The proof runs on our own floor.</p>
+          <p>The VF network runs three companies in three jurisdictions — Malta, Germany and the United Kingdom. Every one of their books, accounts and returns goes through this system before any customer's does. If it can't file for us, it doesn't ship. That's the VF way: the proof runs on our own floor.</p>
           <div class="co"><span>VF EMPIRE CORP · MT</span><span>NOIRDA GMBH · DE</span><span>GUARDIAN NETWORK · UK</span></div>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></div>
         <h4>Single-director companies</h4>
-        <p>The founder who runs the whole company from one laptop, and shouldn't need a second monthly subscription and an annual professional fee to stay legal.</p>
+        <p>The founder who runs the whole company from one laptop — and shouldn't need a second monthly subscription and an annual professional fee to stay legal.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 8v8m-4-4h8"/><circle cx="12" cy="12" r="9"/></svg></div>
         <h4>Dormant &amp; holding companies</h4>
-        <p>Companies formed ahead of trading, holding vehicles, name protections. They owe one statement and one set of dormant accounts a year: a five-minute job the market prices in hundreds.</p>
+        <p>Companies formed ahead of trading, holding vehicles, name protections. They owe one statement and one set of dormant accounts a year — a five-minute job the market prices in hundreds.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 4v5"/></svg></div>
         <h4>Micro &amp; small companies</h4>
-        <p>Sub-ten-person firms with real but simple trade: invoices in, expenses out, one return a year. Enterprise accounting never scales down to them; FileIT starts there.</p>
+        <p>Sub-ten-person firms with real but simple trade: invoices in, expenses out, one return a year. Enterprise accounting never scales down to them — this starts down.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7M18 11v7m0 0l-3-3m3 3l3-3"/></svg></div>
         <h4>Small practices, later</h4>
-        <p>The same lanes, multiplied: a filing engine an independent accountant can run for a book of small clients, on their own machine, at a price that matches the work.</p>
+        <p>The same lanes, multiplied: a filing engine an independent accountant can run for a book of small clients — on their own machine, at a price that matches the work.</p>
       </div>
     </div>
   </div>
@@ -437,12 +436,12 @@
   <div class="wrap">
     <div class="k rv">WHAT IT CHANGES</div>
     <h2 class="rv">From records<br><span class="mute">to receipts.</span></h2>
-    <p class="lead rv">The measure of an accounting system is the obligation it discharges. Judge FileIT on one thing: returns filed, evidence in hand.</p>
+    <p class="lead rv">The measure of an accounting system isn't the report it renders — it's the obligation it discharges. FileIT is judged on one thing: returns filed, evidence in hand.</p>
 
     <div class="outs rv">
-      <div class="c"><div class="n">One continuous line<span>.</span></div><p>Transactions to trial balance to statutory accounts to submission: one system, no export, no re-keying, no handover to a portal.</p></div>
-      <div class="c"><div class="n">Deadlines that watch you<span>.</span></div><p>The ledger knows every filing the company owes in its jurisdiction (confirmation statements, accounts, tax returns) and runs the calendar so the director doesn't have to.</p></div>
-      <div class="c"><div class="n">Proof on file<span>.</span></div><p>Every submission returns a registry acknowledgment, stored against the filing. The stamped receipt is the evidence.</p></div>
+      <div class="c"><div class="n">One continuous line<span>.</span></div><p>Transactions to trial balance to statutory accounts to submission — one system, no export, no re-keying, no handover to a portal.</p></div>
+      <div class="c"><div class="n">Deadlines that watch you<span>.</span></div><p>The ledger knows every filing the company owes in its jurisdiction — confirmation statements, accounts, tax returns — and runs the calendar so the director doesn't have to.</p></div>
+      <div class="c"><div class="n">Proof, not promises<span>.</span></div><p>Every submission returns a registry acknowledgment, stored against the filing. The system's word is never the evidence — the stamped receipt is.</p></div>
     </div>
   </div>
 </section>
@@ -458,19 +457,19 @@
       <div class="layers">
         <div class="ly">
           <div class="lt"><i>LAYER 1</i><h4>Ledger core</h4></div>
-          <p>A double-entry engine that runs local-first on the owner's machine. Deterministic arithmetic, full audit trail, no cloud dependency: the books never leave the building.</p>
+          <p>A double-entry engine that runs local-first on the owner's machine. Deterministic arithmetic, full audit trail, no cloud dependency — the books never leave the building.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 2</i><h4>Mapping engine</h4></div>
-          <p>The judgement layer: open models classify transactions and map the trial balance onto each jurisdiction's statutory format and digital taxonomy. Model-assisted, never model-trusted: every mapping traces back to source entries.</p>
+          <p>The judgement layer: open models classify transactions and map the trial balance onto each jurisdiction's statutory format and digital taxonomy. Model-assisted, never model-trusted — every mapping traces back to source entries.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 3</i><h4>Filing adapters</h4></div>
-          <p>One adapter per authority (company registry and tax office, per country), speaking each system's native submission protocol. Jurisdictions are plug-ins: the UK first, Malta and Germany on our own books next.</p>
+          <p>One adapter per authority — company registry and tax office, per country — speaking each system's native submission protocol. Jurisdictions are plug-ins: the UK first, Malta and Germany on our own books next.</p>
         </div>
         <div class="ly">
           <div class="lt"><i>LAYER 4</i><h4>The gate</h4></div>
-          <p>The VF harness discipline applied to accounts: no figure files unless it reconciles to the ledger, and no return leaves without passing evaluation. Failed checks stop the filing.</p>
+          <p>The VF harness discipline applied to accounts: no figure files unless it reconciles to the ledger, and no return leaves without passing evaluation. Failed checks stop the filing — not the other way round.</p>
         </div>
       </div>
     </div>
@@ -492,7 +491,7 @@
       <div class="rd">
         <span class="num">R·02</span>
         <h4>France · NL · ES · IT + accountant mode</h4>
-        <p>Four more EU jurisdictions. Full payroll parity (RTI, DATEV-Lohn, ELSTER-Lohn, PMOD). Accountant collaboration mode: your existing adviser reviews before you file. Xero, FreeAgent and QuickBooks import. Cross-border OSS/IOSS digital-services VAT. Desktop Tauri client.</p>
+        <p>Four more EU jurisdictions. Full payroll parity (RTI, DATEV-Lohn, ELSTER-Lohn, PMOD). Accountant collaboration mode — your existing adviser reviews before you file. Xero, FreeAgent and QuickBooks import. Cross-border OSS/IOSS digital-services VAT. Desktop Tauri client.</p>
         <span class="st">NEXT</span>
       </div>
       <div class="rd">
@@ -506,14 +505,14 @@
     <div class="docs rv">
       <div class="doc">
         <span class="dk">ENGINEERING SPEC</span>
-        <h4>FileIT: the full build plan</h4>
+        <h4>FileIT — the full build plan</h4>
         <p>Thirteen-section spec covering ingest normaliser, hybrid AI architecture, tax-engine rules DSL, filing adapters per authority, MCP server, human-AI collaboration model and the banned-dependency list.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/fileit/blob/main/docs/architecture/fileit-spec.md">PUBLISHED · 2026-09-13 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">THREAT MODEL</span>
         <h4>STRIDE across eight adversary tiers</h4>
-        <p>From nation-state signature-supply-chain attack to hostile household adversary. Every primary threat named with residual-risk analysis, plus the DPIA covering all four R·01 jurisdictions.</p>
+        <p>From nation-state signature-supply-chain attack to hostile household adversary. Every primary threat named with residual-risk analysis — plus the DPIA covering all four R·01 jurisdictions.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/fileit/blob/main/docs/security/threat-model.md">PUBLISHED · 2026-09-13 →</a></span>
       </div>
       <div class="doc">
@@ -524,7 +523,7 @@
       </div>
       <div class="doc">
         <span class="dk">INVESTOR PACK</span>
-        <h4>Full DD pack: 11 documents</h4>
+        <h4>Full DD pack — 11 documents</h4>
         <p>Executive summary, product, market and competitors, traction targets, technology and IP, team and hire plan, financials, risks, the ask (€2–4m seed), data-room process and the four-product portfolio context.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/fileit/tree/main/docs/investor">PUBLISHED · 2026-09-13 →</a></span>
       </div>
@@ -541,11 +540,11 @@
       <div class="sysreqhead">
         <div class="k rv">SYSTEM REQUIREMENTS</div>
         <h2 class="rv">What the ledger needs</h2>
-        <p class="lead rv">Everything you need on your side to run it,<br/>and nothing you don&rsquo;t.</p>
+        <p class="lead rv">Everything you need on your side to run it.<br/>Nothing you don&rsquo;t.</p>
       </div>
       <dl class="sysreqrows rv">
         <div class="sysreqrow"><dt>Regions</dt><dd>Malta and UK from day one; wider EU roadmap.</dd></div>
-        <div class="sysreqrow"><dt>Import</dt><dd>From Xero, QuickBooks or Sage, or start clean.</dd></div>
+        <div class="sysreqrow"><dt>Import</dt><dd>From Xero, QuickBooks, Sage — or start clean.</dd></div>
         <div class="sysreqrow"><dt>Bank</dt><dd>Read-only feeds; you approve every filing.</dd></div>
         <div class="sysreqrow"><dt>Sovereignty</dt><dd>Books export in one click; you own the data outright.</dd></div>
       </dl>
@@ -556,15 +555,15 @@
 
 <section id="status">
   <div class="wrap">
-    <div class="k rv">BUILD STATUS · 2026-09-15 · 122 TESTS GREEN · UK + MT LIVE</div>
-    <h2 class="rv">In build.<br><span class="mute">122 tests passing. UK + Malta both computing tax.</span></h2>
-    <p class="lead rv">FileIT is architecturally spec-complete + audit-reviewed, with real code shipping across the tax engine, both UK and Malta jurisdiction packs, and the HMRC MTD submission lane. Five engineering waves this session: Wave 1 (rule evaluator + UK rules + VAT100), Wave 2 (gateway + CI), Wave 3 (SA100 + ledger tests), Wave 4 (HMRC OAuth + submission), Wave 5 (Malta rule pack + multi-jurisdiction gateway dispatch). Result: 122 passing tests, two live jurisdictions computing real tax. Multi-month build remaining for full-jurisdiction coverage (DE + IE) + HMRC software recognition + real live production submissions. We still won't take a subscription payment until every filing lane is live + independently verifiable.</p>
+    <div class="k rv">BUILD STATUS · 2026-09-15 · 123 TESTS · E2E PIPELINE VERIFIED</div>
+    <h2 class="rv">In build.<br><span class="mute">End-to-end pipeline works: rules → compute → return → sign → submit.</span></h2>
+    <p class="lead rv">FileIT is architecturally spec-complete + audit-reviewed, with real code shipping across the tax engine, UK + Malta jurisdiction packs, HMRC MTD submission lane, and — <b>as of Wave 6</b> — a working end-to-end integration test that walks the full critical path from rule-pack load through mock-HMRC submission in a single Vitest run. Six engineering waves this session, 123 passing tests, two live jurisdictions, the HMRC MTD OAuth + submission lane real. The e2e test asserts HMRC receives the exact numbers the tax engine computed — zero drift between rule-pack output and wire-level submission. Multi-month build remaining for full-jurisdiction coverage (DE + IE) + HMRC software recognition + real live production submissions — we still won't take a subscription payment until every filing lane is live + independently verifiable.</p>
 
     <div class="outs rv" style="grid-template-columns:repeat(2,1fr);margin-top:52px">
       <div class="c">
         <div class="n">What ships today<span>.</span></div>
         <p>Full architecture spec (10 ADRs), threat + privacy models + DPIA, 4 jurisdiction compliance dossiers, 11-doc investor pack. <b>Working code + 122 passing tests</b>: safe-expression rule evaluator (recursive-descent, 9 builtins, no eval), <b>6 UK 2026-27 rules</b> against real HMRC rates, <b>2 Malta 2026 rules</b> against real CFR rates (VAT 18% + PIT single-status band 1), <b>VAT100 + SA100</b> HMRC MTD field mappers, gateway ledger + tax routes with multi-jurisdiction dispatch (UK + MT live, DE + IE stub) + Ed25519 client-sig + TOFU binding + cross-protocol-replay guard + origin-signed responses, <b>HMRC MTD adapter</b> with OAuth 2.0 token refresh + VAT100/SA100 submission clients (sandbox default, production-gated by env). CI + FSL-1.1-ALv2 source.</p>
-        <div class="sub">Verifiable at <b><a href="https://github.com/vfempire-hq/fileit" style="color:var(--core-deep)">github.com/vfempire-hq/fileit</a></b> · latest commit <b>358afae</b></div>
+        <div class="sub"><a href="/preview/fileit/" style="color:var(--core-deep);font-weight:700">▸ Open the workstation preview</a> · Verifiable at <b><a href="https://github.com/vfempire-hq/fileit" style="color:var(--core-deep)">github.com/vfempire-hq/fileit</a></b> · latest commit <b>71fae64</b></div>
       </div>
       <div class="c">
         <div class="n">What still needs building<span>.</span></div>
@@ -580,7 +579,7 @@
   <div class="wrap">
     <div class="k rv">FOUNDING-TIER RESERVE</div>
     <h2 class="rv">Reserve your slot.<br><span class="mute">Pay nothing until it ships.</span></h2>
-    <p class="lead rv">A traditional accountant runs €900–1 500 a year. FileIT is priced far below that, but only when the code works. Reserve a founding-tier slot with your email. No card entered, no charge to worry about. Once R·01 ships, a paying customer can independently verify every claim on this page, and a filing has been successfully submitted through each of HMRC MTD, ELSTER, CFR, and ROS, we'll write and let you activate the subscription at your locked-in founding-tier rate. If we haven't shipped by <b style="color:var(--core-deep)">2028-03-15</b>, we release the reserve list: no obligation, no dark pattern.</p>
+    <p class="lead rv">A traditional accountant runs €900–1 500 a year. FileIT is priced far below that — but only when the code works. Reserve a founding-tier slot with your email. No card entered, no charge to worry about. When R·01 ships + a paying customer can independently verify every claim on this page + a filing has been successfully submitted through each of HMRC MTD, ELSTER, CFR, and ROS, we'll write and let you activate the subscription at your locked-in founding-tier rate. If we haven't shipped by <b style="color:var(--core-deep)">2028-03-15</b>, we release the reserve list — no obligation, no dark pattern.</p>
 
     <div class="docs rv" style="grid-template-columns:1fr 1fr;margin-top:56px">
       <div class="doc">
@@ -592,7 +591,7 @@
       <div class="doc">
         <span class="dk">FOUNDING · SOFTWARE · FIRST 1000</span>
         <h4>Ledger + reconciliation + AI classification, without filing</h4>
-        <p>The self-filing ledger without the filing layer, for people who already have an accountant handling submissions but want honest bookkeeping software with local-AI classification + client-side encryption. Founding rate locked forever.</p>
+        <p>The self-filing ledger without the filing layer — for people who already have an accountant handling submissions but want honest bookkeeping software with local-AI classification + client-side encryption. Founding rate locked forever.</p>
         <span class="tba">€12 / MONTH · LIFETIME-LOCKED · WHEN SHIPPED</span>
       </div>
     </div>
@@ -612,7 +611,7 @@
   <div class="wrap">
     <div class="k rv">FOLLOW THE BUILD</div>
     <h2 class="rv">Your company files itself<span class="mute"> next.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Reserve a founding-tier slot: no card, no charge until R·01 ships + you activate. Or write to commission a variant your organisation needs before public launch.</p>
+    <p class="lead rv" style="margin-left:auto;margin-right:auto">Reserve a founding-tier slot — no card, no charge until R·01 ships + you activate. Or write to commission a variant your organisation needs before public launch.</p>
     <div style="margin-top:36px">
       <a class="bt pri rv" href="mailto:info@vfempire.com?subject=FileIT%20founding-tier%20reserve&body=I%27d%20like%20to%20reserve%20a%20founding-tier%20slot.">Reserve founding-tier slot</a>
     </div>
