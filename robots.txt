@@ -5,6 +5,7 @@
 User-agent: *
 Allow: /
 Disallow: /dev/
+Disallow: /preview/
 Disallow: /_headers
 
 # ---- Modern AI search bots (they send referral traffic) ----

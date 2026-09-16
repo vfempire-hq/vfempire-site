@@ -26,6 +26,17 @@
   --ok:#0b7a3e;
   --amber:#c76b1d;
   --ease:cubic-bezier(.2,.7,.2,1);
+  /* motion vocabulary added 2026-09-16 for agent-page uplift; safe to use anywhere */
+  --ease-out-expo:cubic-bezier(.16,1,.3,1);
+  --ease-out-back:cubic-bezier(.34,1.56,.64,1);
+  --ease-in-out-quart:cubic-bezier(.76,0,.24,1);
+  --spring-soft:cubic-bezier(.5,1.5,.3,1);
+  --spring-firm:cubic-bezier(.4,2.2,.3,1);
+  --dur-fast:180ms;
+  --dur-base:320ms;
+  --dur-slow:560ms;
+  --dur-hero:900ms;
+  --stagger:60ms;
 }
 
 /* ---------- reset + base ---------- */
@@ -194,4 +205,73 @@ html{scrollbar-width:none;-ms-overflow-style:none}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
+  .stag>*{opacity:1;transform:none}
+  .lh-stage>*{opacity:1;transform:none}
 }
+
+/* ============================================================
+   uplift · added 2026-09-16
+   Motion helpers, magnetic elements, staggered reveals, and the
+   live-hero container used first on /preview/agents/auto-mate/.
+   Kept in house.css so any page can opt in.
+   ============================================================ */
+
+/* staggered children reveal (add .stag to parent; children fade + rise on view) */
+.stag>*{opacity:0;transform:translateY(22px);transition:opacity var(--dur-slow) var(--ease-out-expo),transform var(--dur-slow) var(--ease-out-expo)}
+.stag.on>*{opacity:1;transform:none}
+.stag.on>*:nth-child(1){transition-delay:0ms}
+.stag.on>*:nth-child(2){transition-delay:var(--stagger)}
+.stag.on>*:nth-child(3){transition-delay:calc(var(--stagger)*2)}
+.stag.on>*:nth-child(4){transition-delay:calc(var(--stagger)*3)}
+.stag.on>*:nth-child(5){transition-delay:calc(var(--stagger)*4)}
+.stag.on>*:nth-child(6){transition-delay:calc(var(--stagger)*5)}
+.stag.on>*:nth-child(7){transition-delay:calc(var(--stagger)*6)}
+.stag.on>*:nth-child(8){transition-delay:calc(var(--stagger)*7)}
+
+/* mask-clip reveal for headings (add .maskrv to h2/h3; motion.js flips .on) */
+.maskrv{clip-path:inset(0 100% 0 0);transition:clip-path var(--dur-hero) var(--ease-in-out-quart)}
+.maskrv.on{clip-path:inset(0 0 0 0)}
+
+/* hairline draw-in accent (put an inline span with .draw inside a section header) */
+.draw{display:inline-block;height:1px;background:linear-gradient(90deg,transparent 0%,var(--core) 20%,var(--core) 80%,transparent 100%);width:0;opacity:.55;transition:width var(--dur-hero) var(--ease-out-expo);vertical-align:middle;margin:0 12px}
+.draw.on{width:56px}
+
+/* variable-weight settle on hero H1 (add .h1-settle; motion.js flips .on shortly after load) */
+.h1-settle{font-variation-settings:"wght" 400;transition:font-variation-settings var(--dur-hero) var(--ease-in-out-quart)}
+.h1-settle.on{font-variation-settings:"wght" 620}
+
+/* magnetic interactive elements: motion.js listens for [data-magnet] */
+[data-magnet]{transition:transform var(--dur-base) var(--spring-soft);will-change:transform}
+@media(hover:none){[data-magnet]{transform:none!important}}
+
+/* live-hero container (used by motion.js hero timelines) */
+.live-hero{margin:44px auto 0;width:min(720px,100%);aspect-ratio:16/10;background:linear-gradient(160deg,#f7f8fb,#eceff3);border:1px solid var(--line);border-radius:26px;position:relative;overflow:hidden;box-shadow:0 44px 90px -60px rgba(29,29,31,.28),inset 0 1px 0 rgba(255,255,255,.6)}
+.live-hero .lh-stage{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;padding:32px}
+.live-hero .lh-stage>*{opacity:0;transform:translateY(10px);transition:opacity var(--dur-base) var(--ease-out-expo),transform var(--dur-base) var(--ease-out-expo)}
+.live-hero .lh-stage>.on{opacity:1;transform:none}
+.live-hero .lh-cap{position:absolute;left:22px;bottom:18px;font-size:9.5px;letter-spacing:.24em;color:var(--dove);font-weight:600;text-transform:uppercase}
+
+/* auto-mate hero specifics */
+.lh-input{width:min(440px,88%);background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 24px 60px -34px rgba(29,29,31,.35)}
+.lh-input .lh-dot{width:8px;height:8px;border-radius:99px;background:var(--core);box-shadow:0 0 0 3px rgba(31,111,242,.15);flex-shrink:0}
+.lh-input .lh-text{font:inherit;font-size:14px;color:var(--ink);flex:1;letter-spacing:-.005em;white-space:nowrap;overflow:hidden}
+.lh-input .lh-caret{width:1.4px;height:16px;background:var(--core);animation:lh-blink 1.05s steps(2,end) infinite;flex-shrink:0}
+.lh-input .lh-hotkey{color:var(--faint);font-size:10px;letter-spacing:.2em;font-weight:600;flex-shrink:0}
+@keyframes lh-blink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+
+.lh-chips{display:flex;gap:8px;align-items:center;font-size:10.5px;letter-spacing:.14em;font-weight:600;text-transform:uppercase}
+.lh-chips .lh-lbl{color:var(--dove)}
+.lh-chips .lh-chip{background:#eff5ff;border:1px solid #c7dcff;color:var(--core-deep);padding:5px 11px;border-radius:99px}
+.lh-chips .lh-conf{color:var(--faint);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;text-transform:none}
+
+.lh-plan{width:min(440px,88%);background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:0 24px 60px -40px rgba(29,29,31,.3);font-size:12.5px}
+.lh-plan .lh-hd{font-size:10px;letter-spacing:.22em;color:var(--dove);font-weight:600;text-transform:uppercase;margin-bottom:10px}
+.lh-plan .lh-row{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:#3a3a3e;padding:5px 0;display:flex;align-items:center;gap:8px}
+.lh-plan .lh-row .lh-check{color:var(--ok);width:12px;text-align:center;font-weight:700;opacity:0;transition:opacity var(--dur-fast) var(--ease-out-expo)}
+.lh-plan .lh-row.done .lh-check{opacity:1}
+.lh-plan .lh-cta{margin-top:10px;font-size:11px;color:var(--dove);letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.lh-plan .lh-cta b{color:var(--ink);font-weight:700;background:var(--silver);border:1px solid var(--line);border-radius:5px;padding:2px 7px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;transition:background var(--dur-fast) var(--ease-out-expo),color var(--dur-fast) var(--ease-out-expo)}
+.lh-plan.pressed .lh-cta b{background:var(--core);color:#fff}
+
+.lh-done{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--ok);background:#eaf7ef;border:1px solid #c3ebd4;padding:8px 14px;border-radius:99px}
+.lh-done b{color:var(--ok)}

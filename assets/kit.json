@@ -1,47 +1,75 @@
 {
-  "$schema": "vf-asset-kit-v1",
-  "version": 1,
+  "$schema": "vf-asset-kit-v3",
+  "version": 3,
   "updated": "2026-09-16",
-  "description": "Single source of truth for VF Empire visual identity. Every logo, icon, brand image, colour and typeface. The site templates should reference these entries so a change here propagates everywhere.",
-
+  "description": "Every asset a modern website could ever need. Filled entries are what VF actively uses. Empty slots stay as capabilities. Add anything to any category via the Assets panel with Claude, or edit here directly.",
   "brand": {
     "logo": {
       "kind": "svg-file",
       "path": "/assets/brand/app-icon.svg",
-      "usage": "Primary VF wordmark and favicon. The mark on every page's nav bar.",
-      "sizes": ["/assets/brand/app-icon-16.png", "/assets/brand/app-icon-32.png", "/assets/brand/app-icon-180.png", "/assets/brand/app-icon-192.png", "/assets/brand/app-icon-512.png", "/assets/brand/app-icon-1024.png"]
+      "usage": "Primary VF wordmark and favicon; nav bar mark."
     },
     "logo-blue": {
       "kind": "svg-file",
       "path": "/assets/brand/app-icon-blue.svg",
-      "usage": "Alternate mark for light backgrounds needing tint."
+      "usage": "Blue-tinted mark for light-backed surfaces."
     },
     "logo-dark": {
       "kind": "svg-file",
       "path": "/assets/brand/app-icon-dark.svg",
-      "usage": "Mark for dark backgrounds (error pages, night surfaces)."
+      "usage": "Mark for dark backgrounds (error / night surfaces)."
     },
     "logo-maskable": {
       "kind": "svg-file",
       "path": "/assets/brand/app-icon-maskable.svg",
-      "usage": "PWA maskable icon variant."
+      "usage": "PWA maskable icon."
+    },
+    "app-icon-16": {
+      "kind": "image",
+      "path": "/assets/brand/app-icon-16.png",
+      "usage": "Favicon 16."
+    },
+    "app-icon-32": {
+      "kind": "image",
+      "path": "/assets/brand/app-icon-32.png",
+      "usage": "Favicon 32."
+    },
+    "app-icon-180": {
+      "kind": "image",
+      "path": "/assets/brand/app-icon-180.png",
+      "usage": "Apple touch icon."
+    },
+    "app-icon-192": {
+      "kind": "image",
+      "path": "/assets/brand/app-icon-192.png",
+      "usage": "PWA 192."
+    },
+    "app-icon-512": {
+      "kind": "image",
+      "path": "/assets/brand/app-icon-512.png",
+      "usage": "PWA 512."
+    },
+    "app-icon-1024": {
+      "kind": "image",
+      "path": "/assets/brand/app-icon-1024.png",
+      "usage": "1024 export."
     },
     "avatar": {
       "kind": "image",
       "path": "/assets/brand/avatar-1024.png",
-      "usage": "1024×1024 avatar for social profiles."
+      "usage": "1024×1024 social avatar."
     },
     "banner-linkedin": {
       "kind": "image",
       "path": "/assets/brand/banner-1584x396.png",
       "svg": "/assets/brand/banner-1584x396.svg",
-      "usage": "LinkedIn cover banner (1584×396)."
+      "usage": "LinkedIn cover (1584×396)."
     },
     "banner-x": {
       "kind": "image",
       "path": "/assets/brand/banner-1500x500.png",
       "svg": "/assets/brand/banner-1500x500.svg",
-      "usage": "X / Twitter header (1500×500)."
+      "usage": "X header (1500×500)."
     },
     "og-default": {
       "kind": "image",
@@ -49,40 +77,69 @@
       "svg": "/assets/brand/og-default.svg",
       "width": 1200,
       "height": 630,
-      "usage": "Fallback Open Graph card for pages without a bespoke og:image."
+      "usage": "Fallback Open Graph card."
     }
   },
-
+  "logo-variants": {
+    "wordmark": {
+      "kind": "empty",
+      "slot": "Full VF Empire wordmark for large surfaces."
+    },
+    "monogram": {
+      "kind": "empty",
+      "slot": "Tight VF monogram for square avatars."
+    },
+    "logo-lockup-tagline": {
+      "kind": "empty",
+      "slot": "Logo + tagline lockup for hero banners."
+    },
+    "logo-monochrome-black": {
+      "kind": "empty",
+      "slot": "Single-colour black variant for print."
+    },
+    "logo-monochrome-white": {
+      "kind": "empty",
+      "slot": "Single-colour white variant for dark backgrounds."
+    },
+    "logo-outlined": {
+      "kind": "empty",
+      "slot": "Stroke-only outlined version."
+    },
+    "logo-favicon-svg": {
+      "kind": "empty",
+      "slot": "Simplified favicon-safe SVG (no gradients)."
+    }
+  },
   "photos": {
     "hero-core": {
       "kind": "image",
       "path": "/assets/hero-core.png",
-      "usage": "Homepage hero centrepiece."
+      "usage": "Homepage hero."
     },
     "engine": {
       "kind": "image",
       "path": "/assets/engine.png",
-      "usage": "/engine page primary image."
+      "usage": "/engine page primary."
     },
     "harness": {
       "kind": "image",
       "path": "/assets/harness.png",
-      "usage": "/harness page primary image."
+      "usage": "/harness page primary."
     },
     "dashboard": {
       "kind": "image",
       "path": "/assets/dashboard.png",
-      "usage": "/dashboards page primary image."
+      "usage": "/dashboards page primary."
     },
     "training-hall": {
       "kind": "image",
       "path": "/assets/training-hall.png",
-      "usage": "Training Centre section imagery."
+      "usage": "Training Centre imagery."
     },
     "hellstorm-plate": {
       "kind": "image",
       "path": "/assets/hellstorm-plate.jpg",
-      "usage": "Hellstorm colour-grading reference plate."
+      "usage": "Colour-grading reference plate."
     },
     "silock-lock": {
       "kind": "image",
@@ -97,62 +154,1929 @@
     "neo3d-pinklady": {
       "kind": "image",
       "path": "/assets/neo3d-pinklady.png",
-      "usage": "NEO 3D studio render sample."
+      "usage": "NEO 3D render sample."
     },
     "ash": {
       "kind": "image",
       "path": "/assets/ash.png",
-      "usage": "ASH (Ambient System Hub) branding image."
+      "usage": "ASH branding image."
     },
     "newsroom": {
       "kind": "image",
       "path": "/assets/newsroom.png",
-      "usage": "Newsroom / press page image."
+      "usage": "Press / newsroom image."
     }
   },
-
-  "colors": {
-    "paper":     { "value": "#fbfbfd", "cssVar": "--paper",     "usage": "Primary background." },
-    "silver":    { "value": "#f5f5f7", "cssVar": "--silver",    "usage": "Alternating section background." },
-    "mist":      { "value": "#eceff3", "cssVar": "--mist",      "usage": "Chip / status pill background." },
-    "ink":       { "value": "#1d1d1f", "cssVar": "--ink",       "usage": "Primary text and dark buttons." },
-    "dove":      { "value": "#6e6e73", "cssVar": "--dove",      "usage": "Body copy." },
-    "faint":     { "value": "#a1a1a6", "cssVar": "--faint",     "usage": "Decorative rules only, never small text." },
-    "line":      { "value": "#e4e6ea", "cssVar": "--line",      "usage": "Borders and hairlines." },
-    "core":      { "value": "#1f6ff2", "cssVar": "--core",      "usage": "Primary accent and links." },
-    "core-deep": { "value": "#0b47b8", "cssVar": "--core-deep", "usage": "Accent hover state." },
-    "glow":      { "value": "rgba(37,110,245,.35)", "cssVar": "--glow", "usage": "Button glow shadow." },
-    "warn":      { "value": "#c93221", "cssVar": "--warn",      "usage": "Warning / danger. Only in permitted zones." },
-    "warn-bg":   { "value": "#fef2f0", "cssVar": "--warn-bg",   "usage": "Warning surface background." },
-    "ok":        { "value": "#0b7a3e", "cssVar": "--ok",        "usage": "Success / verified status." },
-    "amber":     { "value": "#c76b1d", "cssVar": "--amber",     "usage": "Beta / caution accents." }
-  },
-
-  "fonts": {
-    "body": {
-      "family": "Hanken",
-      "path": "/fonts/hanken.woff2",
-      "weights": "100-900",
-      "usage": "All body copy, buttons, chips, navigation."
+  "product-og": {
+    "og-guardian-shield": {
+      "kind": "empty",
+      "slot": "1200×630 Open Graph card for /systems/guardian-shield."
     },
-    "display": {
-      "family": "Instrument",
-      "style": "italic",
-      "path": "/fonts/instrument-italic.woff2",
-      "usage": "One accent per headline at most. Use via <em class=\"i\">."
+    "og-vf-mail": {
+      "kind": "empty",
+      "slot": "1200×630 Open Graph card for /systems/vf-mail."
+    },
+    "og-snapit": {
+      "kind": "empty",
+      "slot": "1200×630 Open Graph card for /systems/snapit."
+    },
+    "og-fileit": {
+      "kind": "empty",
+      "slot": "1200×630 Open Graph card for /systems/fileit."
+    },
+    "og-fuelit": {
+      "kind": "empty",
+      "slot": "1200×630 Open Graph card for /systems/fuelit."
     }
   },
-
+  "app-icons": {
+    "vf-mail": {
+      "kind": "empty",
+      "slot": "VF Mail product icon (favicon + 512 + 1024)."
+    },
+    "snapit": {
+      "kind": "empty",
+      "slot": "SnapIT product icon set."
+    },
+    "guardian-shield": {
+      "kind": "empty",
+      "slot": "Guardian Shield product icon set."
+    },
+    "fileit": {
+      "kind": "empty",
+      "slot": "FileIT product icon set."
+    },
+    "fuelit": {
+      "kind": "empty",
+      "slot": "FUEL·IT product icon set."
+    },
+    "nav-it": {
+      "kind": "empty",
+      "slot": "Nav·IT product icon set."
+    },
+    "vf-wallet": {
+      "kind": "empty",
+      "slot": "VF Wallet product icon set."
+    },
+    "vf-legacy": {
+      "kind": "empty",
+      "slot": "VF Legacy product icon set."
+    },
+    "vf-home": {
+      "kind": "empty",
+      "slot": "VF Home product icon set."
+    }
+  },
+  "screenshots": {
+    "vf-mail-inbox": {
+      "kind": "empty",
+      "slot": "VF Mail inbox screenshot for /systems/vf-mail hero."
+    },
+    "snapit-library": {
+      "kind": "empty",
+      "slot": "SnapIT library view for /systems/snapit hero."
+    },
+    "guardian-vault": {
+      "kind": "empty",
+      "slot": "Guardian Shield vault screen."
+    },
+    "fileit-dashboard": {
+      "kind": "empty",
+      "slot": "FileIT tax dashboard screenshot."
+    }
+  },
+  "team": {
+    "vincent-portrait": {
+      "kind": "empty",
+      "slot": "Vincent Falzon founder portrait for /about."
+    },
+    "team-group": {
+      "kind": "empty",
+      "slot": "Team group photo (if/when team scales)."
+    }
+  },
+  "videos": {
+    "hero-loop": {
+      "kind": "empty",
+      "slot": "Homepage looping hero video (muted, 6–12s)."
+    },
+    "product-demo": {
+      "kind": "empty",
+      "slot": "Product walkthrough video (60–90s per product)."
+    },
+    "case-study": {
+      "kind": "empty",
+      "slot": "Case-study video slot."
+    },
+    "testimonial": {
+      "kind": "empty",
+      "slot": "Customer testimonial video slot."
+    },
+    "training-tour": {
+      "kind": "empty",
+      "slot": "Training Centre facility tour video."
+    }
+  },
+  "audio": {
+    "podcast-intro": {
+      "kind": "empty",
+      "slot": "Podcast intro sting."
+    },
+    "notification-generic": {
+      "kind": "empty",
+      "slot": "In-app notification sound (short chime)."
+    },
+    "notification-success": {
+      "kind": "empty",
+      "slot": "Success confirmation sound."
+    },
+    "notification-alert": {
+      "kind": "empty",
+      "slot": "Alert / warning sound."
+    },
+    "ui-click": {
+      "kind": "empty",
+      "slot": "UI button click feedback."
+    }
+  },
+  "icons": {
+    "note": "Line-icon library for feature grids, buttons, chips. 1.4px stroke, 20–24px. Add named entries here as you need them.",
+    "check": {
+      "kind": "empty",
+      "slot": "Confirmation checkmark."
+    },
+    "close": {
+      "kind": "empty",
+      "slot": "Close / dismiss."
+    },
+    "search": {
+      "kind": "empty",
+      "slot": "Magnifying-glass search."
+    },
+    "arrow-right": {
+      "kind": "empty",
+      "slot": "Rightward arrow for CTAs."
+    },
+    "shield": {
+      "kind": "empty",
+      "slot": "Shield/protection icon."
+    },
+    "lock": {
+      "kind": "empty",
+      "slot": "Lock / privacy icon."
+    },
+    "eye": {
+      "kind": "empty",
+      "slot": "Visibility / view icon."
+    },
+    "download": {
+      "kind": "empty",
+      "slot": "Download action icon."
+    },
+    "upload": {
+      "kind": "empty",
+      "slot": "Upload action icon."
+    },
+    "share": {
+      "kind": "empty",
+      "slot": "Share action icon."
+    },
+    "external": {
+      "kind": "empty",
+      "slot": "External link indicator."
+    },
+    "chevron-down": {
+      "kind": "empty",
+      "slot": "Expand accordion."
+    },
+    "settings": {
+      "kind": "empty",
+      "slot": "Gear / settings."
+    },
+    "user": {
+      "kind": "empty",
+      "slot": "User / person."
+    },
+    "info": {
+      "kind": "empty",
+      "slot": "Info circle."
+    },
+    "warning": {
+      "kind": "empty",
+      "slot": "Warning triangle."
+    },
+    "success": {
+      "kind": "empty",
+      "slot": "Success circle."
+    },
+    "error": {
+      "kind": "empty",
+      "slot": "Error circle."
+    }
+  },
+  "illustrations": {
+    "empty-inbox": {
+      "kind": "empty",
+      "slot": "Empty-state illustration for VF Mail inbox."
+    },
+    "empty-search": {
+      "kind": "empty",
+      "slot": "Empty search-results illustration."
+    },
+    "onboarding-welcome": {
+      "kind": "empty",
+      "slot": "First-run welcome illustration."
+    },
+    "error-401": {
+      "kind": "empty",
+      "slot": "401 restricted illustration."
+    },
+    "error-404": {
+      "kind": "empty",
+      "slot": "404 not-found illustration."
+    },
+    "error-500": {
+      "kind": "empty",
+      "slot": "500 server error illustration."
+    },
+    "success-purchase": {
+      "kind": "empty",
+      "slot": "Post-purchase thank-you illustration."
+    },
+    "feature-explainer": {
+      "kind": "empty",
+      "slot": "Diagrammatic feature explainer."
+    },
+    "case-study-hero": {
+      "kind": "empty",
+      "slot": "Case-study article hero illustration."
+    }
+  },
+  "patterns": {
+    "grid-dots": {
+      "kind": "empty",
+      "slot": "Dot-grid background pattern."
+    },
+    "grid-lines": {
+      "kind": "empty",
+      "slot": "Line-grid background pattern."
+    },
+    "noise": {
+      "kind": "empty",
+      "slot": "Subtle noise texture for backgrounds."
+    },
+    "topo-lines": {
+      "kind": "empty",
+      "slot": "Topographic contour lines."
+    },
+    "circuit": {
+      "kind": "empty",
+      "slot": "Technical circuit pattern."
+    }
+  },
+  "gradients": {
+    "hero-radial": {
+      "value": "radial-gradient(1000px 500px at 50% -10%, #ffffff 0%, transparent 70%), linear-gradient(180deg, #fdfdfe 0%, #f4f6f9 100%)",
+      "usage": ".phero hero background composite."
+    },
+    "core-fade": {
+      "value": "linear-gradient(180deg, #1f6ff2 0%, #0b47b8 100%)",
+      "usage": "Reserved for primary CTA hover treatments."
+    },
+    "live-status": {
+      "value": "linear-gradient(180deg, #2b7a4b 0%, #1f5a37 100%)",
+      "usage": ".status.live green gradient."
+    },
+    "night": {
+      "value": "linear-gradient(180deg, #080a0d 0%, #0d101a 100%)",
+      "usage": "Error / 401 dark canvas."
+    },
+    "flyout-frost": {
+      "value": "rgba(251,251,253,.92)",
+      "usage": "Nav flyout translucent panel base."
+    },
+    "sunrise": {
+      "kind": "empty",
+      "slot": "Warm accent gradient for special campaigns."
+    },
+    "silver-fade": {
+      "kind": "empty",
+      "slot": "Subtle silver gradient for section backgrounds."
+    }
+  },
+  "3d": {
+    "hero-object": {
+      "kind": "empty",
+      "slot": "GLB/USDZ 3D hero centrepiece."
+    },
+    "product-3d": {
+      "kind": "empty",
+      "slot": "3D product mockup."
+    },
+    "hdri": {
+      "kind": "empty",
+      "slot": "HDRI environment map for realistic renders."
+    },
+    "material-lib": {
+      "kind": "empty",
+      "slot": "Shared material library (JSON)."
+    }
+  },
+  "animations-lottie": {
+    "loading": {
+      "kind": "empty",
+      "slot": "Loading spinner Lottie."
+    },
+    "success": {
+      "kind": "empty",
+      "slot": "Success checkmark Lottie."
+    },
+    "welcome": {
+      "kind": "empty",
+      "slot": "Welcome / onboarding entrance Lottie."
+    },
+    "error": {
+      "kind": "empty",
+      "slot": "Error state Lottie."
+    }
+  },
+  "social-templates": {
+    "instagram-post": {
+      "kind": "empty",
+      "slot": "1080×1080 Instagram post template."
+    },
+    "instagram-story": {
+      "kind": "empty",
+      "slot": "1080×1920 Instagram story template."
+    },
+    "instagram-reel": {
+      "kind": "empty",
+      "slot": "Reel cover template."
+    },
+    "twitter-card": {
+      "kind": "empty",
+      "slot": "1600×900 Twitter/X card template."
+    },
+    "linkedin-post": {
+      "kind": "empty",
+      "slot": "1200×627 LinkedIn post template."
+    },
+    "linkedin-article": {
+      "kind": "empty",
+      "slot": "LinkedIn article header template."
+    },
+    "youtube-thumb": {
+      "kind": "empty",
+      "slot": "1280×720 YouTube thumbnail template."
+    },
+    "tiktok-cover": {
+      "kind": "empty",
+      "slot": "TikTok cover template."
+    }
+  },
+  "email-templates": {
+    "transactional-purchase": {
+      "kind": "empty",
+      "slot": "Post-purchase confirmation email HTML."
+    },
+    "transactional-licence": {
+      "kind": "empty",
+      "slot": "Licence delivery email HTML."
+    },
+    "welcome-onboarding": {
+      "kind": "empty",
+      "slot": "Welcome sequence email HTML."
+    },
+    "newsletter": {
+      "kind": "empty",
+      "slot": "Newsletter template."
+    },
+    "product-update": {
+      "kind": "empty",
+      "slot": "Product update announcement."
+    },
+    "beta-invite": {
+      "kind": "empty",
+      "slot": "Beta programme invite email."
+    },
+    "invoice": {
+      "kind": "empty",
+      "slot": "Invoice email template (Noirda GmbH invoicing arm)."
+    }
+  },
+  "presentations": {
+    "pitch-deck": {
+      "kind": "empty",
+      "slot": "Investor / partner pitch deck template."
+    },
+    "product-brief": {
+      "kind": "empty",
+      "slot": "Product briefing deck template."
+    },
+    "case-study": {
+      "kind": "empty",
+      "slot": "Case study one-pager template."
+    }
+  },
+  "print": {
+    "business-card": {
+      "kind": "empty",
+      "slot": "85×55mm business card PDF."
+    },
+    "letterhead": {
+      "kind": "empty",
+      "slot": "A4 letterhead PDF."
+    },
+    "invoice-pdf": {
+      "kind": "empty",
+      "slot": "A4 invoice PDF template."
+    },
+    "one-pager": {
+      "kind": "empty",
+      "slot": "Product one-pager print PDF."
+    }
+  },
+  "merch": {
+    "tshirt-front": {
+      "kind": "empty",
+      "slot": "T-shirt front print artwork."
+    },
+    "tshirt-back": {
+      "kind": "empty",
+      "slot": "T-shirt back print artwork."
+    },
+    "sticker": {
+      "kind": "empty",
+      "slot": "Sticker sheet artwork."
+    },
+    "hoodie": {
+      "kind": "empty",
+      "slot": "Hoodie chest artwork."
+    },
+    "cap": {
+      "kind": "empty",
+      "slot": "Cap embroidery artwork."
+    },
+    "notebook": {
+      "kind": "empty",
+      "slot": "Notebook cover artwork."
+    }
+  },
+  "signage": {
+    "reception-wall": {
+      "kind": "empty",
+      "slot": "Office reception wall sign spec."
+    },
+    "meeting-room": {
+      "kind": "empty",
+      "slot": "Meeting-room door plates."
+    },
+    "trade-booth": {
+      "kind": "empty",
+      "slot": "Trade-show booth backdrop artwork."
+    }
+  },
+  "cursors": {
+    "default": {
+      "kind": "empty",
+      "slot": "Custom default cursor."
+    },
+    "pointer": {
+      "kind": "empty",
+      "slot": "Custom pointer cursor for links."
+    },
+    "text": {
+      "kind": "empty",
+      "slot": "Custom text-selection cursor."
+    },
+    "grab": {
+      "kind": "empty",
+      "slot": "Custom grab/grabbing cursor for draggables."
+    }
+  },
+  "favicons-extended": {
+    "safari-pinned-tab": {
+      "kind": "empty",
+      "slot": "Monochrome SVG for Safari pinned tab."
+    },
+    "windows-tile": {
+      "kind": "empty",
+      "slot": "Windows Metro tile 144×144."
+    },
+    "browserconfig": {
+      "kind": "empty",
+      "slot": "browserconfig.xml for Windows."
+    },
+    "webmanifest": {
+      "kind": "empty",
+      "slot": "site.webmanifest for PWA."
+    }
+  },
+  "colors": {
+    "paper": {
+      "value": "#fbfbfd",
+      "cssVar": "--paper",
+      "usage": "Primary page background."
+    },
+    "silver": {
+      "value": "#f5f5f7",
+      "cssVar": "--silver",
+      "usage": "Alternating section background."
+    },
+    "mist": {
+      "value": "#eceff3",
+      "cssVar": "--mist",
+      "usage": "Chip / status pill background."
+    },
+    "ink": {
+      "value": "#1d1d1f",
+      "cssVar": "--ink",
+      "usage": "Primary text and dark buttons."
+    },
+    "dove": {
+      "value": "#6e6e73",
+      "cssVar": "--dove",
+      "usage": "Body copy and secondary text."
+    },
+    "faint": {
+      "value": "#a1a1a6",
+      "cssVar": "--faint",
+      "usage": "Decorative rules only."
+    },
+    "line": {
+      "value": "#e4e6ea",
+      "cssVar": "--line",
+      "usage": "Borders and hairlines."
+    },
+    "core": {
+      "value": "#1f6ff2",
+      "cssVar": "--core",
+      "usage": "Primary accent, links, focus rings."
+    },
+    "core-deep": {
+      "value": "#0b47b8",
+      "cssVar": "--core-deep",
+      "usage": "Accent hover state."
+    },
+    "glow": {
+      "value": "rgba(37,110,245,.35)",
+      "cssVar": "--glow",
+      "usage": "Primary CTA glow shadow."
+    },
+    "warn": {
+      "value": "#c93221",
+      "cssVar": "--warn",
+      "usage": "Warning / danger."
+    },
+    "warn-bg": {
+      "value": "#fef2f0",
+      "cssVar": "--warn-bg",
+      "usage": "Warning surface background."
+    },
+    "ok": {
+      "value": "#0b7a3e",
+      "cssVar": "--ok",
+      "usage": "Success / verified status."
+    },
+    "amber": {
+      "value": "#c76b1d",
+      "cssVar": "--amber",
+      "usage": "Beta / caution accents."
+    }
+  },
+  "colors-extended": {
+    "info": {
+      "kind": "empty",
+      "slot": "Info / neutral notification blue."
+    },
+    "premium": {
+      "kind": "empty",
+      "slot": "Premium / gold accent."
+    },
+    "muted-text": {
+      "kind": "empty",
+      "slot": "Deeper muted text between dove and ink."
+    }
+  },
+  "chart-palettes": {
+    "categorical": {
+      "kind": "empty",
+      "slot": "5–8 distinct colours for categorical charts."
+    },
+    "sequential": {
+      "kind": "empty",
+      "slot": "Sequential ramp (light → core-deep)."
+    },
+    "diverging": {
+      "kind": "empty",
+      "slot": "Diverging ramp (warn ← neutral → ok)."
+    }
+  },
+  "typography": {
+    "hero-h1": {
+      "family": "Hanken",
+      "size": "clamp(40px, 5.6vw, 76px)",
+      "weight": 600,
+      "tracking": "-0.05em",
+      "leading": 1,
+      "usage": ".phero h1."
+    },
+    "section-h2": {
+      "family": "Hanken",
+      "size": "clamp(32px, 4.6vw, 56px)",
+      "weight": 600,
+      "tracking": "-0.045em",
+      "leading": 1.04,
+      "usage": "Every section h2."
+    },
+    "hero-eyebrow": {
+      "family": "Hanken",
+      "size": "11px",
+      "weight": 600,
+      "tracking": "0.42em",
+      "case": "uppercase",
+      "color": "--dove",
+      "usage": ".phero .eb."
+    },
+    "kicker": {
+      "family": "Hanken",
+      "size": "11px",
+      "weight": 600,
+      "tracking": "0.4em",
+      "color": "--core-deep",
+      "usage": ".k lead-in labels."
+    },
+    "lead": {
+      "family": "Hanken",
+      "size": "16.5px",
+      "weight": 400,
+      "leading": 1.65,
+      "color": "--dove",
+      "maxch": 640,
+      "usage": ".lead paragraph."
+    },
+    "sub": {
+      "family": "Hanken",
+      "size": "16.5px",
+      "weight": 400,
+      "leading": 1.62,
+      "color": "--dove",
+      "maxch": 620,
+      "usage": ".phero p.sub."
+    },
+    "article-h1": {
+      "family": "Hanken",
+      "size": "clamp(34px, 5vw, 52px)",
+      "weight": 600,
+      "tracking": "-0.045em",
+      "leading": 1.04,
+      "usage": ".article h1."
+    },
+    "article-h2": {
+      "family": "Hanken",
+      "size": "21px",
+      "weight": 600,
+      "tracking": "-0.025em",
+      "leading": 1.2,
+      "usage": ".article h2."
+    },
+    "article-h3": {
+      "family": "Hanken",
+      "size": "16px",
+      "weight": 600,
+      "tracking": "-0.015em",
+      "usage": ".article h3."
+    },
+    "article-body": {
+      "family": "Hanken",
+      "size": "15px",
+      "weight": 400,
+      "leading": 1.75,
+      "color": "#3a3a3e",
+      "usage": ".article p, li."
+    },
+    "article-th": {
+      "family": "Hanken",
+      "size": "11px",
+      "weight": 600,
+      "tracking": "0.12em",
+      "color": "--dove",
+      "case": "uppercase",
+      "usage": ".article table th."
+    },
+    "faq-q": {
+      "family": "Hanken",
+      "size": "15.5px",
+      "weight": 600,
+      "tracking": "-0.015em",
+      "usage": "FAQ question."
+    },
+    "faq-a": {
+      "family": "Hanken",
+      "size": "13.5px",
+      "weight": 400,
+      "leading": 1.62,
+      "color": "--dove",
+      "usage": "FAQ answer."
+    },
+    "nav-brand": {
+      "family": "Hanken",
+      "size": "12px",
+      "weight": 600,
+      "tracking": "0.16em",
+      "usage": ".brand."
+    },
+    "nav-crumb": {
+      "family": "Hanken",
+      "size": "12px",
+      "weight": 400,
+      "tracking": "0.03em",
+      "color": "--dove",
+      "usage": ".nav .crumb."
+    },
+    "nav-link": {
+      "family": "Hanken",
+      "size": "12.5px",
+      "weight": 400,
+      "tracking": "0.01em",
+      "color": "#3a3a3c",
+      "usage": ".nl link/button."
+    },
+    "nav-cta": {
+      "family": "Hanken",
+      "size": "11.5px",
+      "weight": 600,
+      "tracking": "0.04em",
+      "color": "#fff",
+      "usage": "Nav CTA pill."
+    },
+    "button-cta": {
+      "family": "Hanken",
+      "size": "13.5px",
+      "weight": 600,
+      "usage": ".bt CTAs."
+    },
+    "chip-meta": {
+      "family": "Hanken",
+      "size": "10px",
+      "weight": 600,
+      "tracking": "0.18em",
+      "case": "uppercase",
+      "color": "#2b3a55",
+      "usage": ".mchip."
+    },
+    "chip-status": {
+      "family": "Hanken",
+      "size": "9.5px",
+      "weight": 600,
+      "tracking": "0.2em",
+      "case": "uppercase",
+      "color": "#2b3a55",
+      "usage": ".status."
+    },
+    "footer-h6": {
+      "family": "Hanken",
+      "size": "11px",
+      "weight": 600,
+      "tracking": "0.18em",
+      "color": "--dove",
+      "usage": ".fgrid h6."
+    },
+    "footer-link": {
+      "family": "Hanken",
+      "size": "13px",
+      "weight": 400,
+      "color": "#3a3a3c",
+      "usage": ".fgrid a."
+    },
+    "legal-line": {
+      "family": "Hanken",
+      "size": "11.5px",
+      "weight": 400,
+      "color": "--dove",
+      "usage": ".legal."
+    },
+    "display-accent": {
+      "family": "Instrument",
+      "size": "inherit",
+      "style": "italic",
+      "weight": 400,
+      "usage": "em.i single-word accent."
+    }
+  },
+  "typography-slots": {
+    "code-inline": {
+      "kind": "empty",
+      "slot": "Inline code style (ui-monospace)."
+    },
+    "code-block": {
+      "kind": "empty",
+      "slot": "Pre/code block style."
+    },
+    "kbd": {
+      "kind": "empty",
+      "slot": "Keyboard-key style."
+    },
+    "small-print": {
+      "kind": "empty",
+      "slot": "Fine-print legal footnote style."
+    },
+    "pull-quote": {
+      "kind": "empty",
+      "slot": "Large pull-quote style."
+    }
+  },
+  "spacing": {
+    "section-y": {
+      "value": "108px",
+      "usage": "Section vertical padding."
+    },
+    "section-x": {
+      "value": "6vw",
+      "usage": "Section horizontal padding."
+    },
+    "phero-y": {
+      "value": "130px 6vw 60px",
+      "usage": ".phero padding."
+    },
+    "article-pad": {
+      "value": "130px 24px 120px",
+      "usage": ".article page padding."
+    },
+    "footer-full-y": {
+      "value": "80px 6vw 56px",
+      "usage": "footer.full padding."
+    },
+    "footer-y": {
+      "value": "46px 6vw",
+      "usage": "Default footer strip padding."
+    },
+    "nav-height": {
+      "value": "52px",
+      "usage": "Fixed nav height."
+    },
+    "wrap-max": {
+      "value": "1080px",
+      "usage": ".wrap max-width."
+    },
+    "wrap-w": {
+      "value": "min(1080px, 92vw)",
+      "usage": ".nav .in / .fly .in width."
+    },
+    "grid-gap-16": {
+      "value": "16px",
+      "usage": ".related grid gap."
+    },
+    "grid-gap-14": {
+      "value": "14px",
+      "usage": ".acts CTA row gap."
+    },
+    "chip-gap": {
+      "value": "9px",
+      "usage": ".phero .meta chip gap."
+    },
+    "flyout-gap": {
+      "value": "8px 44px",
+      "usage": ".fly .in gap."
+    }
+  },
+  "spacing-scale": {
+    "1": {
+      "value": "4px",
+      "usage": "Micro gap."
+    },
+    "2": {
+      "value": "8px",
+      "usage": "Chip inner padding, small gap."
+    },
+    "3": {
+      "value": "12px",
+      "usage": "Card inner padding tight."
+    },
+    "4": {
+      "value": "16px",
+      "usage": "Grid gap default."
+    },
+    "5": {
+      "value": "24px",
+      "usage": "Card padding standard."
+    },
+    "6": {
+      "value": "32px",
+      "usage": "Card padding generous."
+    },
+    "7": {
+      "value": "48px",
+      "usage": "Section separator."
+    },
+    "8": {
+      "value": "64px",
+      "usage": "Section separator large."
+    },
+    "9": {
+      "value": "96px",
+      "usage": "Between hero and content."
+    },
+    "10": {
+      "value": "128px",
+      "usage": "Between major sections."
+    },
+    "note": "Named scale steps for consistent rhythm across the site."
+  },
+  "radii": {
+    "pill": {
+      "value": "99px",
+      "usage": "Buttons, chips, status pills."
+    },
+    "sm": {
+      "value": "6px",
+      "usage": "Focus outline offset."
+    },
+    "card-sm": {
+      "value": "12px",
+      "usage": ".slot small system card."
+    },
+    "card": {
+      "value": "16px",
+      "usage": ".q FAQ, .article .card."
+    },
+    "card-lg": {
+      "value": "20px",
+      "usage": ".fl, .outs, .related."
+    },
+    "hero-band": {
+      "value": "26px",
+      "usage": ".band image band."
+    },
+    "hcell": {
+      "value": "22px",
+      "usage": ".nx what-next card."
+    }
+  },
+  "shadows": {
+    "cta-primary": {
+      "value": "0 8px 28px -8px var(--glow)",
+      "usage": ".bt.pri base."
+    },
+    "cta-primary-hover": {
+      "value": "0 14px 36px -8px var(--glow)",
+      "usage": ".bt.pri hover."
+    },
+    "related-hover": {
+      "value": "0 24px 48px -28px rgba(40,55,90,.25)",
+      "usage": ".related hover."
+    },
+    "fl-hover": {
+      "value": "0 28px 50px -30px rgba(40,55,90,.28)",
+      "usage": ".fl hover."
+    },
+    "nx-hover": {
+      "value": "0 34px 60px -32px rgba(40,55,90,.28)",
+      "usage": ".nx hover."
+    },
+    "consent": {
+      "value": "0 24px 70px rgba(29,29,31,.16)",
+      "usage": "Consent notice."
+    }
+  },
+  "borders": {
+    "hairline": {
+      "value": "1px solid var(--line)",
+      "usage": "Standard hairline used everywhere."
+    },
+    "focus": {
+      "value": "2px solid var(--core)",
+      "usage": "Focus ring."
+    },
+    "chip": {
+      "value": "1px solid var(--line)",
+      "usage": "Chip / pill outline."
+    },
+    "gradient-band": {
+      "kind": "empty",
+      "slot": "Named gradient border for hero bands."
+    }
+  },
   "motion": {
-    "ease-default": {
+    "ease": {
       "value": "cubic-bezier(.2,.7,.2,1)",
       "cssVar": "--ease",
-      "usage": "House curve for every transition. 240ms to 900ms range."
+      "usage": "House curve."
+    },
+    "consent-ease": {
+      "value": "cubic-bezier(.32,.72,.22,1)",
+      "usage": "Consent slide-in."
+    },
+    "flyout-ease": {
+      "value": "cubic-bezier(.4,0,.2,1)",
+      "usage": "Nav flyout open/close."
+    },
+    "reveal-time": {
+      "value": "0.9s",
+      "usage": ".rv reveal duration."
+    },
+    "transition-fast": {
+      "value": "0.18s to 0.25s",
+      "usage": "Hover colour transitions."
+    },
+    "transition-mid": {
+      "value": "0.3s to 0.4s",
+      "usage": "Card lift + shadow."
+    },
+    "phero-stagger": {
+      "value": "0.05 + 0.2 + 0.38 + 0.5 + 0.62 s",
+      "usage": ".phero stagger sequence."
     }
   },
-
+  "animations": {
+    "up": {
+      "keyframes": "@keyframes up { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }",
+      "duration": "0.9–1s",
+      "easing": "var(--ease)",
+      "usage": "Phero fade-up."
+    },
+    "rv": {
+      "class": ".rv",
+      "css": "opacity: 0; transform: translateY(34px); transition: opacity .9s var(--ease), transform .9s var(--ease); &.on { opacity: 1; transform: none; }",
+      "usage": "Reveal-on-scroll utility."
+    },
+    "spinner": {
+      "kind": "empty",
+      "slot": "Loading spinner keyframes."
+    },
+    "pulse": {
+      "kind": "empty",
+      "slot": "Pulse animation for indicators."
+    },
+    "fade": {
+      "kind": "empty",
+      "slot": "Simple opacity fade in/out."
+    },
+    "shake": {
+      "kind": "empty",
+      "slot": "Error-state shake."
+    },
+    "bounce": {
+      "kind": "empty",
+      "slot": "Bounce entrance."
+    }
+  },
+  "buttons": {
+    "bt-pri": {
+      "selector": ".bt.pri",
+      "size": "13.5px 600, 13px 30px",
+      "shape": "pill",
+      "colors": {
+        "bg": "--core",
+        "text": "#fff"
+      },
+      "shadow": "cta-primary",
+      "hover": {
+        "transform": "translateY(-2px)",
+        "shadow": "cta-primary-hover"
+      },
+      "usage": "Primary CTA."
+    },
+    "bt-gho": {
+      "selector": ".bt.gho",
+      "size": "13.5px 600, 13px 30px",
+      "shape": "pill",
+      "colors": {
+        "text": "--core"
+      },
+      "hover": {
+        "bg": "rgba(31,111,242,.07)"
+      },
+      "usage": "Ghost secondary CTA."
+    },
+    "nav-cta": {
+      "selector": ".nav .cta",
+      "size": "11.5px 600 0.04em, 7px 16px",
+      "shape": "pill",
+      "colors": {
+        "bg": "--ink",
+        "text": "#fff"
+      },
+      "hover": {
+        "bg": "--core"
+      },
+      "usage": "'Commission a system' nav pill."
+    },
+    "consent-acc": {
+      "selector": ".consent .acc",
+      "size": "13px 600, 9px 22px",
+      "shape": "pill",
+      "colors": {
+        "bg": "--core",
+        "text": "#fff"
+      },
+      "usage": "Consent accept."
+    },
+    "consent-dec": {
+      "selector": ".consent .dec",
+      "size": "13px 600, 9px 22px",
+      "shape": "pill (1px --line)",
+      "colors": {
+        "text": "--ink"
+      },
+      "usage": "Consent decline."
+    },
+    "article-bt": {
+      "selector": ".article button.bt",
+      "size": "13.5px 600",
+      "colors": {
+        "bg": "--core",
+        "text": "#fff"
+      },
+      "usage": "Inline article action button."
+    }
+  },
+  "button-variants-empty": {
+    "bt-danger": {
+      "kind": "empty",
+      "slot": "Danger / destructive CTA (red)."
+    },
+    "bt-success": {
+      "kind": "empty",
+      "slot": "Success confirmation CTA (green)."
+    },
+    "bt-icon": {
+      "kind": "empty",
+      "slot": "Icon-only round button."
+    },
+    "bt-split": {
+      "kind": "empty",
+      "slot": "Split-button with dropdown."
+    },
+    "bt-loading": {
+      "kind": "empty",
+      "slot": "Button in loading state with spinner."
+    },
+    "bt-disabled": {
+      "kind": "empty",
+      "slot": "Disabled button state."
+    },
+    "bt-full": {
+      "kind": "empty",
+      "slot": "Full-width block button."
+    }
+  },
+  "chips": {
+    "mchip": {
+      "selector": ".mchip",
+      "size": "10px 600 0.18em, 8px 15px",
+      "shape": "pill 1px --line",
+      "colors": {
+        "bg": "rgba(255,255,255,.75)",
+        "text": "#2b3a55"
+      },
+      "usage": "Meta chip."
+    },
+    "mchip-hot": {
+      "selector": ".mchip.hot",
+      "colors": {
+        "bg": "--core",
+        "text": "#fff",
+        "border": "--core"
+      },
+      "usage": "Highlighted meta."
+    },
+    "status": {
+      "selector": ".status",
+      "size": "9.5px 600 0.2em, 6px 13px",
+      "shape": "pill 1px --line",
+      "colors": {
+        "bg": "--mist",
+        "text": "#2b3a55"
+      },
+      "usage": "Neutral status."
+    },
+    "status-live": {
+      "selector": ".status.live",
+      "colors": {
+        "bg": "linear-gradient(180deg,#2b7a4b 0%,#1f5a37 100%)",
+        "text": "#fff"
+      },
+      "usage": "Live product."
+    },
+    "status-hot": {
+      "selector": ".status.hot",
+      "colors": {
+        "bg": "--core",
+        "text": "#fff"
+      },
+      "usage": "Attention."
+    },
+    "band-cap": {
+      "selector": ".band .cap",
+      "size": "10px 600 0.22em, 7px 14px",
+      "shape": "pill",
+      "colors": {
+        "bg": "rgba(255,255,255,.72)",
+        "text": "--dove"
+      },
+      "backdrop": "blur(8px)",
+      "usage": "Image caption."
+    }
+  },
+  "badges-empty": {
+    "beta": {
+      "kind": "empty",
+      "slot": "BETA badge."
+    },
+    "new": {
+      "kind": "empty",
+      "slot": "NEW badge."
+    },
+    "count": {
+      "kind": "empty",
+      "slot": "Numeric counter badge (notifications)."
+    },
+    "verified": {
+      "kind": "empty",
+      "slot": "Verified checkmark badge."
+    }
+  },
+  "navigation": {
+    "nav-bar": {
+      "selector": ".nav",
+      "height": "52px",
+      "layout": "fixed top z100, 1080/92vw inner",
+      "background": "rgba(251,251,253,.72) backdrop-blur(20px) saturate(1.6)",
+      "border": "1px bottom rgba(0,0,0,.05)",
+      "usage": "Global nav bar."
+    },
+    "nav-flyout": {
+      "selector": ".fly",
+      "position": "fixed top 52px z99",
+      "background": "rgba(251,251,253,.92) backdrop-blur(30px) saturate(1.8)",
+      "layout": "4-col grid 8/44px gap, 44/48px padding",
+      "motion": "max-height 0→420px + opacity 0→1, 0.45s cubic-bezier(.4,0,.2,1)",
+      "usage": "Mega-menu flyout."
+    },
+    "nav-scrim": {
+      "selector": "#dim",
+      "background": "rgba(29,29,31,.24) backdrop-blur(2px)",
+      "usage": "Scrim behind flyout."
+    },
+    "nav-column": {
+      "selector": ".fly .col",
+      "label": "11px 600 0.12em --dove",
+      "link": "16px 600 -0.02em",
+      "usage": "Flyout link column."
+    }
+  },
+  "breadcrumbs": {
+    "nav-crumb": {
+      "selector": ".nav .crumb",
+      "size": "12px 0.03em --dove",
+      "b-color": "--ink",
+      "usage": "Nav breadcrumb strip."
+    }
+  },
+  "footer": {
+    "foot-cta": {
+      "selector": "section.foot",
+      "background": "--silver",
+      "border": "1px top --line",
+      "usage": "End-of-page CTA section."
+    },
+    "footer-simple": {
+      "selector": "footer",
+      "padding": "46px 6vw",
+      "background": "--silver",
+      "border": "1px top --line",
+      "usage": "Minimal legal strip."
+    },
+    "footer-full": {
+      "selector": "footer.full",
+      "padding": "80px 6vw 56px",
+      "grid": "1.4fr 1fr 1fr 1fr 1fr / 36px",
+      "usage": "Full 5-col footer."
+    },
+    "legal-strip": {
+      "selector": ".legal",
+      "layout": "flex space-between wrap 10px",
+      "usage": "Bottom copyright strip."
+    }
+  },
+  "consent": {
+    "consent-notice": {
+      "selector": ".consent",
+      "position": "fixed bottom 24px centered z200",
+      "width": "min(560px, 100vw-32px)",
+      "background": "rgba(251,251,253,.88) backdrop-blur(24px) saturate(1.7)",
+      "border": "1px --line",
+      "radius": "20px",
+      "padding": "20px 24px",
+      "shadow": "consent",
+      "motion": "translateY(140%)→0 0.5s cubic-bezier(.32,.72,.22,1)",
+      "usage": "Cookie / privacy notice."
+    }
+  },
+  "scrollrail": {
+    "silock-rail": {
+      "selector": "#slkrail",
+      "position": "fixed right 0 z80",
+      "size": "26px × 100%",
+      "cursor": "grab/grabbing",
+      "mobile": "hidden on coarse pointers",
+      "usage": "S◉LOCK dot-and-light-trail scrollbar. Rendered by /assets/scrollrail.js."
+    }
+  },
+  "cards": {
+    "outs-cell": {
+      "selector": ".outs .c",
+      "container": "3-col grid 1px --line bg, 20px radius overflow hidden",
+      "padding": "34px 30px",
+      "background": "#fff",
+      "usage": "Outcomes 3-up cell."
+    },
+    "q-card": {
+      "selector": ".q",
+      "background": "#fff 1px --line, 16px radius",
+      "padding": "24px 26px",
+      "usage": "FAQ Q&A."
+    },
+    "related-card": {
+      "selector": ".related a",
+      "container": "3-col 16px gap",
+      "background": "#fff 1px --line, 20px radius",
+      "padding": "26px 26px 24px",
+      "hover": "translateY(-3px) related-hover shadow",
+      "usage": "Related content."
+    },
+    "article-card": {
+      "selector": ".article .card",
+      "background": "--silver 1px --line, 16px radius",
+      "padding": "22px 26px",
+      "usage": "Inline callout in prose page."
+    }
+  },
+  "cards-empty": {
+    "product-card": {
+      "kind": "empty",
+      "slot": "Reusable product card for slate grids."
+    },
+    "pricing-card": {
+      "kind": "empty",
+      "slot": "Pricing tier card."
+    },
+    "testimonial": {
+      "kind": "empty",
+      "slot": "Customer testimonial card."
+    },
+    "team-member": {
+      "kind": "empty",
+      "slot": "Team member card."
+    },
+    "case-study": {
+      "kind": "empty",
+      "slot": "Case study preview card."
+    },
+    "blog-preview": {
+      "kind": "empty",
+      "slot": "Blog / journal entry preview card."
+    },
+    "stat-card": {
+      "kind": "empty",
+      "slot": "Big-number stat card."
+    }
+  },
+  "sections": {
+    "phero": {
+      "selector": ".phero",
+      "layout": "flex column centered min-h 62vh, 130/6vw/60 padding",
+      "background": "hero-radial gradient composite",
+      "usage": "Page hero."
+    },
+    "section-default": {
+      "selector": "section",
+      "padding": "108px 6vw",
+      "background": "--paper",
+      "wrap": "min(1080px,100%)",
+      "usage": "Base section."
+    },
+    "section-alt": {
+      "selector": "section.alt",
+      "background": "--silver",
+      "border": "1px top+bottom --line",
+      "usage": "Alternating band."
+    },
+    "band": {
+      "selector": ".band",
+      "container": "1px --line, 26px radius overflow hidden, mt 70px",
+      "content": "img (mix-blend-mode multiply) + .cap absolute",
+      "usage": "Full-width image band."
+    },
+    "faq-list": {
+      "selector": ".faq",
+      "layout": "flex column 14px gap mt 52px, max 760px",
+      "usage": ".q stack."
+    },
+    "article-layout": {
+      "selector": ".article",
+      "max": "720px",
+      "padding": "130/24/120px",
+      "typography": "article-* tokens",
+      "usage": "Prose / legal page."
+    }
+  },
+  "sections-empty": {
+    "hero-video": {
+      "kind": "empty",
+      "slot": "Video-backed hero variant."
+    },
+    "hero-split": {
+      "kind": "empty",
+      "slot": "Split hero (copy left, visual right)."
+    },
+    "hero-carousel": {
+      "kind": "empty",
+      "slot": "Carousel hero for multi-message launch pages."
+    },
+    "features-alt": {
+      "kind": "empty",
+      "slot": "Alternating features section."
+    },
+    "logo-cloud": {
+      "kind": "empty",
+      "slot": "'As seen in / trusted by' logo strip."
+    },
+    "stats-band": {
+      "kind": "empty",
+      "slot": "Big-number stats band."
+    },
+    "process-steps": {
+      "kind": "empty",
+      "slot": "Numbered process/how-it-works section."
+    },
+    "comparison-table": {
+      "kind": "empty",
+      "slot": "Comparison table section."
+    },
+    "team-grid": {
+      "kind": "empty",
+      "slot": "Team member grid."
+    },
+    "pricing-table": {
+      "kind": "empty",
+      "slot": "Pricing tiers section."
+    },
+    "cta-simple": {
+      "kind": "empty",
+      "slot": "Minimal single-CTA band."
+    },
+    "testimonial-band": {
+      "kind": "empty",
+      "slot": "Single testimonial full-bleed."
+    }
+  },
+  "grids": {
+    "outs": {
+      "selector": ".outs",
+      "columns": "repeat(3,1fr)",
+      "gap": "1px",
+      "background": "--line",
+      "responsive": "1-col <880",
+      "usage": "Outcomes 3-up."
+    },
+    "related-grid": {
+      "selector": ".related",
+      "columns": "repeat(3,1fr)",
+      "gap": "16px",
+      "responsive": "1-col <880",
+      "usage": "Related content 3-up."
+    },
+    "fgrid": {
+      "selector": ".fgrid",
+      "columns": "1.4fr 1fr 1fr 1fr 1fr",
+      "gap": "36px",
+      "responsive": "2-col <900",
+      "usage": "Full footer."
+    }
+  },
+  "grids-empty": {
+    "grid-2-col": {
+      "kind": "empty",
+      "slot": "2-column grid utility."
+    },
+    "grid-4-col": {
+      "kind": "empty",
+      "slot": "4-column grid utility."
+    },
+    "grid-masonry": {
+      "kind": "empty",
+      "slot": "Masonry / staggered grid."
+    },
+    "grid-bento": {
+      "kind": "empty",
+      "slot": "Bento-box variable-tile grid."
+    }
+  },
+  "inputs-empty": {
+    "text": {
+      "kind": "empty",
+      "slot": "Text input default."
+    },
+    "textarea": {
+      "kind": "empty",
+      "slot": "Multi-line text area."
+    },
+    "select": {
+      "kind": "empty",
+      "slot": "Dropdown select."
+    },
+    "checkbox": {
+      "kind": "empty",
+      "slot": "Checkbox."
+    },
+    "radio": {
+      "kind": "empty",
+      "slot": "Radio button."
+    },
+    "toggle": {
+      "kind": "empty",
+      "slot": "On/off switch."
+    },
+    "slider": {
+      "kind": "empty",
+      "slot": "Range slider."
+    },
+    "date": {
+      "kind": "empty",
+      "slot": "Date picker."
+    },
+    "file": {
+      "kind": "empty",
+      "slot": "File upload."
+    },
+    "search": {
+      "kind": "empty",
+      "slot": "Search input with icon."
+    },
+    "otp": {
+      "kind": "empty",
+      "slot": "One-time-code input."
+    }
+  },
+  "input-states-empty": {
+    "focus": {
+      "kind": "empty",
+      "slot": "Focused state (ring, border colour)."
+    },
+    "error": {
+      "kind": "empty",
+      "slot": "Error state with message."
+    },
+    "disabled": {
+      "kind": "empty",
+      "slot": "Disabled state."
+    },
+    "success": {
+      "kind": "empty",
+      "slot": "Validated / success state."
+    },
+    "loading": {
+      "kind": "empty",
+      "slot": "Loading / async check state."
+    }
+  },
+  "overlays-empty": {
+    "modal": {
+      "kind": "empty",
+      "slot": "Standard modal dialog."
+    },
+    "drawer": {
+      "kind": "empty",
+      "slot": "Slide-in drawer (right side)."
+    },
+    "sheet": {
+      "kind": "empty",
+      "slot": "Bottom sheet for mobile."
+    },
+    "alert": {
+      "kind": "empty",
+      "slot": "Alert / confirm dialog."
+    },
+    "popover": {
+      "kind": "empty",
+      "slot": "Anchored popover."
+    },
+    "tooltip": {
+      "kind": "empty",
+      "slot": "Hover tooltip."
+    },
+    "context-menu": {
+      "kind": "empty",
+      "slot": "Right-click context menu."
+    },
+    "dropdown": {
+      "kind": "empty",
+      "slot": "Dropdown menu."
+    },
+    "command-palette": {
+      "kind": "empty",
+      "slot": "⌘K command palette for the site."
+    }
+  },
+  "notifications-empty": {
+    "toast-success": {
+      "kind": "empty",
+      "slot": "Toast success."
+    },
+    "toast-error": {
+      "kind": "empty",
+      "slot": "Toast error."
+    },
+    "toast-info": {
+      "kind": "empty",
+      "slot": "Toast info."
+    },
+    "toast-warning": {
+      "kind": "empty",
+      "slot": "Toast warning."
+    },
+    "snackbar": {
+      "kind": "empty",
+      "slot": "Persistent snackbar with action."
+    },
+    "banner": {
+      "kind": "empty",
+      "slot": "Full-width announcement banner."
+    }
+  },
+  "loaders-empty": {
+    "spinner": {
+      "kind": "empty",
+      "slot": "Circular spinner."
+    },
+    "progress": {
+      "kind": "empty",
+      "slot": "Determinate progress bar."
+    },
+    "skeleton": {
+      "kind": "empty",
+      "slot": "Skeleton content placeholder."
+    },
+    "shimmer": {
+      "kind": "empty",
+      "slot": "Shimmering skeleton animation."
+    }
+  },
+  "navigation-empty": {
+    "tabs": {
+      "kind": "empty",
+      "slot": "Horizontal tab strip."
+    },
+    "pagination": {
+      "kind": "empty",
+      "slot": "Numeric pagination."
+    },
+    "stepper": {
+      "kind": "empty",
+      "slot": "Multi-step form indicator."
+    },
+    "sidebar-nav": {
+      "kind": "empty",
+      "slot": "Vertical sidebar navigation."
+    },
+    "sticky-toc": {
+      "kind": "empty",
+      "slot": "Sticky table-of-contents rail."
+    }
+  },
+  "content-elements-empty": {
+    "accordion": {
+      "kind": "empty",
+      "slot": "Expandable content section."
+    },
+    "carousel": {
+      "kind": "empty",
+      "slot": "Horizontal image / content carousel."
+    },
+    "timeline": {
+      "kind": "empty",
+      "slot": "Vertical timeline visualisation."
+    },
+    "callout": {
+      "kind": "empty",
+      "slot": "Inline callout box."
+    },
+    "pull-quote": {
+      "kind": "empty",
+      "slot": "Large pull quote."
+    },
+    "blockquote": {
+      "kind": "empty",
+      "slot": "Standard blockquote."
+    },
+    "code-block": {
+      "kind": "empty",
+      "slot": "Code block with syntax highlight."
+    },
+    "table": {
+      "kind": "empty",
+      "slot": "Data table."
+    },
+    "divider": {
+      "kind": "empty",
+      "slot": "Section divider hr."
+    }
+  },
+  "media-empty": {
+    "video-player": {
+      "kind": "empty",
+      "slot": "Video player controls skin."
+    },
+    "audio-player": {
+      "kind": "empty",
+      "slot": "Audio player skin."
+    },
+    "figure": {
+      "kind": "empty",
+      "slot": "Image with caption."
+    },
+    "aspect-16-9": {
+      "kind": "empty",
+      "slot": "16:9 aspect container."
+    },
+    "aspect-1-1": {
+      "kind": "empty",
+      "slot": "1:1 aspect container."
+    }
+  },
+  "empty-states-empty": {
+    "no-results": {
+      "kind": "empty",
+      "slot": "Search / filter no-results state."
+    },
+    "no-data": {
+      "kind": "empty",
+      "slot": "Data-empty state for dashboards."
+    },
+    "onboarding": {
+      "kind": "empty",
+      "slot": "First-time user welcome state."
+    },
+    "restricted": {
+      "kind": "empty",
+      "slot": "401 / permission-restricted state."
+    },
+    "not-found": {
+      "kind": "empty",
+      "slot": "404 / page-not-found state."
+    }
+  },
+  "focus": {
+    "focus-visible": {
+      "selector": "a/button/summary:focus-visible",
+      "outline": "2px solid --core",
+      "offset": "3px",
+      "radius": "6px",
+      "usage": "Keyboard focus ring."
+    },
+    "selection": {
+      "selector": "::selection",
+      "background": "--core",
+      "color": "#fff",
+      "usage": "Text-selection colour."
+    }
+  },
+  "fonts": {
+    "hanken": {
+      "family": "Hanken",
+      "path": "/fonts/hanken.woff2",
+      "weights": "100–900 variable",
+      "usage": "All body copy."
+    },
+    "instrument": {
+      "family": "Instrument",
+      "path": "/fonts/instrument-italic.woff2",
+      "style": "italic",
+      "usage": "em.i single-word accent."
+    }
+  },
+  "fonts-empty": {
+    "monospace": {
+      "kind": "empty",
+      "slot": "System monospace stack (currently inline)."
+    },
+    "brand-display": {
+      "kind": "empty",
+      "slot": "Optional bold display face for special launches."
+    }
+  },
+  "responsive": {
+    "mobile": {
+      "breakpoint": "640px",
+      "usage": "Consent lifts, nav crumb hidden."
+    },
+    "tablet": {
+      "breakpoint": "880px",
+      "usage": "3-col grids collapse, nav mobile menu."
+    },
+    "footer-collapse": {
+      "breakpoint": "900px",
+      "usage": "footer.full collapses to 2 cols."
+    },
+    "mobile-consent": {
+      "breakpoint": "600px",
+      "usage": "Consent buttons stretch."
+    }
+  },
+  "breakpoints-empty": {
+    "xs": {
+      "kind": "empty",
+      "slot": "0–360 (small phones)."
+    },
+    "sm": {
+      "kind": "empty",
+      "slot": "360–640."
+    },
+    "md": {
+      "kind": "empty",
+      "slot": "640–880."
+    },
+    "lg": {
+      "kind": "empty",
+      "slot": "880–1280."
+    },
+    "xl": {
+      "kind": "empty",
+      "slot": "1280+."
+    }
+  },
+  "seo-assets": {
+    "sitemap": {
+      "kind": "file",
+      "path": "/sitemap.xml",
+      "usage": "Public sitemap."
+    },
+    "llms-txt": {
+      "kind": "file",
+      "path": "/llms.txt",
+      "usage": "LLM discovery file."
+    },
+    "robots": {
+      "kind": "file",
+      "path": "/robots.txt",
+      "usage": "Crawler policy."
+    },
+    "indexnow": {
+      "kind": "file",
+      "path": "/6469cba9074273211ab059d59c048ac9.txt",
+      "usage": "IndexNow verification key."
+    },
+    "bing-verify": {
+      "kind": "file",
+      "path": "/BingSiteAuth.xml",
+      "usage": "Bing Webmaster verification file."
+    }
+  },
+  "seo-assets-empty": {
+    "google-file-verify": {
+      "kind": "empty",
+      "slot": "google[hash].html file for HTML-file verification."
+    },
+    "yandex-file-verify": {
+      "kind": "empty",
+      "slot": "yandex_[hash].html file."
+    },
+    "ai-txt": {
+      "kind": "empty",
+      "slot": "/ai.txt AI-crawler preference file (emerging standard)."
+    },
+    "well-known-ai-usage": {
+      "kind": "empty",
+      "slot": "/.well-known/ai-usage.json (emerging standard)."
+    },
+    "security-txt": {
+      "kind": "empty",
+      "slot": "/.well-known/security.txt disclosure contact."
+    },
+    "humans-txt": {
+      "kind": "empty",
+      "slot": "/humans.txt credits file."
+    }
+  },
+  "legal-templates-empty": {
+    "cookie-banner-copy": {
+      "kind": "empty",
+      "slot": "Consent notice text template."
+    },
+    "dpia-template": {
+      "kind": "empty",
+      "slot": "DPIA public template for services."
+    },
+    "warranty-template": {
+      "kind": "empty",
+      "slot": "Product warranty PDF template."
+    }
+  },
   "notes": {
-    "editing": "Change entries here directly, or use the VF Editor's Assets panel with Claude to edit an entry in place. Colours here are mirrored in /house.css :root; either place is source-of-truth until the build reads this file directly.",
-    "propagation": "Future build.mjs pass will inject values from this kit into every page (replacing hardcoded paths and colours). For now the kit serves as a canonical reference and editor-side entry point."
+    "editing": "Every entry above is either a live asset or an empty capability slot. Fill any empty slot when you need it by clicking it in the Assets panel and asking Claude to build it, or edit here directly. Colour changes should mirror to /house.css :root; radius/spacing changes should be inherited via CSS variables.",
+    "adding": "To create a new category or entry not listed here, either add it directly in this file or use POST /api/assets from the editor. Empty slots signal capability, not usage — VF isn't wasting effort filling every box, only what a live page needs.",
+    "philosophy": "The kit is exhaustive on capability, minimal on ceremony. Every choice on the site should be traceable back to a kit entry; every kit entry should have a real reason to exist."
   }
 }

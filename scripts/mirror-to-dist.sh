@@ -56,6 +56,12 @@ if [ -d journal ]; then
   find journal -maxdepth 1 -name '*.html' -exec cp -v {} dist/journal/ \;
 fi
 
+# Preview builds (WIP work-in-progress builds; noindex; nested arbitrarily)
+if [ -d preview ]; then
+  mkdir -p dist/preview
+  cp -r preview/. dist/preview/
+fi
+
 # Assets (fonts are inside dist/ already; keep the sync one-way for images)
 if [ -d assets ]; then
   mkdir -p dist/assets
