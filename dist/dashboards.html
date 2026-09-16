@@ -7,7 +7,7 @@
 <meta name="description" content="A command dashboard is the control surface of an AI system: fleets, lanes, costs and outcomes on one screen, paging on drift. Built by VF Empire, Malta, EU.">
 <link rel="canonical" href="https://vfempire.com/dashboards">
 <meta name="theme-color" content="#fbfbfd">
-<link rel="stylesheet" href="/assets/house.76140f4c53.css">
+<link rel="stylesheet" href="/assets/house.fdd792d8ee.css">
 <script src="/assets/scrollrail.js" defer></script>
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
@@ -35,12 +35,27 @@
       "url": "https://vfempire.com/dashboards",
       "name": "Command Dashboards",
       "description": "A command dashboard is the control surface of an AI system: fleets, lanes, costs and outcomes on one screen, paging on drift. Built by VF Empire, Malta, EU.",
-      "isPartOf": {"@id": "https://vfempire.com/#site"},
-      "about": {"@id": "https://vfempire.com/#org"},
+      "isPartOf": {
+        "@id": "https://vfempire.com/#site"
+      },
+      "about": {
+        "@id": "https://vfempire.com/#org"
+      },
       "inLanguage": "en-GB",
       "primaryImageOfPage": "https://vfempire.com/assets/dashboard.png",
-      "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["#definition"]},
-      "mainEntity": {"@type": "DefinedTerm", "name": "Command dashboard", "url": "https://vfempire.com/dashboards", "description": "The control surface of an AI system: fleets, lanes, costs and outcomes on one pane of glass, so the operator sees everything that runs and is paged the moment anything drifts."}
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "#definition"
+        ]
+      },
+      "mainEntity": {
+        "@type": "DefinedTerm",
+        "name": "Command dashboard",
+        "url": "https://vfempire.com/dashboards",
+        "description": "The control surface of an AI system: fleets, lanes, costs and outcomes on one pane of glass, so the operator sees everything that runs and is paged the moment anything drifts."
+      },
+      "dateModified": "2026-09-16"
     }
   ]
 }
@@ -136,6 +151,80 @@
           }
         }
       ]
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vfempire.com/#org",
+      "name": "VF Empire",
+      "legalName": "VF Empire Corp Ltd",
+      "url": "https://vfempire.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vfempire.com/apple-touch-icon.png",
+        "width": 512,
+        "height": 512
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@vfempire.com",
+        "availableLanguage": [
+          "en"
+        ]
+      },
+      "sameAs": [
+        "https://github.com/vfempire-hq",
+        "https://si-lock.com",
+        "https://noirda.solutions",
+        "https://gn-productions.com"
+      ],
+      "founder": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vfempire.com/about#vincent",
+      "name": "Vincent Falzon",
+      "jobTitle": "Founder & Managing Director",
+      "worksFor": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "url": "https://vfempire.com/about",
+      "knowsAbout": [
+        "privacy engineering",
+        "systems architecture",
+        "cryptography",
+        "identity systems",
+        "AI systems engineering",
+        "sovereign infrastructure"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/dashboards#webpage",
+      "url": "https://vfempire.com/dashboards",
+      "name": "Command Dashboards: AI fleet control | VF Empire",
+      "description": "A command dashboard is the control surface of an AI system: fleets, lanes, costs and outcomes on one screen, paging on drift. Built by VF Empire, Malta, EU.",
+      "inLanguage": "en",
+      "dateModified": "2026-09-16",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#website"
+      },
+      "publisher": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "author": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
     }
   ]
 }

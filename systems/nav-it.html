@@ -32,15 +32,32 @@
       "name": "NAV·IT",
       "applicationCategory": "TravelApplication",
       "operatingSystem": "Mobile + Web, privacy-first",
-      "creator": {"@id": "https://vfempire.com/#org"},
-      "description": "A sovereign, self-hosted turn-by-turn navigator built on OpenStreetMap + Valhalla + Photon + MapLibre. Zero third-party telemetry. Ships inside FuelIT + MapIT. Runs in three modes (full-offline, hybrid, online), each designed so no third-party mapping vendor learns the user's location or destination."
+      "creator": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "description": "A sovereign, self-hosted turn-by-turn navigator built on OpenStreetMap + Valhalla + Photon + MapLibre. Zero third-party telemetry. Ships inside FuelIT + MapIT. Runs in three modes (full-offline, hybrid, online), each designed so no third-party mapping vendor learns the user's location or destination.",
+      "dateModified": "2026-09-16"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
-        {"@type": "ListItem", "position": 3, "name": "NAV·IT"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "VF Empire",
+          "item": "https://vfempire.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Under Construction",
+          "item": "https://vfempire.com/#pipeline"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "NAV·IT"
+        }
       ]
     }
   ]
@@ -378,6 +395,96 @@
           }
         }
       ]
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".lead",
+      ".eb"
+    ]
+  },
+  "dateModified": "2026-09-16"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vfempire.com/#org",
+      "name": "VF Empire",
+      "legalName": "VF Empire Corp Ltd",
+      "url": "https://vfempire.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vfempire.com/apple-touch-icon.png",
+        "width": 512,
+        "height": 512
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@vfempire.com",
+        "availableLanguage": [
+          "en"
+        ]
+      },
+      "sameAs": [
+        "https://github.com/vfempire-hq",
+        "https://si-lock.com",
+        "https://noirda.solutions",
+        "https://gn-productions.com"
+      ],
+      "founder": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vfempire.com/about#vincent",
+      "name": "Vincent Falzon",
+      "jobTitle": "Founder & Managing Director",
+      "worksFor": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "url": "https://vfempire.com/about",
+      "knowsAbout": [
+        "privacy engineering",
+        "systems architecture",
+        "cryptography",
+        "identity systems",
+        "AI systems engineering",
+        "sovereign infrastructure"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/systems/nav-it#webpage",
+      "url": "https://vfempire.com/systems/nav-it",
+      "name": "NAV·IT: A sovereign navigator, made in the EU | VF Empire",
+      "description": "Self-hosted turn-by-turn navigator on OpenStreetMap from VF Empire, Malta: EU origin, full-offline mode, no Google, Apple or Mapbox SDK.",
+      "inLanguage": "en",
+      "dateModified": "2026-09-16",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#website"
+      },
+      "publisher": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "author": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
     }
   ]
 }

@@ -34,15 +34,29 @@
       "@id": "https://vfempire.com/software",
       "name": "Software you own: the VF Empire thesis",
       "url": "https://vfempire.com/software",
-      "isPartOf": {"@id": "https://vfempire.com/#site"},
-      "about": {"@id": "https://vfempire.com/#org"},
-      "description": "A public thesis on the five systemic failures of modern software and VF's five counter-principles."
+      "isPartOf": {
+        "@id": "https://vfempire.com/#site"
+      },
+      "about": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "description": "A public thesis on the five systemic failures of modern software and VF's five counter-principles.",
+      "dateModified": "2026-09-16"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Software"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "VF Empire",
+          "item": "https://vfempire.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Software"
+        }
       ]
     }
   ]
@@ -134,6 +148,96 @@
   .house{grid-template-columns:1fr}
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".lead",
+      ".eb"
+    ]
+  },
+  "dateModified": "2026-09-16"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vfempire.com/#org",
+      "name": "VF Empire",
+      "legalName": "VF Empire Corp Ltd",
+      "url": "https://vfempire.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vfempire.com/apple-touch-icon.png",
+        "width": 512,
+        "height": 512
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@vfempire.com",
+        "availableLanguage": [
+          "en"
+        ]
+      },
+      "sameAs": [
+        "https://github.com/vfempire-hq",
+        "https://si-lock.com",
+        "https://noirda.solutions",
+        "https://gn-productions.com"
+      ],
+      "founder": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vfempire.com/about#vincent",
+      "name": "Vincent Falzon",
+      "jobTitle": "Founder & Managing Director",
+      "worksFor": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "url": "https://vfempire.com/about",
+      "knowsAbout": [
+        "privacy engineering",
+        "systems architecture",
+        "cryptography",
+        "identity systems",
+        "AI systems engineering",
+        "sovereign infrastructure"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/software#webpage",
+      "url": "https://vfempire.com/software",
+      "name": "Software you own: the VF Empire thesis | VF Empire",
+      "description": "The VF Empire thesis: five failures of modern software and the five principles that answer them. Local-first, EU-sovereign, no third-party AI, verifiable.",
+      "inLanguage": "en",
+      "dateModified": "2026-09-16",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#website"
+      },
+      "publisher": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "author": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
+    }
+  ]
+}
+</script>
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -429,6 +533,56 @@
     </div>
   </div>
 </section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="k rv">ASKED, ANSWERED</div>
+    <h2 class="rv">The questions<br><span class="mute">every buyer asks first.</span></h2>
+
+    <div class="q-list rv" style="margin-top:44px;display:grid;gap:14px;max-width:820px">
+      <details style="border:1px solid var(--line);border-radius:16px;padding:22px 26px;background:#fff">
+        <summary style="cursor:pointer;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink)">What qualifies a product for the VF Empire slate?</summary>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.65;color:var(--dove)">A product joins the slate only if it inherits all five house principles and all six trust primitives: open-source under FSL-1.1-ALv2, reproducibly built from source, end-to-end signed with published transparency log, sealed vault format for user data, no back-channel telemetry and the Permanence Guarantee in Terms § 15. Anything that cannot meet all six is not shipped under the VF name.</p>
+      </details>
+      <details style="border:1px solid var(--line);border-radius:16px;padding:22px 26px;background:#fff">
+        <summary style="cursor:pointer;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink)">How is VF licensed and can I self-host?</summary>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.65;color:var(--dove)">Every VF product ships under the Functional Source License 1.1 with an Apache 2.0 change licence (FSL-1.1-ALv2). You can read the source, modify it, self-host it and audit it from day one. After two years each release converts automatically to Apache 2.0, so the code is permanently open even if VF disappears. Self-hosting is the intended path for firms and privacy-first buyers.</p>
+      </details>
+      <details style="border:1px solid var(--line);border-radius:16px;padding:22px 26px;background:#fff">
+        <summary style="cursor:pointer;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink)">What happens to my data or licence if VF Empire shuts down?</summary>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.65;color:var(--dove)">The Permanence Guarantee, written into Terms § 15 and enforceable in Malta courts, requires that within ninety days of any end-of-life announcement the full source is released under a permissive open licence, the last signed build stays verifiable in the public transparency log and the sealed vault format is documented so any conformant reader can extract your material. The source-release lane is insurance-funded across two EU jurisdictions.</p>
+      </details>
+      <details style="border:1px solid var(--line);border-radius:16px;padding:22px 26px;background:#fff">
+        <summary style="cursor:pointer;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink)">How does VF price its products?</summary>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.65;color:var(--dove)">Every product is a one-off purchase with a lifetime licence: no subscriptions, no seat resets, no lockout on non-renewal. SnapIT is live from €59 one-off, Guardian Shield from €39 per year lifetime-locked as a reserve, and each product on the slate publishes its price plainly on the product page. Optional support and priority engineering are separate line items, not bundled hostage-taking.</p>
+      </details>
+      <details style="border:1px solid var(--line);border-radius:16px;padding:22px 26px;background:#fff">
+        <summary style="cursor:pointer;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink)">Which VF products are live today and what is on the roadmap?</summary>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.65;color:var(--dove)">SnapIT (P·20) is live from snapit.vfempire.com. VF Mail (P·16) is in beta on VF's own mail node at inbox.vfempire.com. Guardian Shield (P·15) is on a public reserve model with a ship-fail date of 2027-09-14 backed by refund. The full slate of twenty-one products is listed at /systems/, each with a status chip: LIVE, BETA, RESERVE, IN BUILD, or SPEC. Any product marked SPEC has a published engineering plan even before code is written.</p>
+      </details>
+      <details style="border:1px solid var(--line);border-radius:16px;padding:22px 26px;background:#fff">
+        <summary style="cursor:pointer;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink)">Is VF suitable for regulated buyers such as EU municipalities and small firms?</summary>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.65;color:var(--dove)">Yes. Every product ships with a threat model, a public DPIA template, reproducible builds an auditor can rerun, a signed SBOM, and a Malta-jurisdiction contract for the Permanence Guarantee. VF also runs paid services for regulated buyers: fixed-fee CRA readiness audit, threat model plus DPIA authoring, and signing infrastructure setup. See /services/ for scope.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What qualifies a product for the VF Empire slate?","acceptedAnswer":{"@type":"Answer","text":"A product joins the slate only if it inherits all five house principles and all six trust primitives: open-source under FSL-1.1-ALv2, reproducibly built from source, end-to-end signed with published transparency log, sealed vault format for user data, no back-channel telemetry and the Permanence Guarantee in Terms § 15."}},
+    {"@type":"Question","name":"How is VF licensed and can I self-host?","acceptedAnswer":{"@type":"Answer","text":"Every VF product ships under the Functional Source License 1.1 with an Apache 2.0 change licence (FSL-1.1-ALv2). After two years each release converts automatically to Apache 2.0, so the code is permanently open even if VF disappears. Self-hosting is the intended path for firms and privacy-first buyers."}},
+    {"@type":"Question","name":"What happens to my data or licence if VF Empire shuts down?","acceptedAnswer":{"@type":"Answer","text":"The Permanence Guarantee, written into Terms § 15 and enforceable in Malta courts, requires that within ninety days of any end-of-life announcement the full source is released under a permissive open licence, the last signed build stays verifiable in the public transparency log and the sealed vault format is documented so any conformant reader can extract your material."}},
+    {"@type":"Question","name":"How does VF price its products?","acceptedAnswer":{"@type":"Answer","text":"Every product is a one-off purchase with a lifetime licence: no subscriptions, no seat resets, no lockout on non-renewal. SnapIT is live from €59 one-off. Guardian Shield from €39 per year lifetime-locked as a reserve. Each product on the slate publishes its price plainly on the product page."}},
+    {"@type":"Question","name":"Which VF products are live today and what is on the roadmap?","acceptedAnswer":{"@type":"Answer","text":"SnapIT (P·20) is live from snapit.vfempire.com. VF Mail (P·16) is in beta on VF's own mail node. Guardian Shield (P·15) is on a public reserve model with a ship-fail date backed by refund. The full slate of twenty-one products is listed at /systems/, each with a status chip: LIVE, BETA, RESERVE, IN BUILD, or SPEC."}},
+    {"@type":"Question","name":"Is VF suitable for regulated buyers such as EU municipalities and small firms?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every product ships with a threat model, a public DPIA template, reproducible builds an auditor can rerun, a signed SBOM, and a Malta-jurisdiction contract for the Permanence Guarantee. VF also runs paid services for regulated buyers: fixed-fee CRA readiness audit, threat model plus DPIA authoring, and signing infrastructure setup."}}
+  ]
+}
+</script>
 
 <!-- ============ FOOTER CTA ============ -->
 <section class="foot">

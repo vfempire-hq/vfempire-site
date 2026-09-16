@@ -1,0 +1,54 @@
+# VF Empire — every answer engine and search crawler welcome.
+# Content on this site is public marketing and reference material.
+# We publish to be read, cited and quoted, by humans and AIs alike.
+
+User-agent: *
+Allow: /
+Disallow: /dev/
+Disallow: /_headers
+
+# ---- Modern AI search bots (they send referral traffic) ----
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# ---- Modern AI training bots (indexing our public docs) ----
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://vfempire.com/sitemap.xml

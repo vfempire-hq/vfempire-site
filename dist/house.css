@@ -111,7 +111,7 @@ section.alt{background:var(--silver);border-top:1px solid var(--line);border-bot
 .band .cap{position:absolute;left:22px;bottom:18px;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--dove);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:99px}
 .faq{display:flex;flex-direction:column;gap:14px;margin-top:52px;max-width:760px}
 .q{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px}
-.q h4{font-size:15.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
+.q h3,.q h4{font-size:15.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
 .q p{font-size:13.5px;line-height:1.62;color:var(--dove)}
 .foot{background:var(--silver);text-align:center;border-top:1px solid var(--line)}
 .foot h2{margin:0 auto;max-width:22ch}
@@ -168,7 +168,7 @@ footer.full .legal{padding-top:26px}
 @media(max-width:900px){.fgrid{grid-template-columns:1fr 1fr}}
 
 /* ---------- consent notice ---------- */
-.consent{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
+.consent{display:none;position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);width:min(560px,calc(100vw - 32px));background:rgba(251,251,253,.88);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid var(--line);border-radius:20px;padding:20px 24px;z-index:200;box-shadow:0 24px 70px rgba(29,29,31,.16);transition:transform .5s cubic-bezier(.32,.72,.22,1)}
 .consent.show{transform:translateX(-50%) translateY(0)}
 .consent h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
 .consent h5 svg{flex-shrink:0}

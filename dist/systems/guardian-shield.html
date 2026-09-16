@@ -7,7 +7,7 @@
 <meta name="description" content="Self-hosted security suite from VF Empire, Malta: vault, malware scanner, WireGuard VPN, DNS filter and breach watch on hardware you own.">
 <link rel="canonical" href="https://vfempire.com/systems/guardian-shield">
 <meta name="theme-color" content="#fbfbfd">
-<link rel="stylesheet" href="/assets/house.76140f4c53.css">
+<link rel="stylesheet" href="/house.css">
 <script src="/assets/scrollrail.js" defer></script>
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <meta property="og:type" content="website">
@@ -28,19 +28,51 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "@id": "https://vfempire.com/#vf",
+      "name": "Vincent Falzon",
+      "jobTitle": "Managing Director",
+      "worksFor": {"@id": "https://vfempire.com/#org"},
+      "url": "https://vfempire.com/about",
+      "sameAs": [
+        "https://vfempire.com/about",
+        "https://vfempire.com/press"
+      ]
+    },
+    {
       "@type": "SoftwareApplication",
       "name": "Guardian Shield",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Local-first, self-hosted",
-      "creator": {"@id": "https://vfempire.com/#org"},
-      "description": "A full consumer and small-business security suite (malware and device scanning, firewall management, network intrusion and rogue-device watch, breach and identity monitoring, password vault) designed to run on hardware the owner controls. In build at VF Empire."
+      "creator": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "author": {
+        "@id": "https://vfempire.com/#vf"
+      },
+      "description": "A full consumer and small-business security suite (malware and device scanning, firewall management, network intrusion and rogue-device watch, breach and identity monitoring, password vault) designed to run on hardware the owner controls. In build at VF Empire.",
+      "dateModified": "2026-09-16"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "VF Empire", "item": "https://vfempire.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Under Construction", "item": "https://vfempire.com/#pipeline"},
-        {"@type": "ListItem", "position": 3, "name": "Guardian Shield"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "VF Empire",
+          "item": "https://vfempire.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Under Construction",
+          "item": "https://vfempire.com/#pipeline"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Guardian Shield"
+        }
       ]
     }
   ]
@@ -66,7 +98,7 @@
 .fl:hover::before{transform:scaleY(1)}
 .fl .num{font-size:13px;font-weight:600;color:var(--dove);letter-spacing:.1em;padding-top:3px}
 .fl:hover .num{color:var(--core)}
-.fl h4{font-size:19px;font-weight:600;letter-spacing:-.025em}
+.fl h3{font-size:19px;font-weight:600;letter-spacing:-.025em}
 .fl p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 @media(max-width:880px){.fl{grid-template-columns:44px 1fr;gap:8px 16px}.fl p{grid-column:2}}
 
@@ -81,11 +113,11 @@
 .au:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(40,55,90,.25)}
 .au .ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .au .ic svg{width:22px;height:22px;stroke:var(--core-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.au h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
+.au h3{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
 .au p{font-size:13.5px;line-height:1.62;color:var(--dove)}
 .au.first{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:linear-gradient(160deg,#0e2a63,var(--core-deep) 55%,var(--core));border-color:transparent}
 .au.first .ic svg{stroke:#fff}
-.au.first h4{color:#fff}
+.au.first h3{color:#fff}
 .au.first p{color:rgba(255,255,255,.75);max-width:640px}
 .au.first .co{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 .au.first .co span{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:99px}
@@ -106,7 +138,7 @@
 .ly{padding:24px 4px;border-bottom:1px solid var(--line)}
 .ly .lt{display:flex;align-items:baseline;gap:12px}
 .ly .lt i{font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.16em;color:var(--core)}
-.ly h4{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.ly h3{font-size:17px;font-weight:600;letter-spacing:-.02em}
 .ly p{font-size:13.5px;line-height:1.62;color:var(--dove);margin-top:7px}
 @media(max-width:880px){.mech{grid-template-columns:1fr}}
 
@@ -114,7 +146,7 @@
 .road{margin-top:56px;border-top:1px solid var(--line)}
 .rd{display:grid;grid-template-columns:80px 1.1fr 1.6fr auto;align-items:center;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line)}
 .rd .num{font-size:12px;font-weight:600;color:var(--dove);letter-spacing:.14em}
-.rd h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.rd h3{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .rd p{font-size:13.5px;line-height:1.55;color:var(--dove)}
 .rd .st{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#2b3a55;background:var(--mist);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap}
 .rd .st.hot{color:#fff;background:var(--core);border-color:var(--core)}
@@ -124,7 +156,7 @@
 .docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
 .doc{background:#fff;border:1px dashed var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;gap:8px}
 .doc .dk{font-size:10px;font-weight:600;letter-spacing:.26em;color:var(--dove)}
-.doc h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.doc h3{font-size:18px;font-weight:600;letter-spacing:-.02em}
 .doc p{font-size:13.5px;line-height:1.6;color:var(--dove)}
 .doc .tba{align-self:flex-start;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--dove);background:var(--mist);padding:7px 15px;border-radius:99px}
 @media(max-width:880px){.docs{grid-template-columns:1fr}}
@@ -309,6 +341,7 @@
 
 /* cta + footer */
 .cta-band{text-align:center;background:var(--silver);border-top:1px solid var(--line)}
+footer.full .fgrid h2{font-size:11px;letter-spacing:.18em;color:var(--dove);font-weight:600;margin-bottom:16px;margin-top:0}
 
 @media(max-width:880px){
   .phero{grid-template-columns:1fr;min-height:0;padding-top:110px;text-align:left}
@@ -382,6 +415,96 @@
   ]
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".lead",
+      ".eb"
+    ]
+  },
+  "dateModified": "2026-09-16"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vfempire.com/#org",
+      "name": "VF Empire",
+      "legalName": "VF Empire Corp Ltd",
+      "url": "https://vfempire.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vfempire.com/apple-touch-icon.png",
+        "width": 512,
+        "height": 512
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@vfempire.com",
+        "availableLanguage": [
+          "en"
+        ]
+      },
+      "sameAs": [
+        "https://github.com/vfempire-hq",
+        "https://si-lock.com",
+        "https://noirda.solutions",
+        "https://gn-productions.com"
+      ],
+      "founder": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vfempire.com/about#vincent",
+      "name": "Vincent Falzon",
+      "jobTitle": "Founder & Managing Director",
+      "worksFor": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "url": "https://vfempire.com/about",
+      "knowsAbout": [
+        "privacy engineering",
+        "systems architecture",
+        "cryptography",
+        "identity systems",
+        "AI systems engineering",
+        "sovereign infrastructure"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/systems/guardian-shield#webpage",
+      "url": "https://vfempire.com/systems/guardian-shield",
+      "name": "Guardian Shield: Security on hardware you own | VF Empire",
+      "description": "Self-hosted security suite from VF Empire, Malta: vault, malware scanner, WireGuard VPN, DNS filter and breach watch on hardware you own.",
+      "inLanguage": "en",
+      "dateModified": "2026-09-16",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#website"
+      },
+      "publisher": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "author": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -426,7 +549,7 @@
   <div>
     <div class="eb"><b>P·18</b> &nbsp;·&nbsp; SECURITY &nbsp;·&nbsp; ON THE VF BUILD SLATE</div>
     <h1>Guardian Shield<span>Security you own, <em class="i">not rent.</em></span></h1>
-    <p class="sub">Everything the big security suites do (password vault, malware scanning, VPN, DNS filter, breach watch), rebuilt on one principle the industry abandoned: your protection runs on your hardware, answers to you, and is never anyone else's data business. Reproducible builds, a public transparency log and a €25 000 bug bounty for anyone who breaks a promise back every claim.</p>
+    <p class="sub">Guardian Shield is a self-hosted security suite for Windows, macOS, Linux, iOS and Android. It ships five subsystems: password vault, malware scanner, WireGuard VPN, DNS filter and breach watch, all running on hardware you own. Reproducible builds, a public transparency log and a €25 000 bug bounty back every claim.</p>
     <div class="meta">
       <span class="mchip hot">IN BUILD · R·01 SPEC-COMPLETE</span>
       <span class="mchip">5 SUBSYSTEMS</span>
@@ -440,40 +563,40 @@
       <a class="bt gho" href="#status">Read the honest build status</a>
     </div>
   </div>
-  <div class="pheroart"><picture><source type="image/avif" srcset="/assets/pipe/p18.png.avif"><source type="image/webp" srcset="/assets/pipe/p18.png.webp"><img alt="Guardian Shield: a minimal white shield with a glowing blue rim and a blue orb at its centre" src="../assets/pipe/p18.png" width="1792" height="2304" fetchpriority="high"></picture></div>
+  <div class="pheroart"><img alt="Guardian Shield: a minimal white shield with a glowing blue rim and a blue orb at its centre" src="../assets/pipe/p18.png" width="1792" height="2304" fetchpriority="high"></div>
 </header>
 
 <section id="why">
   <div class="wrap">
     <div class="k rv">WHY IT HAS TO EXIST</div>
     <h2 class="rv">The guards forgot<br><span class="mute">whose side they're on.</span></h2>
-    <p class="lead rv">Consumer security is a strange market: you hand total visibility of your digital life to a company, and trust that it guards you instead of monetising you. The record of the last few years says that trust was misplaced.</p>
+    <p class="lead rv">Guardian Shield is a self-hosted security suite built on a premise the incumbents abandoned: your protection should run on your hardware and answer to no one else. The existing market asks you to hand total visibility of your digital life to a vendor and trust that it guards rather than monetises you. The record of the last few years says that trust was misplaced.</p>
 
     <div class="fails rv">
       <div class="fl">
         <span class="num">F·01</span>
-        <h4>The guard sold the house keys</h4>
+        <h3>The guard sold the house keys</h3>
         <p>An antivirus vendor spent years collecting its users' browsing data and selling it to over a hundred third parties through a subsidiary, until the US FTC banned the practice and ordered a $16.5&nbsp;million payment, calling it bait-and-switch surveillance. The product sold as privacy protection was the surveillance.</p>
       </div>
       <div class="fl">
         <span class="num">F·02</span>
-        <h4>The subscription is the product</h4>
+        <h3>The subscription is the product</h3>
         <p>Year one is cheap; the auto-renewal often costs more than double, buried in the small print. It took the UK competition authority to force the biggest suite vendors to refund customers trapped by auto-renewal. Security priced as a ratchet is rent-seeking with a padlock icon.</p>
       </div>
       <div class="fl">
         <span class="num">F·03</span>
-        <h4>Your safety is their telemetry</h4>
+        <h3>Your safety is their telemetry</h3>
         <p>A modern suite is a cloud agent with root on your machine; some upload suspicious files and browsing domains with no complete opt-out. Governments have acted on this fear: the US banned a major antivirus outright over what its telemetry could see. The exposure comes from the architecture, so any cloud suite carries it.</p>
       </div>
       <div class="fl">
         <span class="num">F·04</span>
-        <h4>Protection stops at the laptop</h4>
+        <h3>Protection stops at the laptop</h3>
         <p>The household of 2026 is a network: router, phones, cameras, TVs, NAS, a dozen quiet devices with firmware no one watches. Traditional suites guard one computer and leave the estate open. They cannot see the rogue box on your Wi-Fi until it reaches the PC.</p>
       </div>
     </div>
 
     <div class="band rv">
-      <picture><source type="image/avif" srcset="/assets/pipe/p18-flow.png.avif"><source type="image/webp" srcset="/assets/pipe/p18-flow.png.webp"><img alt="Guardian Shield flow render: a white protective dome sheltering a cluster of devices, a blue arc of light sweeping its surface" src="../assets/pipe/p18-flow.png" width="2304" height="1792" loading="lazy" decoding="async"></picture>
+      <img alt="Guardian Shield flow render: a white protective dome sheltering a cluster of devices, a blue arc of light sweeping its surface" src="../assets/pipe/p18-flow.png" width="2304" height="1792" loading="lazy" decoding="async">
       <span class="cap">EVERY ALERT CARRIES EVIDENCE. AGENTS WATCH, THEY NEVER TOUCH</span>
     </div>
   </div>
@@ -490,29 +613,29 @@
           <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V7l7-4z"/><circle cx="12" cy="11" r="2.2"/></svg></div>
         </div>
         <div>
-          <h4>Our own estate first</h4>
+          <h3>Our own estate first</h3>
           <p>The Shield is the oldest brand in this house. It predates the company's current systems; we first built it to guard our earliest app. Now it returns as the full suite, and it earns its name the VF way: standing guard over our own servers, sites, vaults and machines across three countries before it watches anyone else's. If it can't defend our floor, it doesn't ship.</p>
           <div class="co"><span>SERVERS · SITES · VAULTS</span><span>MT · DE · UK</span><span>PROVEN INWARD FIRST</span></div>
         </div>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 21v-2c0-2.8 2.2-5 5-5h2c2.8 0 5 2.2 5 5v2M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM17 8h4m-2-2v4"/></svg></div>
-        <h4>Families</h4>
+        <h3>Families</h3>
         <p>One shield over every device in the house: the kids' phones, the TV, the router no one has logged into since 2021. It guards them as one estate, explained in plain language, with no per-seat metering of your own family.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
-        <h4>Small firms</h4>
+        <h3>Small firms</h3>
         <p>The businesses that can't hire a security team but hold real customer data. Full-suite protection sized and priced for a five-person office.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 16v4m6-4v4M7 8h4"/></svg></div>
-        <h4>Self-hosters &amp; home labs</h4>
+        <h3>Self-hosters &amp; home labs</h3>
         <p>People who already run their own NAS, cameras and services, and know why they don't want a cloud agent with root. For them, local-first is the requirement.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 21c-4-1.6-7-4.6-7-9V7l7-4 7 4v5c0 4.4-3 7.4-7 9z"/><path d="M9 11.5l2 2 4-4.5"/></svg></div>
-        <h4>The already-burned</h4>
+        <h3>The already-burned</h3>
         <p>Anyone who watched their antivirus become a data broker, their renewal double, or their vendor get banned, and concluded that the model is the problem. Guardian Shield is the other model.</p>
       </div>
     </div>
@@ -540,35 +663,35 @@
     <p class="lead rv">R·01 ships five subsystems; everything else is backlogged. Each subsystem uses well-studied open primitives (ClamAV, YARA, WireGuard-Go, HIBP, OpenPhish, age, Argon2): no proprietary black boxes, no commercial threat-intel SDKs, no third-party analytics on any code path that touches user data. Every other VF product also depends on Guardian Shield for its own defence: the vault primitive that seals VF Wallet, VF Legacy, VF Home + VF Mail; the DNS filter that runs on every VF machine; the scanner that verifies our own signed binaries. <a href="/security" style="color:var(--core);font-weight:600">See the live security audit ▸</a> Like every VF system, it leaves the lab with the <a href="/engine" style="color:var(--core);font-weight:600">engine</a> fitted and the <a href="/harness" style="color:var(--core);font-weight:600">harness</a> tuned.</p>
 
     <div class="mech rv">
-      <div class="mechart"><picture><source type="image/avif" srcset="/assets/pipe/p18-mech.png.avif"><source type="image/webp" srcset="/assets/pipe/p18-mech.png.webp"><img alt="Five circles orbiting a glowing blue core: the five subsystems of Guardian Shield" src="../assets/pipe/p18-mech.png" width="2304" height="1792" loading="lazy" decoding="async"></picture></div>
+      <div class="mechart"><img alt="Five circles orbiting a glowing blue core: the five subsystems of Guardian Shield" src="../assets/pipe/p18-mech.png" width="2304" height="1792" loading="lazy" decoding="async"></div>
       <div class="layers">
         <div class="ly">
-          <div class="lt"><i>SUBSYSTEM 1</i><h4>Password vault</h4></div>
+          <div class="lt"><i>SUBSYSTEM 1</i><h3>Password vault</h3></div>
           <p>Argon2id-wrapped XChaCha20-Poly1305 vault. Autofill on iOS, Android and desktop browsers. Cross-device sync via sealed opaque blobs; we never see the plaintext. Recovery via existing-device confirmation, 24-word recovery code, or a 30-day grace-delay window. Master-password loss is unrecoverable by design.</p>
         </div>
         <div class="ly">
-          <div class="lt"><i>SUBSYSTEM 2</i><h4>Malware scanner</h4></div>
+          <div class="lt"><i>SUBSYSTEM 2</i><h3>Malware scanner</h3></div>
           <p>ClamAV + YARA, both local, both sandboxed. Signatures updated via daily Ed25519-signed packs published through a public Merkle-tree transparency log. Files never leave the device. Detection floor set at 85% on the AV-TEST reference set; below that for 30 days and we pause new signups until fixed.</p>
         </div>
         <div class="ly">
-          <div class="lt"><i>SUBSYSTEM 3</i><h4>WireGuard VPN</h4></div>
+          <div class="lt"><i>SUBSYSTEM 3</i><h3>WireGuard VPN</h3></div>
           <p>wireguard-go client. Three VF-operated exits (Zurich, Reykjavik, Amsterdam) or bring-your-own Mullvad/IVPN config. Kill-switch enforced at the OS firewall. 24-hour iptables audit rotation, 30-minute conntrack timeout, annual third-party audit, warrant canary refreshed every 30 days.</p>
         </div>
         <div class="ly">
-          <div class="lt"><i>SUBSYSTEM 4</i><h4>DNS + URL filter</h4></div>
+          <div class="lt"><i>SUBSYSTEM 4</i><h3>DNS + URL filter</h3></div>
           <p>System-wide blocklist matching at the OS resolver: <em>NEDNSSettings</em> on iOS, <em>PrivateDnsSettings</em> on Android, <em>NEDNSProxyProvider</em> on macOS, <em>systemd-resolved</em> on Linux, DoH on Windows. Blocklist rebuilt daily from OpenPhish, AbuseCH URLhaus, Steven Black hosts, Quad9 policy replication.</p>
         </div>
         <div class="ly">
-          <div class="lt"><i>SUBSYSTEM 5</i><h4>Breach watch (zero-knowledge)</h4></div>
+          <div class="lt"><i>SUBSYSTEM 5</i><h3>Breach watch (zero-knowledge)</h3></div>
           <p>The client hashes your password locally; only the first 5 characters travel. Our relay strips IPs and batches lookups before hitting Have I Been Pwned. HIBP sees us; never you. Neither party can identify who is checking what.</p>
         </div>
       </div>
     </div>
 
     <div class="related rv">
-      <a href="/systems/vf-wallet"><span class="rk">P·22 · IDENTITY</span><h4>VF Wallet</h4><p>Full ARF conformance, zero-knowledge age proofs and an audit log you own; Malta launch, EU acceptance.</p><span class="go">Open →</span></a>
-      <a href="/systems/vf-home"><span class="rk">P·24 · SMART HOME</span><h4>VF Home</h4><p>Matter, Zigbee and Z-Wave on hardware you already own, with local NVR and the Permanence Guarantee.</p><span class="go">Open →</span></a>
-      <a href="/systems/vf-mail"><span class="rk">P·16 · EMAIL</span><h4>VF Mail</h4><p>Server, shield and address on metal we hold; the first @vfempire.com inboxes already run on it.</p><span class="go">Open →</span></a>
+      <a href="/systems/vf-wallet"><span class="rk">P·22 · IDENTITY</span><h3>VF Wallet</h3><p>Full ARF conformance, zero-knowledge age proofs and an audit log you own; Malta launch, EU acceptance.</p><span class="go">Open →</span></a>
+      <a href="/systems/vf-home"><span class="rk">P·24 · SMART HOME</span><h3>VF Home</h3><p>Matter, Zigbee and Z-Wave on hardware you already own, with local NVR and the Permanence Guarantee.</p><span class="go">Open →</span></a>
+      <a href="/systems/vf-mail"><span class="rk">P·16 · EMAIL</span><h3>VF Mail</h3><p>Server, shield and address on metal we hold; the first @vfempire.com inboxes already run on it.</p><span class="go">Open →</span></a>
     </div>
   </div>
 </section>
@@ -581,19 +704,19 @@
     <div class="road rv">
       <div class="rd">
         <span class="num">R·01</span>
-        <h4>Five subsystems, three platforms</h4>
+        <h3>Five subsystems, three platforms</h3>
         <p>Password vault + malware scanner + WireGuard VPN + DNS filter + breach watch. Desktop (Windows + macOS + Linux via Tauri), iOS, Android (including GrapheneOS + /e/OS, with zero Google Play Services dependency). English + German UI. 4–6 months of build once the shared kit ships.</p>
         <span class="st hot">SPEC COMPLETE</span>
       </div>
       <div class="rd">
         <span class="num">R·02</span>
-        <h4>Windows real-time + anti-tracker + more locales</h4>
+        <h3>Windows real-time + anti-tracker + more locales</h3>
         <p>Signed Windows kernel driver for real-time on-access scanning. Anti-tracker browser extension. On-device parental controls (never report-back-to-parent dashboards; those are surveillance). French, Spanish, Italian, Portuguese UI. Five to six VPN exit nodes.</p>
         <span class="st">NEXT</span>
       </div>
       <div class="rd">
         <span class="num">R·03</span>
-        <h4>EDR behavioural + encrypted backup + family plans</h4>
+        <h3>EDR behavioural + encrypted backup + family plans</h3>
         <p>Heuristic behavioural monitoring for zero-day defence (still on-device, still no cloud upload). Encrypted backup (restic-based) to user-owned R2 or ours. Multi-device family and small-corporate plans. Guardian Shield Home router appliance planned for R·04.</p>
         <span class="st">PLANNED</span>
       </div>
@@ -602,25 +725,25 @@
     <div class="docs rv">
       <div class="doc">
         <span class="dk">ENGINEERING SPEC</span>
-        <h4>Guardian Shield: the full build plan</h4>
+        <h3>Guardian Shield: the full build plan</h3>
         <p>System overview, five subsystems detailed, data-source licence audit, client architecture per platform, signature supply-chain problem named as the highest-severity threat.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/architecture/guardian-shield-spec.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">THREAT MODEL</span>
-        <h4>STRIDE with residual risks named</h4>
+        <h3>STRIDE with residual risks named</h3>
         <p>Six adversary tiers (A1 nation-state to A6 household). Threats specific to Guardian Shield (upstream poisoning + signing key compromise) get their own defence-in-depth analysis.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/security/threat-model.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">VERIFICATION CHECKLIST</span>
-        <h4>Ten reproducible checks any auditor can run</h4>
+        <h3>Ten reproducible checks any auditor can run</h3>
         <p>Packet-trace commands. Signature-verification steps. Two-signer threshold checks. HIBP relay identifier scan. Bug bounty from €500 (design typos) to €25 000 (novel privacy leaks).</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/blob/main/docs/security/verification-checklist.md">PUBLISHED · 2026-09-12 →</a></span>
       </div>
       <div class="doc">
         <span class="dk">INVESTOR PACK</span>
-        <h4>Full DD pack, 11 documents</h4>
+        <h3>Full DD pack, 11 documents</h3>
         <p>Executive summary, product, market + competitors, traction targets, technology + IP, team + hire plan, financials, risks, the ask (€1.5–3.5m seed), data-room process, portfolio context.</p>
         <span class="tba"><a href="https://github.com/vfempire-hq/guardian-shield/tree/main/docs/investor">PUBLISHED · 2026-09-12 →</a></span>
       </div>
@@ -675,12 +798,12 @@
     <div class="k rv">QUESTIONS</div>
     <h2 class="rv">Asked.<br><span class="mute">Answered.</span></h2>
     <div class="faq rv">
-      <div class="q"><h4>Can I buy Guardian Shield today?</h4><p>Guardian Shield is in build and is not yet on sale. The architecture is spec-complete and audit-reviewed, and the five subsystems are a 5-7 month build with the Path B team. VF takes no subscription payment until every subsystem is in the shippable column. You can reserve a founding-tier slot with your email today, with no card and no charge.</p></div>
-      <div class="q"><h4>What does Guardian Shield include?</h4><p>R·01 ships five subsystems: a password vault (Argon2id-wrapped XChaCha20-Poly1305), a local malware scanner (ClamAV and YARA, both sandboxed), a WireGuard VPN with three VF-operated exits in Zurich, Reykjavik and Amsterdam, a system-wide DNS and URL filter, and a zero-knowledge breach watch that relays to Have I Been Pwned without revealing who is checking.</p></div>
-      <div class="q"><h4>Do my files or passwords ever leave my device?</h4><p>Files never leave the device: signatures come to you, your files never go the other way, and you can verify it with tshark (Check 1 of the audit checklist). Vault plaintext is never on the wire; the server sees encrypted opaque blobs only (Check 2). Two operators in different EU jurisdictions sign every update into a public Merkle transparency log.</p></div>
-      <div class="q"><h4>Which platforms does Guardian Shield run on?</h4><p>Windows 10+, macOS 12+, Linux (glibc), iOS 16+ and Android 10+. On Android it runs on GrapheneOS, /e/OS and LineageOS with no Google Play Services dependency. R·01 ships with English and German UI; French, Spanish, Italian and Portuguese follow in R·02, together with a signed Windows kernel driver for real-time on-access scanning.</p></div>
-      <div class="q"><h4>How much will Guardian Shield cost?</h4><p>The founding tier, limited to the first 500, is €39 a year, lifetime-locked and charged only when R·01 ships: all five subsystems, all platforms, family slots and R·02 features at no additional cost. The free tier, forever, includes a 20-entry password vault, breach watch at 5 lookups an hour and the default DNS blocklist. No card is required to reserve.</p></div>
-      <div class="q"><h4>What happens if VF Empire discontinues Guardian Shield?</h4><p>The Permanence Guarantee applies, enforceable via Terms § 15 in Malta courts. VF releases the full source under a permissive open-source licence within 90 days, escrowed in Malta and Ireland. The pack-distributor stays online for six months with signed daily updates, the vault format is a public spec with an export lane, and verification keys are mirrored to Software Heritage and the Wayback Machine.</p></div>
+      <div class="q"><h3>Can I buy Guardian Shield today?</h3><p>Guardian Shield is in build and is not yet on sale. The architecture is spec-complete and audit-reviewed, and the five subsystems are a 5-7 month build with the Path B team. VF takes no subscription payment until every subsystem is in the shippable column. You can reserve a founding-tier slot with your email today, with no card and no charge.</p></div>
+      <div class="q"><h3>What does Guardian Shield include?</h3><p>R·01 ships five subsystems: a password vault (Argon2id-wrapped XChaCha20-Poly1305), a local malware scanner (ClamAV and YARA, both sandboxed), a WireGuard VPN with three VF-operated exits in Zurich, Reykjavik and Amsterdam, a system-wide DNS and URL filter, and a zero-knowledge breach watch that relays to Have I Been Pwned without revealing who is checking.</p></div>
+      <div class="q"><h3>Do my files or passwords ever leave my device?</h3><p>Files never leave the device: signatures come to you, your files never go the other way, and you can verify it with tshark (Check 1 of the audit checklist). Vault plaintext is never on the wire; the server sees encrypted opaque blobs only (Check 2). Two operators in different EU jurisdictions sign every update into a public Merkle transparency log.</p></div>
+      <div class="q"><h3>Which platforms does Guardian Shield run on?</h3><p>Windows 10+, macOS 12+, Linux (glibc), iOS 16+ and Android 10+. On Android it runs on GrapheneOS, /e/OS and LineageOS with no Google Play Services dependency. R·01 ships with English and German UI; French, Spanish, Italian and Portuguese follow in R·02, together with a signed Windows kernel driver for real-time on-access scanning.</p></div>
+      <div class="q"><h3>How much will Guardian Shield cost?</h3><p>The founding tier, limited to the first 500, is €39 a year, lifetime-locked and charged only when R·01 ships: all five subsystems, all platforms, family slots and R·02 features at no additional cost. The free tier, forever, includes a 20-entry password vault, breach watch at 5 lookups an hour and the default DNS blocklist. No card is required to reserve.</p></div>
+      <div class="q"><h3>What happens if VF Empire discontinues Guardian Shield?</h3><p>The Permanence Guarantee applies, enforceable via Terms § 15 in Malta courts. VF releases the full source under a permissive open-source licence within 90 days, escrowed in Malta and Ireland. The pack-distributor stays online for six months with signed daily updates, the vault format is a public spec with an export lane, and verification keys are mirrored to Software Heritage and the Wayback Machine.</p></div>
     </div>
   </div>
 </section>
@@ -694,13 +817,13 @@
     <div class="docs rv" style="grid-template-columns:1fr 1fr;margin-top:56px">
       <div class="doc">
         <span class="dk">FOUNDING TIER · FIRST 500</span>
-        <h4>All five subsystems, all platforms, lifetime-locked founding rate</h4>
+        <h3>All five subsystems, all platforms, lifetime-locked founding rate</h3>
         <p>Unlimited vault + unlimited breach lookups + full malware scanner + all VPN exits + custom DNS rules + priority sync. Founding-tier rate <b>never</b> renews above its locked price. Family slots + R·02 features at no additional cost.</p>
         <span class="tba">€39 / YEAR · LIFETIME-LOCKED · WHEN SHIPPED</span>
       </div>
       <div class="doc">
         <span class="dk">FREE TIER · FOREVER</span>
-        <h4>Password vault (20 entries) + breach watch (5/hr) + DNS filter (default blocklist)</h4>
+        <h3>Password vault (20 entries) + breach watch (5/hr) + DNS filter (default blocklist)</h3>
         <p>Enough to protect a single-user setup. No advertising injected. No feature nagware. If you never upgrade, we still owe you the same privacy commitments as a paying subscriber. Ships alongside the paid tier.</p>
         <span class="tba">€0 · FOREVER · WHEN SHIPPED</span>
       </div>

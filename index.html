@@ -37,23 +37,97 @@
       "url": "https://vfempire.com/",
       "logo": "https://vfempire.com/assets/brand/vf-mark-1024.png",
       "email": "info@vfempire.com",
-      "sameAs": ["https://github.com/vfempire-hq", "https://si-lock.com", "https://noirda.solutions", "https://gn-productions.com"],
-      "contactPoint": [
-        {"@type": "ContactPoint", "email": "info@vfempire.com", "contactType": "general enquiries", "availableLanguage": ["en", "de", "mt"]},
-        {"@type": "ContactPoint", "email": "sales@vfempire.com", "contactType": "sales", "availableLanguage": ["en", "de", "mt"]},
-        {"@type": "ContactPoint", "email": "support@vfempire.com", "contactType": "customer support", "availableLanguage": ["en", "de", "mt"]},
-        {"@type": "ContactPoint", "email": "security@vfempire.com", "contactType": "security", "availableLanguage": ["en"]}
+      "sameAs": [
+        "https://github.com/vfempire-hq",
+        "https://si-lock.com",
+        "https://noirda.solutions",
+        "https://gn-productions.com"
       ],
-      "areaServed": ["MT", "EU", "DE", "GB"],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "email": "info@vfempire.com",
+          "contactType": "general enquiries",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "sales@vfempire.com",
+          "contactType": "sales",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "support@vfempire.com",
+          "contactType": "customer support",
+          "availableLanguage": [
+            "en",
+            "de",
+            "mt"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "security@vfempire.com",
+          "contactType": "security",
+          "availableLanguage": [
+            "en"
+          ]
+        }
+      ],
+      "areaServed": [
+        "MT",
+        "EU",
+        "DE",
+        "GB"
+      ],
       "foundingDate": "2019",
       "vatID": "MT 2686-9431",
-      "identifier": {"@type": "PropertyValue", "name": "Malta Company Registration", "value": "C 94160"},
-      "address": {"@type": "PostalAddress", "streetAddress": "Virgo Louretana, Triq L-Mġarr", "addressLocality": "Għajnsielem", "addressRegion": "Gozo", "postalCode": "GSM1020", "addressCountry": "MT"},
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "Malta Company Registration",
+        "value": "C 94160"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Virgo Louretana, Triq L-Mġarr",
+        "addressLocality": "Għajnsielem",
+        "addressRegion": "Gozo",
+        "postalCode": "GSM1020",
+        "addressCountry": "MT"
+      },
       "description": "VF Empire is a systems engineering house: it designs the engines, harnesses and command dashboards that make open-source AI models work as complete systems on hardware the owner controls, and operates its own AI Training Centre.",
-      "knowsAbout": ["AI systems engineering", "AI orchestration engines", "AI harnesses", "AI command dashboards", "open-source AI models", "local-first AI", "AI training", "AI robotics", "AI education systems", "AI privacy and cyber protection", "post-quantum encryption"],
+      "knowsAbout": [
+        "AI systems engineering",
+        "AI orchestration engines",
+        "AI harnesses",
+        "AI command dashboards",
+        "open-source AI models",
+        "local-first AI",
+        "AI training",
+        "AI robotics",
+        "AI education systems",
+        "AI privacy and cyber protection",
+        "post-quantum encryption"
+      ],
       "brand": [
-        {"@type": "Brand", "name": "Helmsman Engine"},
-        {"@type": "Brand", "name": "S◉LOCK", "url": "https://si-lock.com"}
+        {
+          "@type": "Brand",
+          "name": "Helmsman Engine"
+        },
+        {
+          "@type": "Brand",
+          "name": "S◉LOCK",
+          "url": "https://si-lock.com"
+        }
       ]
     },
     {
@@ -61,19 +135,78 @@
       "@id": "https://vfempire.com/#site",
       "url": "https://vfempire.com/",
       "name": "VF Empire",
-      "publisher": {"@id": "https://vfempire.com/#org"}
+      "publisher": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://vfempire.com/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "FAQPage",
       "@id": "https://vfempire.com/#faq",
       "mainEntity": [
-        {"@type": "Question", "name": "What does VF Empire build?", "acceptedAnswer": {"@type": "Answer", "text": "VF Empire designs complete AI systems: engines, harnesses and command dashboards that make open-source AI models perform reliably on hardware the owner controls. One discipline, applied across education, robotics, medical, privacy and more."}},
-        {"@type": "Question", "name": "What is the Helmsman engine?", "acceptedAnswer": {"@type": "Answer", "text": "Helmsman is VF's orchestration engine: it routes work across models, gates every output against evidence, and self-heals failures. It is the core that runs the VF floor and ships inside every commissioned system."}},
-        {"@type": "Question", "name": "What is S◉LOCK?", "acceptedAnswer": {"@type": "Answer", "text": "S◉LOCK is the first complete system to leave the VF line: a private AI operating system with creative and work packages, running local-first on hardware you own. One product of the house, and the proof of the method."}},
-        {"@type": "Question", "name": "What is the VF AI Training Centre?", "acceptedAnswer": {"@type": "Answer", "text": "A working centre. Open-source models come in raw and leave as complete systems: engines fitted, harnesses tuned, dashboards live. It runs on the same floor where VF builds its own machines. First intake is forming now."}},
-        {"@type": "Question", "name": "Do VF systems depend on the cloud?", "acceptedAnswer": {"@type": "Answer", "text": "No. VF builds every system local-first: models, data and controls run on machines the owner holds. Cloud capacity is an option when a client wants it, never a requirement, and never the place your data has to live."}},
-        {"@type": "Question", "name": "Where is VF Empire based?", "acceptedAnswer": {"@type": "Answer", "text": "VF Empire Corp Ltd is incorporated in Malta, EU, based in Għajnsielem, Gozo, and operating since 2019, with network companies in Germany and the United Kingdom."}},
-        {"@type": "Question", "name": "How do I commission a system?", "acceptedAnswer": {"@type": "Answer", "text": "Write to info@vfempire.com with the problem. VF scopes the machine, builds it to tolerance, and hands it over with dashboards, documentation and training."}}
+        {
+          "@type": "Question",
+          "name": "What does VF Empire build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VF Empire designs complete AI systems: engines, harnesses and command dashboards that make open-source AI models perform reliably on hardware the owner controls. One discipline, applied across education, robotics, medical, privacy and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Helmsman engine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Helmsman is VF's orchestration engine: it routes work across models, gates every output against evidence, and self-heals failures. It is the core that runs the VF floor and ships inside every commissioned system."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is S◉LOCK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "S◉LOCK is the first complete system to leave the VF line: a private AI operating system with creative and work packages, running local-first on hardware you own. One product of the house, and the proof of the method."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the VF AI Training Centre?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A working centre. Open-source models come in raw and leave as complete systems: engines fitted, harnesses tuned, dashboards live. It runs on the same floor where VF builds its own machines. First intake is forming now."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do VF systems depend on the cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. VF builds every system local-first: models, data and controls run on machines the owner holds. Cloud capacity is an option when a client wants it, never a requirement, and never the place your data has to live."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is VF Empire based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VF Empire Corp Ltd is incorporated in Malta, EU, based in Għajnsielem, Gozo, and operating since 2019, with network companies in Germany and the United Kingdom."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I commission a system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Write to info@vfempire.com with the problem. VF scopes the machine, builds it to tolerance, and hands it over with dashboards, documentation and training."
+          }
+        }
       ]
     }
   ]
@@ -422,6 +555,107 @@
           "url": "https://vfempire.com/systems/vf-home"
         }
       ]
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "VF Empire | The systems house for open intelligence",
+  "dateModified": "2026-09-16",
+  "url": "https://vfempire.com/",
+  "description": "VF Empire Corp Ltd designs engines, harnesses and dashboards that make open AI models work, and is opening its own AI training centre. Malta, EU.",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".lead",
+      ".eb"
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vfempire.com/#org",
+      "name": "VF Empire",
+      "legalName": "VF Empire Corp Ltd",
+      "url": "https://vfempire.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vfempire.com/apple-touch-icon.png",
+        "width": 512,
+        "height": 512
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@vfempire.com",
+        "availableLanguage": [
+          "en"
+        ]
+      },
+      "sameAs": [
+        "https://github.com/vfempire-hq",
+        "https://si-lock.com",
+        "https://noirda.solutions",
+        "https://gn-productions.com"
+      ],
+      "founder": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vfempire.com/about#vincent",
+      "name": "Vincent Falzon",
+      "jobTitle": "Founder & Managing Director",
+      "worksFor": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "url": "https://vfempire.com/about",
+      "knowsAbout": [
+        "privacy engineering",
+        "systems architecture",
+        "cryptography",
+        "identity systems",
+        "AI systems engineering",
+        "sovereign infrastructure"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/#webpage",
+      "url": "https://vfempire.com/",
+      "name": "VF Empire | The systems house for open intelligence",
+      "description": "VF Empire Corp Ltd designs engines, harnesses and dashboards that make open AI models work, and is opening its own AI training centre. Malta, EU.",
+      "inLanguage": "en",
+      "dateModified": "2026-09-16",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#website"
+      },
+      "publisher": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "author": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
     }
   ]
 }

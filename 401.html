@@ -3,21 +3,276 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Restricted | VF Empire</title>
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#fbfbfd">
+<title>401 Restricted | VF Empire</title>
+<meta name="description" content="Access to this area of VF Empire requires authorisation. If you believe you should have access, contact the house at hello@vfempire.com.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#080a0d">
 <link rel="stylesheet" href="/house.css">
-<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+<noscript><style>.rv{opacity:1;transform:none}#intro{display:none}</style></noscript>
 <style>
-body{min-height:100vh;display:flex;flex-direction:column}
-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px}
-.orb{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 34% 28%, #ffffff 0%, #f2f3f6 42%, #dfe3ea 78%, #d3d8e1 100%);box-shadow:0 30px 60px rgba(29,29,31,.13), inset 0 -12px 28px rgba(160,170,185,.25), inset 0 10px 18px #fff;position:relative;margin-bottom:44px}
-.orb::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 40% 35%, #ffd9a8 0%, var(--amber) 55%, #8f4a10 100%);box-shadow:0 0 26px rgba(199,107,29,.55);animation:scan 2.2s ease-in-out infinite}
-@keyframes scan{0%,100%{box-shadow:0 0 22px rgba(199,107,29,.45)}50%{box-shadow:0 0 46px rgba(199,107,29,.8)}}
-.code{font-size:11px;font-weight:600;letter-spacing:.4em;color:var(--amber);margin-bottom:18px}
-h1{font-size:clamp(34px,6vw,58px);font-weight:600;letter-spacing:-.045em;line-height:1.04;margin-bottom:16px}
-h1 .mute{color:var(--faint)}
-main p{font-size:16px;line-height:1.6;color:var(--dove);max-width:430px;margin-bottom:34px}
+/* ── dark error theme ── */
+:root{
+  --paper:#080a0d;
+  --silver:#0d101a;
+  --mist:#111520;
+  --ink:#e8f0f8;
+  --dove:rgba(220,232,248,.58);
+  --faint:rgba(220,232,248,.28);
+  --line:rgba(220,232,248,.08);
+}
+html,body{background:#080a0d;color:#e8f0f8}
+body{min-height:100vh;display:flex;flex-direction:column;position:relative}
+
+/* atmospheric radial glow */
+body::before{
+  content:'';
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 48% 36% at 50% 46%,
+      rgba(85,150,210,.22) 0%,
+      rgba(40,100,175,.15) 28%,
+      transparent 65%),
+    radial-gradient(ellipse 82% 64% at 50% 46%,
+      rgba(20,65,140,.24) 0%,
+      rgba(10,32,85,.15) 52%,
+      transparent 100%);
+}
+
+/* nav dark */
+.nav{
+  background:rgba(8,10,13,.9);
+  border-bottom:1px solid rgba(220,232,248,.06);
+}
+.nav .brand{color:#e8f0f8}
+.nav .brand svg path{fill:#e8f0f8}
+.nav a:not(.cta){color:rgba(220,232,248,.68)}
+.nav a:not(.cta):hover{color:#e8f0f8}
+.nav .cta{
+  background:rgba(220,232,248,.08);
+  color:#e8f0f8;
+  border:1px solid rgba(220,232,248,.18);
+}
+.nav .cta:hover{background:rgba(220,232,248,.14)}
+
+/* flyout dark */
+.fly{background:#0d1018;border-bottom:1px solid rgba(220,232,248,.06)}
+.fly b{color:rgba(220,232,248,.32);letter-spacing:.06em}
+.fly a{color:rgba(220,232,248,.72)}
+.fly a:hover{color:#e8f0f8}
+.fly small{color:rgba(220,232,248,.38)}
+#dim{background:rgba(0,0,0,.65)}
+
+/* ── intro overlay ── */
+#intro{
+  position:fixed;inset:0;z-index:9999;
+  background:#080a0d;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;overflow:hidden;
+}
+#iglow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 52% 40% at 50% 50%,
+      rgba(85,150,210,.24) 0%,
+      rgba(40,100,175,.17) 30%,
+      transparent 65%),
+    radial-gradient(ellipse 82% 65% at 50% 50%,
+      rgba(20,65,140,.26) 0%,
+      rgba(10,32,85,.16) 52%,
+      transparent 100%);
+  opacity:0;transition:opacity 1.2s ease;
+}
+#iglow.on{opacity:1}
+
+#digit-wrap{position:relative;z-index:2;text-align:center}
+#digits{
+  display:flex;justify-content:center;gap:.04em;
+  font-size:clamp(110px,19vw,230px);
+  font-weight:600;letter-spacing:-.04em;line-height:1;
+  color:#e8f0f8;
+}
+.d{
+  display:inline-block;
+  opacity:0;filter:blur(50px);transform:scale(1.12);
+  transition:opacity .65s cubic-bezier(.25,.8,.25,1),
+             filter .65s cubic-bezier(.25,.8,.25,1),
+             transform .65s cubic-bezier(.25,.8,.25,1);
+}
+.d.show{
+  opacity:1;filter:blur(0);transform:scale(1);
+  text-shadow:0 0 90px rgba(200,220,255,.16),0 0 180px rgba(31,111,242,.09);
+}
+.d.glitch{animation:dglitch .52s ease-in-out}
+@keyframes dglitch{
+  0%  {transform:translateX(0)}
+  8%  {transform:translateX(-6px) skewX(-4deg);
+       text-shadow:7px 0 rgba(255,25,25,.95),-7px 0 rgba(25,25,255,.85)}
+  22% {transform:translateX(7px) skewX(4deg);
+       text-shadow:-7px 0 rgba(255,25,25,.95),7px 0 rgba(25,25,255,.85)}
+  38% {transform:translateX(-4px);
+       text-shadow:4px 0 rgba(255,25,25,.65),-4px 0 rgba(25,25,255,.55)}
+  55% {transform:translateX(4px) skewX(-2deg);
+       text-shadow:-3px 0 rgba(255,25,25,.4),3px 0 rgba(25,25,255,.3)}
+  72% {transform:translateX(-2px);
+       text-shadow:0 0 90px rgba(200,220,255,.16)}
+  88% {transform:translateX(1px)}
+  100%{transform:none;text-shadow:0 0 90px rgba(200,220,255,.16)}
+}
+
+/* RESTRICTED flash */
+#restricted{
+  font-size:clamp(11px,1.8vw,14px);
+  font-weight:700;letter-spacing:.55em;
+  color:#ff3030;margin-top:24px;
+  opacity:0;text-transform:uppercase;
+}
+#restricted.on{
+  animation:rflash .06s steps(1) forwards,rflicker .75s .1s steps(3,end)
+}
+@keyframes rflash{to{opacity:1}}
+@keyframes rflicker{
+  0%  {opacity:1}
+  18% {opacity:0}
+  36% {opacity:1}
+  55% {opacity:0}
+  72% {opacity:1}
+  88% {opacity:0}
+  100%{opacity:1}
+}
+
+/* ripple rings */
+#ripples{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.rp{
+  position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px solid rgba(31,111,242,.3);
+  width:80px;height:80px;opacity:0;
+}
+.rp.go{animation:ripOut 1.9s cubic-bezier(.06,.55,.25,1) forwards}
+.rp.r2.go{animation-delay:.24s}
+.rp.r3.go{animation-delay:.48s}
+.rp.r4.go{animation-delay:.72s}
+@keyframes ripOut{
+  0%  {width:80px;height:80px;opacity:.65}
+  100%{width:2800px;height:2800px;opacity:0}
+}
+#digit-wrap.out{
+  opacity:0;transform:scale(1.14);
+  transition:opacity .72s ease,transform .82s cubic-bezier(.25,.8,.25,1)
+}
+#intro.gone{opacity:0;transition:opacity .5s ease}
+
+/* ── main ── */
+main{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:120px 40px 90px;
+  position:relative;z-index:1;
+}
+
+/* concentrated glow behind the text block */
+main::before{
+  content:'';
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 44% at 50% 46%,
+    rgba(70,130,205,.13) 0%,
+    transparent 70%);
+}
+.gate-wrap{width:min(88vw,880px);text-align:center;position:relative;z-index:1}
+
+.gate-rule{
+  width:100%;height:1px;
+  background:rgba(220,232,248,.16);
+}
+.gate-rule-top{animation:gfade .6s both;animation-delay:3.95s}
+.gate-rule-bot{animation:gfade .6s both;animation-delay:4.28s}
+
+.gate-word{
+  font-size:clamp(44px,8.4vw,110px);
+  font-weight:600;letter-spacing:.2em;
+  line-height:1;color:#e8f0f8;
+  padding:22px 0;
+  text-shadow:0 0 120px rgba(200,220,255,.1);
+  animation:gfade .7s both;animation-delay:4.12s;
+}
+
+.gate-sub{
+  margin-top:14px;
+  font-size:11px;font-weight:700;
+  letter-spacing:.46em;text-transform:uppercase;
+  color:rgba(220,232,248,.4);
+  text-align:right;
+  animation:gfade .6s both;animation-delay:4.42s;
+}
+.gate-cursor{animation:blink .9s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.gate-actions{
+  margin-top:56px;
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  animation:gup .65s both;animation-delay:4.68s;
+}
+.gate-actions p{
+  font-size:14px;line-height:1.65;
+  color:rgba(220,232,248,.38);
+  max-width:360px;margin:0;
+}
+.gate-actions a:not(.bt){
+  color:rgba(220,232,248,.52);text-decoration:underline;
+  text-underline-offset:3px;
+}
+.gate-actions a:not(.bt):hover{color:#e8f0f8}
+
+.err-note{
+  margin-top:48px;
+  width:min(80vw,520px);
+  text-align:left;
+  border-top:1px solid rgba(220,232,248,.07);
+  padding-top:32px;
+  animation:gup .65s both;animation-delay:5.2s;
+}
+.err-note p{
+  font-size:13px;line-height:1.72;
+  color:rgba(220,232,248,.3);
+  margin-bottom:12px;
+}
+.err-note p:last-child{margin-bottom:0}
+.err-note a{color:rgba(220,232,248,.48);text-decoration:underline;text-underline-offset:3px}
+.err-note a:hover{color:#e8f0f8}
+.bt.pri{
+  background:#1f6ff2;border-color:#1f6ff2;color:#fff;
+}
+.bt.pri:hover{background:#1860d8;border-color:#1860d8}
+
+@keyframes gfade{from{opacity:0}to{opacity:1}}
+@keyframes gup{
+  from{opacity:0;transform:translateY(16px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+
+/* ── footer dark ── */
+footer.full{
+  position:relative;z-index:1;
+  background:#050709;
+  border-top:1px solid rgba(220,232,248,.06);
+}
+footer.full .fin{color:rgba(220,232,248,.45)}
+footer.full h6{color:rgba(220,232,248,.28);letter-spacing:.08em}
+footer.full a{color:rgba(220,232,248,.48)}
+footer.full a:hover{color:#e8f0f8}
+footer.full .blurb{color:rgba(220,232,248,.36)}
+footer.full .brand{color:#e8f0f8}
+footer.full .brand svg path{fill:#e8f0f8}
+footer.full .legal{
+  border-top-color:rgba(220,232,248,.06);
+  color:rgba(220,232,248,.26);
+}
+footer.full .legal a{color:rgba(220,232,248,.36)}
+footer.full .legal a:hover{color:#e8f0f8}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="/assets/brand/app-icon.svg">
@@ -25,6 +280,25 @@ main p{font-size:16px;line-height:1.6;color:var(--dove);max-width:430px;margin-b
 <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
+
+<div id="intro">
+  <div id="iglow"></div>
+  <div id="ripples">
+    <div class="rp r1"></div>
+    <div class="rp r2"></div>
+    <div class="rp r3"></div>
+    <div class="rp r4"></div>
+  </div>
+  <div id="digit-wrap">
+    <div id="digits">
+      <span class="d" id="d4">4</span>
+      <span class="d" id="d0">0</span>
+      <span class="d" id="d1">1</span>
+    </div>
+    <div id="restricted">RESTRICTED AREA</div>
+  </div>
+</div>
+
 <nav class="nav">
   <div class="in">
     <a class="brand" href="/">
@@ -59,13 +333,24 @@ main p{font-size:16px;line-height:1.6;color:var(--dove);max-width:430px;margin-b
   </div>
 </div></div>
 <div id="dim"></div>
+
 <main>
-  <div class="orb"></div>
-  <div class="code">ERROR 401 · RESTRICTED</div>
-  <h1>The gate stays<br><span class="mute">closed.</span></h1>
-  <p>This area of the VF floor requires authorisation. If you believe you should have access, write to the house.</p>
-  <a class="bt pri" href="/">Back to VF Empire</a>
+  <div class="gate-wrap">
+    <div class="gate-rule gate-rule-top"></div>
+    <div class="gate-word">RESTRICTED</div>
+    <div class="gate-rule gate-rule-bot"></div>
+    <div class="gate-sub">ERROR 401 &nbsp;·&nbsp; ACCESS DENIED<span class="gate-cursor">_</span></div>
+    <div class="gate-actions">
+      <a class="bt pri" href="/">Return to VF Empire</a>
+      <p>If you believe you should have access, write to <a href="mailto:hello@vfempire.com">hello@vfempire.com</a></p>
+    </div>
+    <div class="err-note">
+      <p>A 401 error means the server received your request but could not verify your identity. You may not be signed in, your session may have expired, or this area requires credentials you have not supplied.</p>
+      <p>If you followed a link from another VF page and arrived here, the address may have changed. The <a href="/">homepage</a> lists all current systems and services. For direct help, write to <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>.</p>
+    </div>
+  </div>
 </main>
+
 <footer class="full">
   <div class="fin">
     <div class="fgrid">
@@ -119,5 +404,18 @@ main p{font-size:16px;line-height:1.6;color:var(--dove);max-width:430px;margin-b
     </div>
   </div>
 </footer>
+
+<script src="/assets/page/401.js" defer></script>
+<div class="consent" id="consent" role="dialog" aria-label="Cookie notice">
+  <h5><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f6ff2" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#1f6ff2" stroke="none"/><circle cx="14" cy="14" r="1" fill="#1f6ff2" stroke="none"/><circle cx="13" cy="8.5" r="1" fill="#1f6ff2" stroke="none"/></svg>Privacy, by architecture.</h5>
+  <p>This site sets <strong>no tracking, no analytics and no advertising cookies</strong>. It stores only what it needs to serve you securely. We ask anyway, because we build everything this way. Details in our <a href="/legal/cookies">Cookie Policy</a> and <a href="/legal/privacy">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="dec" id="cdec">Decline</button>
+    <button class="acc" id="cacc">Accept</button>
+  </div>
+</div>
+
+<script src="/assets/house.js" defer></script>
+
 </body>
 </html>

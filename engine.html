@@ -35,12 +35,27 @@
       "url": "https://vfempire.com/engine",
       "name": "Helmsman Engine",
       "description": "Helmsman is VF Empire's AI orchestration engine: it routes work across open models, gates every output against evidence and self-heals failures. Malta, EU.",
-      "isPartOf": {"@id": "https://vfempire.com/#site"},
-      "about": {"@id": "https://vfempire.com/#org"},
+      "isPartOf": {
+        "@id": "https://vfempire.com/#site"
+      },
+      "about": {
+        "@id": "https://vfempire.com/#org"
+      },
       "inLanguage": "en-GB",
       "primaryImageOfPage": "https://vfempire.com/assets/engine.png",
-      "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["#definition"]},
-      "mainEntity": {"@type": "Brand", "name": "Helmsman Engine", "url": "https://vfempire.com/engine", "description": "VF Empire's orchestration engine for open AI models: routing, evidence gates and self-heal loops, running local-first on hardware the owner controls."}
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "#definition"
+        ]
+      },
+      "mainEntity": {
+        "@type": "Brand",
+        "name": "Helmsman Engine",
+        "url": "https://vfempire.com/engine",
+        "description": "VF Empire's orchestration engine for open AI models: routing, evidence gates and self-heal loops, running local-first on hardware the owner controls."
+      },
+      "dateModified": "2026-09-16"
     }
   ]
 }
@@ -144,6 +159,80 @@
           }
         }
       ]
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vfempire.com/#org",
+      "name": "VF Empire",
+      "legalName": "VF Empire Corp Ltd",
+      "url": "https://vfempire.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vfempire.com/apple-touch-icon.png",
+        "width": 512,
+        "height": 512
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@vfempire.com",
+        "availableLanguage": [
+          "en"
+        ]
+      },
+      "sameAs": [
+        "https://github.com/vfempire-hq",
+        "https://si-lock.com",
+        "https://noirda.solutions",
+        "https://gn-productions.com"
+      ],
+      "founder": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vfempire.com/about#vincent",
+      "name": "Vincent Falzon",
+      "jobTitle": "Founder & Managing Director",
+      "worksFor": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "url": "https://vfempire.com/about",
+      "knowsAbout": [
+        "privacy engineering",
+        "systems architecture",
+        "cryptography",
+        "identity systems",
+        "AI systems engineering",
+        "sovereign infrastructure"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vfempire.com/engine#webpage",
+      "url": "https://vfempire.com/engine",
+      "name": "Helmsman Engine: AI orchestration you own | VF Empire",
+      "description": "Helmsman is VF Empire",
+      "inLanguage": "en",
+      "dateModified": "2026-09-16",
+      "isPartOf": {
+        "@id": "https://vfempire.com/#website"
+      },
+      "publisher": {
+        "@id": "https://vfempire.com/#org"
+      },
+      "author": {
+        "@id": "https://vfempire.com/about#vincent"
+      }
     }
   ]
 }
