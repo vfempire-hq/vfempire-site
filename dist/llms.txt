@@ -30,6 +30,12 @@ Key facts: founded 2019; based in Għajnsielem, Gozo, Malta; network companies N
 - [Threat Model + DPIA Drafting](https://vfempire.com/services/threat-model-dpia): 3-4 weeks, €18-30k, regulator-ready threat model and data protection impact assessment.
 - [Signing Infrastructure + SBOM Blueprint](https://vfempire.com/services/signing-infrastructure): 4-6 weeks, €25-40k, signed updates, transparency log, SBOM pipeline, reproducibility CI.
 
+## Agents (one-time purchase, run on your hardware)
+
+- [Agents overview](https://vfempire.com/agents): the VF agent fleet. Sovereign, one-time purchase agents that compose through a local fleet bus.
+- [Re-Kon](https://vfempire.com/agents/re-kon): sovereign research and reconnaissance agent. Briefed once, returns a dossier with an evidence chain. Local, BYO model, BYO search.
+- [Auto-Mate](https://vfempire.com/agents/auto-mate): floating-input agent summoned by a global hotkey. Runs machine tasks, browser tasks in a sandboxed bundled Chromium, or routes to other VF agents through the local fleet bus.
+
 ## Products and systems on the build slate
 
 - [All 23 systems](https://vfempire.com/systems/): the filterable product index.

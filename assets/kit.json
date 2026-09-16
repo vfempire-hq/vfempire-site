@@ -1,0 +1,158 @@
+{
+  "$schema": "vf-asset-kit-v1",
+  "version": 1,
+  "updated": "2026-09-16",
+  "description": "Single source of truth for VF Empire visual identity. Every logo, icon, brand image, colour and typeface. The site templates should reference these entries so a change here propagates everywhere.",
+
+  "brand": {
+    "logo": {
+      "kind": "svg-file",
+      "path": "/assets/brand/app-icon.svg",
+      "usage": "Primary VF wordmark and favicon. The mark on every page's nav bar.",
+      "sizes": ["/assets/brand/app-icon-16.png", "/assets/brand/app-icon-32.png", "/assets/brand/app-icon-180.png", "/assets/brand/app-icon-192.png", "/assets/brand/app-icon-512.png", "/assets/brand/app-icon-1024.png"]
+    },
+    "logo-blue": {
+      "kind": "svg-file",
+      "path": "/assets/brand/app-icon-blue.svg",
+      "usage": "Alternate mark for light backgrounds needing tint."
+    },
+    "logo-dark": {
+      "kind": "svg-file",
+      "path": "/assets/brand/app-icon-dark.svg",
+      "usage": "Mark for dark backgrounds (error pages, night surfaces)."
+    },
+    "logo-maskable": {
+      "kind": "svg-file",
+      "path": "/assets/brand/app-icon-maskable.svg",
+      "usage": "PWA maskable icon variant."
+    },
+    "avatar": {
+      "kind": "image",
+      "path": "/assets/brand/avatar-1024.png",
+      "usage": "1024×1024 avatar for social profiles."
+    },
+    "banner-linkedin": {
+      "kind": "image",
+      "path": "/assets/brand/banner-1584x396.png",
+      "svg": "/assets/brand/banner-1584x396.svg",
+      "usage": "LinkedIn cover banner (1584×396)."
+    },
+    "banner-x": {
+      "kind": "image",
+      "path": "/assets/brand/banner-1500x500.png",
+      "svg": "/assets/brand/banner-1500x500.svg",
+      "usage": "X / Twitter header (1500×500)."
+    },
+    "og-default": {
+      "kind": "image",
+      "path": "/assets/brand/og-default.png",
+      "svg": "/assets/brand/og-default.svg",
+      "width": 1200,
+      "height": 630,
+      "usage": "Fallback Open Graph card for pages without a bespoke og:image."
+    }
+  },
+
+  "photos": {
+    "hero-core": {
+      "kind": "image",
+      "path": "/assets/hero-core.png",
+      "usage": "Homepage hero centrepiece."
+    },
+    "engine": {
+      "kind": "image",
+      "path": "/assets/engine.png",
+      "usage": "/engine page primary image."
+    },
+    "harness": {
+      "kind": "image",
+      "path": "/assets/harness.png",
+      "usage": "/harness page primary image."
+    },
+    "dashboard": {
+      "kind": "image",
+      "path": "/assets/dashboard.png",
+      "usage": "/dashboards page primary image."
+    },
+    "training-hall": {
+      "kind": "image",
+      "path": "/assets/training-hall.png",
+      "usage": "Training Centre section imagery."
+    },
+    "hellstorm-plate": {
+      "kind": "image",
+      "path": "/assets/hellstorm-plate.jpg",
+      "usage": "Hellstorm colour-grading reference plate."
+    },
+    "silock-lock": {
+      "kind": "image",
+      "path": "/assets/silock-lock.png",
+      "usage": "S◉LOCK vault visual."
+    },
+    "imgstudio-library": {
+      "kind": "image",
+      "path": "/assets/imgstudio-library.png",
+      "usage": "Image Studio library screenshot."
+    },
+    "neo3d-pinklady": {
+      "kind": "image",
+      "path": "/assets/neo3d-pinklady.png",
+      "usage": "NEO 3D studio render sample."
+    },
+    "ash": {
+      "kind": "image",
+      "path": "/assets/ash.png",
+      "usage": "ASH (Ambient System Hub) branding image."
+    },
+    "newsroom": {
+      "kind": "image",
+      "path": "/assets/newsroom.png",
+      "usage": "Newsroom / press page image."
+    }
+  },
+
+  "colors": {
+    "paper":     { "value": "#fbfbfd", "cssVar": "--paper",     "usage": "Primary background." },
+    "silver":    { "value": "#f5f5f7", "cssVar": "--silver",    "usage": "Alternating section background." },
+    "mist":      { "value": "#eceff3", "cssVar": "--mist",      "usage": "Chip / status pill background." },
+    "ink":       { "value": "#1d1d1f", "cssVar": "--ink",       "usage": "Primary text and dark buttons." },
+    "dove":      { "value": "#6e6e73", "cssVar": "--dove",      "usage": "Body copy." },
+    "faint":     { "value": "#a1a1a6", "cssVar": "--faint",     "usage": "Decorative rules only, never small text." },
+    "line":      { "value": "#e4e6ea", "cssVar": "--line",      "usage": "Borders and hairlines." },
+    "core":      { "value": "#1f6ff2", "cssVar": "--core",      "usage": "Primary accent and links." },
+    "core-deep": { "value": "#0b47b8", "cssVar": "--core-deep", "usage": "Accent hover state." },
+    "glow":      { "value": "rgba(37,110,245,.35)", "cssVar": "--glow", "usage": "Button glow shadow." },
+    "warn":      { "value": "#c93221", "cssVar": "--warn",      "usage": "Warning / danger. Only in permitted zones." },
+    "warn-bg":   { "value": "#fef2f0", "cssVar": "--warn-bg",   "usage": "Warning surface background." },
+    "ok":        { "value": "#0b7a3e", "cssVar": "--ok",        "usage": "Success / verified status." },
+    "amber":     { "value": "#c76b1d", "cssVar": "--amber",     "usage": "Beta / caution accents." }
+  },
+
+  "fonts": {
+    "body": {
+      "family": "Hanken",
+      "path": "/fonts/hanken.woff2",
+      "weights": "100-900",
+      "usage": "All body copy, buttons, chips, navigation."
+    },
+    "display": {
+      "family": "Instrument",
+      "style": "italic",
+      "path": "/fonts/instrument-italic.woff2",
+      "usage": "One accent per headline at most. Use via <em class=\"i\">."
+    }
+  },
+
+  "motion": {
+    "ease-default": {
+      "value": "cubic-bezier(.2,.7,.2,1)",
+      "cssVar": "--ease",
+      "usage": "House curve for every transition. 240ms to 900ms range."
+    }
+  },
+
+  "notes": {
+    "editing": "Change entries here directly, or use the VF Editor's Assets panel with Claude to edit an entry in place. Colours here are mirrored in /house.css :root; either place is source-of-truth until the build reads this file directly.",
+    "propagation": "Future build.mjs pass will inject values from this kit into every page (replacing hardcoded paths and colours). For now the kit serves as a canonical reference and editor-side entry point."
+  }
+}

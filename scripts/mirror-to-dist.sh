@@ -13,8 +13,11 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-# Top-level HTML
-for f in index.html 401.html 404.html software.html security.html; do
+# Top-level HTML (every hand-authored page at repo root)
+for f in \
+  index.html 401.html 404.html \
+  about.html careers.html dashboards.html engine.html glossary.html harness.html \
+  permanence-guarantee.html press.html security.html software.html training-centre.html; do
   [ -f "$f" ] && cp -v "$f" "dist/$f"
 done
 
@@ -38,6 +41,20 @@ find services -maxdepth 1 -name '*.html' -exec cp -v {} dist/services/ \; 2>/dev
 mkdir -p dist/legal dist/contact
 find legal   -maxdepth 1 -name '*.html' -exec cp -v {} dist/legal/ \;
 find contact -maxdepth 1 -name '*.html' -exec cp -v {} dist/contact/ \;
+
+# Agents
+mkdir -p dist/agents
+find agents -maxdepth 1 -name '*.html' -exec cp -v {} dist/agents/ \;
+
+# Compare + journal (mirror any HTML directly under these dirs)
+if [ -d compare ]; then
+  mkdir -p dist/compare
+  find compare -maxdepth 1 -name '*.html' -exec cp -v {} dist/compare/ \;
+fi
+if [ -d journal ]; then
+  mkdir -p dist/journal
+  find journal -maxdepth 1 -name '*.html' -exec cp -v {} dist/journal/ \;
+fi
 
 # Assets (fonts are inside dist/ already; keep the sync one-way for images)
 if [ -d assets ]; then
