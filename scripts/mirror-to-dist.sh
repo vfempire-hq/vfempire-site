@@ -17,7 +17,8 @@ cd "$(dirname "$0")/.."
 for f in \
   index.html 401.html 404.html \
   about.html careers.html dashboards.html engine.html glossary.html harness.html \
-  permanence-guarantee.html press.html security.html software.html training-centre.html; do
+  permanence-guarantee.html press.html security.html software.html training-centre.html \
+  privacy.html terms.html; do
   [ -f "$f" ] && cp -v "$f" "dist/$f"
 done
 

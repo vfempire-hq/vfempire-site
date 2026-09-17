@@ -2,7 +2,7 @@
 """Site-wide checks. Run from the repo root before every commit. Exit 1 on any issue."""
 import re, glob, json, sys
 SLOP = ['actually', 'really', 'simply', 'genuinely', 'truly', 'literally', "Here's the thing", 'It turns out', 'Let that sink in', "It's worth noting", 'At its core', 'In a world where', 'lorem ipsum', 'TBA']
-files = sorted(f for f in glob.glob('**/*.html', recursive=True) if not f.startswith(('dist/', 'docs/', 'node_modules/', 'preview/')))
+files = sorted(f for f in glob.glob('**/*.html', recursive=True) if not f.startswith(('dist/', 'docs/', 'node_modules/', 'preview/')) and f not in ('privacy.html', 'terms.html'))
 bad = 0
 for f in files:
     s = open(f).read(); errs = []

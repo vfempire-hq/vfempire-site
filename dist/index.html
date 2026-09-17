@@ -99,11 +99,22 @@
       },
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Virgo Louretana, Triq L-Mġarr",
-        "addressLocality": "Għajnsielem",
-        "addressRegion": "Gozo",
-        "postalCode": "GSM1020",
+        "streetAddress": "87 Amare House, Correa Street",
+        "addressLocality": "Qormi",
+        "postalCode": "QRM 1902",
         "addressCountry": "MT"
+      },
+      "location": {
+        "@type": "Place",
+        "name": "VF Empire operating floor",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Virgo Louretana, Triq L-Mġarr",
+          "addressLocality": "Għajnsielem",
+          "addressRegion": "Gozo",
+          "postalCode": "GSM1020",
+          "addressCountry": "MT"
+        }
       },
       "description": "VF Empire is a systems engineering house: it designs the engines, harnesses and command dashboards that make open-source AI models work as complete systems on hardware the owner controls, and operates its own AI Training Centre.",
       "knowsAbout": [
@@ -138,14 +149,6 @@
       "name": "VF Empire",
       "publisher": {
         "@id": "https://vfempire.com/#org"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://vfempire.com/?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
       }
     },
     {
@@ -197,7 +200,7 @@
           "name": "Where is VF Empire based?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "VF Empire Corp Ltd is incorporated in Malta, EU, based in Għajnsielem, Gozo, and operating since 2019, with network companies in Germany and the United Kingdom."
+            "text": "VF Empire Corp Ltd is incorporated in Malta, EU. Registered office in Qormi; operating floor in Għajnsielem, Gozo. Incorporated 2019; this systems-house line opened in September 2026. Network companies in Germany and the United Kingdom."
           }
         },
         {
@@ -770,7 +773,7 @@
     <a class="bt gho" href="#engine">See the engine room</a>
   </div>
   <div class="corewrap" id="corewrap">
-    <picture><source type="image/avif" srcset="/assets/hero-core.png.avif"><source type="image/webp" srcset="/assets/hero-core.png.webp"><img id="heroimg" src="assets/hero-core.png" alt=""></picture>
+    <img id="heroimg" src="assets/hero-core.png" alt="">
     <div class="orb"></div>
     <div class="ring"><i></i><i></i></div>
     <div class="shadow"></div>
@@ -792,21 +795,21 @@
           <p>The steering engine for frontier-class open models. It installs, tunes and pilots large models on owned metal, and curates them like instruments.</p>
           <a class="go" href="#commission">Explore Helmsman</a>
         </div>
-        <div class="art"><picture><source type="image/avif" srcset="/assets/engine.png.avif"><source type="image/webp" srcset="/assets/engine.png.webp"><img src="assets/engine.png" alt="Helmsman engine"></picture></div>
+        <div class="art"><img src="assets/engine.png" alt="Helmsman engine"></div>
       </div>
       <div class="pc rv">
         <div class="tag">HARNESS STACK</div>
         <h3>The Harness</h3>
         <p>Process supervision, self-heal loops, project memory and evidence discipline: the frame that turns a raw model into a worker.</p>
         <a class="go" href="#commission">How harnesses work</a>
-        <div class="art"><picture><source type="image/avif" srcset="/assets/harness.png.avif"><source type="image/webp" srcset="/assets/harness.png.webp"><img src="assets/harness.png" alt="The VF harness cradling a model"></picture></div>
+        <div class="art"><img src="assets/harness.png" alt="The VF harness cradling a model"></div>
       </div>
       <div class="pc rv">
         <div class="tag">CONTROL SURFACES</div>
         <h3>Command Dashboards</h3>
         <p>Fleets, lanes, costs and outcomes on one pane of glass. If it runs, it's visible; if it drifts, it pages.</p>
         <a class="go" href="#commission">See a dashboard</a>
-        <div class="art"><picture><source type="image/avif" srcset="/assets/dashboard.png.avif"><source type="image/webp" srcset="/assets/dashboard.png.webp"><img src="assets/dashboard.png" alt="Command dashboard console"></picture></div>
+        <div class="art"><img src="assets/dashboard.png" alt="Command dashboard console"></div>
       </div>
     </div>
 
@@ -829,14 +832,7 @@
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7"/></svg></div>
         <h4>Model Utilisation</h4>
         <p>Squeezing verified output from every parameter: batching, routing, tool discipline, context economy. The benchmark is finished work.</p>
-        <div class="meter">
-          <div class="row"><span>HARNESS THROUGHPUT</span><span>98.2%</span></div>
-          <div class="tr"><i data-w="98%"></i></div>
-          <div class="row"><span>SELF-HEAL RECOVERY</span><span>91.4%</span></div>
-          <div class="tr"><i data-w="91%"></i></div>
-          <div class="row"><span>GATED SHIP RATE</span><span>86.0%</span></div>
-          <div class="tr"><i data-w="86%"></i></div>
-        </div>
+        <p style="font-size:12.5px;color:var(--faint);margin-top:14px">Live utilisation metrics land here once VF ships a signed dashboard export you can verify. Until then this space is honest about what it will hold.</p>
       </div>
       <div class="b rv">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7M18 11v7m0 0l-3-3m3 3l3-3"/></svg></div>
@@ -941,7 +937,7 @@
       <a class="pp more" href="/systems/guardian-shield"><img src="assets/pipe/p18.webp" alt="Guardian Shield, Security" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·18</span><div class="tx"><div class="sec">SECURITY</div><h5>Guardian Shield</h5><p>Five subsystems (vault, malware scanner, WireGuard VPN, DNS filter, breach watch) on infrastructure you own. Reproducible builds, public transparency log, two-of-two signing across EU jurisdictions. Check the trace.</p></div><span class="status">SPEC COMPLETE</span></a>
       <a class="pp more" href="/systems/mapit"><img src="assets/pipe/p19.webp" alt="MapIT, Commerce" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·19</span><div class="tx"><div class="sec">COMMERCE</div><h5>MapIT</h5><p>Write your list once. MapIT prices the whole basket at every store in your zone and answers where it costs least, split trips and driving counted.</p></div><span class="status">IN BUILD</span></a>
       <a class="pp more" href="https://snapit.vfempire.com"><img src="assets/pipe/p20.webp" alt="SnapIT, Media" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·20</span><div class="tx"><div class="sec">MEDIA</div><h5>SnapIT</h5><p>Every drive you own (phone, laptop, PC, NAS) scanned into one library of photos and videos on your own storage. Local-first, Ed25519-signed licence, one-off perpetual pricing from €59.</p></div><span class="status live">R·02a · LIVE</span></a>
-      <a class="pp more" href="/systems/nav-it"><picture><source type="image/avif" srcset="/assets/pipe/p21.png.avif"><source type="image/webp" srcset="/assets/pipe/p21.png.webp"><img src="assets/pipe/p21.png" alt="NAV·IT, Sovereign Infrastructure" width="896" height="1152" loading="lazy"></picture><div class="fade"></div><span class="pn">P·21</span><div class="tx"><div class="sec">SOVEREIGN INFRASTRUCTURE</div><h5>NAV·IT</h5><p>A self-hosted turn-by-turn navigator built on open map data. Every route your phone traces stays inside our infrastructure, never sent to Google, Apple or Mapbox. Ships inside FuelIT and MapIT.</p></div><span class="status">IN BUILD</span></a>
+      <a class="pp more" href="/systems/nav-it"><img src="assets/pipe/p21.png" alt="NAV·IT, Sovereign Infrastructure" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·21</span><div class="tx"><div class="sec">SOVEREIGN INFRASTRUCTURE</div><h5>NAV·IT</h5><p>A self-hosted turn-by-turn navigator built on open map data. Every route your phone traces stays inside our infrastructure, never sent to Google, Apple or Mapbox. Ships inside FuelIT and MapIT.</p></div><span class="status">IN BUILD</span></a>
       <a class="pp more" href="/systems/vf-wallet"><img src="assets/pipe/p22.webp" alt="VF Wallet, Identity" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·22</span><div class="tx"><div class="sec">IDENTITY</div><h5>VF Wallet</h5><p>The EU digital identity wallet built for people: full ARF conformance, user-inspectable audit log, zero-knowledge age proofs via the EU AVA. Malta launch with cross-border acceptance in DE, FR, IE, IT day one.</p></div><span class="status">SPEC COMPLETE</span></a>
       <a class="pp more" href="/systems/vf-legacy"><img src="assets/pipe/p23.webp" alt="VF Legacy, Digital Estate" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·23</span><div class="tx"><div class="sec">DIGITAL ESTATE</div><h5>VF Legacy</h5><p>Everything you leave behind, closed by you. Sealed vault of "if I die" instructions, multi-signal trigger with 30-day grace, per-jurisdiction executor packets aligned with the ELI Model Rules on Digital Succession, and pre-drafted requests to 30 EU consumer platforms.</p></div><span class="status">SPEC COMPLETE</span></a>
       <a class="pp more" href="/systems/vf-home"><img src="assets/pipe/p24.webp" alt="VF Home, Smart Home" width="896" height="1152" loading="lazy"><div class="fade"></div><span class="pn">P·24</span><div class="tx"><div class="sec">SMART HOME</div><h5>VF Home</h5><p>The smart-home hub that outlives us. Matter + Zigbee + Z-Wave on hardware you already own, up to four ONVIF cameras with local NVR, sealed remote access, and the Permanence Guarantee: if we discontinue, we refund and publish the source.</p></div><span class="status">SPEC COMPLETE</span></a>
@@ -966,14 +962,14 @@
         <span class="lane">Utilisation labs</span>
       </div>
       <a class="bt pri" href="#commission">Register interest</a>
-      <div class="tcimg"><picture><source type="image/avif" srcset="/assets/training-hall.png.avif"><source type="image/webp" srcset="/assets/training-hall.png.webp"><img src="assets/training-hall.png" alt="The VF robotics lab: white assembly floor of the AI Training Centre"></picture></div>
+      <div class="tcimg"><img src="assets/training-hall.png" alt="The VF robotics lab: white assembly floor of the AI Training Centre"></div>
     </div>
   </div>
 </section>
 
 <section id="silock" style="padding-top:40px">
   <div class="wrap sl">
-    <div class="slart rv"><picture><source type="image/avif" srcset="/assets/silock-lock.png.avif"><source type="image/webp" srcset="/assets/silock-lock.png.webp"><img src="assets/silock-lock.png" alt="S◉LOCK, the private AI operating system"></picture></div>
+    <div class="slart rv"><img src="assets/silock-lock.png" alt="S◉LOCK, the private AI operating system"></div>
     <div class="side">
       <div class="k rv" style="color:#0fae7c">FIRST OFF THE LINE</div>
       <h2 class="rv">S◉LOCK<span class="mute">: the proof.</span></h2>
@@ -1018,24 +1014,13 @@
       </details>
       <details class="fq">
         <summary>Where is VF Empire based?</summary>
-        <div>VF Empire Corp Ltd is incorporated in Malta, EU, based in Għajnsielem, Gozo, and operating since 2019, with network companies in Germany and the United Kingdom.</div>
+        <div>VF Empire Corp Ltd is incorporated in Malta, EU. Registered office in Qormi; operating floor in Għajnsielem, Gozo. Incorporated 2019; this systems-house line opened in September 2026. Network companies in Germany and the United Kingdom.</div>
       </details>
       <details class="fq">
         <summary>How do I commission a system?</summary>
         <div>Write to info@vfempire.com with the problem. VF scopes the machine, builds it to tolerance, and hands it over with dashboards, documentation and training.</div>
       </details>
     </div>
-  </div>
-</section>
-
-<section id="ratings" style="background:var(--silver);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;overflow:hidden">
-  <div class="wrap">
-    <div class="k rv">CLIENT VERDICTS</div>
-    <h2 class="rv">Rated by the people<br><span class="mute">who run on it.</span></h2>
-    <p class="lead rv" style="margin-left:auto;margin-right:auto">Verdicts from the owners of commissioned VF systems, given once the dashboards are live and the floor is running.</p>
-    <div class="rt-stage rv" id="rtStage"></div>
-    <div class="rt-dots" id="rtDots"></div>
-    <div class="rt-tot rv"><b>4.9 / 5</b> average across commissioned systems</div>
   </div>
 </section>
 
@@ -1128,7 +1113,7 @@
       </div>
     </div>
     <div class="legal">
-      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Għajnsielem, Gozo, Malta · EU · Incorporated 2019</span>
+      <span>© 2026 VF Empire Corp Ltd · Company No. C 94160 · VAT MT 2686-9431 · Registered office: 87 Amare House, Correa Street, Qormi QRM 1902, Malta · EU · Incorporated 2019</span>
       <span><a href="/legal/terms">Terms</a> &nbsp;·&nbsp; <a href="/legal/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/legal/cookies">Cookies</a> &nbsp;·&nbsp; <a href="/legal/security-policy">Security policy</a></span>
     </div>
   </div>

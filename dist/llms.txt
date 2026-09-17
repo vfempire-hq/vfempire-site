@@ -2,7 +2,7 @@
 
 > VF Empire Corp Ltd (Malta, EU, registered C 94160) is a systems engineering house. It designs the engines, harnesses and command dashboards that make open-source AI models work as complete systems on hardware the owner controls, builds its own line of local-first, privacy-first software products, runs an AI Training Centre, and offers fixed-fee Cyber Resilience Act (CRA) and GDPR consulting.
 
-Key facts: founded 2019; based in Għajnsielem, Gozo, Malta; network companies Noirda GmbH (Germany) and Guardian Network (UK); contact info@vfempire.com. All products are local-first, EU-sovereign, ship with no third-party AI on user-data paths, and carry the Permanence Guarantee (refund plus source release if a product is discontinued; see Terms § 8).
+Key facts: incorporated 2019 (registered office 87 Amare House, Correa Street, Qormi QRM 1902); the systems-house line opened in September 2026; operating floor at Virgo Louretana, Triq L-Mġarr, Għajnsielem GSM1020, Gozo; network companies Noirda GmbH (Germany) and Guardian Network (UK); contact info@vfempire.com. All products are local-first, EU-sovereign, ship with no third-party AI on user-data paths, and carry the Permanence Guarantee (refund plus source release if a product is discontinued; see Terms § 16).
 
 ## The method (pillar pages)
 
@@ -15,7 +15,7 @@ Key facts: founded 2019; based in Għajnsielem, Gozo, Malta; network companies N
 
 - [Homepage](https://vfempire.com/): the engine room (Helmsman engine, harness stack, command dashboards), research lanes, divisions, the build slate, the AI Training Centre, FAQ.
 - [Software you own](https://vfempire.com/software): the five failures of modern software and the five VF principles that answer them.
-- [Security posture](https://vfempire.com/security): public repositories scanned clean of secrets, signed releases, reproducible builds, bug bounty, Terms § 8 warranty.
+- [Security posture](https://vfempire.com/security): public repositories scanned clean of secrets, signed releases, reproducible builds, bug bounty, Terms § 16 warranty.
 - [Contact](https://vfempire.com/contact/): every desk, who reads it, and reply times.
 - [About](https://vfempire.com/about): founding (2019), registration (Malta C 94160), the network companies, the people.
 - [Permanence Guarantee](https://vfempire.com/permanence-guarantee): what happens to every VF product if it is ever discontinued.
