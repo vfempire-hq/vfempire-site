@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" fill="none" role="img" aria-label="Re-Kon reconnaissance agent: radar scan display with data source nodes converging to a central intelligence point">
+  <defs>
+    <linearGradient id="rk-bg" x1="0" y1="0" x2="800" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f4f6f9"/>
+      <stop offset="100%" stop-color="#e6eaf1"/>
+    </linearGradient>
+    <radialGradient id="rk-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1f6ff2" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#1f6ff2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rk-sweep" cx="0%" cy="0%" r="100%" gradientUnits="userSpaceOnUse" fx="400" fy="240">
+      <stop offset="0%" stop-color="#1f6ff2" stop-opacity=".20"/>
+      <stop offset="100%" stop-color="#1f6ff2" stop-opacity=".02"/>
+    </radialGradient>
+    <pattern id="rk-dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1" fill="#1d1d1f" opacity=".07"/>
+    </pattern>
+    <clipPath id="rk-clip">
+      <rect width="800" height="480"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#rk-bg)"/>
+  <rect width="800" height="480" fill="url(#rk-dots)"/>
+
+  <!-- Outer ambient glow -->
+  <circle cx="400" cy="240" r="260" fill="url(#rk-glow)"/>
+
+  <!-- Range rings (outermost to innermost) -->
+  <circle cx="400" cy="240" r="210" stroke="#1f6ff2" stroke-opacity=".07" stroke-width="1"/>
+  <circle cx="400" cy="240" r="160" stroke="#1f6ff2" stroke-opacity=".11" stroke-width="1"/>
+  <circle cx="400" cy="240" r="108" stroke="#1f6ff2" stroke-opacity=".17" stroke-width="1"/>
+  <circle cx="400" cy="240" r="56"  stroke="#1f6ff2" stroke-opacity=".26" stroke-width="1"/>
+
+  <!-- Crosshair axes -->
+  <line x1="186" y1="240" x2="614" y2="240" stroke="#1d1d1f" stroke-opacity=".07" stroke-width="1"/>
+  <line x1="400" y1="27"  x2="400" y2="453" stroke="#1d1d1f" stroke-opacity=".07" stroke-width="1"/>
+
+  <!-- Diagonal guide lines (45° marks) -->
+  <line x1="248" y1="88"  x2="552" y2="392" stroke="#1d1d1f" stroke-opacity=".04" stroke-width="1"/>
+  <line x1="552" y1="88"  x2="248" y2="392" stroke="#1d1d1f" stroke-opacity=".04" stroke-width="1"/>
+
+  <!-- Sweep sector: -90° to -30° (60° arc, clockwise from top) -->
+  <!-- Start: 400,80  End: 538.6,160  (r=160) -->
+  <path d="M400,240 L400,80 A160,160 0 0,1 538.6,160 Z" fill="url(#rk-sweep)"/>
+  <!-- Leading edge line -->
+  <line x1="400" y1="240" x2="542" y2="156" stroke="#1f6ff2" stroke-opacity=".55" stroke-width="1.5"/>
+
+  <!-- ── Source nodes ── -->
+
+  <!-- SRC·01 — ingested, on sweep leading edge -->
+  <line x1="400" y1="240" x2="520" y2="134" stroke="#1f6ff2" stroke-opacity=".22" stroke-width="1" stroke-dasharray="5 4"/>
+  <circle cx="520" cy="134" r="9"  stroke="#1f6ff2" stroke-opacity=".25" stroke-width="1"/>
+  <circle cx="520" cy="134" r="5"  fill="#1f6ff2" opacity=".85"/>
+  <text x="533" y="131" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8" letter-spacing=".18em" fill="#1f6ff2" opacity=".70">SRC·01</text>
+
+  <!-- SRC·02 — ingested -->
+  <line x1="400" y1="240" x2="628" y2="290" stroke="#1f6ff2" stroke-opacity=".18" stroke-width="1" stroke-dasharray="5 4"/>
+  <circle cx="628" cy="290" r="9"  stroke="#1f6ff2" stroke-opacity=".22" stroke-width="1"/>
+  <circle cx="628" cy="290" r="5"  fill="#1f6ff2" opacity=".85"/>
+  <text x="641" y="287" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8" letter-spacing=".18em" fill="#1f6ff2" opacity=".70">SRC·02</text>
+
+  <!-- SRC·03 — pending (not yet swept) -->
+  <line x1="400" y1="240" x2="184" y2="148" stroke="#1d1d1f" stroke-opacity=".09" stroke-width="1" stroke-dasharray="3 5"/>
+  <circle cx="184" cy="148" r="8"  stroke="#1d1d1f" stroke-opacity=".16" stroke-width="1.5"/>
+  <circle cx="184" cy="148" r="3"  fill="#1d1d1f" opacity=".14"/>
+  <text x="112" y="145" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8" letter-spacing=".18em" fill="#1d1d1f" opacity=".26">SRC·03</text>
+
+  <!-- SRC·04 — pending -->
+  <line x1="400" y1="240" x2="160" y2="318" stroke="#1d1d1f" stroke-opacity=".08" stroke-width="1" stroke-dasharray="3 5"/>
+  <circle cx="160" cy="318" r="8"  stroke="#1d1d1f" stroke-opacity=".14" stroke-width="1.5"/>
+  <circle cx="160" cy="318" r="3"  fill="#1d1d1f" opacity=".12"/>
+  <text x="88" y="315" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8" letter-spacing=".18em" fill="#1d1d1f" opacity=".22">SRC·04</text>
+
+  <!-- SRC·05 — pending -->
+  <line x1="400" y1="240" x2="554" y2="372" stroke="#1d1d1f" stroke-opacity=".07" stroke-width="1" stroke-dasharray="3 5"/>
+  <circle cx="554" cy="372" r="8"  stroke="#1d1d1f" stroke-opacity=".13" stroke-width="1.5"/>
+  <circle cx="554" cy="372" r="3"  fill="#1d1d1f" opacity=".11"/>
+  <text x="566" y="385" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8" letter-spacing=".18em" fill="#1d1d1f" opacity=".20">SRC·05</text>
+
+  <!-- SRC·06 — pending -->
+  <line x1="400" y1="240" x2="680" y2="152" stroke="#1d1d1f" stroke-opacity=".06" stroke-width="1" stroke-dasharray="3 5"/>
+  <circle cx="680" cy="152" r="8"  stroke="#1d1d1f" stroke-opacity=".11" stroke-width="1.5"/>
+  <circle cx="680" cy="152" r="3"  fill="#1d1d1f" opacity=".10"/>
+
+  <!-- ── Centre point ── -->
+  <circle cx="400" cy="240" r="14" fill="#fff" stroke="#e4e6ea" stroke-width="1"/>
+  <circle cx="400" cy="240" r="5"  fill="#1f6ff2" opacity=".9"/>
+  <circle cx="400" cy="240" r="9"  stroke="#1f6ff2" stroke-opacity=".35" stroke-width="1.5"/>
+
+  <!-- ── Dossier card (output artifact, bottom-right) ── -->
+  <rect x="666" y="358" width="92" height="96" rx="7" fill="#fff" stroke="#e0e3ea" stroke-width="1"/>
+  <!-- Dossier header bar -->
+  <rect x="666" y="358" width="92" height="20" rx="7" fill="#1f6ff2" opacity=".08"/>
+  <rect x="666" y="369" width="92" height="9"  fill="#1f6ff2" opacity=".08"/>
+  <text x="678" y="373" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="6.5" letter-spacing=".22em" fill="#1f6ff2" opacity=".75">DOSSIER</text>
+  <!-- Content lines -->
+  <line x1="680" y1="392" x2="745" y2="392" stroke="#1d1d1f" stroke-opacity=".13" stroke-width="1.5"/>
+  <line x1="680" y1="403" x2="745" y2="403" stroke="#1d1d1f" stroke-opacity=".13" stroke-width="1.5"/>
+  <line x1="680" y1="414" x2="738" y2="414" stroke="#1d1d1f" stroke-opacity=".10" stroke-width="1.5"/>
+  <line x1="680" y1="425" x2="742" y2="425" stroke="#1d1d1f" stroke-opacity=".10" stroke-width="1.5"/>
+  <line x1="680" y1="436" x2="730" y2="436" stroke="#1d1d1f" stroke-opacity=".08" stroke-width="1.5"/>
+  <!-- Evidence chain indicator -->
+  <circle cx="680" cy="448" r="2" fill="#1f6ff2" opacity=".4"/>
+  <circle cx="688" cy="448" r="2" fill="#1f6ff2" opacity=".4"/>
+  <circle cx="696" cy="448" r="2" fill="#1f6ff2" opacity=".4"/>
+
+  <!-- ── Status labels ── -->
+  <text x="40" y="44" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9" letter-spacing=".30em" fill="#1f6ff2" opacity=".80">MISSION ACTIVE</text>
+  <text x="40" y="60" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8" letter-spacing=".22em" fill="#1d1d1f" opacity=".26">2 INGESTED · 4 PENDING</text>
+
+  <!-- Range ring tick labels -->
+  <text x="406" y="237" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="6.5" letter-spacing=".12em" fill="#1f6ff2" opacity=".35">·R1</text>
+  <text x="406" y="189" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="6.5" letter-spacing=".12em" fill="#1f6ff2" opacity=".25">·R2</text>
+  <text x="406" y="137" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="6.5" letter-spacing=".12em" fill="#1f6ff2" opacity=".18">·R3</text>
+
+  <!-- Bottom label strip -->
+  <text x="40" y="454" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8" letter-spacing=".24em" fill="#1d1d1f" opacity=".22">RE-KON · RESEARCH + RECONNAISSANCE · VF EMPIRE</text>
+</svg>
