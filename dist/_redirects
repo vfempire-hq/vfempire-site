@@ -1,0 +1,11 @@
+# Cloudflare Workers Assets: request rewrites.
+# Docs: https://developers.cloudflare.com/workers/static-assets/redirects/
+#
+# Format: [source] [destination] [status]
+#
+# Hard-404 the whole /dev/ tree. The pages exist in dist/ so we can
+# iterate on them locally (via WG on the VF hardware), but public
+# visitors get a 404 regardless of noindex meta or robots.txt.
+# Belt-and-braces with robots.txt Disallow: /dev/ and per-page noindex.
+
+/dev/*      /404.html   404
