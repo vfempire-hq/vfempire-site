@@ -26,6 +26,8 @@ jobs:
         run: node build.mjs --check --no-images
       - name: Internal link check
         run: python3 scripts/linkcheck.py
+      - name: CF Workers Assets config sanity (_redirects, .assetsignore)
+        run: python3 scripts/check-cf-config.py
       - name: Lighthouse (SEO must score 100, budgets on performance)
         run: |
           npm install -g @lhci/cli@0.14.0
