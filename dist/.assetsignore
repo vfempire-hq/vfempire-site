@@ -1,0 +1,9 @@
+# Cloudflare Workers Assets: files to skip during upload.
+# Docs: https://developers.cloudflare.com/workers/static-assets/binding/#assetsignore
+#
+# /dev/ is our internal scratch. robots.txt Disallows it and every page has
+# noindex, but until it stops being deployed the URLs return HTTP 200 to
+# any human who types them. Excluding here means /dev/* requests fall
+# through to not_found_handling: "404-page" and return a real 404.
+
+dev/**
