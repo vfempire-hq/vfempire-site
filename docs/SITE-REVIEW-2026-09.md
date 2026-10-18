@@ -112,7 +112,8 @@ Tick an item here when it lands, with the date and the commit. Items not yet tic
 - [x] Section 2.7 `/journal/` build log, 14 entries from the commit history, RSS and JSON feeds linked from every entry.
 - [x] Section 2.8 `/glossary`, 20 terms, DefinedTermSet schema.
 - [x] Section 2.9 three `/compare/` pages (VF Mail, Guardian Shield, NAV·IT), competitor facts attributed and neutral.
-- [x] Section 2.11 broken references: `/legal/security-policy` and `/careers` exist; `security.txt` resolves. Open: `vfempire.com/security/pgp` and `bounty.vfempire.com` on the security page still point at surfaces that do not exist.
+- [x] Section 2.11 broken references: `/legal/security-policy` and `/careers` exist; `security.txt` resolves. Open: `vfempire.com/security/pgp` still holds no key.
+- [x] 2026-10-18: Vincent withdrew the paid bug bounty. Do not republish a reward, a euro scale, or bounty.vfempire.com. The disclosure policy offers credit only.
 - [x] Section 2.12 placeholders: every "TBA" and "IN PREPARATION" card removed; the template no longer renders the papers-and-code block.
 - [x] Section 3.1 titles 60 characters or fewer and descriptions 120 to 160 on every public page (content packs for the generated ones; `scripts/verify.py` enforces it).
 - [x] Section 3.2 FAQ block and FAQPage schema on every product, service, pillar and company page (`faq` arrays in the content packs, rendered by the template).

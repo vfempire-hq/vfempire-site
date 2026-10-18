@@ -310,7 +310,7 @@
         <div class="rk">P·21 · VF EMPIRE</div>
         <h3>NAV·IT</h3>
         <p><a href="/systems/nav-it">NAV·IT</a> exists because <a href="/systems/fuelit">FuelIT</a> could not credibly promise "no data sold" while handing every drive to a third-party map. VF built the whole navigator: an OpenStreetMap planet mirror on its own build box, Valhalla routing, Photon search and PMTiles on a Hetzner AX102 in Germany, a Cloudflare Worker gateway that strips your IP before the origin sees it, and clients that verify every routing response against an Ed25519 key compiled into the app.</p>
-        <p>Three modes carry one guarantee: full-offline produces zero network traffic during navigation, hybrid (the default) routes through the anonymising gateway, and online offers the same guarantee without a local cache. The engineering spec, threat model, privacy model and a seven-check verification checklist are published (the same STRIDE shape VF drafts for clients in the <a href="/services/threat-model-dpia">Threat Model + DPIA</a> engagement), with a bug bounty from €500 to €25 000 for anyone who breaks a claim. NAV·IT is in build; R·01 ships inside FuelIT for nine countries.</p>
+        <p>Three modes carry one guarantee: full-offline produces zero network traffic during navigation, hybrid (the default) routes through the anonymising gateway, and online offers the same guarantee without a local cache. The engineering spec, threat model, privacy model and a seven-check verification checklist are published (the same STRIDE shape VF drafts for clients in the <a href="/services/threat-model-dpia">Threat Model + DPIA</a> engagement). NAV·IT is in build; R·01 ships inside FuelIT for nine countries.</p>
         <div class="src">Source: the NAV·IT product page, its published spec and privacy model, and the <a href="/security">security posture</a>.</div>
       </div>
       <div class="def">
@@ -412,7 +412,7 @@
         <ul>
           <li>Your destination is confidential by profession: journalism, law, activism, or a fleet that owes its drivers privacy.</li>
           <li>You drive a de-Googled phone or a Linux phone and want a navigator with no dependency on Google Play Services.</li>
-          <li>You want offline to mean offline, with a packet trace to prove it and a bug bounty behind the claim.</li>
+          <li>You want offline to mean offline, with a packet trace to prove it.</li>
           <li>You use <a href="/systems/fuelit">FuelIT</a> or plan to use <a href="/systems/mapit">MapIT</a>, where NAV·IT is included in the price.</li>
           <li>You want EU jurisdiction, open primitives and Ed25519-signed routing responses you can verify.</li>
           <li>You accept an in-build product and want to follow the spec, threat model and verification checklist as it ships.</li>

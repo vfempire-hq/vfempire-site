@@ -15,7 +15,7 @@ Key facts: incorporated 2019 (registered office 87 Amare House, Correa Street, Q
 
 - [Homepage](https://vfempire.com/): the engine room (Helmsman engine, harness stack, command dashboards), research lanes, divisions, the build slate, the AI Training Centre, FAQ.
 - [Software you own](https://vfempire.com/software): the five failures of modern software and the five VF principles that answer them.
-- [Security posture](https://vfempire.com/security): public repositories scanned clean of secrets, signed releases, reproducible builds, bug bounty, Terms § 16 warranty.
+- [Security posture](https://vfempire.com/security): public repositories scanned clean of secrets, signed releases, reproducible builds, disclosure policy, Terms § 16 warranty.
 - [Contact](https://vfempire.com/contact/): every desk, who reads it, and reply times.
 - [About](https://vfempire.com/about): founding (2019), registration (Malta C 94160), the network companies, the people.
 - [Permanence Guarantee](https://vfempire.com/permanence-guarantee): what happens to every VF product if it is ever discontinued.
