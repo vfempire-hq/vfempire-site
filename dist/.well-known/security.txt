@@ -8,10 +8,10 @@ Canonical: https://vfempire.com/.well-known/security.txt
 Policy: https://vfempire.com/legal/security-policy
 Hiring: https://vfempire.com/careers
 
-# We run a paid bug bounty for privacy leaks against NAV·IT (€500–€25 000
-# per confirmed break, scaled by severity). See the sovereign-navigator
-# verification checklist at
-# https://vfempire.com/systems/nav-it for reproducible tests.
+# Reports are accepted under the disclosure policy. Recognition for a
+# confirmed report is a credit line. The policy attaches no payment.
+# The NAV·IT verification checklist remains a disclosure target:
+# https://vfempire.com/systems/nav-it
 
-# Expires 12 months from today — refresh on rotation.
+# Expires 12 months from publication. Refresh on rotation.
 Expires: 2027-09-12T00:00:00Z

@@ -391,7 +391,7 @@
           "name": "How can I verify the privacy claims myself?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The engineering spec, threat model and privacy model are published, plus a verification checklist with seven reproducible checks for external auditors: packet-trace commands, signature-verification steps and a log-inspection procedure. VF's origin box Ed25519-signs every routing response. A bug bounty from €500 to €25 000 pays anyone who runs the checklist and breaks a claim."
+            "text": "The engineering spec, threat model and privacy model are published, plus a verification checklist with seven reproducible checks for external auditors: packet-trace commands, signature-verification steps and a log-inspection procedure. VF's origin box Ed25519-signs every routing response."
           }
         }
       ]
@@ -614,7 +614,7 @@
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M5.6 18.4L18.4 5.6"/></svg></div>
         <h4>Journalists, lawyers, activists</h4>
-        <p>Anyone whose destination is confidential by profession. Full-offline mode produces zero network traffic during navigation: verified by packet trace, documented in the threat model, backed by a bug bounty for anyone who can break the claim.</p>
+        <p>Anyone whose destination is confidential by profession. Full-offline mode produces zero network traffic during navigation: verified by packet trace, documented in the threat model.</p>
       </div>
       <div class="au">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><circle cx="7" cy="7" r="1" fill="currentColor"/><circle cx="7" cy="17" r="1" fill="currentColor"/></svg></div>
@@ -634,7 +634,7 @@
     <div class="outs rv">
       <div class="c"><div class="n">Three modes, one guarantee<span>.</span></div><p>Full-offline: zero network traffic during navigation. Hybrid (default): routing over our anonymising Cloudflare gateway that strips your IP before origin. Online: same guarantee, no local cache required. Never a third-party origin.</p></div>
       <div class="c"><div class="n">Open primitives, signed responses<span>.</span></div><p>OpenStreetMap data, Valhalla routing, Photon geocoding, MapLibre rendering, all Apache-2 / BSD / MIT. Our origin box Ed25519-signs every routing response; a compromised CDN cannot forge routes.</p></div>
-      <div class="c"><div class="n">Verifiable by an outsider<span>.</span></div><p>Public engineering spec. Public threat model. Public privacy model. Reproducible verification checklist for auditors. Bug bounty (€500–€25 000) for anyone who can break a claim. Trust is what you can prove.</p></div>
+      <div class="c"><div class="n">Verifiable by an outsider<span>.</span></div><p>Public engineering spec. Public threat model. Public privacy model. Reproducible verification checklist for auditors. Trust is what you can prove.</p></div>
     </div>
   </div>
 </section>
@@ -723,7 +723,7 @@
       <div class="doc">
         <span class="dk">VERIFICATION CHECKLIST</span>
         <h4>Seven reproducible checks for external auditors</h4>
-        <p>Packet-trace commands. Signature-verification steps. Log-inspection procedure. Bug bounty (€500–€25 000) for anyone who runs the checklist and finds a break.</p>
+        <p>Packet-trace commands. Signature-verification steps. Log-inspection procedure.</p>
         <span class="tba">PUBLISHED · 2026-09-12</span>
       </div>
     </div>
@@ -794,7 +794,7 @@
       <div class="q"><h4>Can I buy NAV·IT on its own?</h4><p>NAV·IT is infrastructure. It ships inside FuelIT and MapIT; you pay for those, and NAV·IT is included at every FuelIT tier. VF never monetises it as a standalone data business, an ad platform or an SDK sold to third parties. If that ever changes, a superseding ADR appears in git the same day.</p></div>
       <div class="q"><h4>Which phones does NAV·IT support?</h4><p>iPhone on iOS 16+, Android 10+ with no Google Play Services requirement, or any modern web browser. It runs on GrapheneOS, /e/OS and LineageOS, and on the PinePhone. iOS verifies every routing response with CryptoKit's Curve25519; Android uses native JDK 15+ Ed25519. A tampered response is refused, so a hostile CDN cannot forge routes.</p></div>
       <div class="q"><h4>Which countries does NAV·IT cover at launch?</h4><p>R·01 ships inside FuelIT for the FuelIT-9: Germany, France, Spain, Italy, Austria, the UK, Portugal, Malta and Luxembourg, with full-offline and hybrid modes and downloadable signed region packs. R·02 brings NAV·IT's own map to CarPlay and Android Auto. R·03 makes MapIT a standalone navigator on the same engine, and R·04 adds an opt-in, k-anonymised traffic layer.</p></div>
-      <div class="q"><h4>How can I verify the privacy claims myself?</h4><p>The engineering spec, threat model and privacy model are published, plus a verification checklist with seven reproducible checks for external auditors: packet-trace commands, signature-verification steps and a log-inspection procedure. VF's origin box Ed25519-signs every routing response. A bug bounty from €500 to €25 000 pays anyone who runs the checklist and breaks a claim.</p></div>
+      <div class="q"><h4>How can I verify the privacy claims myself?</h4><p>The engineering spec, threat model and privacy model are published, plus a verification checklist with seven reproducible checks for external auditors: packet-trace commands, signature-verification steps and a log-inspection procedure. VF's origin box Ed25519-signs every routing response.</p></div>
     </div>
   </div>
 </section>
