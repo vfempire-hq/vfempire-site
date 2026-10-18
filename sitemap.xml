@@ -8,31 +8,31 @@
   </url>
   <url>
     <loc>https://vfempire.com/about</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vfempire.com/careers</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vfempire.com/compare/guardian-shield-vs-bitwarden</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vfempire.com/compare/nav-it-vs-google-maps</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vfempire.com/compare/vf-mail-vs-proton-mail</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://vfempire.com/journal/security-page-gitleaks-ci</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://vfempire.com/journal/software-thesis-permanence-guarantee</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -176,7 +176,7 @@
   </url>
   <url>
     <loc>https://vfempire.com/legal/security-policy</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -194,13 +194,13 @@
   </url>
   <url>
     <loc>https://vfempire.com/permanence-guarantee</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vfempire.com/press</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -218,25 +218,25 @@
   </url>
   <url>
     <loc>https://vfempire.com/security</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vfempire.com/services/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vfempire.com/services/cra-readiness-audit</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vfempire.com/services/signing-infrastructure</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -248,13 +248,13 @@
   </url>
   <url>
     <loc>https://vfempire.com/software</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vfempire.com/systems/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -296,7 +296,7 @@
   </url>
   <url>
     <loc>https://vfempire.com/systems/fuelit</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -308,7 +308,7 @@
   </url>
   <url>
     <loc>https://vfempire.com/systems/guardian-shield</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -326,7 +326,7 @@
   </url>
   <url>
     <loc>https://vfempire.com/systems/nav-it</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
