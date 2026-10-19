@@ -92,10 +92,8 @@ const footerHtml = (attrs = '') => `<footer${attrs} class="full">
       </div>
       <div>
         <h6>CONTACT</h6>
-        <a href="mailto:hello@vfempire.com">hello@vfempire.com</a>
-        <a href="mailto:sales@vfempire.com">sales@vfempire.com</a>
-        <a href="mailto:support@vfempire.com">support@vfempire.com</a>
-        <a href="/contact/">All addresses →</a>
+        <a href="mailto:info@vfempire.com">info@vfempire.com</a>
+        <a href="/contact/">Contact →</a>
         <a href="https://noirda.solutions">Noirda GmbH · Germany</a>
         <a href="https://gn-productions.com">Guardian Network · UK</a>
       </div>
