@@ -1,7 +1,7 @@
 # VF Empire Corp Ltd — vulnerability disclosure
 # RFC 9116 (security.txt).
 
-Contact: mailto:security@vfempire.com
+Contact: mailto:info@vfempire.com
 Encryption: https://vfempire.com/.well-known/pgp.txt
 Preferred-Languages: en, mt, de
 Canonical: https://vfempire.com/.well-known/security.txt

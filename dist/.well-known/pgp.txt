@@ -1,5 +1,5 @@
 # VF Empire PGP key fingerprint — full ASCII-armored key below.
-# Used for encrypted disclosures to security@vfempire.com and privacy@vfempire.com.
+# Used for encrypted disclosures to info@vfempire.com and info@vfempire.com.
 #
 # To verify a signed statement from us:
 #   gpg --recv-keys <fingerprint>
@@ -13,5 +13,5 @@
 #   - Revocation certificate held in cold storage.
 #
 # Until this file contains a real key, encrypted contact is unavailable —
-# use TLS-transported email to security@vfempire.com and we'll respond
+# use TLS-transported email to info@vfempire.com and we'll respond
 # with an in-band shared-secret channel if the report needs one.
